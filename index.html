@@ -4,7 +4,7 @@
 
 
 
-<html class="theme-next muse use-motion" lang="">
+<html class="theme-next muse use-motion" lang="zh-CN">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="generator" content="Hexo 3.9.0">
@@ -50,9 +50,9 @@
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
-      copy_button: 'Kopieren',
-      copy_success: 'Kopiert',
-      copy_failure: 'Kopieren fehlgeschlagen'
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
     }
   };
 </script>
@@ -61,7 +61,7 @@
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="default">
+<meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
   <link rel="canonical" href="http://yoursite.com/">
@@ -110,7 +110,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-home">
     <div class="headband"></div>
@@ -129,7 +129,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Navigationsleiste an/ausschalten">
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -149,7 +149,7 @@
       
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
 
   </li>
         
@@ -160,7 +160,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
     </ul>
@@ -190,7 +190,7 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/03/隐马尔科夫模型(HMM)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="huangshh">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
@@ -216,14 +216,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Erstellt: 2019-08-03 12:34:12 / Geändert am: 23:09:46" itemprop="dateCreated datePublished" datetime="2019-08-03T12:34:12+08:00">2019-08-03</time>
+              <time title="创建时间：2019-08-03 12:34:12 / 修改时间：23:11:23" itemprop="dateCreated datePublished" datetime="2019-08-03T12:34:12+08:00">2019-08-03</time>
             </span>
           
             
@@ -243,18 +243,20 @@
 
       
           
-            <p>&emsp;&emsp;今天学习了下隐马尔科夫模型，在此作个记录。</p>
-<h2 id="模型定义"><a href="#模型定义" class="headerlink" title="模型定义"></a>模型定义</h2><p>&emsp;&emsp;隐马尔科夫模型主要有三个部分组成，分别是模型参数，观测序列和状态序列。其中参数又可分为三个部分，分别是初始向量，转移矩阵和发射矩阵。初始向量第i维表示初始是状态i的概率，转移矩阵第(i,j)存储的是状态i转移到状态j的概率，而发射矩阵第(i,k)存储的是由状态i得到观测k的概率。HMM模型可以由下图表示：<br><img src="https://s2.ax1x.com/2019/08/03/eseBQK.png" alt="eseBQK.png"><br>&emsp;&emsp;HMM模型有以下几个特征：<br>&emsp;&emsp;(1) 观测序列是可见的，即1，2，3是可见的，而状态序列是不可见的，即A，B，C是不可见的。<br>&emsp;&emsp;(2) 观测序列之间是无依赖的，状态序列每个状态只依赖于前一个状态，状态之间的转移概率构成转移矩阵。<br>&emsp;&emsp;(3) 观测序列每个位置的值只依赖于当前位置状态序列的值，由当前状态得到当前位置的观测值的概率构成发射矩阵。</p>
-<p>&emsp;&emsp;从第一个特征我们可以发现这个模型和EM算法针对的情景很相似，都是一部分特征可见，一部分特征不可见。实际上，当需要求解HMM模型的参数部分时，可以使用EM算法。</p>
-<h2 id="三大问题"><a href="#三大问题" class="headerlink" title="三大问题"></a>三大问题</h2><p>&emsp;&emsp;隐马尔科夫模型可以解决什么问题呢？主要有以下三个问题：<br>&emsp;&emsp;(1) 已知模型参数和观测序列，求最有可能的状态序列。该问题对应的是解码问题，比如在语音系统中，观测序列是语音信号，状态序列是语音文本，需要根据语音信号求解出语音文本。<br>&emsp;&emsp;(2) 已知模型参数和观测序列，需要求出根据模型参数得到观测序列的概率。该问题对应的是异常检测问题，比如现在得到了一个观测序列，需要测量这个观测序列出现的概率，如果概率值很小，说明这可能是个异常。<br>&emsp;&emsp;(3) 有一系列的观测序列，需要由此求出模型参数。该问题对应的是学习问题，需要从数据集中提取规律，学习到模型参数。<br>&emsp;&emsp;针对三个问题，分别有三种不同的解决方法，第一个问题常用维特比算法，第二个问题常用前向后向算法，而第三个问题一般使用梯度下降或Baum-Welch算法。其中Baum-Welch算法本质上是一种EM算法。</p>
-<h2 id="维特比算法"><a href="#维特比算法" class="headerlink" title="维特比算法"></a>维特比算法</h2><p>&emsp;&emsp;维特比算法本质思想是动态规划，设$O_t$表示观测序列第t个值，$\pi_{i}$表示初始状态为i的概率，$a_{i,j}$表示由状态i转移到状态j的概率，$b_{i,k}$表示由状态i得到观测值k的概率，$f_{t,i}$表示在所有长度为t且以状态值i结尾的状态序列中，概率值最大的序列的概率值。维特比算法的目标就是求出所有的$f_{t,i}$。<br>&emsp;&emsp;初始条件：$f_{0,i}=\pi_i$<br>&emsp;&emsp;状态转移方程：$f_{t,i}=\max_j(f_{t-1,j}\cdot a_{j,i})\cdot b_{i,O_t}$<br>&emsp;&emsp;最优状态值保存：$s_{t,i}=argmax_j(f_{t-1,j}\cdot a_{j,i})$<br>&emsp;&emsp;设置好$f$的初始状态，然后从$t=0$开始递推，直到求出所有的$f_{T,i}$为止，其中T是序列长度。当求出所有的$f$，此时$s$保存了所有的状态转移。此时找到$t=T$中最大的$f_{T,i}$，此时i表示概率值最大的状态序列是以状态i结尾的，接着查询$s_{T,i}$找到j，表示$f_{T,i}$是由$f_{T-1,j}$转移得到的，说明概率值最大的状态序列是以$j，i$结尾，接着继续查询$s_{T-1,j}$，直到t=0为止。此时得到的序列就是概率值最大的状态序列。</p>
-<h2 id="前向后向算法"><a href="#前向后向算法" class="headerlink" title="前向后向算法"></a>前向后向算法</h2><p>&emsp;&emsp;前向后向算法其实是两个算法，由于它们的原理是相同的，这里先介绍前向算法。和维特比算法一样，前向算法的本质也是动态规划。这里$O_t，\pi_i，a_{i,j}，b_{i,k}$的定义与维特比算法相同，$f_{t,i}$在这里表示所有长度为t且状态值以i结尾的状态序列中，满足观测序列前t个值的概率和。这里和维特比算法不同的是，维特比算法求的是在所有可能的状态序列中，以状态i结尾的概率值最大的那个状态序列。而前向算法求的是在所有可能的状态序列中，以状态i结尾的的序列的概率和。<br>&emsp;&emsp;初始条件：$f_{0,i}=\pi_i$<br>&emsp;&emsp;状态转移方称：$f_{t,i}=b_{i,O_t}\cdot\sum_{j}{f_{t-1,j}\cdot a_{j,i}}$<br>&emsp;&emsp;最后$\sum_{i}{f_{T,i}}$就是问题二的解，T表示序列长度。</p>
-<p>&emsp;&emsp;后向算法是从后往前计算，$g_{t,i}$此时表示所有在区间[t,T]且位置t的状态为i的状态序列中，满足观测序列区间[t,T]的概率和，可用下面几个式子表示：<br>&emsp;&emsp;初始条件：$g_{T+1,i}=1$<br>&emsp;&emsp;状态转移方称：$g_{t,i}=b_{i,O_t}\cdot\sum_{j}{a_{i,j}\cdot g_{t+1,j}}$<br>&emsp;&emsp;最后$\sum_{i}{\pi_i\cdot g_{0,i}}$就是问题二的解。</p>
-<h2 id="Baum-Welch算法"><a href="#Baum-Welch算法" class="headerlink" title="Baum-Welch算法"></a>Baum-Welch算法</h2><p>&emsp;&emsp; 先考虑EM算法怎么解决第三个问题。已知特征是观测序列，未知特征是状态序列，需要学习参数值。在E步中，我们固定参数值，已知参数值和观测序列，我们可以借助前向后向算法的思想求出状态序列各个位置状态的分布。</p>
-<script type="math/tex; mode=display">P_{t,i}=\frac{f_{t,i}\cdot g_{t,i}}{\sum_{j}{f_{t,j}\cdot g_{t,j}}}</script><p>&emsp;&emsp;$f$和$g$是前向算法和后向算法计算的结果，$P_{t,i}$表示状态序列位置t的状态值为i的概率，得到状态序列的分布后，就可以在M步中求期望的最大似然，更新参数值。E步和M步交替进行直到参数收敛。<br>&emsp;&emsp;Baum-Welch算法的计算过程借用网上的一张图描述：<br><img src="https://s2.ax1x.com/2019/08/03/ese2FA.png" alt="ese2FA.png"><br><img src="https://s2.ax1x.com/2019/08/03/esehSP.png" alt="esehSP.png"><br><img src="https://s2.ax1x.com/2019/08/03/ese5y8.png" alt="ese5y8.png"><br>&emsp;&emsp;上面$\alpha_i(t)$等价于$f_{t,i}$，$\beta_j(t+1)$等价于$g_{t+1,j}$。其实我对上面的计算还存在着一个疑问，就是上面的计算对一个观测序列计算很好理解，但当面对一系列的观测序列，它是如何更新的呢？这里有两个想法，第一个是使用类似于随机梯度下降的方法，每次对一个观测序列更新；另一个是对所有观测序列求得的结果求平均。</p>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>&emsp;&emsp;面对多个观测序列时，可能是在求$\xi_{i,j}(t)$时，分子分母对所有序列都求和而不是只求和一个序列。</p>
-
+            <p>
+              &emsp;&emsp;今天学习了下隐马尔科夫模型，在此作个记录。
+模型定义&emsp;&emsp;隐马尔科夫模型主要有三个部分组成，分别是模型参数，观测序列和状态序列。其中参数又可分为三个部分，分别是初始向量，转移矩阵和发射矩阵。初始向量第i维表示初始是状态i的概率，转移矩阵第(i,j)存储的是状
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/03/隐马尔科夫模型(HMM)/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -283,7 +285,7 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/02/EM算法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="huangshh">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
@@ -309,14 +311,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Erstellt: 2019-08-02 12:33:36 / Geändert am: 18:07:29" itemprop="dateCreated datePublished" datetime="2019-08-02T12:33:36+08:00">2019-08-02</time>
+              <time title="创建时间：2019-08-02 12:33:36 / 修改时间：18:07:29" itemprop="dateCreated datePublished" datetime="2019-08-02T12:33:36+08:00">2019-08-02</time>
             </span>
           
             
@@ -336,18 +338,21 @@
 
       
           
-            <p>&emsp;&emsp;最近在学习EM算法，在此作个记录。本文将从三个角度（WHY，WHAT，HOW）总结EM算法。</p>
-<h2 id="WHY"><a href="#WHY" class="headerlink" title="WHY"></a>WHY</h2><p>&emsp;&emsp;很多时候我们希望能从数据的特征中提取规律，数据特征用Y表示，提取规律用$\Theta$表示，则该问题可以表示为：</p>
-<script type="math/tex; mode=display">\max_{\Theta} P(\Theta|Y) \tag{1.1}</script><p>&emsp;&emsp;该式子表示在可观测数据特征Y中提取出最有可能的规律参数$\Theta$。一般而言，当我们已知Y时未知$\Theta$，$P(\Theta|Y)$是不好求的，或者可以说是无从下手。这时我们可以先假设一个具体的$\Theta$，此时$P(Y|\Theta)$是很容易就可以求得的。比如一个神经网络，$\Theta$是指神经网络的参数，当我们固定参数时，神经网络的前向过程就是求得$P(Y|\Theta)$的过程。再比如一个关于男生身高的高斯分布，$\Theta$是指高斯分布的均值和方差，此时男生的身高特征Y关于$\Theta$的条件概率$P(Y|\Theta)$是很容易求得的。这些例子都说明计算$P(Y|\Theta)$比计算$P(\Theta|Y)$要容易。<br>&emsp;&emsp;回到最原始的问题，我们要求的是$P(\Theta|Y)$，此时可以使用贝叶斯公式将(1.1)转化成下式：</p>
-<script type="math/tex; mode=display">\max_{\Theta}\frac{P(\Theta)P(Y|\Theta)}{P(Y)} \tag{1.2}</script><p>&emsp;&emsp;因为Y是已知条件，是既定事实，所以可以将$P(Y)$看作等于1，或者说因为$P(Y)$是一个固定值，对求解没有影响，所以可以忽略不计。$P(\Theta)$是先验概率，表示事先已知的参数概率分布，有时候参数值的出现并不是等概率，比如出现了灵异事件，我们总会寻求科学的解释而往往不会考虑幽灵和外星人，即使出现幽灵和外星人更能解释灵异事件也是如此，这是因为科学解释的先验概率值比出现幽灵和外星人的先验概率值高很多。而参数的先验概率也是这个道理，对于一些特定任务，参数的取值也是有偏向的，这时候某部分参数的先验概率值就会高，而某部分参数的先验概率值就会低。在本文讨论的情况，我们认为参数的分布是均匀分布，既各个参数的先验概率值是相等的，所以$P(\Theta)$对求解(1.2)也没有影响。综上所述，要求$P(\Theta|Y)$的最大值的，等价于求$P(Y|\Theta)$的最大值。<br>&emsp;&emsp;求解$P(Y|\Theta)$，一般先将$P(Y|\Theta)$用$\Theta$表示，求出一个关于$\Theta$的概率计算1式子，对该式子求偏导令偏导等于0，此时对应的$\Theta$值就是(1.2)的解。这就是求解最大似然的一般过程。<br>&emsp;&emsp;在求解最大似然的过程中，一个最重要的条件是知道关于Y的所有特征以及它们之间的依赖，所以当存在一些隐特征时，我们无法观测到这部分的特征，也就无法得知已知特征与这部分特征的依赖关系，也就无法求出$P(Y|\Theta)$了。这时候，EM算法就派上用场了。</p>
-<h2 id="WHAT"><a href="#WHAT" class="headerlink" title="WHAT"></a>WHAT</h2><p>&emsp;&emsp;EM算法需要解决的问题可以用下面式子表示：</p>
-<script type="math/tex; mode=display">\max_{\Theta}P(Y,Z|\Theta) \tag{2.1}</script><p>&emsp;&emsp;其中Y是观测到的特征，Z是隐特征，现在缺失的信息是Y与Z之间的依赖以及Z与Z自身的依赖。比如有两个高斯分布分别代表男生身高和女生身高，现在我们观察到200个人的身高，但是我们不知道这些人哪些是男生哪些是女生，此时我们固定$\Theta$是无法求出似然$P(Y,Z|\Theta)$的，因为我们不知道这些学生的性别特征Z。<br>&emsp;&emsp;EM算法的思想是先固定$\Theta$，基于$\Theta$求出Z的分布，然后再根据Z的分布和Y求出最大的$\Theta$，重复这个步骤直到收敛。</p>
-<h2 id="HOW"><a href="#HOW" class="headerlink" title="HOW"></a>HOW</h2><p>&emsp;&emsp;EM算法可分为两个步骤，第一步是E步，第二步是M步。E步是在$\Theta$确定的情况下求Z的分布，首先固定$\Theta$，确定Z的一个取值为z，此时可求出似然$P(Y_i,Z_i=z|\Theta)$的值，对每个取值z均做同样的计算，然后使用下式求出Z的分布：</p>
-<script type="math/tex; mode=display">P(Z_i=z)=\frac{P(Y_i,Z_i=z|\Theta)}{\sum_z{P(Y_i,Z_i=z|\Theta)}} \tag{3.1}</script><p>&emsp;&emsp;求出Z的分布后，这时候Y的值是确定的，而Z也有一个具体的分布，此时可以以此求出最佳的$\Theta$值，使用的方法就是最大似然估计，这就是M步的工作。对于Z的分布，有两种使用方法，第一种是通过Z的分布找出Z最有可能的取值，将Z设置成该值，此时Z也是已知的，所以可以把Z归入已知特征Y当中，此时求最大似然按照求$P(Y|\Theta)$的过程就可以了。第二种是直接使用Z的分布，使用下式求出似然值：</p>
-<script type="math/tex; mode=display">\sum_{z}{P(Z_i=z)P(Y_i,Z_i=z|\Theta)} \tag{3.2}</script><p>&emsp;&emsp;可以看到式子(3.2)求的是似然值关于Z的分布的期望，我们希望找到一个$\Theta$值使得这个期望值最大。需要注意的是式子(3.1)中$\Theta$是固定的，求解的是Z的分布，而在式子(3.2)中$\Theta$是参数，需要找到能使似然值期望达到最大的$\Theta$。重复这两个步骤，直到收敛，此时的$\Theta$就是我们需要从数据特征中提取出来的规律。</p>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>&emsp;&emsp;在WHY章节中提到$P(\Theta|Y)$一般都会转化成求$P(Y|\Theta)$，这是因为$P(Y|\Theta)$比较容易转化成关于$\Theta$的表示，从而通过求极值找到最优的$\Theta$。而直接通过$P(\Theta|Y)$找到最优的$\Theta$，一般的做法是统计数据特征Y，比如对Y求均值，求方差，对Y使用最小二乘法，统计Y的计数等等，通过统计计算出需要的参数值作为规律。</p>
-
+            <p>
+              &emsp;&emsp;最近在学习EM算法，在此作个记录。本文将从三个角度（WHY，WHAT，HOW）总结EM算法。
+WHY&emsp;&emsp;很多时候我们希望能从数据的特征中提取规律，数据特征用Y表示，提取规律用$\Theta$表示，则该问题可以表示为：
+\max_{\Theta} P(\Th
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/02/EM算法/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -392,7 +397,7 @@
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">John Doe</p>
+  <p class="site-author-name" itemprop="name">huangshh</p>
   <div class="site-description motion-element" itemprop="description"></div>
 </div>
   <nav class="site-state motion-element">
@@ -401,7 +406,7 @@
           <a href="/archives/">
         
           <span class="site-state-item-count">2</span>
-          <span class="site-state-item-name">Artikel</span>
+          <span class="site-state-item-name">日志</span>
         </a>
       </div>
     
@@ -416,7 +421,7 @@
           
         
         <span class="site-state-item-count">2</span>
-        <span class="site-state-item-name">schlagwörter</span>
+        <span class="site-state-item-name">标签</span>
         
       </div>
     
@@ -441,11 +446,11 @@
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">huangshh</span>
 </div>
-  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Design – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.3.0</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.3.0</div>
 
         
 
