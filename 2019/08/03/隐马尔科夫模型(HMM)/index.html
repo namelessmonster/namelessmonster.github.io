@@ -69,7 +69,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/08/03/ese2FA.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/08/03/esehSP.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/08/03/ese5y8.png">
-<meta property="og:updated_time" content="2019-08-04T03:06:49.019Z">
+<meta property="og:updated_time" content="2019-08-04T10:26:26.432Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="隐马尔科夫模型(HMM)">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;今天学习了下隐马尔科夫模型，在此作个记录。 模型定义&amp;emsp;&amp;emsp;隐马尔科夫模型主要有三个部分组成，分别是模型参数，观测序列和状态序列。其中参数又可分为三个部分，分别是初始向量，转移矩阵和发射矩阵。初始向量第i维表示初始是状态i的概率，转移矩阵第(i,j)存储的是状态i转移到状态j的概率，而发射矩阵第(i,k)存储的是由状态i得到观测k的概率。HMM模型可以由下图">
@@ -245,7 +245,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-04 11:06:49" itemprop="dateModified" datetime="2019-08-04T11:06:49+08:00">2019-08-04</time>
+                <time title="修改时间：2019-08-04 18:26:26" itemprop="dateModified" datetime="2019-08-04T18:26:26+08:00">2019-08-04</time>
               </span>
             
           
@@ -262,14 +262,16 @@
 
       
         <p>&emsp;&emsp;今天学习了下隐马尔科夫模型，在此作个记录。</p>
-<h2 id="模型定义"><a href="#模型定义" class="headerlink" title="模型定义"></a>模型定义</h2><p>&emsp;&emsp;隐马尔科夫模型主要有三个部分组成，分别是模型参数，观测序列和状态序列。其中参数又可分为三个部分，分别是初始向量，转移矩阵和发射矩阵。初始向量第i维表示初始是状态i的概率，转移矩阵第(i,j)存储的是状态i转移到状态j的概率，而发射矩阵第(i,k)存储的是由状态i得到观测k的概率。HMM模型可以由下图表示：<br><img src="https://s2.ax1x.com/2019/08/03/eseBQK.png" alt="eseBQK.png"><br>&emsp;&emsp;HMM模型有以下几个特征：<br>&emsp;&emsp;(1) 观测序列是可见的，即1，2，3是可见的，而状态序列是不可见的，即A，B，C是不可见的。<br>&emsp;&emsp;(2) 观测序列之间是无依赖的，状态序列每个状态只依赖于前一个状态，状态之间的转移概率构成转移矩阵。<br>&emsp;&emsp;(3) 观测序列每个位置的值只依赖于当前位置状态序列的值，由当前状态得到当前位置的观测值的概率构成发射矩阵。</p>
+<h2 id="模型定义"><a href="#模型定义" class="headerlink" title="模型定义"></a>模型定义</h2><p>&emsp;&emsp;隐马尔科夫模型主要有三个部分组成，分别是模型参数，观测序列和状态序列。其中参数又可分为三个部分，分别是初始向量，转移矩阵和发射矩阵。初始向量第i维表示初始是状态i的概率，转移矩阵第(i,j)存储的是状态i转移到状态j的概率，而发射矩阵第(i,k)存储的是由状态i得到观测k的概率。HMM模型可以由下图表示：</p>
+<p><img src="https://s2.ax1x.com/2019/08/03/eseBQK.png" alt="eseBQK.png"><br>&emsp;&emsp;HMM模型有以下几个特征：<br>&emsp;&emsp;(1) 观测序列是可见的，即1，2，3是可见的，而状态序列是不可见的，即A，B，C是不可见的。<br>&emsp;&emsp;(2) 观测序列之间是无依赖的，状态序列每个状态只依赖于前一个状态，状态之间的转移概率构成转移矩阵。<br>&emsp;&emsp;(3) 观测序列每个位置的值只依赖于当前位置状态序列的值，由当前状态得到当前位置的观测值的概率构成发射矩阵。</p>
 <p>&emsp;&emsp;从第一个特征我们可以发现这个模型和EM算法针对的情景很相似，都是一部分特征可见，一部分特征不可见。实际上，当需要求解HMM模型的参数部分时，可以使用EM算法。</p>
 <h2 id="三大问题"><a href="#三大问题" class="headerlink" title="三大问题"></a>三大问题</h2><p>&emsp;&emsp;隐马尔科夫模型可以解决什么问题呢？主要有以下三个问题：<br>&emsp;&emsp;(1) 已知模型参数和观测序列，求最有可能的状态序列。该问题对应的是解码问题，比如在语音系统中，观测序列是语音信号，状态序列是语音文本，需要根据语音信号求解出语音文本。<br>&emsp;&emsp;(2) 已知模型参数和观测序列，需要求出根据模型参数得到观测序列的概率。该问题对应的是异常检测问题，比如现在得到了一个观测序列，需要测量这个观测序列出现的概率，如果概率值很小，说明这可能是个异常。<br>&emsp;&emsp;(3) 有一系列的观测序列，需要由此求出模型参数。该问题对应的是学习问题，需要从数据集中提取规律，学习到模型参数。<br>&emsp;&emsp;针对三个问题，分别有三种不同的解决方法，第一个问题常用维特比算法，第二个问题常用前向后向算法，而第三个问题一般使用梯度下降或Baum-Welch算法。其中Baum-Welch算法本质上是一种EM算法。</p>
 <h2 id="维特比算法"><a href="#维特比算法" class="headerlink" title="维特比算法"></a>维特比算法</h2><p>&emsp;&emsp;维特比算法本质思想是动态规划，设$O_t$表示观测序列第t个值，$\pi_{i}$表示初始状态为i的概率，$a_{i,j}$表示由状态i转移到状态j的概率，$b_{i,k}$表示由状态i得到观测值k的概率，$f_{t,i}$表示在所有长度为t且以状态值i结尾的状态序列中，概率值最大的序列的概率值。维特比算法的目标就是求出所有的$f_{t,i}$。<br>&emsp;&emsp;初始条件：$f_{0,i}=\pi_i$<br>&emsp;&emsp;状态转移方程：$f_{t,i}=\max_j(f_{t-1,j}\cdot a_{j,i})\cdot b_{i,O_t}$<br>&emsp;&emsp;最优状态值保存：$s_{t,i}=argmax_j(f_{t-1,j}\cdot a_{j,i})$<br>&emsp;&emsp;设置好$f$的初始状态，然后从$t=0$开始递推，直到求出所有的$f_{T,i}$为止，其中T是序列长度。当求出所有的$f$，此时$s$保存了所有的状态转移。此时找到$t=T$中最大的$f_{T,i}$，此时i表示概率值最大的状态序列是以状态i结尾的，接着查询$s_{T,i}$找到j，表示$f_{T,i}$是由$f_{T-1,j}$转移得到的，说明概率值最大的状态序列是以$j，i$结尾，接着继续查询$s_{T-1,j}$，直到t=0为止。此时得到的序列就是概率值最大的状态序列。</p>
 <h2 id="前向后向算法"><a href="#前向后向算法" class="headerlink" title="前向后向算法"></a>前向后向算法</h2><p>&emsp;&emsp;前向后向算法其实是两个算法，由于它们的原理是相同的，这里先介绍前向算法。和维特比算法一样，前向算法的本质也是动态规划。这里$O_t，\pi_i，a_{i,j}，b_{i,k}$的定义与维特比算法相同，$f_{t,i}$在这里表示所有长度为t且状态值以i结尾的状态序列中，满足观测序列前t个值的概率和。这里和维特比算法不同的是，维特比算法求的是在所有可能的状态序列中，以状态i结尾的概率值最大的那个状态序列。而前向算法求的是在所有可能的状态序列中，以状态i结尾的的序列的概率和。<br>&emsp;&emsp;初始条件：$f_{0,i}=\pi_i$<br>&emsp;&emsp;状态转移方称：$f_{t,i}=b_{i,O_t}\cdot\sum_{j}{f_{t-1,j}\cdot a_{j,i}}$<br>&emsp;&emsp;最后$\sum_{i}{f_{T,i}}$就是问题二的解，T表示序列长度。</p>
 <p>&emsp;&emsp;后向算法是从后往前计算，$g_{t,i}$此时表示所有在区间[t,T]且位置t的状态为i的状态序列中，满足观测序列区间[t,T]的概率和，可用下面几个式子表示：<br>&emsp;&emsp;初始条件：$g_{T+1,i}=1$<br>&emsp;&emsp;状态转移方称：$g_{t,i}=b_{i,O_t}\cdot\sum_{j}{a_{i,j}\cdot g_{t+1,j}}$<br>&emsp;&emsp;最后$\sum_{i}{\pi_i\cdot g_{0,i}}$就是问题二的解。</p>
 <h2 id="Baum-Welch算法"><a href="#Baum-Welch算法" class="headerlink" title="Baum-Welch算法"></a>Baum-Welch算法</h2><p>&emsp;&emsp; 先考虑EM算法怎么解决第三个问题。已知特征是观测序列，未知特征是状态序列，需要学习参数值。在E步中，我们固定参数值，已知参数值和观测序列，我们可以借助前向后向算法的思想求出状态序列各个位置状态的分布。</p>
-<script type="math/tex; mode=display">P_{t,i}=\frac{f_{t,i}\cdot g_{t,i}}{\sum_{j}{f_{t,j}\cdot g_{t,j}}}</script><p>&emsp;&emsp;$f$和$g$是前向算法和后向算法计算的结果，$P_{t,i}$表示状态序列位置t的状态值为i的概率，得到状态序列的分布后，就可以在M步中求期望的最大似然，更新参数值。E步和M步交替进行直到参数收敛。<br>&emsp;&emsp;Baum-Welch算法的计算过程借用网上的一张图描述：<br><img src="https://s2.ax1x.com/2019/08/03/ese2FA.png" alt="ese2FA.png"><br><img src="https://s2.ax1x.com/2019/08/03/esehSP.png" alt="esehSP.png"><br><img src="https://s2.ax1x.com/2019/08/03/ese5y8.png" alt="ese5y8.png"><br>&emsp;&emsp;上面$\alpha_i(t)$等价于$f_{t,i}$，$\beta_j(t+1)$等价于$g_{t+1,j}$。其实我对上面的计算还存在着一个疑问，就是上面的计算对一个观测序列计算很好理解，但当面对一系列的观测序列，它是如何更新的呢？这里有两个想法，第一个是使用类似于随机梯度下降的方法，每次对一个观测序列更新；另一个是对所有观测序列求得的结果求平均。</p>
+<script type="math/tex; mode=display">P_{t,i}=\frac{f_{t,i}\cdot g_{t,i}}{\sum_{j}{f_{t,j}\cdot g_{t,j}}}</script><p>&emsp;&emsp;$f$和$g$是前向算法和后向算法计算的结果，$P_{t,i}$表示状态序列位置t的状态值为i的概率，得到状态序列的分布后，就可以在M步中求期望的最大似然，更新参数值。E步和M步交替进行直到参数收敛。<br>&emsp;&emsp;Baum-Welch算法的计算过程借用网上的一张图描述：</p>
+<p><img src="https://s2.ax1x.com/2019/08/03/ese2FA.png" alt="ese2FA.png"><br><img src="https://s2.ax1x.com/2019/08/03/esehSP.png" alt="esehSP.png"><br><img src="https://s2.ax1x.com/2019/08/03/ese5y8.png" alt="ese5y8.png"><br>&emsp;&emsp;上面$\alpha_i(t)$等价于$f_{t,i}$，$\beta_j(t+1)$等价于$g_{t+1,j}$。其实我对上面的计算还存在着一个疑问，就是上面的计算对一个观测序列计算很好理解，但当面对一系列的观测序列，它是如何更新的呢？这里有两个想法，第一个是使用类似于随机梯度下降的方法，每次对一个观测序列更新；另一个是对所有观测序列求得的结果求平均。</p>
 <h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>&emsp;&emsp;面对多个观测序列时，可能是在求$\xi_{i,j}(t)$时，分子分母对所有序列都求和而不是只求和一个序列。</p>
 
     </div>
