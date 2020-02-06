@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="朴素贝叶斯1. 什么是朴素贝叶斯朴素贝叶斯是一个生成模型，用于分类任务。什么是生成模型？假设数据集$\{X,Y\}$是从一个概率分布$P(X,Y)$中抽取得到的，那么只要我们知道这个分布，就可以掌握这个数据集的规律。所以生成模型的任务就是要求出这个分布，知道这个数据集是怎么生成的。一句话概括就是生成模型是使用数据集总结出生成该数据集的几个概率分布。 前面提到朴素贝叶斯是一个生成模型，这个方法通过求">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-06T13:17:00.941Z">
+<meta property="og:updated_time" content="2020-02-06T13:19:08.766Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="朴素贝叶斯和逻辑回归">
 <meta name="twitter:description" content="朴素贝叶斯1. 什么是朴素贝叶斯朴素贝叶斯是一个生成模型，用于分类任务。什么是生成模型？假设数据集$\{X,Y\}$是从一个概率分布$P(X,Y)$中抽取得到的，那么只要我们知道这个分布，就可以掌握这个数据集的规律。所以生成模型的任务就是要求出这个分布，知道这个数据集是怎么生成的。一句话概括就是生成模型是使用数据集总结出生成该数据集的几个概率分布。 前面提到朴素贝叶斯是一个生成模型，这个方法通过求">
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-06 15:22:42 / 修改时间：21:17:00" itemprop="dateCreated datePublished" datetime="2020-02-06T15:22:42+08:00">2020-02-06</time>
+              <time title="创建时间：2020-02-06 15:22:42 / 修改时间：21:19:08" itemprop="dateCreated datePublished" datetime="2020-02-06T15:22:42+08:00">2020-02-06</time>
             </span>
           
             
@@ -260,7 +260,7 @@
 <script type="math/tex; mode=display">\prod_{i=1}^m Q_i</script><p>最大，等价于要求：</p>
 <script type="math/tex; mode=display">\sum_{i=1}^m \ln{Q_i}=\sum_{i=1}^m \{ Y_i\ln Z_i + (1-Y_i)\ln(1-Z_i)\}</script><p>最大。使得上式最大化的模型参数$\Theta$就是关于逻辑回归方法的解了。</p>
 <h3 id="2-如何求解-1"><a href="#2-如何求解-1" class="headerlink" title="2. 如何求解"></a>2. 如何求解</h3><p>要求得逻辑回归模型的最优模型参数$\Theta$，一般采用梯度下降的方法，或者是一些迭代的求解方法。而求线性回归模型的最优模型参数往往采用最小二乘法一步到位。</p>
-<h3 id="3-为什么是sigmid函数"><a href="#3-为什么是sigmid函数" class="headerlink" title="3. 为什么是sigmid函数"></a>3. 为什么是sigmid函数</h3><p>不知道大家有没有想过，为什么逻辑回归是在线性回归的基础上加上sigmoid函数而不是加上其他函数。如果直接从sigmoid函数的形式上看，我们会觉得很合理，因为将值域$(-\infin,\infin)$映射到了$(0,1)$。但是这种映射函数千千万万为什么偏偏就是sigmoid函数呢？这里总结了几个解释：<br>(1) 根据比值比决定，即假设线性回归求出来的是比值比，通过比值比映射回概率，这个映射函数就是sigmoid函数。<br>(2) 根据最大熵原理决定，不作具体推导，这种解释的最大问题是特征函数的设计。<br>(3) 由贝叶斯原理得到，假设$P(X|Y)$服从高斯分布，通过贝叶斯公式求得$P(Y|X)$需要经过一个sigmoid函数的映射。<br>(4) 由$P(Y|X)$服从伯努利分布，伯努利分布的指数族分布形式以及广义线性模型，可以推导出sigmoid函数。</p>
+<h3 id="3-为什么是sigmid函数"><a href="#3-为什么是sigmid函数" class="headerlink" title="3. 为什么是sigmid函数"></a>3. 为什么是sigmid函数</h3><p>不知道大家有没有想过，为什么逻辑回归是在线性回归的基础上加上sigmoid函数而不是加上其他函数。如果直接从sigmoid函数的形式上看，我们会觉得很合理，因为将值域$(-\infin,\infin)$映射到了$(0,1)$。但是这种映射函数千千万万为什么偏偏就是sigmoid函数呢？这里总结了几个解释：<br>(1) 根据比值比决定，即假设线性回归求出来的是比值比$\frac{P(Y=1|X)}{P(Y=0|X)}$，通过比值比映射回概率$P(Y=1|X)$，这个映射函数就是sigmoid函数。<br>(2) 根据最大熵原理决定，不作具体推导，这种解释的最大问题是特征函数的设计。<br>(3) 由贝叶斯原理得到，假设$P(X|Y)$服从高斯分布，通过贝叶斯公式求得$P(Y|X)$需要经过一个sigmoid函数的映射。<br>(4) 由$P(Y|X)$服从伯努利分布，伯努利分布的指数族分布形式以及广义线性模型，可以推导出sigmoid函数。</p>
 
     </div>
 
