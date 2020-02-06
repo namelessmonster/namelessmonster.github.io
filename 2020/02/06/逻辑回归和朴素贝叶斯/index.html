@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="朴素贝叶斯1. 什么是朴素贝叶斯朴素贝叶斯是一个生成模型，用于分类任务。什么是生成模型？假设数据集$\{X,Y\}$是从一个概率分布$P(X,Y)$中抽取得到的，那么只要我们知道这个分布，就可以掌握这个数据集的规律。所以生成模型的任务就是要求出这个分布，知道这个数据集是怎么生成的。一句话概括就是生成模型是使用数据集总结出生成该数据集的几个概率分布。 前面提到朴素贝叶斯是一个生成模型，这个方法通过求">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-06T09:53:37.231Z">
+<meta property="og:updated_time" content="2020-02-06T09:55:50.937Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="朴素贝叶斯和逻辑回归">
 <meta name="twitter:description" content="朴素贝叶斯1. 什么是朴素贝叶斯朴素贝叶斯是一个生成模型，用于分类任务。什么是生成模型？假设数据集$\{X,Y\}$是从一个概率分布$P(X,Y)$中抽取得到的，那么只要我们知道这个分布，就可以掌握这个数据集的规律。所以生成模型的任务就是要求出这个分布，知道这个数据集是怎么生成的。一句话概括就是生成模型是使用数据集总结出生成该数据集的几个概率分布。 前面提到朴素贝叶斯是一个生成模型，这个方法通过求">
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-06 15:22:42 / 修改时间：17:53:37" itemprop="dateCreated datePublished" datetime="2020-02-06T15:22:42+08:00">2020-02-06</time>
+              <time title="创建时间：2020-02-06 15:22:42 / 修改时间：17:55:50" itemprop="dateCreated datePublished" datetime="2020-02-06T15:22:42+08:00">2020-02-06</time>
             </span>
           
             
@@ -426,7 +426,62 @@
 
 
 
-  <script src="/js/next-boot.js?v=7.3.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script src="/js/next-boot.js?v=7.3.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+  
+    
+      <script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -445,17 +500,7 @@
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
 
-  
-
-  
-
-  
-
-
-  
-
-
-
+    
   
 
 
