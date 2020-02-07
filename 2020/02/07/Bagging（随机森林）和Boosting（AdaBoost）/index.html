@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1. 什么是Bagging（随机森林）Bagging的思想是均匀地、有放回地从大小为D的数据集采样出M个样本构成数据集，总共采样N次用于分别训练N个模型，在预测阶段使用这N个模型共同决定样本的分类或回归结果。在这里，随机森林是一个很好的例子。随机森林就是学习N棵决策树共同决定样本的预测结果。 2. 什么是Boosting（AdaBoost）Boosting是一种提升的思想，是串行执行的，当前模型重">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-07T14:30:24.808Z">
+<meta property="og:updated_time" content="2020-02-07T15:25:59.641Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bagging（随机森林）和Boosting（AdaBoost）">
 <meta name="twitter:description" content="1. 什么是Bagging（随机森林）Bagging的思想是均匀地、有放回地从大小为D的数据集采样出M个样本构成数据集，总共采样N次用于分别训练N个模型，在预测阶段使用这N个模型共同决定样本的分类或回归结果。在这里，随机森林是一个很好的例子。随机森林就是学习N棵决策树共同决定样本的预测结果。 2. 什么是Boosting（AdaBoost）Boosting是一种提升的思想，是串行执行的，当前模型重">
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-07 19:47:37 / 修改时间：22:30:24" itemprop="dateCreated datePublished" datetime="2020-02-07T19:47:37+08:00">2020-02-07</time>
+              <time title="创建时间：2020-02-07 19:47:37 / 修改时间：23:25:59" itemprop="dateCreated datePublished" datetime="2020-02-07T19:47:37+08:00">2020-02-07</time>
             </span>
           
             
@@ -247,12 +247,12 @@
 
       
         <h2 id="1-什么是Bagging（随机森林）"><a href="#1-什么是Bagging（随机森林）" class="headerlink" title="1. 什么是Bagging（随机森林）"></a>1. 什么是Bagging（随机森林）</h2><p>Bagging的思想是均匀地、有放回地从大小为D的数据集采样出M个样本构成数据集，总共采样N次用于分别训练N个模型，在预测阶段使用这N个模型共同决定样本的分类或回归结果。在这里，随机森林是一个很好的例子。随机森林就是学习N棵决策树共同决定样本的预测结果。</p>
-<h2 id="2-什么是Boosting（AdaBoost）"><a href="#2-什么是Boosting（AdaBoost）" class="headerlink" title="2. 什么是Boosting（AdaBoost）"></a>2. 什么是Boosting（AdaBoost）</h2><p>Boosting是一种提升的思想，是串行执行的，当前模型重视对前面模型的误差进行学习，将所有合在一起共同决定预测结果。在这里，AdaBoost是一个很好的例子。AdaBoost是一个分类模型，其算法思想是在当前轮学习中，增大错误样本的权重，减低正确样本的权重，从而使得下一轮学习更重视当前轮错误的样本。首先第一步，数据集D含有N个样本，每个样本的权重为$w_i^1=\frac{1}{N}$。使用这N个样本学习得到第一个分类器$f_1$，该分类器的错误率为$\epsilon_1$，使用$\epsilon_1$计算可以得到$\alpha_1$：</p>
-<script type="math/tex; mode=display">\epsilon_1=\sum_i{w_iI(G(f_1(x_i))\ne y_i)}</script><script type="math/tex; mode=display">\alpha_1=\frac{1}{2}\ln{\frac{1-\epsilon_1}{\epsilon_1}}</script><p>其中$G$函数表示将模型输出映射到分类结果，使用$\alpha_1$更新样本的权重，对于正确分类的样本，使用下式更新权重：</p>
+<h2 id="2-什么是Boosting（AdaBoost）"><a href="#2-什么是Boosting（AdaBoost）" class="headerlink" title="2. 什么是Boosting（AdaBoost）"></a>2. 什么是Boosting（AdaBoost）</h2><p>Boosting是一种提升的思想，是串行执行的，当前模型重视对前面模型的误差进行学习，将所有合在一起共同决定预测结果。在这里，AdaBoost是一个很好的例子。AdaBoost的算法思想是在当前轮学习中，增大误差的权重，从而使得下一轮学习更重视当前轮的误差。以二分类任务为例，首先第一步，数据集D含有N个样本，每个样本的权重为$w_i^1=\frac{1}{N}$。使用这N个样本学习得到第一个分类器$f_1$，该分类器的错误率为$\epsilon_1$，使用$\epsilon_1$计算可以得到$\alpha_1$：</p>
+<script type="math/tex; mode=display">\epsilon_1=\sum_i{w_iI(f_1(x_i)\ne y_i)}</script><script type="math/tex; mode=display">\alpha_1=\frac{1}{2}\ln{\frac{1-\epsilon_1}{\epsilon_1}}</script><p>其中$G$函数表示将模型输出映射到分类结果，使用$\alpha_1$更新样本的权重，对于正确分类的样本，使用下式更新权重：</p>
 <script type="math/tex; mode=display">w_i^2=\frac{w_i^{1}e^{-\alpha_1}}{Z_1}</script><p>其中$Z_1$是归一化项，对于错误分类的样本，使用下式更新权重：</p>
 <script type="math/tex; mode=display">w_i^2=\frac{w_i^1e^{\alpha_1}}{Z_1}</script><p>总结一下就是：</p>
-<script type="math/tex; mode=display">w_i^2=\frac{w_i^1e^{-\alpha_1y_iG(f_1(x_i))}}{Z_1}</script><p>这样就完成了第一轮的学习，接着进入第二轮的学习，由此类推，当学习了M个模型后，使用下式组合M个模型的结果：</p>
-<script type="math/tex; mode=display">F(x)=G(\sum_i{\alpha_if_i(x)})</script><p>对于AdaBoost为什么这样计算各个分类器的权重与这样进行样本权重的更新，实际上这是由AdaBoost在处理二分类问题时最小化指数损失函数决定的。所以在使用AdaBoost处理多分类问题或回归问题时，使用其他类型的损失函数，需要针对最小化损失函数来决定各个学习器的权重与各个样本权重的更新方式。</p>
+<script type="math/tex; mode=display">w_i^2=\frac{w_i^1e^{-\alpha_1y_if_1(x_i)}}{Z_1}</script><p>这样就完成了第一轮的学习，接着进入第二轮的学习，由此类推，当学习了M个分类器后，使用下式组合M个分类器的结果：</p>
+<script type="math/tex; mode=display">F(x)=sign(\sum_i{\alpha_if_i(x)})</script><p>对于AdaBoost为什么这样计算各个分类器的权重与这样进行样本权重的更新，实际上这是由AdaBoost在处理二分类问题时最小化指数损失函数决定的。所以在使用AdaBoost处理多分类问题或回归问题时，使用其他类型的损失函数，需要针对最小化损失函数来决定各个学习器的权重与各个样本权重的更新方式。</p>
 <h2 id="3-什么是Stacking"><a href="#3-什么是Stacking" class="headerlink" title="3. 什么是Stacking"></a>3. 什么是Stacking</h2><p>Stacking的思想是将一些模型的输出经过组合当作特征输入到另一些模型中学习，最终的输出作为预测结果。</p>
 
     </div>
