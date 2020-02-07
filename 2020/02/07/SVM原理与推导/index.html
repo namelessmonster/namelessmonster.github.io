@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1. 什么是SVMSVM中文名是支持向量机，是一个判别模型，主要用于分类任务。SVM旨在在一堆数据点中，找出一个可以将数据点划分为两类的超平面，且要求超平面距离每一类的所有点尽量远。 2. 如何求解定义一个超平面$\{W,b\}$，对于每一个数据点$(X,Y)$，如果$Y=1$，则要求$XW^T+b&amp;gt;0$，如果$Y=-1$，则要求$XW^T+b&amp;lt;0$，所以可以总结成： Y(XW^T+b">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-07T06:22:19.892Z">
+<meta property="og:updated_time" content="2020-02-07T06:39:10.358Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVM原理与推导">
 <meta name="twitter:description" content="1. 什么是SVMSVM中文名是支持向量机，是一个判别模型，主要用于分类任务。SVM旨在在一堆数据点中，找出一个可以将数据点划分为两类的超平面，且要求超平面距离每一类的所有点尽量远。 2. 如何求解定义一个超平面$\{W,b\}$，对于每一个数据点$(X,Y)$，如果$Y=1$，则要求$XW^T+b&amp;gt;0$，如果$Y=-1$，则要求$XW^T+b&amp;lt;0$，所以可以总结成： Y(XW^T+b">
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-07 13:14:19 / 修改时间：14:22:19" itemprop="dateCreated datePublished" datetime="2020-02-07T13:14:19+08:00">2020-02-07</time>
+              <time title="创建时间：2020-02-07 13:14:19 / 修改时间：14:39:10" itemprop="dateCreated datePublished" datetime="2020-02-07T13:14:19+08:00">2020-02-07</time>
             </span>
           
             
@@ -257,6 +257,9 @@
 <script type="math/tex; mode=display">L(W,b,\lambda)=\frac{1}{2}WW^T+\sum_{i}{\lambda_i(1-Y_i(X_iW^T+b))}</script><script type="math/tex; mode=display">\lambda_i \ge 0,i=1,2,...</script><p>现在原问题等于求解：</p>
 <script type="math/tex; mode=display">\min_{W,b}\max_{\lambda}L(W,b,\lambda)</script><script type="math/tex; mode=display">\lambda_i \ge 0,i=1,2,...</script><p>使用凸优化问题的对偶性质，转化成求对偶问题的解：</p>
 <script type="math/tex; mode=display">\max_{\lambda}\min_{W,b}L(W,b,\lambda)</script><script type="math/tex; mode=display">\lambda_i \ge 0,i=1,2,...</script><p>使用$L(W,b,\lambda)$对$W,b$求导，令导数为0，可以得到使用$\lambda$表示$W,b$的式子，将其代入$L(W,b,\lambda)$可以得到一个关于$\lambda$的式子$f(\lambda)$，对$f(\lambda)$使用SMO算法，可以求出$\lambda$的近似解，通过$\lambda$求出$W,b$，从而完成SVM的参数求解过程。</p>
+<h2 id="3-扩展"><a href="#3-扩展" class="headerlink" title="3. 扩展"></a>3. 扩展</h2><p>上述是求解线性SVM的大致过程，当非线性的情况时，即无法全部正确分类时，可以将约束条件</p>
+<script type="math/tex; mode=display">Y_i(X_iW^T+b)\ge 1,i=1,2,...</script><p>变成</p>
+<script type="math/tex; mode=display">Y_i(X_iW^T+b)\ge 1+\xi_i,i=1,2,...</script><p>或者是使用核函数。核函数的作用是将高维向量内积转换为低维向量的核函数，可以由此将向量从低维转为高维算出内积并节省计算成本。另外，SVR模型可以用于回归任务，将$XW^T+b$当作回归值。</p>
 
     </div>
 
@@ -367,7 +370,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是SVM"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是SVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-如何求解"><span class="nav-number">2.</span> <span class="nav-text">2. 如何求解</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是SVM"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是SVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-如何求解"><span class="nav-number">2.</span> <span class="nav-text">2. 如何求解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-扩展"><span class="nav-number">3.</span> <span class="nav-text">3. 扩展</span></a></li></ol></div>
             
 
           </div>
