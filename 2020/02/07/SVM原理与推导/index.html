@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="朴素贝叶斯1. 什么是朴素贝叶斯朴素贝叶斯是一个生成模型，用于分类任务。什么是生成模型？假设数据集$\{X,Y\}$是从一个概率分布$P(X,Y)$中抽取得到的，那么只要我们知道这个分布，就可以掌握这个数据集的规律。所以生成模型的任务就是要求出这个分布，知道这个数据集是怎么生成的。一句话概括就是生成模型是使用数据集总结出生成该数据集的几个概率分布。 前面提到朴素贝叶斯是一个生成模型，这个方法通过求">
+  <meta name="description" content="1. 什么是SVMSVM中文名是支持向量机，是一个判别模型，主要用于分类任务。SVM旨在在一堆数据点中，找出一个可以将数据点划分为两类的超平面，且要求超平面距离每一类的所有点尽量远。 2. 如何求解定义一个超平面$\{W,b\}$，对于每一个数据点$(X,Y)$，如果$Y=1$，则要求$XW^T+b&amp;gt;0$，如果$Y=-1$，则要求$XW^T+b&amp;lt;0$，所以可以总结成： Y(XW^T+b">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="朴素贝叶斯和逻辑回归">
-<meta property="og:url" content="http://yoursite.com/2020/02/06/逻辑回归和朴素贝叶斯/index.html">
+<meta property="og:title" content="SVM原理与推导">
+<meta property="og:url" content="http://yoursite.com/2020/02/07/SVM原理与推导/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="朴素贝叶斯1. 什么是朴素贝叶斯朴素贝叶斯是一个生成模型，用于分类任务。什么是生成模型？假设数据集$\{X,Y\}$是从一个概率分布$P(X,Y)$中抽取得到的，那么只要我们知道这个分布，就可以掌握这个数据集的规律。所以生成模型的任务就是要求出这个分布，知道这个数据集是怎么生成的。一句话概括就是生成模型是使用数据集总结出生成该数据集的几个概率分布。 前面提到朴素贝叶斯是一个生成模型，这个方法通过求">
+<meta property="og:description" content="1. 什么是SVMSVM中文名是支持向量机，是一个判别模型，主要用于分类任务。SVM旨在在一堆数据点中，找出一个可以将数据点划分为两类的超平面，且要求超平面距离每一类的所有点尽量远。 2. 如何求解定义一个超平面$\{W,b\}$，对于每一个数据点$(X,Y)$，如果$Y=1$，则要求$XW^T+b&amp;gt;0$，如果$Y=-1$，则要求$XW^T+b&amp;lt;0$，所以可以总结成： Y(XW^T+b">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-06T13:33:30.085Z">
+<meta property="og:updated_time" content="2020-02-07T06:22:19.892Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="朴素贝叶斯和逻辑回归">
-<meta name="twitter:description" content="朴素贝叶斯1. 什么是朴素贝叶斯朴素贝叶斯是一个生成模型，用于分类任务。什么是生成模型？假设数据集$\{X,Y\}$是从一个概率分布$P(X,Y)$中抽取得到的，那么只要我们知道这个分布，就可以掌握这个数据集的规律。所以生成模型的任务就是要求出这个分布，知道这个数据集是怎么生成的。一句话概括就是生成模型是使用数据集总结出生成该数据集的几个概率分布。 前面提到朴素贝叶斯是一个生成模型，这个方法通过求">
-  <link rel="canonical" href="http://yoursite.com/2020/02/06/逻辑回归和朴素贝叶斯/">
+<meta name="twitter:title" content="SVM原理与推导">
+<meta name="twitter:description" content="1. 什么是SVMSVM中文名是支持向量机，是一个判别模型，主要用于分类任务。SVM旨在在一堆数据点中，找出一个可以将数据点划分为两类的超平面，且要求超平面距离每一类的所有点尽量远。 2. 如何求解定义一个超平面$\{W,b\}$，对于每一个数据点$(X,Y)$，如果$Y=1$，则要求$XW^T+b&amp;gt;0$，如果$Y=-1$，则要求$XW^T+b&amp;lt;0$，所以可以总结成： Y(XW^T+b">
+  <link rel="canonical" href="http://yoursite.com/2020/02/07/SVM原理与推导/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>朴素贝叶斯和逻辑回归 | Hexo</title>
+  <title>SVM原理与推导 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/06/逻辑回归和朴素贝叶斯/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/07/SVM原理与推导/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">朴素贝叶斯和逻辑回归
+          <h1 class="post-title" itemprop="name headline">SVM原理与推导
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-06 15:22:42 / 修改时间：21:33:30" itemprop="dateCreated datePublished" datetime="2020-02-06T15:22:42+08:00">2020-02-06</time>
+              <time title="创建时间：2020-02-07 13:14:19 / 修改时间：14:22:19" itemprop="dateCreated datePublished" datetime="2020-02-07T13:14:19+08:00">2020-02-07</time>
             </span>
           
             
@@ -246,21 +246,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="朴素贝叶斯"><a href="#朴素贝叶斯" class="headerlink" title="朴素贝叶斯"></a>朴素贝叶斯</h2><h3 id="1-什么是朴素贝叶斯"><a href="#1-什么是朴素贝叶斯" class="headerlink" title="1. 什么是朴素贝叶斯"></a>1. 什么是朴素贝叶斯</h3><p>朴素贝叶斯是一个生成模型，用于分类任务。什么是生成模型？假设数据集$\{X,Y\}$是从一个概率分布$P(X,Y)$中抽取得到的，那么只要我们知道这个分布，就可以掌握这个数据集的规律。所以生成模型的任务就是要求出这个分布，知道这个数据集是怎么生成的。一句话概括就是生成模型是使用数据集总结出生成该数据集的几个概率分布。</p>
-<p>前面提到朴素贝叶斯是一个生成模型，这个方法通过求出$P(X)$，$P(Y)$和$P(X|Y)$，使用贝叶斯公式：</p>
-<script type="math/tex; mode=display">P(Y|X)=\frac{P(Y)P(X|Y)}{P(X)}</script><p>求出关于$Y$的后验概率，通过这个后验概率确定$X$的类别。朴素贝叶斯的朴素之处在于这个方法假设条件概率$P(X|Y)=P(x_1,x_2,…,x_n|Y)$的各个特征是相互独立的，即：</p>
-<script type="math/tex; mode=display">P(X|Y)=P(x_1|Y)P(x_2|Y)...P(x_n|Y)</script><p>总而言之，朴素贝叶斯根据$P(X)$，$P(Y)$和$P(X|Y)$，使用贝叶斯公式求出后验概率$P(Y|X)$，从该后验概率中选出概率最大的Y作为X的分类结果。</p>
-<h3 id="2-如何求解"><a href="#2-如何求解" class="headerlink" title="2. 如何求解"></a>2. 如何求解</h3><p>朴素贝叶斯要求求出$P(X)$，$P(Y)$和$P(X|Y)$，那么这几个概率分布应该怎么求呢？最简单的想法就是直接从数据集中进行统计，使用统计结果作为这些概率分布的近似值。而朴素贝叶斯也正是使用这种方法，但是使用数据集的统计量作为概率分布的近似这种做法需要数据量比较大，近似结果才会相对较好，所以朴素贝叶斯一般用于数据量较大的场景。</p>
-<h2 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h2><h3 id="1-什么是逻辑回归"><a href="#1-什么是逻辑回归" class="headerlink" title="1. 什么是逻辑回归"></a>1. 什么是逻辑回归</h3><p>逻辑回归是一个判别模型，主要用于二分类任务。什么是判别模型？已知一个数据样本$X$，现在需要从后验概率$P(Y|X)$中选出概率最大的$Y$作为样本$X$的分类结果。那么判别模型就是直接对$F(X)=P(Y|X)$进行建模，每当输入一个样本$X$，将该样本送入判别模型$F(X)$，得到的输出就是后验概率分布$P(Y|X)$。与生成模型不同，判别模型不需要知道$P(X)$，$P(Y)$和$P(X|Y)$，所以判别模型需要知道的细节比生成模型少。</p>
-<p>前面提到逻辑回归是一个判别模型，且主要用于二分类任务。很多人就会问，逻辑回归名字里面的回归难道不是指这个方法用于回归任务吗？逻辑回归的回归主要是解释了这个方法与线性回归存在一定的联系，实际上，逻辑回归如果没有了sigmoid函数，与线性回归就是等价的。</p>
-<p>在使用线性回归处理回归任务时，数据特征是$X={x_1,x_2,…,x_n}$，数据观测值是$Y$，模型参数是$\Theta={\theta_1,\theta_2,…,\theta_n}$，则线性回归主要是要学习模型参数$\Theta$使得：</p>
-<script type="math/tex; mode=display">\sum_{i=1}^m{(Y_i-X_i\cdot \Theta)^2}</script><p>最小，这里$m$是指数据集样本数。当$Y$是离散值，即这是一个分类任务时，如果继续使用线性回归去莽是行不通的。所以这里就提出了逻辑回归的方法。逻辑回归很简单，就是在线性回归的结果上再加一个激活函数，这个激活函数就是sigmoid函数：</p>
-<script type="math/tex; mode=display">Z_i=\frac{1}{1+e^{-X_i\cdot \Theta}}</script><p>其中$Z_i \in (0,1)$。我们将$Z_i$看作是将$X_i$归到类别$1$的概率，则$X_i$归到类别$0$的概率为$1-Z_i$。如果$Y_i=1$，那么我们希望$Z_i$尽量大，如果$Y_i=0$，那么我们希望$1-Z_i$尽量大，我们可以使用一条公式将两者结合在一起：</p>
-<script type="math/tex; mode=display">Q_i=Z_i^{Y_i}\cdot (1-Z_i)^{1-Y_i}</script><p>对这条公式你们品，你们细品，是不是有那么一点味道了。如果将$Z_i$看作是伯努利分布的概率值，那么上式就是求这个伯努利分布的期望了。逻辑回归要求：</p>
-<script type="math/tex; mode=display">\prod_{i=1}^m Q_i</script><p>最大，等价于要求：</p>
-<script type="math/tex; mode=display">\sum_{i=1}^m \ln{Q_i}=\sum_{i=1}^m \{ Y_i\ln Z_i + (1-Y_i)\ln(1-Z_i)\}</script><p>最大。使得上式最大化的模型参数$\Theta$就是关于逻辑回归方法的解了。</p>
-<h3 id="2-如何求解-1"><a href="#2-如何求解-1" class="headerlink" title="2. 如何求解"></a>2. 如何求解</h3><p>要求得逻辑回归模型的最优模型参数$\Theta$，一般采用梯度下降的方法，或者是一些迭代的求解方法。而求线性回归模型的最优模型参数往往采用最小二乘法一步到位。</p>
-<h3 id="3-为什么是sigmid函数"><a href="#3-为什么是sigmid函数" class="headerlink" title="3. 为什么是sigmid函数"></a>3. 为什么是sigmid函数</h3><p>不知道大家有没有想过，为什么逻辑回归是在线性回归的基础上加上sigmoid函数而不是加上其他函数。如果直接从sigmoid函数的形式上看，我们会觉得很合理，因为将值域$(-\infin,\infin)$映射到了$(0,1)$。但是这种映射函数千千万万为什么偏偏就是sigmoid函数呢？这里总结了几个解释：<br>(1) 根据比值比决定，即假设线性回归求出来的是比值比的对数，即$\ln\frac{P(Y=1|X)}{P(Y=0|X)}$，通过比值比的对数映射回概率$P(Y=1|X)$，这个映射函数就是sigmoid函数。<br>(2) 根据最大熵原理决定，不作具体推导，这种解释的最大问题是特征函数的设计。<br>(3) 由贝叶斯原理得到，假设$P(X|Y)$服从高斯分布，通过贝叶斯公式求得$P(Y|X)$需要经过一个sigmoid函数的映射。<br>(4) 由$P(Y|X)$服从伯努利分布，伯努利分布的指数族分布形式以及广义线性模型，可以推导出sigmoid函数。</p>
+        <h2 id="1-什么是SVM"><a href="#1-什么是SVM" class="headerlink" title="1. 什么是SVM"></a>1. 什么是SVM</h2><p>SVM中文名是支持向量机，是一个判别模型，主要用于分类任务。SVM旨在在一堆数据点中，找出一个可以将数据点划分为两类的超平面，且要求超平面距离每一类的所有点尽量远。</p>
+<h2 id="2-如何求解"><a href="#2-如何求解" class="headerlink" title="2. 如何求解"></a>2. 如何求解</h2><p>定义一个超平面$\{W,b\}$，对于每一个数据点$(X,Y)$，如果$Y=1$，则要求$XW^T+b&gt;0$，如果$Y=-1$，则要求$XW^T+b&lt;0$，所以可以总结成：</p>
+<script type="math/tex; mode=display">Y(XW^T+b)>0</script><p>对于点$(X,Y)$，向量$X$到超平面的距离为$\frac{|XW^T+b|}{\sqrt{WW^T}}$。SVM要求数据集的点到超平面的最短距离最大，即：</p>
+<script type="math/tex; mode=display">\max_{W,b}\min_{X}\frac{|XW^T+b|}{\sqrt{WW^T}}</script><p>对于一个超平面，既可以使用$\{W,b\}$表示，也可以使用$\{2W,2b\}$表示，总之$\{kW,kb\}$表示的是同一个平面，所以为了有唯一解，添加一个约束：</p>
+<script type="math/tex; mode=display">\min\{|XW^T+b|\}=1</script><p>所以SVM要求数据集的点到超平面的最短距离最大可表示为：</p>
+<script type="math/tex; mode=display">\max_{W,b}\frac{1}{\sqrt{WW^T}}</script><p>这等价于：</p>
+<script type="math/tex; mode=display">\min_{W} \frac{1}{2}WW^T</script><p>所以SVM的数学模型可以表示为以下几个式子：</p>
+<script type="math/tex; mode=display">\min_{W} \frac{1}{2}WW^T</script><script type="math/tex; mode=display">Y_i(X_iW^T+b) \ge 1,i=1,2,...</script><p>使用拉格朗日乘数法消除约束，可以得到：</p>
+<script type="math/tex; mode=display">L(W,b,\lambda)=\frac{1}{2}WW^T+\sum_{i}{\lambda_i(1-Y_i(X_iW^T+b))}</script><script type="math/tex; mode=display">\lambda_i \ge 0,i=1,2,...</script><p>现在原问题等于求解：</p>
+<script type="math/tex; mode=display">\min_{W,b}\max_{\lambda}L(W,b,\lambda)</script><script type="math/tex; mode=display">\lambda_i \ge 0,i=1,2,...</script><p>使用凸优化问题的对偶性质，转化成求对偶问题的解：</p>
+<script type="math/tex; mode=display">\max_{\lambda}\min_{W,b}L(W,b,\lambda)</script><script type="math/tex; mode=display">\lambda_i \ge 0,i=1,2,...</script><p>使用$L(W,b,\lambda)$对$W,b$求导，令导数为0，可以得到使用$\lambda$表示$W,b$的式子，将其代入$L(W,b,\lambda)$可以得到一个关于$\lambda$的式子$f(\lambda)$，对$f(\lambda)$使用SMO算法，可以求出$\lambda$的近似解，通过$\lambda$求出$W,b$，从而完成SVM的参数求解过程。</p>
 
     </div>
 
@@ -277,15 +273,15 @@
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+              <a href="/2020/02/06/逻辑回归和朴素贝叶斯/" rel="next" title="朴素贝叶斯和逻辑回归">
+                <i class="fa fa-chevron-left"></i> 朴素贝叶斯和逻辑回归
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/07/SVM原理与推导/" rel="prev" title="SVM原理与推导">
-                SVM原理与推导 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -371,7 +367,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#朴素贝叶斯"><span class="nav-number">1.</span> <span class="nav-text">朴素贝叶斯</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-什么是朴素贝叶斯"><span class="nav-number">1.1.</span> <span class="nav-text">1. 什么是朴素贝叶斯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-如何求解"><span class="nav-number">1.2.</span> <span class="nav-text">2. 如何求解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑回归"><span class="nav-number">2.</span> <span class="nav-text">逻辑回归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-什么是逻辑回归"><span class="nav-number">2.1.</span> <span class="nav-text">1. 什么是逻辑回归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-如何求解-1"><span class="nav-number">2.2.</span> <span class="nav-text">2. 如何求解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-为什么是sigmid函数"><span class="nav-number">2.3.</span> <span class="nav-text">3. 为什么是sigmid函数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是SVM"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是SVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-如何求解"><span class="nav-number">2.</span> <span class="nav-text">2. 如何求解</span></a></li></ol></div>
             
 
           </div>
