@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="1. 什么是SVMSVM中文名是支持向量机，是一个判别模型，主要用于分类任务。SVM旨在在一堆数据点中，找出一个可以将数据点划分为两类的超平面，且要求超平面距离每一类的所有点尽量远。 2. 如何求解定义一个超平面$\{W,b\}$，对于每一个数据点$(X,Y)$，如果$Y=1$，则要求$XW^T+b&amp;gt;0$，如果$Y=-1$，则要求$XW^T+b&amp;lt;0$，所以可以总结成： Y(XW^T+b">
+  <meta name="description" content="1. 什么是决策树决策树是一个判别模型，可以用于分类，也可以用于回归。在决策树的每层会选取一个特征对数据点进行划分，一般的决策树是按层扩展的，即决策树第$i$层的节点都是使用同一个特征进行划分，但也有按节点扩展的，即每个节点内部自己决定特征进行扩展。当达到最大深度或节点内部都可以归为同一类时，该节点停止扩展。决策树算法的实现主要有三种，分别是ID3算法，C4.5算法和CART算法。 2. ID3算">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SVM原理与推导">
-<meta property="og:url" content="http://yoursite.com/2020/02/07/SVM原理与推导/index.html">
+<meta property="og:title" content="决策树原理与推导">
+<meta property="og:url" content="http://yoursite.com/2020/02/07/决策树原理与推导/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 什么是SVMSVM中文名是支持向量机，是一个判别模型，主要用于分类任务。SVM旨在在一堆数据点中，找出一个可以将数据点划分为两类的超平面，且要求超平面距离每一类的所有点尽量远。 2. 如何求解定义一个超平面$\{W,b\}$，对于每一个数据点$(X,Y)$，如果$Y=1$，则要求$XW^T+b&amp;gt;0$，如果$Y=-1$，则要求$XW^T+b&amp;lt;0$，所以可以总结成： Y(XW^T+b">
+<meta property="og:description" content="1. 什么是决策树决策树是一个判别模型，可以用于分类，也可以用于回归。在决策树的每层会选取一个特征对数据点进行划分，一般的决策树是按层扩展的，即决策树第$i$层的节点都是使用同一个特征进行划分，但也有按节点扩展的，即每个节点内部自己决定特征进行扩展。当达到最大深度或节点内部都可以归为同一类时，该节点停止扩展。决策树算法的实现主要有三种，分别是ID3算法，C4.5算法和CART算法。 2. ID3算">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-07T06:39:10.358Z">
+<meta property="og:updated_time" content="2020-02-07T10:06:27.560Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SVM原理与推导">
-<meta name="twitter:description" content="1. 什么是SVMSVM中文名是支持向量机，是一个判别模型，主要用于分类任务。SVM旨在在一堆数据点中，找出一个可以将数据点划分为两类的超平面，且要求超平面距离每一类的所有点尽量远。 2. 如何求解定义一个超平面$\{W,b\}$，对于每一个数据点$(X,Y)$，如果$Y=1$，则要求$XW^T+b&amp;gt;0$，如果$Y=-1$，则要求$XW^T+b&amp;lt;0$，所以可以总结成： Y(XW^T+b">
-  <link rel="canonical" href="http://yoursite.com/2020/02/07/SVM原理与推导/">
+<meta name="twitter:title" content="决策树原理与推导">
+<meta name="twitter:description" content="1. 什么是决策树决策树是一个判别模型，可以用于分类，也可以用于回归。在决策树的每层会选取一个特征对数据点进行划分，一般的决策树是按层扩展的，即决策树第$i$层的节点都是使用同一个特征进行划分，但也有按节点扩展的，即每个节点内部自己决定特征进行扩展。当达到最大深度或节点内部都可以归为同一类时，该节点停止扩展。决策树算法的实现主要有三种，分别是ID3算法，C4.5算法和CART算法。 2. ID3算">
+  <link rel="canonical" href="http://yoursite.com/2020/02/07/决策树原理与推导/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>SVM原理与推导 | Hexo</title>
+  <title>决策树原理与推导 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/07/SVM原理与推导/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/07/决策树原理与推导/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">SVM原理与推导
+          <h1 class="post-title" itemprop="name headline">决策树原理与推导
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-07 13:14:19 / 修改时间：14:39:10" itemprop="dateCreated datePublished" datetime="2020-02-07T13:14:19+08:00">2020-02-07</time>
+              <time title="创建时间：2020-02-07 16:43:03 / 修改时间：18:06:27" itemprop="dateCreated datePublished" datetime="2020-02-07T16:43:03+08:00">2020-02-07</time>
             </span>
           
             
@@ -246,20 +246,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-什么是SVM"><a href="#1-什么是SVM" class="headerlink" title="1. 什么是SVM"></a>1. 什么是SVM</h2><p>SVM中文名是支持向量机，是一个判别模型，主要用于分类任务。SVM旨在在一堆数据点中，找出一个可以将数据点划分为两类的超平面，且要求超平面距离每一类的所有点尽量远。</p>
-<h2 id="2-如何求解"><a href="#2-如何求解" class="headerlink" title="2. 如何求解"></a>2. 如何求解</h2><p>定义一个超平面$\{W,b\}$，对于每一个数据点$(X,Y)$，如果$Y=1$，则要求$XW^T+b&gt;0$，如果$Y=-1$，则要求$XW^T+b&lt;0$，所以可以总结成：</p>
-<script type="math/tex; mode=display">Y(XW^T+b)>0</script><p>对于点$(X,Y)$，向量$X$到超平面的距离为$\frac{|XW^T+b|}{\sqrt{WW^T}}$。SVM要求数据集的点到超平面的最短距离最大，即：</p>
-<script type="math/tex; mode=display">\max_{W,b}\min_{X}\frac{|XW^T+b|}{\sqrt{WW^T}}</script><p>对于一个超平面，既可以使用$\{W,b\}$表示，也可以使用$\{2W,2b\}$表示，总之$\{kW,kb\}$表示的是同一个平面，所以为了有唯一解，添加一个约束：</p>
-<script type="math/tex; mode=display">\min\{|XW^T+b|\}=1</script><p>所以SVM要求数据集的点到超平面的最短距离最大可表示为：</p>
-<script type="math/tex; mode=display">\max_{W,b}\frac{1}{\sqrt{WW^T}}</script><p>这等价于：</p>
-<script type="math/tex; mode=display">\min_{W} \frac{1}{2}WW^T</script><p>所以SVM的数学模型可以表示为以下几个式子：</p>
-<script type="math/tex; mode=display">\min_{W} \frac{1}{2}WW^T</script><script type="math/tex; mode=display">Y_i(X_iW^T+b) \ge 1,i=1,2,...</script><p>使用拉格朗日乘数法消除约束，可以得到：</p>
-<script type="math/tex; mode=display">L(W,b,\lambda)=\frac{1}{2}WW^T+\sum_{i}{\lambda_i(1-Y_i(X_iW^T+b))}</script><script type="math/tex; mode=display">\lambda_i \ge 0,i=1,2,...</script><p>现在原问题等于求解：</p>
-<script type="math/tex; mode=display">\min_{W,b}\max_{\lambda}L(W,b,\lambda)</script><script type="math/tex; mode=display">\lambda_i \ge 0,i=1,2,...</script><p>使用凸优化问题的对偶性质，转化成求对偶问题的解：</p>
-<script type="math/tex; mode=display">\max_{\lambda}\min_{W,b}L(W,b,\lambda)</script><script type="math/tex; mode=display">\lambda_i \ge 0,i=1,2,...</script><p>使用$L(W,b,\lambda)$对$W,b$求导，令导数为0，可以得到使用$\lambda$表示$W,b$的式子，将其代入$L(W,b,\lambda)$可以得到一个关于$\lambda$的式子$f(\lambda)$，对$f(\lambda)$使用SMO算法，可以求出$\lambda$的近似解，通过$\lambda$求出$W,b$，从而完成SVM的参数求解过程。</p>
-<h2 id="3-扩展"><a href="#3-扩展" class="headerlink" title="3. 扩展"></a>3. 扩展</h2><p>上述是求解线性SVM的大致过程，当非线性的情况时，即无法全部正确分类时，可以将约束条件</p>
-<script type="math/tex; mode=display">Y_i(X_iW^T+b)\ge 1,i=1,2,...</script><p>变成</p>
-<script type="math/tex; mode=display">Y_i(X_iW^T+b)\ge 1+\xi_i,i=1,2,...</script><p>或者是使用核函数。核函数的作用是将高维向量内积转换为低维向量的核函数，可以由此将向量从低维转为高维算出内积并节省计算成本。另外，SVR模型可以用于回归任务，将$XW^T+b$当作回归值。</p>
+        <h2 id="1-什么是决策树"><a href="#1-什么是决策树" class="headerlink" title="1. 什么是决策树"></a>1. 什么是决策树</h2><p>决策树是一个判别模型，可以用于分类，也可以用于回归。在决策树的每层会选取一个特征对数据点进行划分，一般的决策树是按层扩展的，即决策树第$i$层的节点都是使用同一个特征进行划分，但也有按节点扩展的，即每个节点内部自己决定特征进行扩展。当达到最大深度或节点内部都可以归为同一类时，该节点停止扩展。决策树算法的实现主要有三种，分别是ID3算法，C4.5算法和CART算法。</p>
+<h2 id="2-ID3算法"><a href="#2-ID3算法" class="headerlink" title="2. ID3算法"></a>2. ID3算法</h2><p>ID3算法构建的决策树有二个要点：第一点是使用信息增益决定采用哪个特征进行划分，信息增益的计算方式决定1了该算法构建的决策树只能用于分类任务；第二点是每次选取一种特征后，对该特征的所有取值都构造一个子节点，所以ID3算法构建的决策树，特征值必须是离散的。</p>
+<p>信息增益对应着信息熵的减少，信息熵的计算方式如下：</p>
+<script type="math/tex; mode=display">Entropy=-\sum_{i}p_i\log{p_i},i=1,2...</script><p>对决策树第$k$层计算信息熵，等于对第$k$层各个节点内部计算信息熵并求和，计算时$p_i$表示在节点内部类别为$i$的概率。假设第$k$层的信息熵等于$e_k$，则第$k+1$层到第$k$层的信息增益等于</p>
+<script type="math/tex; mode=display">\Delta=e_k-e_{k+1}</script><p>ID3算法每次选取特征时，都会使用使得信息增益最大的特征进行划分，即使用贪心的算法思想构建决策树。但是这种方法有一个问题，当一个属性的取值较多时，往往分割出来的结果会更具体，即熵值越低，ID3算法也的确会倾向于选择这种特征进行决策树的展开，但这往往会造成过拟合。</p>
+<h2 id="3-C4-5算法"><a href="#3-C4-5算法" class="headerlink" title="3. C4.5算法"></a>3. C4.5算法</h2><p>通过前面的介绍，我们可以看到ID3决策树存在三个问题：第一点是ID3决策树只能处理离散特征值，第二点是ID3决策树只能用于分类任务，第三点是ID3决策树使用信息增益作为特征选取的指标存在过拟合的风险。C4.5算法就是为了解决ID3算法第一点和第三点问题而提出的。首先特征值现在可以不是离散值了，所以C4.5在选择特征后，假设需要划分出$j$个子节点，则选择$j-1$个值，将值域划分为$j$个空间，在对应值域的数据划分到对应的子节点。其次使用信息增益率代替信息增益作为特征选择的指标，信息增益率使用下式表示：</p>
+<script type="math/tex; mode=display">r=\frac{\Delta}{IV}</script><script type="math/tex; mode=display">IV=-\sum_{j}p_j\log{p_j}</script><p>其中$r$表示信息增益率，$\Delta$表示信息增益。$IV$的计算公式表示将节点划分成$J$个子节点后数据样本的分布熵，$p_j$表示在第$j$个子空间的数据样本数占在节点总样本数的比例。可以看到当特征按照特征值分得越细，则$IV$值越大，对应的信息增益率也会变小，所以使用信息增益率可以避免ID3总是分割特征值多的特征，从而降低过拟合的风险。</p>
+<h2 id="4-CART算法"><a href="#4-CART算法" class="headerlink" title="4. CART算法"></a>4. CART算法</h2><p>无论是ID3算法还是C4.5算法，都只能运用在分类任务。CART算法克服了ID3和C4.5只能用于分类任务的问题，既可以用于分类任务也可以用于回归任务。CART有两个重要要点：第一点是CART算法构造的决策树是二叉树，第二点是CART算法使用基尼系数作为特征及特征值的选取指标。CART根据基尼系数选择一个特征当中的一个特征值，将小于该特征值的数据样本划分到左子树，大于等于该特征值的数据样本划分到右子树。基尼系数的计算公式如下：</p>
+<script type="math/tex; mode=display">Gini(p)=\sum_i{p_i(1-p_i)}=1-\sum_{i}p_i^2</script><p>CART会选择基尼系数最小的特征和特征值进行划分，在计算基尼系数时，$p_i$表示在节点内部数据样本属于第$i$类的频率。在处理分类任务时，CART选择叶节点内样本数目最多的类别作为该节点的分类结果；在处理回归任务时，CART会选择叶节点内样本的统计结果作为该节点的数值预测。</p>
+<h2 id="5-其他"><a href="#5-其他" class="headerlink" title="5. 其他"></a>5. 其他</h2><p>在使用决策树对数据样本进行学习与预测时，有时会出现过拟合，解决过拟合的主要思路是限制树的生长，减小树的规模。可以是限制决策树的深度或叶子节点数，可以是使用验证集对树进行剪枝。使用验证集对决策树剪枝的思路是，如果去掉该节点的子树在验证集表现更好，则去掉这个节点的子树。</p>
 
     </div>
 
@@ -276,8 +272,8 @@
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/06/逻辑回归和朴素贝叶斯/" rel="next" title="朴素贝叶斯和逻辑回归">
-                <i class="fa fa-chevron-left"></i> 朴素贝叶斯和逻辑回归
+              <a href="/2020/02/07/偏差和方差/" rel="next" title="偏差和方差">
+                <i class="fa fa-chevron-left"></i> 偏差和方差
               </a>
             
           </div>
@@ -285,10 +281,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/07/偏差和方差/" rel="prev" title="偏差和方差">
-                偏差和方差 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -374,7 +366,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是SVM"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是SVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-如何求解"><span class="nav-number">2.</span> <span class="nav-text">2. 如何求解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-扩展"><span class="nav-number">3.</span> <span class="nav-text">3. 扩展</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是决策树"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是决策树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-ID3算法"><span class="nav-number">2.</span> <span class="nav-text">2. ID3算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-C4-5算法"><span class="nav-number">3.</span> <span class="nav-text">3. C4.5算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-CART算法"><span class="nav-number">4.</span> <span class="nav-text">4. CART算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-其他"><span class="nav-number">5.</span> <span class="nav-text">5. 其他</span></a></li></ol></div>
             
 
           </div>
