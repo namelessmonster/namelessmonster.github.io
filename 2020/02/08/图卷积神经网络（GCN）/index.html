@@ -58,14 +58,14 @@
 </script>
 
   <meta name="description" content="1. 什么是图卷积神经网络卷积神经网络（CNN）是深度学习中使用最频繁的神经网络之一，但它存在一个缺陷，就是它只能处理欧几里得空间内的图结构而不能处理更一般的图结构。针对这一缺陷，人们提出了能处理更一般图结构的卷积神经网络，称为图卷积神经网络（GCN）。当存在一个图结构，图有$N$个顶点，$M$条边组成，此时一般的卷积神经网络无法在此发挥作用，需要用到图卷积神经网络。 2. 如何求解图卷积神经网络">
-<meta name="keywords" content="机器学习, 深度学习">
+<meta name="keywords" content="机器学习,深度学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图卷积神经网络（GCN）">
 <meta property="og:url" content="http://yoursite.com/2020/02/08/图卷积神经网络（GCN）/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1. 什么是图卷积神经网络卷积神经网络（CNN）是深度学习中使用最频繁的神经网络之一，但它存在一个缺陷，就是它只能处理欧几里得空间内的图结构而不能处理更一般的图结构。针对这一缺陷，人们提出了能处理更一般图结构的卷积神经网络，称为图卷积神经网络（GCN）。当存在一个图结构，图有$N$个顶点，$M$条边组成，此时一般的卷积神经网络无法在此发挥作用，需要用到图卷积神经网络。 2. 如何求解图卷积神经网络">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-08T14:00:31.546Z">
+<meta property="og:updated_time" content="2020-02-08T14:20:01.079Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图卷积神经网络（GCN）">
 <meta name="twitter:description" content="1. 什么是图卷积神经网络卷积神经网络（CNN）是深度学习中使用最频繁的神经网络之一，但它存在一个缺陷，就是它只能处理欧几里得空间内的图结构而不能处理更一般的图结构。针对这一缺陷，人们提出了能处理更一般图结构的卷积神经网络，称为图卷积神经网络（GCN）。当存在一个图结构，图有$N$个顶点，$M$条边组成，此时一般的卷积神经网络无法在此发挥作用，需要用到图卷积神经网络。 2. 如何求解图卷积神经网络">
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-08 20:11:50 / 修改时间：22:00:31" itemprop="dateCreated datePublished" datetime="2020-02-08T20:11:50+08:00">2020-02-08</time>
+              <time title="创建时间：2020-02-08 20:11:50 / 修改时间：22:20:01" itemprop="dateCreated datePublished" datetime="2020-02-08T20:11:50+08:00">2020-02-08</time>
             </span>
           
             
@@ -255,7 +255,7 @@
 <script type="math/tex; mode=display">\Delta e^{jwt}=\frac{\partial^2}{\partial t^2}e^{jwt}=-w^2e^{jwt}=\lambda e^{jwt}</script><p>这可以看作频率域的基函数是拉普拉斯算子的特征函数。现在我们看图的拉普拉斯矩阵，我们知道图的拉普拉斯矩阵$L$由下面式子表示：</p>
 <script type="math/tex; mode=display">L=D-A</script><p>其中$A$是图的邻接矩阵，$D$是$A$的度数矩阵。我们认为这是拉普拉斯算子作用于图结构得到的结果，我们可以认为拉普拉斯算子作用于不同的对象有不同的表现，比如作用于函数就是求分量的二阶导，作用于图就是求图的拉普拉斯矩阵，这是因为图的梯度与散度和函数的梯度与散度表现形式不同以及拉普拉斯算子本质是求梯度的散度决定的。在函数域上，我们有：</p>
 <script type="math/tex; mode=display">\Delta f=\Delta\int_w F(w)e^{jwt}dt=\int_wF(w)\Delta e^{jwt}dt=\int_w\lambda_wF(w)e^{jwt}dt</script><p>所以在图$G$上，我们也有：</p>
-<script type="math/tex; mode=display">\Delta G=L=\sum_i \lambda_iu_i</script><p>其中$u_i$是拉普拉斯矩阵$L$的特征向量。在函数域中，我们使用$e^{jwt}$作为基底，将函数转换到频率域。在图中，我们也可以使用特征向量集合$u_i$作为基底，将向量转换到该基底的域中。已知向量$x$，求其转换到$u_i$基底的线性组合，公式为：</p>
+<script type="math/tex; mode=display">\Delta x=L*x=\sum_i \lambda_i\hat{x}_iu_i</script><p>其中$u_i$是拉普拉斯矩阵$L$的特征向量，$\lambda_i$是特征值，$\hat{x}_i$是向量$x$在$u_i$上的分量。在函数域中，我们使用$e^{jwt}$作为基底，将函数转换到频率域。在图中，我们也可以使用特征向量集合$u_i$作为基底，将向量转换到该基底的域中。已知向量$x$，求其转换到$u_i$基底的线性组合，公式为：</p>
 <script type="math/tex; mode=display">\hat{x}=\sum_iu_i^*x_i=U^Tx</script><p>其中$u^*$表示向量$u$的共轭，我们默认特征向量都是实数。从$\hat{x}$反变换$x$的公式为：</p>
 <script type="math/tex; mode=display">x=\sum_iu_i\hat{x}_i=U\hat{x}</script><p>所以如果现在有矩阵$X$表示图的特征，$H$是卷积核，则$X$与$H$的卷积可以用下式表示：</p>
 <script type="math/tex; mode=display">H*X=U(U^TH\odot U^TX)</script><p>$\odot$是求哈达玛积，然后人们又对上式进行一系列的化简，比如将哈达玛积转换成矩阵乘法，近似求解$U$等等，最终得到了下面的形式：</p>
@@ -272,7 +272,9 @@
           
         
         <div class="post-tags">
-            <a href="/tags/机器学习-深度学习/" rel="tag"># 机器学习, 深度学习</a>
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
           
         </div>
         <div class="post-nav">
