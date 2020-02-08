@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1. 什么是谱聚类谱聚类算法是一种聚类算法，算法思想是首先将样本特征降维，然后对降维后的样本采用其他聚类算法进行聚类。 2. 如何求解由于谱聚类算法有几种版本，这里讲解最常用的版本。已知有$N$个样本，每个样本都有一个$M$维向量$x_i$，则可以对这些样本计算出一个相似矩阵$W$，计算方式如下： W_{i,j}=e^{\frac{-\lVert x_i-x_j\rVert^2}{2\sigma^">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-08T09:13:26.450Z">
+<meta property="og:updated_time" content="2020-02-08T14:23:06.602Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="谱聚类算法原理">
 <meta name="twitter:description" content="1. 什么是谱聚类谱聚类算法是一种聚类算法，算法思想是首先将样本特征降维，然后对降维后的样本采用其他聚类算法进行聚类。 2. 如何求解由于谱聚类算法有几种版本，这里讲解最常用的版本。已知有$N$个样本，每个样本都有一个$M$维向量$x_i$，则可以对这些样本计算出一个相似矩阵$W$，计算方式如下： W_{i,j}=e^{\frac{-\lVert x_i-x_j\rVert^2}{2\sigma^">
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-08 14:42:07 / 修改时间：17:13:26" itemprop="dateCreated datePublished" datetime="2020-02-08T14:42:07+08:00">2020-02-08</time>
+              <time title="创建时间：2020-02-08 14:42:07 / 修改时间：22:23:06" itemprop="dateCreated datePublished" datetime="2020-02-08T14:42:07+08:00">2020-02-08</time>
             </span>
           
             
@@ -251,7 +251,7 @@
 <script type="math/tex; mode=display">W_{i,j}=e^{\frac{-\lVert x_i-x_j\rVert^2}{2\sigma^2}}</script><p>其中$\sigma$是一个超参数，用来调整顶点之间的相似度大小。计算出矩阵$W$，接着可以计算矩阵$D$，矩阵$D$是一个对角矩阵，且有：</p>
 <script type="math/tex; mode=display">D_{i,i}=\sum_{j}W_{i,j}</script><p>接着可以使用矩阵$W$和矩阵$D$，计算拉普拉斯矩阵$L$：</p>
 <script type="math/tex; mode=display">L = D - W</script><p>为什么要求$L$？首先$L$是半正定的，$L$所有的特征值均大于等于0，其次$L$存在一个特征值等于0，再者$L$满足以下性质：</p>
-<script type="math/tex; mode=display">f^TLf=\frac{1}{2}\sum_{i,j}W_{i,j}(f_i-f_j)^2</script><p>为什么满足这个性质，大家可以自己动笔算算，将$L=D-W$代入化简即可得到上式。现在我们将矩阵$L$看作是一个邻接矩阵，即将$L_{i,j}$看作是顶点$i$和顶点$j$的边权，现在我们想要将顶点划分为$K$类，可以看作是将$L$代表的图划分为$K$个子图，且这$K$个子图之间的边权和尽量小。可以表示为：</p>
+<script type="math/tex; mode=display">f^TLf=\frac{1}{2}\sum_{i,j}W_{i,j}(f_i-f_j)^2</script><p>为什么满足这个性质，大家可以自己动笔算算，将$L=D-W$代入化简即可得到上式。现在我们将矩阵$W$看作是一个图的邻接矩阵，即将$W_{i,j}$看作是顶点$i$和顶点$j$的边权，现在我们想要将顶点划分为$K$类，可以看作是将$W$代表的图划分为$K$个子图，且这$K$个子图之间的边权和尽量小。可以表示为：</p>
 <script type="math/tex; mode=display">\min\frac{1}{2}\sum_{k}cut(A_k,\hat{A_k})</script><p>其中$A_k$表示第$k$类集合的顶点，$\hat{A_k}$表示除第$k$类集合外的其他顶点，$cut$表示求第第$k$类集合顶点和其他集合顶点的切割，即边权和。但是求这个式子的最小值有个问题就是容易将1个顶点归为1个集合，我们希望一个集合内部的顶点数尽量多，所以可以改进目标函数为：</p>
 <script type="math/tex; mode=display">\min\frac{1}{2}\sum_{k}\frac{cut(A_k,\hat{A_k})}{vol(A_k)}</script><script type="math/tex; mode=display">vol(A_k)=\sum_iD_{i,i}I(v_i\in A_k)</script><p>这表明，一个集合内部顶点数越多，则分母越大，所以目标函数值也会少，算是一种对顶点数大的奖励。现在我们对每一类集合构造一个向量$h_k$：</p>
 <script type="math/tex; mode=display">h_{k,i}=
