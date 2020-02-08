@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="1. 什么是谱聚类谱聚类算法是一种聚类算法，算法思想是首先将样本特征降维，然后对降维后的样本采用其他聚类算法进行聚类。 2. 如何求解由于谱聚类算法有几种版本，这里讲解最常用的版本。已知有$N$个样本，每个样本都有一个$M$维向量$x_i$，则可以对这些样本计算出一个相似矩阵$W$，计算方式如下： W_{i,j}=e^{\frac{-\lVert x_i-x_j\rVert^2}{2\sigma^">
-<meta name="keywords" content="机器学习">
+  <meta name="description" content="1. 什么是图卷积神经网络卷积神经网络（CNN）是深度学习中使用最频繁的神经网络之一，但它存在一个缺陷，就是它只能处理欧几里得空间内的图结构而不能处理更一般的图结构。针对这一缺陷，人们提出了能处理更一般图结构的卷积神经网络，称为图卷积神经网络（GCN）。当存在一个图结构，图有$N$个顶点，$M$条边组成，此时一般的卷积神经网络无法在此发挥作用，需要用到图卷积神经网络。 2. 如何求解图卷积神经网络">
+<meta name="keywords" content="机器学习, 深度学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="谱聚类算法原理">
-<meta property="og:url" content="http://yoursite.com/2020/02/08/谱聚类算法原理/index.html">
+<meta property="og:title" content="图卷积神经网络（GCN）">
+<meta property="og:url" content="http://yoursite.com/2020/02/08/图卷积神经网络（GCN）/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 什么是谱聚类谱聚类算法是一种聚类算法，算法思想是首先将样本特征降维，然后对降维后的样本采用其他聚类算法进行聚类。 2. 如何求解由于谱聚类算法有几种版本，这里讲解最常用的版本。已知有$N$个样本，每个样本都有一个$M$维向量$x_i$，则可以对这些样本计算出一个相似矩阵$W$，计算方式如下： W_{i,j}=e^{\frac{-\lVert x_i-x_j\rVert^2}{2\sigma^">
+<meta property="og:description" content="1. 什么是图卷积神经网络卷积神经网络（CNN）是深度学习中使用最频繁的神经网络之一，但它存在一个缺陷，就是它只能处理欧几里得空间内的图结构而不能处理更一般的图结构。针对这一缺陷，人们提出了能处理更一般图结构的卷积神经网络，称为图卷积神经网络（GCN）。当存在一个图结构，图有$N$个顶点，$M$条边组成，此时一般的卷积神经网络无法在此发挥作用，需要用到图卷积神经网络。 2. 如何求解图卷积神经网络">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-08T09:13:26.450Z">
+<meta property="og:updated_time" content="2020-02-08T14:00:31.546Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="谱聚类算法原理">
-<meta name="twitter:description" content="1. 什么是谱聚类谱聚类算法是一种聚类算法，算法思想是首先将样本特征降维，然后对降维后的样本采用其他聚类算法进行聚类。 2. 如何求解由于谱聚类算法有几种版本，这里讲解最常用的版本。已知有$N$个样本，每个样本都有一个$M$维向量$x_i$，则可以对这些样本计算出一个相似矩阵$W$，计算方式如下： W_{i,j}=e^{\frac{-\lVert x_i-x_j\rVert^2}{2\sigma^">
-  <link rel="canonical" href="http://yoursite.com/2020/02/08/谱聚类算法原理/">
+<meta name="twitter:title" content="图卷积神经网络（GCN）">
+<meta name="twitter:description" content="1. 什么是图卷积神经网络卷积神经网络（CNN）是深度学习中使用最频繁的神经网络之一，但它存在一个缺陷，就是它只能处理欧几里得空间内的图结构而不能处理更一般的图结构。针对这一缺陷，人们提出了能处理更一般图结构的卷积神经网络，称为图卷积神经网络（GCN）。当存在一个图结构，图有$N$个顶点，$M$条边组成，此时一般的卷积神经网络无法在此发挥作用，需要用到图卷积神经网络。 2. 如何求解图卷积神经网络">
+  <link rel="canonical" href="http://yoursite.com/2020/02/08/图卷积神经网络（GCN）/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>谱聚类算法原理 | Hexo</title>
+  <title>图卷积神经网络（GCN） | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/08/谱聚类算法原理/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/08/图卷积神经网络（GCN）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">谱聚类算法原理
+          <h1 class="post-title" itemprop="name headline">图卷积神经网络（GCN）
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-08 14:42:07 / 修改时间：17:13:26" itemprop="dateCreated datePublished" datetime="2020-02-08T14:42:07+08:00">2020-02-08</time>
+              <time title="创建时间：2020-02-08 20:11:50 / 修改时间：22:00:31" itemprop="dateCreated datePublished" datetime="2020-02-08T20:11:50+08:00">2020-02-08</time>
             </span>
           
             
@@ -246,24 +246,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-什么是谱聚类"><a href="#1-什么是谱聚类" class="headerlink" title="1. 什么是谱聚类"></a>1. 什么是谱聚类</h2><p>谱聚类算法是一种聚类算法，算法思想是首先将样本特征降维，然后对降维后的样本采用其他聚类算法进行聚类。</p>
-<h2 id="2-如何求解"><a href="#2-如何求解" class="headerlink" title="2. 如何求解"></a>2. 如何求解</h2><p>由于谱聚类算法有几种版本，这里讲解最常用的版本。已知有$N$个样本，每个样本都有一个$M$维向量$x_i$，则可以对这些样本计算出一个相似矩阵$W$，计算方式如下：</p>
-<script type="math/tex; mode=display">W_{i,j}=e^{\frac{-\lVert x_i-x_j\rVert^2}{2\sigma^2}}</script><p>其中$\sigma$是一个超参数，用来调整顶点之间的相似度大小。计算出矩阵$W$，接着可以计算矩阵$D$，矩阵$D$是一个对角矩阵，且有：</p>
-<script type="math/tex; mode=display">D_{i,i}=\sum_{j}W_{i,j}</script><p>接着可以使用矩阵$W$和矩阵$D$，计算拉普拉斯矩阵$L$：</p>
-<script type="math/tex; mode=display">L = D - W</script><p>为什么要求$L$？首先$L$是半正定的，$L$所有的特征值均大于等于0，其次$L$存在一个特征值等于0，再者$L$满足以下性质：</p>
-<script type="math/tex; mode=display">f^TLf=\frac{1}{2}\sum_{i,j}W_{i,j}(f_i-f_j)^2</script><p>为什么满足这个性质，大家可以自己动笔算算，将$L=D-W$代入化简即可得到上式。现在我们将矩阵$L$看作是一个邻接矩阵，即将$L_{i,j}$看作是顶点$i$和顶点$j$的边权，现在我们想要将顶点划分为$K$类，可以看作是将$L$代表的图划分为$K$个子图，且这$K$个子图之间的边权和尽量小。可以表示为：</p>
-<script type="math/tex; mode=display">\min\frac{1}{2}\sum_{k}cut(A_k,\hat{A_k})</script><p>其中$A_k$表示第$k$类集合的顶点，$\hat{A_k}$表示除第$k$类集合外的其他顶点，$cut$表示求第第$k$类集合顶点和其他集合顶点的切割，即边权和。但是求这个式子的最小值有个问题就是容易将1个顶点归为1个集合，我们希望一个集合内部的顶点数尽量多，所以可以改进目标函数为：</p>
-<script type="math/tex; mode=display">\min\frac{1}{2}\sum_{k}\frac{cut(A_k,\hat{A_k})}{vol(A_k)}</script><script type="math/tex; mode=display">vol(A_k)=\sum_iD_{i,i}I(v_i\in A_k)</script><p>这表明，一个集合内部顶点数越多，则分母越大，所以目标函数值也会少，算是一种对顶点数大的奖励。现在我们对每一类集合构造一个向量$h_k$：</p>
-<script type="math/tex; mode=display">h_{k,i}=
-\begin{cases}
-\frac{1}{\sqrt{vol(A_k)}},v_i\in A_k \\
-0,v_i\notin A_k \\
-\end{cases}</script><p>可以看到不同集合向量间是正交的，因为每个点只会在一个集合中，即如果向量$h_{k,i}\ne 0$，则其他向量$h_{j,i}=0$。而且还有这样一条性质：</p>
-<script type="math/tex; mode=display">h_k^TDh_k=1</script><script type="math/tex; mode=display">==> H^TDH=I</script><p>然后还有下面一条重要的性质：</p>
-<script type="math/tex; mode=display">h_k^TLh_k=(H^TLH)_{k,k}=\frac{cut(A_k,\hat{A_k})}{vol(A_k)}</script><script type="math/tex; mode=display">==>Tr(H^TLH)=\sum_{k}\frac{cut(A_k,\hat{A_k})}{vol(A_k)}</script><p>所以现在问题等价于求：</p>
-<script type="math/tex; mode=display">\min{Tr(H^TLH)}</script><script type="math/tex; mode=display">st. H^TDH=I</script><p>设$H=D^{-\frac{1}{2}}F$，则问题可以转换成：</p>
-<script type="math/tex; mode=display">\min{Tr(F^TD^{-\frac{1}{2}}LD^{-\frac{1}{2}}F)}</script><script type="math/tex; mode=display">st. F^TF=I</script><p>其中，$D^{-\frac{1}{2}}LD^{-\frac{1}{2}}$是标准化的拉普拉斯矩阵。现在我们需要求$F$中的每一列$f$，如果$f$是矩阵$D^{-\frac{1}{2}}LD^{-\frac{1}{2}}$的特征向量，那么有：</p>
-<script type="math/tex; mode=display">f^TD^{-\frac{1}{2}}LD^{-\frac{1}{2}}f=\lambda</script><p>$\lambda$是特征值。很容易证明当$f$是特征值最小的向量时，其对应的特征值是上式的最小值解，当$f$是特征值最大的向量时，其对应的特征值是上式的最大值解。现在我们要求最小解，所以可以利用贪心算法的思路，向将特征值最小的特征向量作为矩阵$F$的第一列，特征值第二小的特征向量作为矩阵$F$的第二列，特征值第$k$小的特征向量作为矩阵$F$的第$k$列。照着这个思路求出来的矩阵$F$恰好又可以满足$F^TF=I$这个约束。假设我们求出了最标准最正确的解，现在看$H$矩阵的每一行，每一行代表样本属于哪一类，所以只有一个元素不为0，其他都等于0，对应到矩阵$F$也是一样的。如果直接使用矩阵$F$的每一行的向量代表样本，则聚类是容易的，因为每个样本的向量只有一个元素有值，将有值的归为一类即可。我们可以先对矩阵$F$的每一行标准化为只有一个元素为1，然后使用其他聚类算法对这些样本进行聚类。需要注意的是，上面矩阵$F$每一行只有一个元素有值，是在标准解的条件下才会成立的，我们使用特征向量作为解，特征向量组成的矩阵在每一行可能并不止一个元素不为0，所以这种方法只是一个近似解。现在总结一下谱聚类的算法步骤：<br>(1) 构造相似矩阵$W$。<br>(2) 根据$W$,求出矩阵$D$。<br>(3) 根据$W$和$D$，求出拉普拉斯矩阵$L$。<br>(4) 标准化拉普拉斯矩阵$D^{-\frac{1}{2}}LD^{-\frac{1}{2}}$。<br>(5) 对标准化拉普拉斯矩阵求出特征值前$k$小的特征向量组成矩阵$F$。<br>(6) 对矩阵$F$的每一行进行标准化。<br>(7) 矩阵$F$的每一行对应一个样本的向量，使用其他聚类算法使用这些向量进行聚类。</p>
+        <h2 id="1-什么是图卷积神经网络"><a href="#1-什么是图卷积神经网络" class="headerlink" title="1. 什么是图卷积神经网络"></a>1. 什么是图卷积神经网络</h2><p>卷积神经网络（CNN）是深度学习中使用最频繁的神经网络之一，但它存在一个缺陷，就是它只能处理欧几里得空间内的图结构而不能处理更一般的图结构。针对这一缺陷，人们提出了能处理更一般图结构的卷积神经网络，称为图卷积神经网络（GCN）。当存在一个图结构，图有$N$个顶点，$M$条边组成，此时一般的卷积神经网络无法在此发挥作用，需要用到图卷积神经网络。</p>
+<h2 id="2-如何求解"><a href="#2-如何求解" class="headerlink" title="2. 如何求解"></a>2. 如何求解</h2><p>图卷积神经网络一般有以下的迭代形式：</p>
+<script type="math/tex; mode=display">H_l= \sigma(\hat{D}^{-\frac{1}{2}}\hat{A}\hat{D}^{-\frac{1}{2}}H_{l-1}W_l)</script><p>其中$H_l$表示第$l$层的输出；$\hat{D}$表示$\hat{A}$的度数矩阵；$\hat{A}$表示图的邻接矩阵加上单位矩阵，即$\hat{A}=A+I$；$W_l$是需要学习的参数；$\sigma$是非线性激活函数。这个式子是怎么推导出来的呢？首先有必要知道傅里叶变换与拉普拉斯算子的一些关系以及拉普拉斯算子和拉普拉斯矩阵的关系。我们知道在求函数在空间域的卷积时，可以先将两个函数从空间域变换到频域：</p>
+<script type="math/tex; mode=display">F(w)=\int f(t)e^{-jwt}dt</script><p>在频域上求积，然后作反变换：</p>
+<script type="math/tex; mode=display">f(t)=\int F(w)e^{jwt}dw</script><p>反变换的结果就是两个函数在空间域上的卷积。然后我们还知道拉普拉斯算子$\Delta$作用到一个函数时有：</p>
+<script type="math/tex; mode=display">\Delta f=\sum_{i}\frac{\partial^2 f}{\partial x_i^2}</script><p>我们可以发现，当拉普拉斯算子作用于频率域的基时，有下式：</p>
+<script type="math/tex; mode=display">\Delta e^{jwt}=\frac{\partial^2}{\partial t^2}e^{jwt}=-w^2e^{jwt}=\lambda e^{jwt}</script><p>这可以看作频率域的基函数是拉普拉斯算子的特征函数。现在我们看图的拉普拉斯矩阵，我们知道图的拉普拉斯矩阵$L$由下面式子表示：</p>
+<script type="math/tex; mode=display">L=D-A</script><p>其中$A$是图的邻接矩阵，$D$是$A$的度数矩阵。我们认为这是拉普拉斯算子作用于图结构得到的结果，我们可以认为拉普拉斯算子作用于不同的对象有不同的表现，比如作用于函数就是求分量的二阶导，作用于图就是求图的拉普拉斯矩阵，这是因为图的梯度与散度和函数的梯度与散度表现形式不同以及拉普拉斯算子本质是求梯度的散度决定的。在函数域上，我们有：</p>
+<script type="math/tex; mode=display">\Delta f=\Delta\int_w F(w)e^{jwt}dt=\int_wF(w)\Delta e^{jwt}dt=\int_w\lambda_wF(w)e^{jwt}dt</script><p>所以在图$G$上，我们也有：</p>
+<script type="math/tex; mode=display">\Delta G=L=\sum_i \lambda_iu_i</script><p>其中$u_i$是拉普拉斯矩阵$L$的特征向量。在函数域中，我们使用$e^{jwt}$作为基底，将函数转换到频率域。在图中，我们也可以使用特征向量集合$u_i$作为基底，将向量转换到该基底的域中。已知向量$x$，求其转换到$u_i$基底的线性组合，公式为：</p>
+<script type="math/tex; mode=display">\hat{x}=\sum_iu_i^*x_i=U^Tx</script><p>其中$u^*$表示向量$u$的共轭，我们默认特征向量都是实数。从$\hat{x}$反变换$x$的公式为：</p>
+<script type="math/tex; mode=display">x=\sum_iu_i\hat{x}_i=U\hat{x}</script><p>所以如果现在有矩阵$X$表示图的特征，$H$是卷积核，则$X$与$H$的卷积可以用下式表示：</p>
+<script type="math/tex; mode=display">H*X=U(U^TH\odot U^TX)</script><p>$\odot$是求哈达玛积，然后人们又对上式进行一系列的化简，比如将哈达玛积转换成矩阵乘法，近似求解$U$等等，最终得到了下面的形式：</p>
+<script type="math/tex; mode=display">H*X= \hat{D}^{-\frac{1}{2}}\hat{A}\hat{D}^{-\frac{1}{2}}XW</script><p>其中$W$与卷积核$H$相关，所以可以通过学习与更新$W$来间接更新卷积核$H$。加上激活函数，用$H_l$表示第$l$层的特征，则可以得到图卷积网络的式子：</p>
+<script type="math/tex; mode=display">H_l= \sigma(\hat{D}^{-\frac{1}{2}}\hat{A}\hat{D}^{-\frac{1}{2}}H_{l-1}W_l)</script><p>在图卷积网络中，每一层可以使用同一个卷积核，即每一层的参数$W_l$是相同的，也可以使用不同的卷积核，即每一层的参数$W_l$是不同的。</p>
 
     </div>
 
@@ -275,13 +272,13 @@
           
         
         <div class="post-tags">
-            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+            <a href="/tags/机器学习-深度学习/" rel="tag"># 机器学习, 深度学习</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/07/Bagging（随机森林）和Boosting（AdaBoost）/" rel="next" title="Bagging（随机森林）和Boosting（AdaBoost）">
-                <i class="fa fa-chevron-left"></i> Bagging（随机森林）和Boosting（AdaBoost）
+              <a href="/2020/02/08/谱聚类算法原理/" rel="next" title="谱聚类算法原理">
+                <i class="fa fa-chevron-left"></i> 谱聚类算法原理
               </a>
             
           </div>
@@ -289,10 +286,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/08/图卷积神经网络（GCN）/" rel="prev" title="图卷积神经网络（GCN）">
-                图卷积神经网络（GCN） <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -380,7 +373,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是谱聚类"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是谱聚类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-如何求解"><span class="nav-number">2.</span> <span class="nav-text">2. 如何求解</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是图卷积神经网络"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是图卷积神经网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-如何求解"><span class="nav-number">2.</span> <span class="nav-text">2. 如何求解</span></a></li></ol></div>
             
 
           </div>
