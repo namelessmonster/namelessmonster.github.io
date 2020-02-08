@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="朴素贝叶斯1. 什么是朴素贝叶斯朴素贝叶斯是一个生成模型，用于分类任务。什么是生成模型？假设数据集$\{X,Y\}$是从一个概率分布$P(X,Y)$中抽取得到的，那么只要我们知道这个分布，就可以掌握这个数据集的规律。所以生成模型的任务就是要求出这个分布，知道这个数据集是怎么生成的。一句话概括就是生成模型是使用数据集总结出生成该数据集的几个概率分布。 前面提到朴素贝叶斯是一个生成模型，这个方法通过求">
+  <meta name="description" content="1. 什么是谱聚类谱聚类算法是一种聚类算法，算法思想是首先将样本特征降维，然乎对降维后的样本采用其他聚类算法进行聚类。 2. 如何求解由于谱聚类算法有几种版本，这里讲解最常用的版本。已知有$N$个样本，每个样本都有一个$M$维向量$x_i$，则可以对这些样本计算出一个相似矩阵$W$，计算方式如下： W_{i,j}=e^{\frac{-\lVert x_i-x_j\rVert^2}{2\sigma^">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="朴素贝叶斯和逻辑回归">
-<meta property="og:url" content="http://yoursite.com/2020/02/06/逻辑回归和朴素贝叶斯/index.html">
+<meta property="og:title" content="谱聚类算法原理">
+<meta property="og:url" content="http://yoursite.com/2020/02/08/谱聚类算法原理/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="朴素贝叶斯1. 什么是朴素贝叶斯朴素贝叶斯是一个生成模型，用于分类任务。什么是生成模型？假设数据集$\{X,Y\}$是从一个概率分布$P(X,Y)$中抽取得到的，那么只要我们知道这个分布，就可以掌握这个数据集的规律。所以生成模型的任务就是要求出这个分布，知道这个数据集是怎么生成的。一句话概括就是生成模型是使用数据集总结出生成该数据集的几个概率分布。 前面提到朴素贝叶斯是一个生成模型，这个方法通过求">
+<meta property="og:description" content="1. 什么是谱聚类谱聚类算法是一种聚类算法，算法思想是首先将样本特征降维，然乎对降维后的样本采用其他聚类算法进行聚类。 2. 如何求解由于谱聚类算法有几种版本，这里讲解最常用的版本。已知有$N$个样本，每个样本都有一个$M$维向量$x_i$，则可以对这些样本计算出一个相似矩阵$W$，计算方式如下： W_{i,j}=e^{\frac{-\lVert x_i-x_j\rVert^2}{2\sigma^">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-06T13:33:30.085Z">
+<meta property="og:updated_time" content="2020-02-08T08:58:04.726Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="朴素贝叶斯和逻辑回归">
-<meta name="twitter:description" content="朴素贝叶斯1. 什么是朴素贝叶斯朴素贝叶斯是一个生成模型，用于分类任务。什么是生成模型？假设数据集$\{X,Y\}$是从一个概率分布$P(X,Y)$中抽取得到的，那么只要我们知道这个分布，就可以掌握这个数据集的规律。所以生成模型的任务就是要求出这个分布，知道这个数据集是怎么生成的。一句话概括就是生成模型是使用数据集总结出生成该数据集的几个概率分布。 前面提到朴素贝叶斯是一个生成模型，这个方法通过求">
-  <link rel="canonical" href="http://yoursite.com/2020/02/06/逻辑回归和朴素贝叶斯/">
+<meta name="twitter:title" content="谱聚类算法原理">
+<meta name="twitter:description" content="1. 什么是谱聚类谱聚类算法是一种聚类算法，算法思想是首先将样本特征降维，然乎对降维后的样本采用其他聚类算法进行聚类。 2. 如何求解由于谱聚类算法有几种版本，这里讲解最常用的版本。已知有$N$个样本，每个样本都有一个$M$维向量$x_i$，则可以对这些样本计算出一个相似矩阵$W$，计算方式如下： W_{i,j}=e^{\frac{-\lVert x_i-x_j\rVert^2}{2\sigma^">
+  <link rel="canonical" href="http://yoursite.com/2020/02/08/谱聚类算法原理/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>朴素贝叶斯和逻辑回归 | Hexo</title>
+  <title>谱聚类算法原理 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/06/逻辑回归和朴素贝叶斯/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/08/谱聚类算法原理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">朴素贝叶斯和逻辑回归
+          <h1 class="post-title" itemprop="name headline">谱聚类算法原理
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-06 15:22:42 / 修改时间：21:33:30" itemprop="dateCreated datePublished" datetime="2020-02-06T15:22:42+08:00">2020-02-06</time>
+              <time title="创建时间：2020-02-08 14:42:07 / 修改时间：16:58:04" itemprop="dateCreated datePublished" datetime="2020-02-08T14:42:07+08:00">2020-02-08</time>
             </span>
           
             
@@ -246,21 +246,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="朴素贝叶斯"><a href="#朴素贝叶斯" class="headerlink" title="朴素贝叶斯"></a>朴素贝叶斯</h2><h3 id="1-什么是朴素贝叶斯"><a href="#1-什么是朴素贝叶斯" class="headerlink" title="1. 什么是朴素贝叶斯"></a>1. 什么是朴素贝叶斯</h3><p>朴素贝叶斯是一个生成模型，用于分类任务。什么是生成模型？假设数据集$\{X,Y\}$是从一个概率分布$P(X,Y)$中抽取得到的，那么只要我们知道这个分布，就可以掌握这个数据集的规律。所以生成模型的任务就是要求出这个分布，知道这个数据集是怎么生成的。一句话概括就是生成模型是使用数据集总结出生成该数据集的几个概率分布。</p>
-<p>前面提到朴素贝叶斯是一个生成模型，这个方法通过求出$P(X)$，$P(Y)$和$P(X|Y)$，使用贝叶斯公式：</p>
-<script type="math/tex; mode=display">P(Y|X)=\frac{P(Y)P(X|Y)}{P(X)}</script><p>求出关于$Y$的后验概率，通过这个后验概率确定$X$的类别。朴素贝叶斯的朴素之处在于这个方法假设条件概率$P(X|Y)=P(x_1,x_2,…,x_n|Y)$的各个特征是相互独立的，即：</p>
-<script type="math/tex; mode=display">P(X|Y)=P(x_1|Y)P(x_2|Y)...P(x_n|Y)</script><p>总而言之，朴素贝叶斯根据$P(X)$，$P(Y)$和$P(X|Y)$，使用贝叶斯公式求出后验概率$P(Y|X)$，从该后验概率中选出概率最大的Y作为X的分类结果。</p>
-<h3 id="2-如何求解"><a href="#2-如何求解" class="headerlink" title="2. 如何求解"></a>2. 如何求解</h3><p>朴素贝叶斯要求求出$P(X)$，$P(Y)$和$P(X|Y)$，那么这几个概率分布应该怎么求呢？最简单的想法就是直接从数据集中进行统计，使用统计结果作为这些概率分布的近似值。而朴素贝叶斯也正是使用这种方法，但是使用数据集的统计量作为概率分布的近似这种做法需要数据量比较大，近似结果才会相对较好，所以朴素贝叶斯一般用于数据量较大的场景。</p>
-<h2 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h2><h3 id="1-什么是逻辑回归"><a href="#1-什么是逻辑回归" class="headerlink" title="1. 什么是逻辑回归"></a>1. 什么是逻辑回归</h3><p>逻辑回归是一个判别模型，主要用于二分类任务。什么是判别模型？已知一个数据样本$X$，现在需要从后验概率$P(Y|X)$中选出概率最大的$Y$作为样本$X$的分类结果。那么判别模型就是直接对$F(X)=P(Y|X)$进行建模，每当输入一个样本$X$，将该样本送入判别模型$F(X)$，得到的输出就是后验概率分布$P(Y|X)$。与生成模型不同，判别模型不需要知道$P(X)$，$P(Y)$和$P(X|Y)$，所以判别模型需要知道的细节比生成模型少。</p>
-<p>前面提到逻辑回归是一个判别模型，且主要用于二分类任务。很多人就会问，逻辑回归名字里面的回归难道不是指这个方法用于回归任务吗？逻辑回归的回归主要是解释了这个方法与线性回归存在一定的联系，实际上，逻辑回归如果没有了sigmoid函数，与线性回归就是等价的。</p>
-<p>在使用线性回归处理回归任务时，数据特征是$X={x_1,x_2,…,x_n}$，数据观测值是$Y$，模型参数是$\Theta={\theta_1,\theta_2,…,\theta_n}$，则线性回归主要是要学习模型参数$\Theta$使得：</p>
-<script type="math/tex; mode=display">\sum_{i=1}^m{(Y_i-X_i\cdot \Theta)^2}</script><p>最小，这里$m$是指数据集样本数。当$Y$是离散值，即这是一个分类任务时，如果继续使用线性回归去莽是行不通的。所以这里就提出了逻辑回归的方法。逻辑回归很简单，就是在线性回归的结果上再加一个激活函数，这个激活函数就是sigmoid函数：</p>
-<script type="math/tex; mode=display">Z_i=\frac{1}{1+e^{-X_i\cdot \Theta}}</script><p>其中$Z_i \in (0,1)$。我们将$Z_i$看作是将$X_i$归到类别$1$的概率，则$X_i$归到类别$0$的概率为$1-Z_i$。如果$Y_i=1$，那么我们希望$Z_i$尽量大，如果$Y_i=0$，那么我们希望$1-Z_i$尽量大，我们可以使用一条公式将两者结合在一起：</p>
-<script type="math/tex; mode=display">Q_i=Z_i^{Y_i}\cdot (1-Z_i)^{1-Y_i}</script><p>对这条公式你们品，你们细品，是不是有那么一点味道了。如果将$Z_i$看作是伯努利分布的概率值，那么上式就是求这个伯努利分布的期望了。逻辑回归要求：</p>
-<script type="math/tex; mode=display">\prod_{i=1}^m Q_i</script><p>最大，等价于要求：</p>
-<script type="math/tex; mode=display">\sum_{i=1}^m \ln{Q_i}=\sum_{i=1}^m \{ Y_i\ln Z_i + (1-Y_i)\ln(1-Z_i)\}</script><p>最大。使得上式最大化的模型参数$\Theta$就是关于逻辑回归方法的解了。</p>
-<h3 id="2-如何求解-1"><a href="#2-如何求解-1" class="headerlink" title="2. 如何求解"></a>2. 如何求解</h3><p>要求得逻辑回归模型的最优模型参数$\Theta$，一般采用梯度下降的方法，或者是一些迭代的求解方法。而求线性回归模型的最优模型参数往往采用最小二乘法一步到位。</p>
-<h3 id="3-为什么是sigmid函数"><a href="#3-为什么是sigmid函数" class="headerlink" title="3. 为什么是sigmid函数"></a>3. 为什么是sigmid函数</h3><p>不知道大家有没有想过，为什么逻辑回归是在线性回归的基础上加上sigmoid函数而不是加上其他函数。如果直接从sigmoid函数的形式上看，我们会觉得很合理，因为将值域$(-\infin,\infin)$映射到了$(0,1)$。但是这种映射函数千千万万为什么偏偏就是sigmoid函数呢？这里总结了几个解释：<br>(1) 根据比值比决定，即假设线性回归求出来的是比值比的对数，即$\ln\frac{P(Y=1|X)}{P(Y=0|X)}$，通过比值比的对数映射回概率$P(Y=1|X)$，这个映射函数就是sigmoid函数。<br>(2) 根据最大熵原理决定，不作具体推导，这种解释的最大问题是特征函数的设计。<br>(3) 由贝叶斯原理得到，假设$P(X|Y)$服从高斯分布，通过贝叶斯公式求得$P(Y|X)$需要经过一个sigmoid函数的映射。<br>(4) 由$P(Y|X)$服从伯努利分布，伯努利分布的指数族分布形式以及广义线性模型，可以推导出sigmoid函数。</p>
+        <h2 id="1-什么是谱聚类"><a href="#1-什么是谱聚类" class="headerlink" title="1. 什么是谱聚类"></a>1. 什么是谱聚类</h2><p>谱聚类算法是一种聚类算法，算法思想是首先将样本特征降维，然乎对降维后的样本采用其他聚类算法进行聚类。</p>
+<h2 id="2-如何求解"><a href="#2-如何求解" class="headerlink" title="2. 如何求解"></a>2. 如何求解</h2><p>由于谱聚类算法有几种版本，这里讲解最常用的版本。已知有$N$个样本，每个样本都有一个$M$维向量$x_i$，则可以对这些样本计算出一个相似矩阵$W$，计算方式如下：</p>
+<script type="math/tex; mode=display">W_{i,j}=e^{\frac{-\lVert x_i-x_j\rVert^2}{2\sigma^2}}</script><p>其中$\sigma$是一个超参数，用来调整顶点之间的相似度大小。计算出矩阵$W$，接着可以计算矩阵$D$，矩阵$D$是一个对角矩阵，且有：</p>
+<script type="math/tex; mode=display">D_{i,i}=\sum_{j}W_{i,j}</script><p>接着可以使用矩阵$W$和矩阵$D$，计算拉普拉斯矩阵$L$：</p>
+<script type="math/tex; mode=display">L = D - W</script><p>为什么要求$L$？首先$L$是半正定的，$L$所有的特征值均大于等于0，其次$L$存在一个特征值等于0，再者$L$满足以下性质：</p>
+<script type="math/tex; mode=display">f^TLf=\frac{1}{2}\sum_{i,j}W_{i,j}(f_i-f_j)^2</script><p>为什么满足这个性质，大家可以自己动笔算算，将$L=D-W$代入化简即可得到上式。现在我们将矩阵$L$看作是一个邻接矩阵，即将$L_{i,j}$看作是顶点$i$和顶点$j$的边权，现在我们想要将顶点划分为$K$类，可以看作是将$L$代表的图划分为$K$个子图，且这$K$个子图之间的边权和尽量小。可以表示为：</p>
+<script type="math/tex; mode=display">\min\frac{1}{2}\sum_{k}cut(A_k,\hat{A_k})</script><p>其中$A_k$表示第$k$类集合的顶点，$\hat{A_k}$表示除第$k$类集合外的其他顶点，$cut$表示求第第$k$类集合顶点和其他集合顶点的切割，即边权和。但是求这个式子的最小值有个问题就是容易将1个顶点归为1个集合，我们希望一个集合内部的顶点数尽量多，所以可以改进目标函数为：</p>
+<script type="math/tex; mode=display">\min\frac{1}{2}\sum_{k}\frac{cut(A_k,\hat{A_k})}{vol(A_k)}</script><script type="math/tex; mode=display">vol(A_k)=\sum_iD_{i,i}I(v_i\in A_k)</script><p>这表明，一个集合内部顶点数越多，则分母越大，所以目标函数值也会少，算是一种对顶点数大的奖励。现在我们对每一类集合构造一个向量$h_k$：</p>
+<script type="math/tex; mode=display">h_{k,i}=
+\begin{cases}
+\frac{1}{\sqrt{vol(A_k)}},v_i\in A_k \\
+0,v_i\notin A_k \\
+\end{cases}</script><p>可以看到不同集合向量间是正交的，因为每个点只会在一个集合中，即如果向量$h_{k,i}\ne 0$，则其他向量$h_{j,i}=0$。而且还有这样一条性质：</p>
+<script type="math/tex; mode=display">h_k^TDh_k=1</script><script type="math/tex; mode=display">==> H^TDH=I</script><p>然后还有下面一条重要的性质：</p>
+<script type="math/tex; mode=display">h_k^TLh_k=(H^TLH)_{k,k}=\frac{cut(A_k,\hat{A_k})}{vol(A_k)}</script><script type="math/tex; mode=display">==>Tr(H^TLH)=\sum_{k}\frac{cut(A_k,\hat{A_k})}{vol(A_k)}</script><p>所以现在问题等价于求：</p>
+<script type="math/tex; mode=display">\min{Tr(H^TLH)}</script><script type="math/tex; mode=display">st. H^TDH=I</script><p>设$H=D^{-\frac{1}{2}}F$，则问题可以转换成：</p>
+<script type="math/tex; mode=display">\min{Tr(F^TD^{-\frac{1}{2}}LD^{-\frac{1}{2}}F)}</script><script type="math/tex; mode=display">st. F^TF=I</script><p>其中，$D^{-\frac{1}{2}}LD^{-\frac{1}{2}}$是标准化的拉普拉斯矩阵。现在我们需要求$F$中的每一列$f$，如果$f$是矩阵$D^{-\frac{1}{2}}LD^{-\frac{1}{2}}$的特征向量，那么有：</p>
+<script type="math/tex; mode=display">f^TD^{-\frac{1}{2}}LD^{-\frac{1}{2}}f=\lambda</script><p>$\lambda$是特征值。很容易证明当$f$是特征值最小的向量时，其对应的特征值是上式的最小值解，当$f$是特征值最大的向量时，其对应的特征值是上式的最大值解。现在我们要求最小解，所以可以利用贪心算法的思路，向将特征值最小的特征向量作为矩阵$F$的第一列，特征值第二小的特征向量作为矩阵$F$的第二列，特征值第$k$小的特征向量作为矩阵$F$的第$k$列。照着这个思路求出来的矩阵$F$恰好又可以满足$F^TF=I$这个约束。假设我们求出了最标准最正确的解，现在看$H$矩阵的每一行，每一行代表样本属于哪一类，所以只有一个元素不为0，其他都等于0，对应到矩阵$F$也是一样的。如果直接使用矩阵$F$的每一行的向量代表样本，则聚类是容易的，因为每个样本的向量只有一个元素有值，将有值的归为一类即可。我们可以先对矩阵$F$的每一行标准化为只有一个元素为1，然后使用其他聚类算法对这些样本进行聚类。需要注意的是，上面矩阵$F$每一行只有一个元素有值，是在标准解的条件下才会成立的，我们使用特征向量作为解，特征向量组成的矩阵在每一行可能并不止一个元素不为0，所以这种方法只是一个近似解。现在总结一下谱聚类的算法步骤：</p>
+<ol>
+<li>构造相似矩阵$W$</li>
+<li>根据$W$,，求出矩阵$D$</li>
+<li>根据$W$和$D$，求出拉普拉斯矩阵$L$</li>
+<li>标准化拉普拉斯矩阵$D^{-\frac{1}{2}}LD^{-\frac{1}{2}}$</li>
+<li>对标准化拉普拉斯矩阵求出特征值前$k$小的特征向量组成矩阵$F$</li>
+<li>对矩阵$F$的每一行进行标准化</li>
+<li>矩阵$F$的每一行对应一个样本的向量，使用其他聚类算法使用这些向量进行聚类</li>
+</ol>
+<p>以上就是整个谱聚类算法的流程。</p>
 
     </div>
 
@@ -277,15 +290,15 @@
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+              <a href="/2020/02/07/Bagging（随机森林）和Boosting（AdaBoost）/" rel="next" title="Bagging（随机森林）和Boosting（AdaBoost）">
+                <i class="fa fa-chevron-left"></i> Bagging（随机森林）和Boosting（AdaBoost）
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/07/SVM原理与推导/" rel="prev" title="SVM原理与推导">
-                SVM原理与推导 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -371,7 +384,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#朴素贝叶斯"><span class="nav-number">1.</span> <span class="nav-text">朴素贝叶斯</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-什么是朴素贝叶斯"><span class="nav-number">1.1.</span> <span class="nav-text">1. 什么是朴素贝叶斯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-如何求解"><span class="nav-number">1.2.</span> <span class="nav-text">2. 如何求解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑回归"><span class="nav-number">2.</span> <span class="nav-text">逻辑回归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-什么是逻辑回归"><span class="nav-number">2.1.</span> <span class="nav-text">1. 什么是逻辑回归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-如何求解-1"><span class="nav-number">2.2.</span> <span class="nav-text">2. 如何求解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-为什么是sigmid函数"><span class="nav-number">2.3.</span> <span class="nav-text">3. 为什么是sigmid函数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是谱聚类"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是谱聚类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-如何求解"><span class="nav-number">2.</span> <span class="nav-text">2. 如何求解</span></a></li></ol></div>
             
 
           </div>
