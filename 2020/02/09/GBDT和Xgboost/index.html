@@ -57,18 +57,18 @@
   };
 </script>
 
-  <meta name="description" content="1. 什么是GBDTGBDT又叫梯度提升树，使用CART决策树作为基学习器，利用Boosting的集成思想训练模型。与AdaBoost不同，每轮学习GBDT不会根据训练结果调整样本权重，而是希望求得一个学习器$h_m$使得目标函数达到最小，即： h_m=\argmin_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))已知$F_{m-1}$，则损失函数对$F_{m-1">
+  <meta name="description" content="1. 什么是GBDTGBDT又叫梯度提升树，使用CART决策树作为基学习器，利用Boosting的集成思想训练模型。与AdaBoost不同，每轮学习GBDT不会根据训练结果调整样本权重，而是希望求得一个学习器$h_m$使得目标函数达到最小，即： h_m=arg\min_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))已知$F_{m-1}$，则损失函数对$F_{m-1">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GBDT和Xgboost">
 <meta property="og:url" content="http://yoursite.com/2020/02/09/GBDT和Xgboost/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 什么是GBDTGBDT又叫梯度提升树，使用CART决策树作为基学习器，利用Boosting的集成思想训练模型。与AdaBoost不同，每轮学习GBDT不会根据训练结果调整样本权重，而是希望求得一个学习器$h_m$使得目标函数达到最小，即： h_m=\argmin_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))已知$F_{m-1}$，则损失函数对$F_{m-1">
+<meta property="og:description" content="1. 什么是GBDTGBDT又叫梯度提升树，使用CART决策树作为基学习器，利用Boosting的集成思想训练模型。与AdaBoost不同，每轮学习GBDT不会根据训练结果调整样本权重，而是希望求得一个学习器$h_m$使得目标函数达到最小，即： h_m=arg\min_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))已知$F_{m-1}$，则损失函数对$F_{m-1">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-09T08:53:26.934Z">
+<meta property="og:updated_time" content="2020-02-09T09:12:08.142Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GBDT和Xgboost">
-<meta name="twitter:description" content="1. 什么是GBDTGBDT又叫梯度提升树，使用CART决策树作为基学习器，利用Boosting的集成思想训练模型。与AdaBoost不同，每轮学习GBDT不会根据训练结果调整样本权重，而是希望求得一个学习器$h_m$使得目标函数达到最小，即： h_m=\argmin_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))已知$F_{m-1}$，则损失函数对$F_{m-1">
+<meta name="twitter:description" content="1. 什么是GBDTGBDT又叫梯度提升树，使用CART决策树作为基学习器，利用Boosting的集成思想训练模型。与AdaBoost不同，每轮学习GBDT不会根据训练结果调整样本权重，而是希望求得一个学习器$h_m$使得目标函数达到最小，即： h_m=arg\min_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))已知$F_{m-1}$，则损失函数对$F_{m-1">
   <link rel="canonical" href="http://yoursite.com/2020/02/09/GBDT和Xgboost/">
 
 
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-09 11:43:16 / 修改时间：16:53:26" itemprop="dateCreated datePublished" datetime="2020-02-09T11:43:16+08:00">2020-02-09</time>
+              <time title="创建时间：2020-02-09 11:43:16 / 修改时间：17:12:08" itemprop="dateCreated datePublished" datetime="2020-02-09T11:43:16+08:00">2020-02-09</time>
             </span>
           
             
@@ -247,13 +247,14 @@
 
       
         <h2 id="1-什么是GBDT"><a href="#1-什么是GBDT" class="headerlink" title="1. 什么是GBDT"></a>1. 什么是GBDT</h2><p>GBDT又叫梯度提升树，使用CART决策树作为基学习器，利用Boosting的集成思想训练模型。与AdaBoost不同，每轮学习GBDT不会根据训练结果调整样本权重，而是希望求得一个学习器$h_m$使得目标函数达到最小，即：</p>
-<script type="math/tex; mode=display">h_m=\argmin_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))</script><p>已知$F_{m-1}$，则损失函数对$F_{m-1}$在各个样本的一阶梯度等于：</p>
+<script type="math/tex; mode=display">h_m=arg\min_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))</script><p>已知$F_{m-1}$，则损失函数对$F_{m-1}$在各个样本的一阶梯度等于：</p>
 <script type="math/tex; mode=display">\frac{\partial L(y_i,F_{m-1}(x_i))}{\partial F_{m-1}(x_i)}</script><p>我们知道一个函数关于一个变量的梯度，代表变量可以使得函数有最大上升的方向。而梯度的反方向则代表变量可以使得函数有最大下降的方向。所以要找到一个最佳$h_m$，可以使$h_m(x_i)$尽量接近$-\frac{\partial L(y_i,F_{m-1}(x_i))}{\partial F_{m-1}(x_i)}$，即$h_m$尽量拟合损失函数的负梯度。这就是GBDT的算法思想。在其他博客经常能看到说GBDT的每棵决策树是拟合损失函数的残差，这是不准确的，拟合残差是因为损失函数是均方误差函数，均方误差的一阶梯度几乎等于残差。而实际上GBDT是使每棵决策树去拟合损失函数的负梯度使得损失函数每次都能往降低的方向发展。</p>
 <h2 id="2-如何求解GBDT"><a href="#2-如何求解GBDT" class="headerlink" title="2. 如何求解GBDT"></a>2. 如何求解GBDT</h2><p>(1) 使用CART决策树训练数据，得到第一个基学习器$h_1$<br>(2) 在训练样本上计算损失函数与预测结果的负梯度，使用负梯度更新样本的学习目标<br>(3) 继续使用CART决策树训练数据，得到第二个基学习器$h_2$<br>(4) 在训练样本上计算损失函数与两个学习器求和后的预测结果的负梯度，使用负梯度更新样本的学习目标<br>(5) 重复(3)(4)步骤，直到达到训练结束条件<br>(6) 将各个学习器的预测结果求和，有时可以将各个学习器的预测结果乘上一个系数，这个系数表示学习率</p>
 <h2 id="3-什么是Xgboost"><a href="#3-什么是Xgboost" class="headerlink" title="3. 什么是Xgboost"></a>3. 什么是Xgboost</h2><p>Xgboost使用下式作为目标函数：</p>
 <script type="math/tex; mode=display">Obj = \sum_iL(y_i,F_{m-1}(x_i)+f_m(x_i))+\Omega(F_{m-1})+\Omega(f_m)</script><p>其中$\Omega$表示正则项，一般而言有下式：</p>
 <script type="math/tex; mode=display">\Omega(f)=\gamma T + \frac{1}{2}\lambda\lVert\omega\rVert^2</script><p>其中$T$表示决策树集合$f$的叶子节点数，而$\omega$表示叶子节点的输出。将目标函数进行泰勒展开并近似到二阶项有：</p>
-<script type="math/tex; mode=display">Obj\approx\sum_i\{L(y_i,F_{m-1}(x_i))+\frac{\partial L(y_i,F_{m-1}(x_i))}{\partial F_{m-1}(x_i)}f_m(x_i)+\frac{1}{2}\frac{\partial^2L(y_i,F_{m-1}(x_i))}{\partial F_{m-1}(x_i)^2}f_m(x_i)^2\}+\Omega(F_{m-1})+\Omega(f_m)</script><p>用$g_i$表示一阶导数，$h_i$表示二阶导数，将常数项$L(y_i,F_{m-1}(x_i))$与$\Omega(F_{m-1})$并入$C$，展开$\Omega(f_m)$，则有：</p>
+<script type="math/tex; mode=display">Obj\approx\sum_i\{L(y_i,F_{m-1}(x_i))+\frac{\partial L(y_i,F_{m-1}(x_i))}{\partial F_{m-1}(x_i)}f_m(x_i)+\frac{1}{2}\frac{\partial^2L(y_i,F_{m-1}(x_i))}{\partial F_{m-1}(x_i)^2}f_m(x_i)^2\} \\
++\Omega(F_{m-1})+\Omega(f_m)</script><p>用$g_i$表示一阶导数，$h_i$表示二阶导数，将常数项$L(y_i,F_{m-1}(x_i))$与$\Omega(F_{m-1})$并入$C$，展开$\Omega(f_m)$，则有：</p>
 <script type="math/tex; mode=display">Obj\approx\sum_i\{g_if_m(x_i)+\frac{1}{2}(h_i+\lambda)f_m(x_i)^2\}+C+\gamma T</script><p>已知$f_m$是一棵决策树，且有$T$个叶子节点，第$t$个叶子节点的权重为$w_t$，则上式可以变为：</p>
 <script type="math/tex; mode=display">Obj\approx\sum_t\{w_t\sum_ig_iI(x_i\in S_t)+\frac{1}{2}w_t^2\sum_i(h_i+\lambda)I(x_i\in S_t)+\gamma\}+C</script><p>其中$S_t$表示样本进入决策树第$t$号节点的集合。使用目标函数对$w_t$求导并令导数为0，可以得到：</p>
 <script type="math/tex; mode=display">w_t=-\frac{\sum_{x_i\in S_t}g_i}{\sum_{x_i\in S_t}(h_i+\lambda)}</script><p>也就是说对于一个叶节点，这个叶节点的权值$w_t$是由到达该节点的样本的$g_i$和$h_i$决定的。以前的决策树一般都会使用样本目标的平均数或众数来决定叶节点的权值，这是Xgboost和这些决策树不同的一个地方。将上式结果代入目标函数最终可以得到：</p>
