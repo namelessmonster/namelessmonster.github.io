@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="1. 什么是谱聚类谱聚类算法是一种聚类算法，算法思想是首先将样本特征降维，然后对降维后的样本采用其他聚类算法进行聚类。 2. 如何求解由于谱聚类算法有几种版本，这里讲解最常用的版本。已知有$N$个样本，每个样本都有一个$M$维向量$x_i$，则可以对这些样本计算出一个相似矩阵$W$，计算方式如下： W_{i,j}=e^{\frac{-\lVert x_i-x_j\rVert^2}{2\sigma^">
+  <meta name="description" content="1. 什么是GBDTGBDT又叫梯度提升树，使用CART决策树作为基学习器，利用Boosting的集成思想训练模型。与AdaBoost不同，每轮学习GBDT不会根据训练结果调整样本权重，而是希望求得一个学习器$h_m$使得目标函数达到最小，即： h_m=\argmin_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))已知$F_{m-1}$，则损失函数对$F_{m-1">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="谱聚类算法原理">
-<meta property="og:url" content="http://yoursite.com/2020/02/08/谱聚类算法原理/index.html">
+<meta property="og:title" content="GBDT和Xgboost">
+<meta property="og:url" content="http://yoursite.com/2020/02/09/GBDT和Xgboost/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 什么是谱聚类谱聚类算法是一种聚类算法，算法思想是首先将样本特征降维，然后对降维后的样本采用其他聚类算法进行聚类。 2. 如何求解由于谱聚类算法有几种版本，这里讲解最常用的版本。已知有$N$个样本，每个样本都有一个$M$维向量$x_i$，则可以对这些样本计算出一个相似矩阵$W$，计算方式如下： W_{i,j}=e^{\frac{-\lVert x_i-x_j\rVert^2}{2\sigma^">
+<meta property="og:description" content="1. 什么是GBDTGBDT又叫梯度提升树，使用CART决策树作为基学习器，利用Boosting的集成思想训练模型。与AdaBoost不同，每轮学习GBDT不会根据训练结果调整样本权重，而是希望求得一个学习器$h_m$使得目标函数达到最小，即： h_m=\argmin_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))已知$F_{m-1}$，则损失函数对$F_{m-1">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-08T14:23:06.602Z">
+<meta property="og:updated_time" content="2020-02-09T08:53:26.934Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="谱聚类算法原理">
-<meta name="twitter:description" content="1. 什么是谱聚类谱聚类算法是一种聚类算法，算法思想是首先将样本特征降维，然后对降维后的样本采用其他聚类算法进行聚类。 2. 如何求解由于谱聚类算法有几种版本，这里讲解最常用的版本。已知有$N$个样本，每个样本都有一个$M$维向量$x_i$，则可以对这些样本计算出一个相似矩阵$W$，计算方式如下： W_{i,j}=e^{\frac{-\lVert x_i-x_j\rVert^2}{2\sigma^">
-  <link rel="canonical" href="http://yoursite.com/2020/02/08/谱聚类算法原理/">
+<meta name="twitter:title" content="GBDT和Xgboost">
+<meta name="twitter:description" content="1. 什么是GBDTGBDT又叫梯度提升树，使用CART决策树作为基学习器，利用Boosting的集成思想训练模型。与AdaBoost不同，每轮学习GBDT不会根据训练结果调整样本权重，而是希望求得一个学习器$h_m$使得目标函数达到最小，即： h_m=\argmin_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))已知$F_{m-1}$，则损失函数对$F_{m-1">
+  <link rel="canonical" href="http://yoursite.com/2020/02/09/GBDT和Xgboost/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>谱聚类算法原理 | Hexo</title>
+  <title>GBDT和Xgboost | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/08/谱聚类算法原理/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/09/GBDT和Xgboost/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">谱聚类算法原理
+          <h1 class="post-title" itemprop="name headline">GBDT和Xgboost
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-08 14:42:07 / 修改时间：22:23:06" itemprop="dateCreated datePublished" datetime="2020-02-08T14:42:07+08:00">2020-02-08</time>
+              <time title="创建时间：2020-02-09 11:43:16 / 修改时间：16:53:26" itemprop="dateCreated datePublished" datetime="2020-02-09T11:43:16+08:00">2020-02-09</time>
             </span>
           
             
@@ -246,24 +246,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-什么是谱聚类"><a href="#1-什么是谱聚类" class="headerlink" title="1. 什么是谱聚类"></a>1. 什么是谱聚类</h2><p>谱聚类算法是一种聚类算法，算法思想是首先将样本特征降维，然后对降维后的样本采用其他聚类算法进行聚类。</p>
-<h2 id="2-如何求解"><a href="#2-如何求解" class="headerlink" title="2. 如何求解"></a>2. 如何求解</h2><p>由于谱聚类算法有几种版本，这里讲解最常用的版本。已知有$N$个样本，每个样本都有一个$M$维向量$x_i$，则可以对这些样本计算出一个相似矩阵$W$，计算方式如下：</p>
-<script type="math/tex; mode=display">W_{i,j}=e^{\frac{-\lVert x_i-x_j\rVert^2}{2\sigma^2}}</script><p>其中$\sigma$是一个超参数，用来调整顶点之间的相似度大小。计算出矩阵$W$，接着可以计算矩阵$D$，矩阵$D$是一个对角矩阵，且有：</p>
-<script type="math/tex; mode=display">D_{i,i}=\sum_{j}W_{i,j}</script><p>接着可以使用矩阵$W$和矩阵$D$，计算拉普拉斯矩阵$L$：</p>
-<script type="math/tex; mode=display">L = D - W</script><p>为什么要求$L$？首先$L$是半正定的，$L$所有的特征值均大于等于0，其次$L$存在一个特征值等于0，再者$L$满足以下性质：</p>
-<script type="math/tex; mode=display">f^TLf=\frac{1}{2}\sum_{i,j}W_{i,j}(f_i-f_j)^2</script><p>为什么满足这个性质，大家可以自己动笔算算，将$L=D-W$代入化简即可得到上式。现在我们将矩阵$W$看作是一个图的邻接矩阵，即将$W_{i,j}$看作是顶点$i$和顶点$j$的边权，现在我们想要将顶点划分为$K$类，可以看作是将$W$代表的图划分为$K$个子图，且这$K$个子图之间的边权和尽量小。可以表示为：</p>
-<script type="math/tex; mode=display">\min\frac{1}{2}\sum_{k}cut(A_k,\hat{A_k})</script><p>其中$A_k$表示第$k$类集合的顶点，$\hat{A_k}$表示除第$k$类集合外的其他顶点，$cut$表示求第第$k$类集合顶点和其他集合顶点的切割，即边权和。但是求这个式子的最小值有个问题就是容易将1个顶点归为1个集合，我们希望一个集合内部的顶点数尽量多，所以可以改进目标函数为：</p>
-<script type="math/tex; mode=display">\min\frac{1}{2}\sum_{k}\frac{cut(A_k,\hat{A_k})}{vol(A_k)}</script><script type="math/tex; mode=display">vol(A_k)=\sum_iD_{i,i}I(v_i\in A_k)</script><p>这表明，一个集合内部顶点数越多，则分母越大，所以目标函数值也会少，算是一种对顶点数大的奖励。现在我们对每一类集合构造一个向量$h_k$：</p>
-<script type="math/tex; mode=display">h_{k,i}=
-\begin{cases}
-\frac{1}{\sqrt{vol(A_k)}},v_i\in A_k \\
-0,v_i\notin A_k \\
-\end{cases}</script><p>可以看到不同集合向量间是正交的，因为每个点只会在一个集合中，即如果向量$h_{k,i}\ne 0$，则其他向量$h_{j,i}=0$。而且还有这样一条性质：</p>
-<script type="math/tex; mode=display">h_k^TDh_k=1</script><script type="math/tex; mode=display">==> H^TDH=I</script><p>然后还有下面一条重要的性质：</p>
-<script type="math/tex; mode=display">h_k^TLh_k=(H^TLH)_{k,k}=\frac{cut(A_k,\hat{A_k})}{vol(A_k)}</script><script type="math/tex; mode=display">==>Tr(H^TLH)=\sum_{k}\frac{cut(A_k,\hat{A_k})}{vol(A_k)}</script><p>所以现在问题等价于求：</p>
-<script type="math/tex; mode=display">\min{Tr(H^TLH)}</script><script type="math/tex; mode=display">st. H^TDH=I</script><p>设$H=D^{-\frac{1}{2}}F$，则问题可以转换成：</p>
-<script type="math/tex; mode=display">\min{Tr(F^TD^{-\frac{1}{2}}LD^{-\frac{1}{2}}F)}</script><script type="math/tex; mode=display">st. F^TF=I</script><p>其中，$D^{-\frac{1}{2}}LD^{-\frac{1}{2}}$是标准化的拉普拉斯矩阵。现在我们需要求$F$中的每一列$f$，如果$f$是矩阵$D^{-\frac{1}{2}}LD^{-\frac{1}{2}}$的特征向量，那么有：</p>
-<script type="math/tex; mode=display">f^TD^{-\frac{1}{2}}LD^{-\frac{1}{2}}f=\lambda</script><p>$\lambda$是特征值。很容易证明当$f$是特征值最小的向量时，其对应的特征值是上式的最小值解，当$f$是特征值最大的向量时，其对应的特征值是上式的最大值解。现在我们要求最小解，所以可以利用贪心算法的思路，向将特征值最小的特征向量作为矩阵$F$的第一列，特征值第二小的特征向量作为矩阵$F$的第二列，特征值第$k$小的特征向量作为矩阵$F$的第$k$列。照着这个思路求出来的矩阵$F$恰好又可以满足$F^TF=I$这个约束。假设我们求出了最标准最正确的解，现在看$H$矩阵的每一行，每一行代表样本属于哪一类，所以只有一个元素不为0，其他都等于0，对应到矩阵$F$也是一样的。如果直接使用矩阵$F$的每一行的向量代表样本，则聚类是容易的，因为每个样本的向量只有一个元素有值，将有值的归为一类即可。我们可以先对矩阵$F$的每一行标准化为只有一个元素为1，然后使用其他聚类算法对这些样本进行聚类。需要注意的是，上面矩阵$F$每一行只有一个元素有值，是在标准解的条件下才会成立的，我们使用特征向量作为解，特征向量组成的矩阵在每一行可能并不止一个元素不为0，所以这种方法只是一个近似解。现在总结一下谱聚类的算法步骤：<br>(1) 构造相似矩阵$W$。<br>(2) 根据$W$,求出矩阵$D$。<br>(3) 根据$W$和$D$，求出拉普拉斯矩阵$L$。<br>(4) 标准化拉普拉斯矩阵$D^{-\frac{1}{2}}LD^{-\frac{1}{2}}$。<br>(5) 对标准化拉普拉斯矩阵求出特征值前$k$小的特征向量组成矩阵$F$。<br>(6) 对矩阵$F$的每一行进行标准化。<br>(7) 矩阵$F$的每一行对应一个样本的向量，使用其他聚类算法使用这些向量进行聚类。</p>
+        <h2 id="1-什么是GBDT"><a href="#1-什么是GBDT" class="headerlink" title="1. 什么是GBDT"></a>1. 什么是GBDT</h2><p>GBDT又叫梯度提升树，使用CART决策树作为基学习器，利用Boosting的集成思想训练模型。与AdaBoost不同，每轮学习GBDT不会根据训练结果调整样本权重，而是希望求得一个学习器$h_m$使得目标函数达到最小，即：</p>
+<script type="math/tex; mode=display">h_m=\argmin_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))</script><p>已知$F_{m-1}$，则损失函数对$F_{m-1}$在各个样本的一阶梯度等于：</p>
+<script type="math/tex; mode=display">\frac{\partial L(y_i,F_{m-1}(x_i))}{\partial F_{m-1}(x_i)}</script><p>我们知道一个函数关于一个变量的梯度，代表变量可以使得函数有最大上升的方向。而梯度的反方向则代表变量可以使得函数有最大下降的方向。所以要找到一个最佳$h_m$，可以使$h_m(x_i)$尽量接近$-\frac{\partial L(y_i,F_{m-1}(x_i))}{\partial F_{m-1}(x_i)}$，即$h_m$尽量拟合损失函数的负梯度。这就是GBDT的算法思想。在其他博客经常能看到说GBDT的每棵决策树是拟合损失函数的残差，这是不准确的，拟合残差是因为损失函数是均方误差函数，均方误差的一阶梯度几乎等于残差。而实际上GBDT是使每棵决策树去拟合损失函数的负梯度使得损失函数每次都能往降低的方向发展。</p>
+<h2 id="2-如何求解GBDT"><a href="#2-如何求解GBDT" class="headerlink" title="2. 如何求解GBDT"></a>2. 如何求解GBDT</h2><p>(1) 使用CART决策树训练数据，得到第一个基学习器$h_1$<br>(2) 在训练样本上计算损失函数与预测结果的负梯度，使用负梯度更新样本的学习目标<br>(3) 继续使用CART决策树训练数据，得到第二个基学习器$h_2$<br>(4) 在训练样本上计算损失函数与两个学习器求和后的预测结果的负梯度，使用负梯度更新样本的学习目标<br>(5) 重复(3)(4)步骤，直到达到训练结束条件<br>(6) 将各个学习器的预测结果求和，有时可以将各个学习器的预测结果乘上一个系数，这个系数表示学习率</p>
+<h2 id="3-什么是Xgboost"><a href="#3-什么是Xgboost" class="headerlink" title="3. 什么是Xgboost"></a>3. 什么是Xgboost</h2><p>Xgboost使用下式作为目标函数：</p>
+<script type="math/tex; mode=display">Obj = \sum_iL(y_i,F_{m-1}(x_i)+f_m(x_i))+\Omega(F_{m-1})+\Omega(f_m)</script><p>其中$\Omega$表示正则项，一般而言有下式：</p>
+<script type="math/tex; mode=display">\Omega(f)=\gamma T + \frac{1}{2}\lambda\lVert\omega\rVert^2</script><p>其中$T$表示决策树集合$f$的叶子节点数，而$\omega$表示叶子节点的输出。将目标函数进行泰勒展开并近似到二阶项有：</p>
+<script type="math/tex; mode=display">Obj\approx\sum_i\{L(y_i,F_{m-1}(x_i))+\frac{\partial L(y_i,F_{m-1}(x_i))}{\partial F_{m-1}(x_i)}f_m(x_i)+\frac{1}{2}\frac{\partial^2L(y_i,F_{m-1}(x_i))}{\partial F_{m-1}(x_i)^2}f_m(x_i)^2\}+\Omega(F_{m-1})+\Omega(f_m)</script><p>用$g_i$表示一阶导数，$h_i$表示二阶导数，将常数项$L(y_i,F_{m-1}(x_i))$与$\Omega(F_{m-1})$并入$C$，展开$\Omega(f_m)$，则有：</p>
+<script type="math/tex; mode=display">Obj\approx\sum_i\{g_if_m(x_i)+\frac{1}{2}(h_i+\lambda)f_m(x_i)^2\}+C+\gamma T</script><p>已知$f_m$是一棵决策树，且有$T$个叶子节点，第$t$个叶子节点的权重为$w_t$，则上式可以变为：</p>
+<script type="math/tex; mode=display">Obj\approx\sum_t\{w_t\sum_ig_iI(x_i\in S_t)+\frac{1}{2}w_t^2\sum_i(h_i+\lambda)I(x_i\in S_t)+\gamma\}+C</script><p>其中$S_t$表示样本进入决策树第$t$号节点的集合。使用目标函数对$w_t$求导并令导数为0，可以得到：</p>
+<script type="math/tex; mode=display">w_t=-\frac{\sum_{x_i\in S_t}g_i}{\sum_{x_i\in S_t}(h_i+\lambda)}</script><p>也就是说对于一个叶节点，这个叶节点的权值$w_t$是由到达该节点的样本的$g_i$和$h_i$决定的。以前的决策树一般都会使用样本目标的平均数或众数来决定叶节点的权值，这是Xgboost和这些决策树不同的一个地方。将上式结果代入目标函数最终可以得到：</p>
+<script type="math/tex; mode=display">Obj\approx-\frac{1}{2}\sum_t\frac{(\sum_{x_i\in S_t}g_i)^2}{\sum_{x_i\in S_t}(h_i+\lambda)}+\gamma T+C</script><p>以前的决策树会使用信息增益，信息增益率和基尼系数来决定选择一个特征和特征值展开决策树，Xgboost直接使用目标函数，每次会选择一个使目标函数达到最小的特征和特征值展开决策树，具体步骤如下：<br>(1) 选择一个特征和特征值<br>(2) 计算以该特征值展开决策树后新的叶子节点的权重$w_t$<br>(3) 将$w_t$代入目标函数，计算目标函数值<br>(4) 选择使目标函数最小的特征和特征值展开决策树</p>
+<h2 id="4-如何求解Xgboost"><a href="#4-如何求解Xgboost" class="headerlink" title="4. 如何求解Xgboost"></a>4. 如何求解Xgboost</h2><p>(1) 使用训练样本学习第一棵决策树$f_1$<br>(2) 计算损失函数关于$f_1$的输出的一阶导数和二阶导数<br>(3) 根据一阶导数和二阶导数，使用训练样本学习第二棵决策树$f_2$<br>(4) 计算损失函数关于$f_1+f_2$的输出的一阶导数和二阶导数<br>(5) 根据一阶导数和二阶导数，使用训练样本学习第三棵决策树$f_3$<br>(6) 重复上面的步骤，直到到达训练结束条件，对于第$i$棵决策树，可以给其乘上一个系数$\alpha_i$调整其输出影响</p>
+<h2 id="5-其他"><a href="#5-其他" class="headerlink" title="5. 其他"></a>5. 其他</h2><p>(1) Xgboost可以实现并行运算，提升效率。这里的并行运算是指在特征选择时的并行运算，可以加快算出最佳分割点。<br>(2) Xgboost可以处理特征缺失值，对于缺失值，将其放置可以使得目标函数最小的一边。<br>(3) Xgboost在计算特征重要性时，有几种方法，一般是计算使用这种特征分割的平均增益，增益可以是损失函数的降低程度，也可以是基尼系数，也可以是信息熵增益，还可以是多种指标的组合。有一种简单的方法是统计使用这种特征进行分割的次数。</p>
 
     </div>
 
@@ -280,8 +276,8 @@
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/07/Bagging（随机森林）和Boosting（AdaBoost）/" rel="next" title="Bagging（随机森林）和Boosting（AdaBoost）">
-                <i class="fa fa-chevron-left"></i> Bagging（随机森林）和Boosting（AdaBoost）
+              <a href="/2020/02/08/图卷积神经网络（GCN）/" rel="next" title="图卷积神经网络（GCN）">
+                <i class="fa fa-chevron-left"></i> 图卷积神经网络（GCN）
               </a>
             
           </div>
@@ -289,10 +285,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/08/图卷积神经网络（GCN）/" rel="prev" title="图卷积神经网络（GCN）">
-                图卷积神经网络（GCN） <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -380,7 +372,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是谱聚类"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是谱聚类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-如何求解"><span class="nav-number">2.</span> <span class="nav-text">2. 如何求解</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是GBDT"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是GBDT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-如何求解GBDT"><span class="nav-number">2.</span> <span class="nav-text">2. 如何求解GBDT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-什么是Xgboost"><span class="nav-number">3.</span> <span class="nav-text">3. 什么是Xgboost</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-如何求解Xgboost"><span class="nav-number">4.</span> <span class="nav-text">4. 如何求解Xgboost</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-其他"><span class="nav-number">5.</span> <span class="nav-text">5. 其他</span></a></li></ol></div>
             
 
           </div>
