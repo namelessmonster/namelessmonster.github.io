@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="1. 什么是GBDTGBDT又叫梯度提升树，使用CART决策树作为基学习器，利用Boosting的集成思想训练模型。与AdaBoost不同，每轮学习GBDT不会根据训练结果调整样本权重，而是希望求得一个学习器$h_m$使得目标函数达到最小，即： h_m=arg\min_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))已知$F_{m-1}$，则损失函数对$F_{m-1">
-<meta name="keywords" content="机器学习">
+  <meta name="description" content="1. 什么是L1正则化L1正则化就是在损失函数后面加上模型参数的绝对值和： Obj=L(X,Y,\Theta)+\lambda\sum_{i}|w_i|其中$\lambda$调整正则项影响因子，$w_i$是模型参数。 2. 什么是L2正则化L2正则项就是在损失函数后面加上模型参数的平方和： Obj=L(X,Y,\Theta)+\lambda\sum_{i}w_i^23. L1和L2正则化作用的解释">
+<meta name="keywords" content="机器学习,深度学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GBDT和Xgboost">
-<meta property="og:url" content="http://yoursite.com/2020/02/09/GBDT和Xgboost/index.html">
+<meta property="og:title" content="L1和L2正则化">
+<meta property="og:url" content="http://yoursite.com/2020/02/10/L1和L2正则化/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 什么是GBDTGBDT又叫梯度提升树，使用CART决策树作为基学习器，利用Boosting的集成思想训练模型。与AdaBoost不同，每轮学习GBDT不会根据训练结果调整样本权重，而是希望求得一个学习器$h_m$使得目标函数达到最小，即： h_m=arg\min_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))已知$F_{m-1}$，则损失函数对$F_{m-1">
+<meta property="og:description" content="1. 什么是L1正则化L1正则化就是在损失函数后面加上模型参数的绝对值和： Obj=L(X,Y,\Theta)+\lambda\sum_{i}|w_i|其中$\lambda$调整正则项影响因子，$w_i$是模型参数。 2. 什么是L2正则化L2正则项就是在损失函数后面加上模型参数的平方和： Obj=L(X,Y,\Theta)+\lambda\sum_{i}w_i^23. L1和L2正则化作用的解释">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-09T09:12:08.142Z">
+<meta property="og:updated_time" content="2020-02-10T08:10:58.815Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GBDT和Xgboost">
-<meta name="twitter:description" content="1. 什么是GBDTGBDT又叫梯度提升树，使用CART决策树作为基学习器，利用Boosting的集成思想训练模型。与AdaBoost不同，每轮学习GBDT不会根据训练结果调整样本权重，而是希望求得一个学习器$h_m$使得目标函数达到最小，即： h_m=arg\min_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))已知$F_{m-1}$，则损失函数对$F_{m-1">
-  <link rel="canonical" href="http://yoursite.com/2020/02/09/GBDT和Xgboost/">
+<meta name="twitter:title" content="L1和L2正则化">
+<meta name="twitter:description" content="1. 什么是L1正则化L1正则化就是在损失函数后面加上模型参数的绝对值和： Obj=L(X,Y,\Theta)+\lambda\sum_{i}|w_i|其中$\lambda$调整正则项影响因子，$w_i$是模型参数。 2. 什么是L2正则化L2正则项就是在损失函数后面加上模型参数的平方和： Obj=L(X,Y,\Theta)+\lambda\sum_{i}w_i^23. L1和L2正则化作用的解释">
+  <link rel="canonical" href="http://yoursite.com/2020/02/10/L1和L2正则化/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>GBDT和Xgboost | Hexo</title>
+  <title>L1和L2正则化 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/09/GBDT和Xgboost/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/10/L1和L2正则化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">GBDT和Xgboost
+          <h1 class="post-title" itemprop="name headline">L1和L2正则化
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-09 11:43:16 / 修改时间：17:12:08" itemprop="dateCreated datePublished" datetime="2020-02-09T11:43:16+08:00">2020-02-09</time>
+              <time title="创建时间：2020-02-10 15:25:08 / 修改时间：16:10:58" itemprop="dateCreated datePublished" datetime="2020-02-10T15:25:08+08:00">2020-02-10</time>
             </span>
           
             
@@ -246,21 +246,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-什么是GBDT"><a href="#1-什么是GBDT" class="headerlink" title="1. 什么是GBDT"></a>1. 什么是GBDT</h2><p>GBDT又叫梯度提升树，使用CART决策树作为基学习器，利用Boosting的集成思想训练模型。与AdaBoost不同，每轮学习GBDT不会根据训练结果调整样本权重，而是希望求得一个学习器$h_m$使得目标函数达到最小，即：</p>
-<script type="math/tex; mode=display">h_m=arg\min_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))</script><p>已知$F_{m-1}$，则损失函数对$F_{m-1}$在各个样本的一阶梯度等于：</p>
-<script type="math/tex; mode=display">\frac{\partial L(y_i,F_{m-1}(x_i))}{\partial F_{m-1}(x_i)}</script><p>我们知道一个函数关于一个变量的梯度，代表变量可以使得函数有最大上升的方向。而梯度的反方向则代表变量可以使得函数有最大下降的方向。所以要找到一个最佳$h_m$，可以使$h_m(x_i)$尽量接近$-\frac{\partial L(y_i,F_{m-1}(x_i))}{\partial F_{m-1}(x_i)}$，即$h_m$尽量拟合损失函数的负梯度。这就是GBDT的算法思想。在其他博客经常能看到说GBDT的每棵决策树是拟合损失函数的残差，这是不准确的，拟合残差是因为损失函数是均方误差函数，均方误差的一阶梯度几乎等于残差。而实际上GBDT是使每棵决策树去拟合损失函数的负梯度使得损失函数每次都能往降低的方向发展。</p>
-<h2 id="2-如何求解GBDT"><a href="#2-如何求解GBDT" class="headerlink" title="2. 如何求解GBDT"></a>2. 如何求解GBDT</h2><p>(1) 使用CART决策树训练数据，得到第一个基学习器$h_1$<br>(2) 在训练样本上计算损失函数与预测结果的负梯度，使用负梯度更新样本的学习目标<br>(3) 继续使用CART决策树训练数据，得到第二个基学习器$h_2$<br>(4) 在训练样本上计算损失函数与两个学习器求和后的预测结果的负梯度，使用负梯度更新样本的学习目标<br>(5) 重复(3)(4)步骤，直到达到训练结束条件<br>(6) 将各个学习器的预测结果求和，有时可以将各个学习器的预测结果乘上一个系数，这个系数表示学习率</p>
-<h2 id="3-什么是Xgboost"><a href="#3-什么是Xgboost" class="headerlink" title="3. 什么是Xgboost"></a>3. 什么是Xgboost</h2><p>Xgboost使用下式作为目标函数：</p>
-<script type="math/tex; mode=display">Obj = \sum_iL(y_i,F_{m-1}(x_i)+f_m(x_i))+\Omega(F_{m-1})+\Omega(f_m)</script><p>其中$\Omega$表示正则项，一般而言有下式：</p>
-<script type="math/tex; mode=display">\Omega(f)=\gamma T + \frac{1}{2}\lambda\lVert\omega\rVert^2</script><p>其中$T$表示决策树集合$f$的叶子节点数，而$\omega$表示叶子节点的输出。将目标函数进行泰勒展开并近似到二阶项有：</p>
-<script type="math/tex; mode=display">Obj\approx\sum_i\{L(y_i,F_{m-1}(x_i))+\frac{\partial L(y_i,F_{m-1}(x_i))}{\partial F_{m-1}(x_i)}f_m(x_i)+\frac{1}{2}\frac{\partial^2L(y_i,F_{m-1}(x_i))}{\partial F_{m-1}(x_i)^2}f_m(x_i)^2\} \\
-+\Omega(F_{m-1})+\Omega(f_m)</script><p>用$g_i$表示一阶导数，$h_i$表示二阶导数，将常数项$L(y_i,F_{m-1}(x_i))$与$\Omega(F_{m-1})$并入$C$，展开$\Omega(f_m)$，则有：</p>
-<script type="math/tex; mode=display">Obj\approx\sum_i\{g_if_m(x_i)+\frac{1}{2}(h_i+\lambda)f_m(x_i)^2\}+C+\gamma T</script><p>已知$f_m$是一棵决策树，且有$T$个叶子节点，第$t$个叶子节点的权重为$w_t$，则上式可以变为：</p>
-<script type="math/tex; mode=display">Obj\approx\sum_t\{w_t\sum_ig_iI(x_i\in S_t)+\frac{1}{2}w_t^2\sum_i(h_i+\lambda)I(x_i\in S_t)+\gamma\}+C</script><p>其中$S_t$表示样本进入决策树第$t$号节点的集合。使用目标函数对$w_t$求导并令导数为0，可以得到：</p>
-<script type="math/tex; mode=display">w_t=-\frac{\sum_{x_i\in S_t}g_i}{\sum_{x_i\in S_t}(h_i+\lambda)}</script><p>也就是说对于一个叶节点，这个叶节点的权值$w_t$是由到达该节点的样本的$g_i$和$h_i$决定的。以前的决策树一般都会使用样本目标的平均数或众数来决定叶节点的权值，这是Xgboost和这些决策树不同的一个地方。将上式结果代入目标函数最终可以得到：</p>
-<script type="math/tex; mode=display">Obj\approx-\frac{1}{2}\sum_t\frac{(\sum_{x_i\in S_t}g_i)^2}{\sum_{x_i\in S_t}(h_i+\lambda)}+\gamma T+C</script><p>以前的决策树会使用信息增益，信息增益率和基尼系数来决定选择一个特征和特征值展开决策树，Xgboost直接使用目标函数，每次会选择一个使目标函数达到最小的特征和特征值展开决策树，具体步骤如下：<br>(1) 选择一个特征和特征值<br>(2) 计算以该特征值展开决策树后新的叶子节点的权重$w_t$<br>(3) 将$w_t$代入目标函数，计算目标函数值<br>(4) 选择使目标函数最小的特征和特征值展开决策树</p>
-<h2 id="4-如何求解Xgboost"><a href="#4-如何求解Xgboost" class="headerlink" title="4. 如何求解Xgboost"></a>4. 如何求解Xgboost</h2><p>(1) 使用训练样本学习第一棵决策树$f_1$<br>(2) 计算损失函数关于$f_1$的输出的一阶导数和二阶导数<br>(3) 根据一阶导数和二阶导数，使用训练样本学习第二棵决策树$f_2$<br>(4) 计算损失函数关于$f_1+f_2$的输出的一阶导数和二阶导数<br>(5) 根据一阶导数和二阶导数，使用训练样本学习第三棵决策树$f_3$<br>(6) 重复上面的步骤，直到到达训练结束条件，对于第$i$棵决策树，可以给其乘上一个系数$\alpha_i$调整其输出影响</p>
-<h2 id="5-其他"><a href="#5-其他" class="headerlink" title="5. 其他"></a>5. 其他</h2><p>(1) Xgboost可以实现并行运算，提升效率。这里的并行运算是指在特征选择时的并行运算，可以加快算出最佳分割点。<br>(2) Xgboost可以处理特征缺失值，对于缺失值，将其放置可以使得目标函数最小的一边。<br>(3) Xgboost在计算特征重要性时，有几种方法，一般是计算使用这种特征分割的平均增益，增益可以是损失函数的降低程度，也可以是基尼系数，也可以是信息熵增益，还可以是多种指标的组合。有一种简单的方法是统计使用这种特征进行分割的次数。</p>
+        <h2 id="1-什么是L1正则化"><a href="#1-什么是L1正则化" class="headerlink" title="1. 什么是L1正则化"></a>1. 什么是L1正则化</h2><p>L1正则化就是在损失函数后面加上模型参数的绝对值和：</p>
+<script type="math/tex; mode=display">Obj=L(X,Y,\Theta)+\lambda\sum_{i}|w_i|</script><p>其中$\lambda$调整正则项影响因子，$w_i$是模型参数。</p>
+<h2 id="2-什么是L2正则化"><a href="#2-什么是L2正则化" class="headerlink" title="2. 什么是L2正则化"></a>2. 什么是L2正则化</h2><p>L2正则项就是在损失函数后面加上模型参数的平方和：</p>
+<script type="math/tex; mode=display">Obj=L(X,Y,\Theta)+\lambda\sum_{i}w_i^2</script><h2 id="3-L1和L2正则化作用的解释"><a href="#3-L1和L2正则化作用的解释" class="headerlink" title="3. L1和L2正则化作用的解释"></a>3. L1和L2正则化作用的解释</h2><p>L1正则项一般可以得到更为稀疏的参数，即使得部分参数等于0，更注重关注少量特征。而L2正则项一般可以使得参数的绝对值变得更小，形成小而分散的参数，更注重关注多个特征。L1正则可以用于特征选择，在一定程度上也可以防止过拟合。L2正则主要用于防止过拟合。关于L1和L2正则项详细的推导，推荐这篇文章：<br><a href="https://baijiahao.baidu.com/s?id=1621054167310242353&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">https://baijiahao.baidu.com/s?id=1621054167310242353&amp;wfr=spider&amp;for=pc</a></p>
 
     </div>
 
@@ -274,11 +263,13 @@
         <div class="post-tags">
             <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+          
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/08/图卷积神经网络（GCN）/" rel="next" title="图卷积神经网络（GCN）">
-                <i class="fa fa-chevron-left"></i> 图卷积神经网络（GCN）
+              <a href="/2020/02/10/优化器原理/" rel="next" title="优化器原理">
+                <i class="fa fa-chevron-left"></i> 优化器原理
               </a>
             
           </div>
@@ -286,10 +277,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/10/优化器原理/" rel="prev" title="优化器原理">
-                优化器原理 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -377,7 +364,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是GBDT"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是GBDT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-如何求解GBDT"><span class="nav-number">2.</span> <span class="nav-text">2. 如何求解GBDT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-什么是Xgboost"><span class="nav-number">3.</span> <span class="nav-text">3. 什么是Xgboost</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-如何求解Xgboost"><span class="nav-number">4.</span> <span class="nav-text">4. 如何求解Xgboost</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-其他"><span class="nav-number">5.</span> <span class="nav-text">5. 其他</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是L1正则化"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是L1正则化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-什么是L2正则化"><span class="nav-number">2.</span> <span class="nav-text">2. 什么是L2正则化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-L1和L2正则化作用的解释"><span class="nav-number">3.</span> <span class="nav-text">3. L1和L2正则化作用的解释</span></a></li></ol></div>
             
 
           </div>
