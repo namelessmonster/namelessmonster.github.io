@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="1. 什么是图卷积神经网络卷积神经网络（CNN）是深度学习中使用最频繁的神经网络之一，但它存在一个缺陷，就是它只能处理欧几里得空间内的图结构而不能处理更一般的图结构。针对这一缺陷，人们提出了能处理更一般图结构的卷积神经网络，称为图卷积神经网络（GCN）。当存在一个图结构，图有$N$个顶点，$M$条边组成，此时一般的卷积神经网络无法在此发挥作用，需要用到图卷积神经网络。 2. 如何求解图卷积神经网络">
+  <meta name="description" content="1. 什么是优化器在机器学习和深度学习中，我们经常需要寻找一组最佳参数使得模型在损失函数上达到最小值。这组参数可以是使用直接求解一步到位，一般是令导数为0然后得到参数的最优解；可以是使用迭代方法，每次迭代使参数往最优解靠近。优化器在求解参数的步骤一般是：(1) 求出损失函数对参数的梯度(2) 使用负梯度乘上一定步长更新参数(3) 重复迭代上面两个步骤直到收敛 2. 有哪些优化方法常用的优化方法有：">
 <meta name="keywords" content="深度学习,机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="图卷积神经网络（GCN）">
-<meta property="og:url" content="http://yoursite.com/2020/02/08/图卷积神经网络（GCN）/index.html">
+<meta property="og:title" content="优化器原理">
+<meta property="og:url" content="http://yoursite.com/2020/02/10/优化器原理/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 什么是图卷积神经网络卷积神经网络（CNN）是深度学习中使用最频繁的神经网络之一，但它存在一个缺陷，就是它只能处理欧几里得空间内的图结构而不能处理更一般的图结构。针对这一缺陷，人们提出了能处理更一般图结构的卷积神经网络，称为图卷积神经网络（GCN）。当存在一个图结构，图有$N$个顶点，$M$条边组成，此时一般的卷积神经网络无法在此发挥作用，需要用到图卷积神经网络。 2. 如何求解图卷积神经网络">
+<meta property="og:description" content="1. 什么是优化器在机器学习和深度学习中，我们经常需要寻找一组最佳参数使得模型在损失函数上达到最小值。这组参数可以是使用直接求解一步到位，一般是令导数为0然后得到参数的最优解；可以是使用迭代方法，每次迭代使参数往最优解靠近。优化器在求解参数的步骤一般是：(1) 求出损失函数对参数的梯度(2) 使用负梯度乘上一定步长更新参数(3) 重复迭代上面两个步骤直到收敛 2. 有哪些优化方法常用的优化方法有：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-08T14:20:01.079Z">
+<meta property="og:updated_time" content="2020-02-10T06:30:07.331Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="图卷积神经网络（GCN）">
-<meta name="twitter:description" content="1. 什么是图卷积神经网络卷积神经网络（CNN）是深度学习中使用最频繁的神经网络之一，但它存在一个缺陷，就是它只能处理欧几里得空间内的图结构而不能处理更一般的图结构。针对这一缺陷，人们提出了能处理更一般图结构的卷积神经网络，称为图卷积神经网络（GCN）。当存在一个图结构，图有$N$个顶点，$M$条边组成，此时一般的卷积神经网络无法在此发挥作用，需要用到图卷积神经网络。 2. 如何求解图卷积神经网络">
-  <link rel="canonical" href="http://yoursite.com/2020/02/08/图卷积神经网络（GCN）/">
+<meta name="twitter:title" content="优化器原理">
+<meta name="twitter:description" content="1. 什么是优化器在机器学习和深度学习中，我们经常需要寻找一组最佳参数使得模型在损失函数上达到最小值。这组参数可以是使用直接求解一步到位，一般是令导数为0然后得到参数的最优解；可以是使用迭代方法，每次迭代使参数往最优解靠近。优化器在求解参数的步骤一般是：(1) 求出损失函数对参数的梯度(2) 使用负梯度乘上一定步长更新参数(3) 重复迭代上面两个步骤直到收敛 2. 有哪些优化方法常用的优化方法有：">
+  <link rel="canonical" href="http://yoursite.com/2020/02/10/优化器原理/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>图卷积神经网络（GCN） | Hexo</title>
+  <title>优化器原理 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/08/图卷积神经网络（GCN）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/10/优化器原理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">图卷积神经网络（GCN）
+          <h1 class="post-title" itemprop="name headline">优化器原理
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-08 20:11:50 / 修改时间：22:20:01" itemprop="dateCreated datePublished" datetime="2020-02-08T20:11:50+08:00">2020-02-08</time>
+              <time title="创建时间：2020-02-10 13:14:47 / 修改时间：14:30:07" itemprop="dateCreated datePublished" datetime="2020-02-10T13:14:47+08:00">2020-02-10</time>
             </span>
           
             
@@ -246,22 +246,45 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-什么是图卷积神经网络"><a href="#1-什么是图卷积神经网络" class="headerlink" title="1. 什么是图卷积神经网络"></a>1. 什么是图卷积神经网络</h2><p>卷积神经网络（CNN）是深度学习中使用最频繁的神经网络之一，但它存在一个缺陷，就是它只能处理欧几里得空间内的图结构而不能处理更一般的图结构。针对这一缺陷，人们提出了能处理更一般图结构的卷积神经网络，称为图卷积神经网络（GCN）。当存在一个图结构，图有$N$个顶点，$M$条边组成，此时一般的卷积神经网络无法在此发挥作用，需要用到图卷积神经网络。</p>
-<h2 id="2-如何求解"><a href="#2-如何求解" class="headerlink" title="2. 如何求解"></a>2. 如何求解</h2><p>图卷积神经网络一般有以下的迭代形式：</p>
-<script type="math/tex; mode=display">H_l= \sigma(\hat{D}^{-\frac{1}{2}}\hat{A}\hat{D}^{-\frac{1}{2}}H_{l-1}W_l)</script><p>其中$H_l$表示第$l$层的输出；$\hat{D}$表示$\hat{A}$的度数矩阵；$\hat{A}$表示图的邻接矩阵加上单位矩阵，即$\hat{A}=A+I$；$W_l$是需要学习的参数；$\sigma$是非线性激活函数。这个式子是怎么推导出来的呢？首先有必要知道傅里叶变换与拉普拉斯算子的一些关系以及拉普拉斯算子和拉普拉斯矩阵的关系。我们知道在求函数在空间域的卷积时，可以先将两个函数从空间域变换到频域：</p>
-<script type="math/tex; mode=display">F(w)=\int f(t)e^{-jwt}dt</script><p>在频域上求积，然后作反变换：</p>
-<script type="math/tex; mode=display">f(t)=\int F(w)e^{jwt}dw</script><p>反变换的结果就是两个函数在空间域上的卷积。然后我们还知道拉普拉斯算子$\Delta$作用到一个函数时有：</p>
-<script type="math/tex; mode=display">\Delta f=\sum_{i}\frac{\partial^2 f}{\partial x_i^2}</script><p>我们可以发现，当拉普拉斯算子作用于频率域的基时，有下式：</p>
-<script type="math/tex; mode=display">\Delta e^{jwt}=\frac{\partial^2}{\partial t^2}e^{jwt}=-w^2e^{jwt}=\lambda e^{jwt}</script><p>这可以看作频率域的基函数是拉普拉斯算子的特征函数。现在我们看图的拉普拉斯矩阵，我们知道图的拉普拉斯矩阵$L$由下面式子表示：</p>
-<script type="math/tex; mode=display">L=D-A</script><p>其中$A$是图的邻接矩阵，$D$是$A$的度数矩阵。我们认为这是拉普拉斯算子作用于图结构得到的结果，我们可以认为拉普拉斯算子作用于不同的对象有不同的表现，比如作用于函数就是求分量的二阶导，作用于图就是求图的拉普拉斯矩阵，这是因为图的梯度与散度和函数的梯度与散度表现形式不同以及拉普拉斯算子本质是求梯度的散度决定的。在函数域上，我们有：</p>
-<script type="math/tex; mode=display">\Delta f=\Delta\int_w F(w)e^{jwt}dt=\int_wF(w)\Delta e^{jwt}dt=\int_w\lambda_wF(w)e^{jwt}dt</script><p>所以在图$G$上，我们也有：</p>
-<script type="math/tex; mode=display">\Delta x=L*x=\sum_i \lambda_i\hat{x}_iu_i</script><p>其中$u_i$是拉普拉斯矩阵$L$的特征向量，$\lambda_i$是特征值，$\hat{x}_i$是向量$x$在$u_i$上的分量。在函数域中，我们使用$e^{jwt}$作为基底，将函数转换到频率域。在图中，我们也可以使用特征向量集合$u_i$作为基底，将向量转换到该基底的域中。已知向量$x$，求其转换到$u_i$基底的线性组合，公式为：</p>
-<script type="math/tex; mode=display">\hat{x}=\sum_iu_i^*x_i=U^Tx</script><p>其中$u^*$表示向量$u$的共轭，我们默认特征向量都是实数。从$\hat{x}$反变换$x$的公式为：</p>
-<script type="math/tex; mode=display">x=\sum_iu_i\hat{x}_i=U\hat{x}</script><p>所以如果现在有矩阵$X$表示图的特征，$H$是卷积核，则$X$与$H$的卷积可以用下式表示：</p>
-<script type="math/tex; mode=display">H*X=U(U^TH\odot U^TX)</script><p>$\odot$是求哈达玛积，然后人们又对上式进行一系列的化简，比如将哈达玛积转换成矩阵乘法，近似求解$U$等等，最终得到了下面的形式：</p>
-<script type="math/tex; mode=display">H*X= \hat{D}^{-\frac{1}{2}}\hat{A}\hat{D}^{-\frac{1}{2}}XW</script><p>其中$W$与卷积核$H$相关，所以可以通过学习与更新$W$来间接更新卷积核$H$。加上激活函数，用$H_l$表示第$l$层的特征，则可以得到图卷积网络的式子：</p>
-<script type="math/tex; mode=display">H_l= \sigma(\hat{D}^{-\frac{1}{2}}\hat{A}\hat{D}^{-\frac{1}{2}}H_{l-1}W_l)</script><p>在图卷积网络中，每一层可以使用同一个卷积核，即每一层的参数$W_l$是相同的，也可以使用不同的卷积核，即每一层的参数$W_l$是不同的。</p>
-
+        <h2 id="1-什么是优化器"><a href="#1-什么是优化器" class="headerlink" title="1. 什么是优化器"></a>1. 什么是优化器</h2><p>在机器学习和深度学习中，我们经常需要寻找一组最佳参数使得模型在损失函数上达到最小值。这组参数可以是使用直接求解一步到位，一般是令导数为0然后得到参数的最优解；可以是使用迭代方法，每次迭代使参数往最优解靠近。优化器在求解参数的步骤一般是：<br>(1) 求出损失函数对参数的梯度<br>(2) 使用负梯度乘上一定步长更新参数<br>(3) 重复迭代上面两个步骤直到收敛</p>
+<h2 id="2-有哪些优化方法"><a href="#2-有哪些优化方法" class="headerlink" title="2. 有哪些优化方法"></a>2. 有哪些优化方法</h2><p>常用的优化方法有：梯度下降法，动量优化方法和自适应学习率优化算法。梯度下降法又可以分为标准梯度下降法，批量梯度下降法和随机梯度下降法。</p>
+<h2 id="3-各种优化方法原理"><a href="#3-各种优化方法原理" class="headerlink" title="3. 各种优化方法原理"></a>3. 各种优化方法原理</h2><h3 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h3><p>梯度下降法的步骤为：<br>(1) 求出损失函数对参数的梯度<br>(2) 使用负梯度乘上一定步长更新参数<br>这里的步长是指学习率，在梯度下降法中是一个固定的常数。标准梯度下降法会使用所有的样本计算梯度，批量梯度下降法使用一批数量样本计算梯度，而随机梯度下降法则使用一个样本计算梯度。标准梯度下降法计算时间长，随机梯度下降法收敛速度慢，所以一般采用批量梯度下降法。使用批量梯度下降法时，一批样本的数量设置很重要。梯度下降法可以使用这个式子表示：</p>
+<script type="math/tex; mode=display">W_{t+1}=W_t+\eta_tg_t</script><p>其中$W$表示参数，$\eta_t$表示第$t$轮的学习率，$g_t$表示第$t$轮的参数的梯度。</p>
+<h3 id="动量优化法"><a href="#动量优化法" class="headerlink" title="动量优化法"></a>动量优化法</h3><p>梯度下降法有一个问题就是学习率是固定的，这样如果遇到平缓的坡时，参数更新速度会很慢，所以人们提出了两种加速梯度更新的方法，一种方法是利用惯性加快梯度更新，另一种方法是自适应调整学习率，在需要提高训练速度时增大学习率。利用惯性加快梯度更新的方法可以称为动量优化器。动量优化法的思想是积攒历史的梯度，如果历史的梯度总是往一个方向，则往相同方向的梯度会放大，从而提高训练速度。就像一个平缓的坡，初始时速度很慢，但不断积攒下降速度，下降速度会越来越快，这里的惯性起到了加速度的效果。常用的方法有：Momentum和NAG。</p>
+<h4 id="Momentum"><a href="#Momentum" class="headerlink" title="Momentum"></a>Momentum</h4><p>这种方法使用下述式子更新参数：</p>
+<script type="math/tex; mode=display">\begin{cases}
+v_t=\alpha v_{t-1}+\eta_t\Delta J(W_t) \\
+W_{t+1}=W_t-v_t
+\end{cases}</script><p>其中$\alpha$是一个超参数，这个式子每次将当前梯度与历史积攒梯度按照一定比例组合在一起得到一个梯度，然后将这个梯度施加在当前参数上实现参数更新。</p>
+<h4 id="NAG"><a href="#NAG" class="headerlink" title="NAG"></a>NAG</h4><p>这种方法使用下述式子更新参数：</p>
+<script type="math/tex; mode=display">\begin{cases}
+v_t=\alpha v_{t-1}+\eta_t\Delta J(W_t-\alpha v_{t-1}) \\
+W_{t+1}=W_t-v_t
+\end{cases}</script><p>这种方法与Momentum方法几乎是一样的，不同的是，在计算当前梯度时，NAG首先假设参数已按照惯性梯度更新了，然后对这个更新了的参数计算梯度，用这个梯度代替当前参数的梯度（说起来好拗口，尽力了。。。）。这种方法能够提前预知梯度的变化，从而更好地调整参数更新方向。</p>
+<h3 id="自适应学习率优化方法"><a href="#自适应学习率优化方法" class="headerlink" title="自适应学习率优化方法"></a>自适应学习率优化方法</h3><p>自适应学习率方法，顾名思义就是可以自动调增学习率。学习率作为一个超参数，对模型效果影响比较大，如果给定学习率一个初值，然后学习率可以自己调整，那么就可以降低学习率的设置对模型效果的影响了。自适应学习率优化方法常用的有：AdaGrad，RMSProp，AdaDelta和Adam。</p>
+<h4 id="AdaGrad"><a href="#AdaGrad" class="headerlink" title="AdaGrad"></a>AdaGrad</h4><p>AdaGrad的参数更新式子如下：</p>
+<script type="math/tex; mode=display">\begin{cases}
+s=\sum_tg_t^2 \\
+W_{t+1}=W_t-\frac{\eta}{\sqrt{s+\epsilon}}g_t
+\end{cases}</script><p>可以看到，AdaGrad使用积攒的梯度的平方和作为分母调整学习率，$\eta$是初始学习率，$\epsilon$防止分母为0。当参数的梯度很大时，分母增加，减慢参数的学习速度；当参数的梯度很小时，分母减小，增大参数的学习速度。值得注意的是，不同参数的学习率是不一样的。</p>
+<h4 id="RMSProp"><a href="#RMSProp" class="headerlink" title="RMSProp"></a>RMSProp</h4><p>RMSProp的参数更新式子如下：</p>
+<script type="math/tex; mode=display">\begin{cases}
+s_{t+1}=\alpha s_t+(1-\alpha)g_t^2 \\
+W_{t+1}=W_t-\frac{\eta}{\sqrt{s_{t+1}+\epsilon}}g_t
+\end{cases}</script><p>可以看到RMSProp在计算$s_t$时，不再是对历史梯度进行平方求和，而是使用一个超参数控制梯度历史与当前梯度组合的比例，加权求和得到当前的$s_t$，然后利用$s_t$调整学习率。这种方法会使历史影响逐渐减小而更注重当前梯度的影响。</p>
+<h4 id="AdaDelta"><a href="#AdaDelta" class="headerlink" title="AdaDelta"></a>AdaDelta</h4><p>无论是AdaGrad还是RMSProp，都需要对学习率的初值进行设置，而AdaDelta将AdaGrad和RMSProp结合，形成一种不需要对学习率设置初值的方法。</p>
+<script type="math/tex; mode=display">\begin{cases}
+s_{t+1}=\alpha s_t+(1-\alpha)g_t^2 \\
+\Delta W_t=-\frac{\sqrt{\sum_{i=1}^{t-1}\Delta W_i}}{\sqrt{s_{t+1}+\epsilon}}\\
+W_{t+1}=W_t+\Delta W_t
+\end{cases}</script><h4 id="Adam"><a href="#Adam" class="headerlink" title="Adam"></a>Adam</h4><p>Adam综合了Momentum和RMSProp，形成下面的更新方式：</p>
+<script type="math/tex; mode=display">\begin{cases}
+s_{t+1}=\alpha s_t+(1-\alpha)g_t^2 \\
+m_{t+1}=\beta m_{t}+(1-\beta)g_t \\
+\hat{s}_{t+1}=\frac{s_{t+1}}{1-\alpha^{t+1}}\\
+\hat{m}_{t+1}=\frac{m_{t+1}}{1-\beta^{t+1}}\\
+W_{t+1}=W_t-\frac{\eta}{\sqrt{\hat{s}_{t+1}+\epsilon}}\hat{m}_{t+1}
+\end{cases}</script>
     </div>
 
     
@@ -279,8 +302,8 @@
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/08/谱聚类算法原理/" rel="next" title="谱聚类算法原理">
-                <i class="fa fa-chevron-left"></i> 谱聚类算法原理
+              <a href="/2020/02/09/GBDT和Xgboost/" rel="next" title="GBDT和Xgboost">
+                <i class="fa fa-chevron-left"></i> GBDT和Xgboost
               </a>
             
           </div>
@@ -288,10 +311,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/09/GBDT和Xgboost/" rel="prev" title="GBDT和Xgboost">
-                GBDT和Xgboost <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -379,7 +398,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是图卷积神经网络"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是图卷积神经网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-如何求解"><span class="nav-number">2.</span> <span class="nav-text">2. 如何求解</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是优化器"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是优化器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-有哪些优化方法"><span class="nav-number">2.</span> <span class="nav-text">2. 有哪些优化方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-各种优化方法原理"><span class="nav-number">3.</span> <span class="nav-text">3. 各种优化方法原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#梯度下降法"><span class="nav-number">3.1.</span> <span class="nav-text">梯度下降法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动量优化法"><span class="nav-number">3.2.</span> <span class="nav-text">动量优化法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Momentum"><span class="nav-number">3.2.1.</span> <span class="nav-text">Momentum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NAG"><span class="nav-number">3.2.2.</span> <span class="nav-text">NAG</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自适应学习率优化方法"><span class="nav-number">3.3.</span> <span class="nav-text">自适应学习率优化方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AdaGrad"><span class="nav-number">3.3.1.</span> <span class="nav-text">AdaGrad</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RMSProp"><span class="nav-number">3.3.2.</span> <span class="nav-text">RMSProp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AdaDelta"><span class="nav-number">3.3.3.</span> <span class="nav-text">AdaDelta</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Adam"><span class="nav-number">3.3.4.</span> <span class="nav-text">Adam</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
