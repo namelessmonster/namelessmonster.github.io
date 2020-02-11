@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="1. 什么是GBDTGBDT又叫梯度提升树，使用CART决策树作为基学习器，利用Boosting的集成思想训练模型。与AdaBoost不同，每轮学习GBDT不会根据训练结果调整样本权重，而是希望求得一个学习器$h_m$使得目标函数达到最小，即： h_m=arg\min_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))已知$F_{m-1}$，则损失函数对$F_{m-1">
+  <meta name="description" content="1. 什么是主题模型看了几天LDA主题模型，说实话到现在依然很懵。。。但是为了加深记忆，还是把一些自己的理解做一下记录。主题模型是从语料库中挖掘出隐含的信息，比文档的主题分布，每个主题的词语分布。主题模型的厉害之处在于它是无监督学习的，也就是不需要有标记过的数据。主题模型不需要知道有哪些主题，只需要知道总共有多少个主题，就可以自动为每个文档生成主题分布，自动为每个主题生成词分布。主题模型需要提前为">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GBDT和Xgboost">
-<meta property="og:url" content="http://yoursite.com/2020/02/09/GBDT和Xgboost/index.html">
+<meta property="og:title" content="LDA主题模型">
+<meta property="og:url" content="http://yoursite.com/2020/02/11/LDA主题模型/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 什么是GBDTGBDT又叫梯度提升树，使用CART决策树作为基学习器，利用Boosting的集成思想训练模型。与AdaBoost不同，每轮学习GBDT不会根据训练结果调整样本权重，而是希望求得一个学习器$h_m$使得目标函数达到最小，即： h_m=arg\min_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))已知$F_{m-1}$，则损失函数对$F_{m-1">
+<meta property="og:description" content="1. 什么是主题模型看了几天LDA主题模型，说实话到现在依然很懵。。。但是为了加深记忆，还是把一些自己的理解做一下记录。主题模型是从语料库中挖掘出隐含的信息，比文档的主题分布，每个主题的词语分布。主题模型的厉害之处在于它是无监督学习的，也就是不需要有标记过的数据。主题模型不需要知道有哪些主题，只需要知道总共有多少个主题，就可以自动为每个文档生成主题分布，自动为每个主题生成词分布。主题模型需要提前为">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-09T09:12:08.142Z">
+<meta property="og:updated_time" content="2020-02-11T06:50:54.426Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GBDT和Xgboost">
-<meta name="twitter:description" content="1. 什么是GBDTGBDT又叫梯度提升树，使用CART决策树作为基学习器，利用Boosting的集成思想训练模型。与AdaBoost不同，每轮学习GBDT不会根据训练结果调整样本权重，而是希望求得一个学习器$h_m$使得目标函数达到最小，即： h_m=arg\min_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))已知$F_{m-1}$，则损失函数对$F_{m-1">
-  <link rel="canonical" href="http://yoursite.com/2020/02/09/GBDT和Xgboost/">
+<meta name="twitter:title" content="LDA主题模型">
+<meta name="twitter:description" content="1. 什么是主题模型看了几天LDA主题模型，说实话到现在依然很懵。。。但是为了加深记忆，还是把一些自己的理解做一下记录。主题模型是从语料库中挖掘出隐含的信息，比文档的主题分布，每个主题的词语分布。主题模型的厉害之处在于它是无监督学习的，也就是不需要有标记过的数据。主题模型不需要知道有哪些主题，只需要知道总共有多少个主题，就可以自动为每个文档生成主题分布，自动为每个主题生成词分布。主题模型需要提前为">
+  <link rel="canonical" href="http://yoursite.com/2020/02/11/LDA主题模型/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>GBDT和Xgboost | Hexo</title>
+  <title>LDA主题模型 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/09/GBDT和Xgboost/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/11/LDA主题模型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">GBDT和Xgboost
+          <h1 class="post-title" itemprop="name headline">LDA主题模型
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-09 11:43:16 / 修改时间：17:12:08" itemprop="dateCreated datePublished" datetime="2020-02-09T11:43:16+08:00">2020-02-09</time>
+              <time title="创建时间：2020-02-11 12:40:38 / 修改时间：14:50:54" itemprop="dateCreated datePublished" datetime="2020-02-11T12:40:38+08:00">2020-02-11</time>
             </span>
           
             
@@ -246,21 +246,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-什么是GBDT"><a href="#1-什么是GBDT" class="headerlink" title="1. 什么是GBDT"></a>1. 什么是GBDT</h2><p>GBDT又叫梯度提升树，使用CART决策树作为基学习器，利用Boosting的集成思想训练模型。与AdaBoost不同，每轮学习GBDT不会根据训练结果调整样本权重，而是希望求得一个学习器$h_m$使得目标函数达到最小，即：</p>
-<script type="math/tex; mode=display">h_m=arg\min_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))</script><p>已知$F_{m-1}$，则损失函数对$F_{m-1}$在各个样本的一阶梯度等于：</p>
-<script type="math/tex; mode=display">\frac{\partial L(y_i,F_{m-1}(x_i))}{\partial F_{m-1}(x_i)}</script><p>我们知道一个函数关于一个变量的梯度，代表变量可以使得函数有最大上升的方向。而梯度的反方向则代表变量可以使得函数有最大下降的方向。所以要找到一个最佳$h_m$，可以使$h_m(x_i)$尽量接近$-\frac{\partial L(y_i,F_{m-1}(x_i))}{\partial F_{m-1}(x_i)}$，即$h_m$尽量拟合损失函数的负梯度。这就是GBDT的算法思想。在其他博客经常能看到说GBDT的每棵决策树是拟合损失函数的残差，这是不准确的，拟合残差是因为损失函数是均方误差函数，均方误差的一阶梯度几乎等于残差。而实际上GBDT是使每棵决策树去拟合损失函数的负梯度使得损失函数每次都能往降低的方向发展。</p>
-<h2 id="2-如何求解GBDT"><a href="#2-如何求解GBDT" class="headerlink" title="2. 如何求解GBDT"></a>2. 如何求解GBDT</h2><p>(1) 使用CART决策树训练数据，得到第一个基学习器$h_1$<br>(2) 在训练样本上计算损失函数与预测结果的负梯度，使用负梯度更新样本的学习目标<br>(3) 继续使用CART决策树训练数据，得到第二个基学习器$h_2$<br>(4) 在训练样本上计算损失函数与两个学习器求和后的预测结果的负梯度，使用负梯度更新样本的学习目标<br>(5) 重复(3)(4)步骤，直到达到训练结束条件<br>(6) 将各个学习器的预测结果求和，有时可以将各个学习器的预测结果乘上一个系数，这个系数表示学习率</p>
-<h2 id="3-什么是Xgboost"><a href="#3-什么是Xgboost" class="headerlink" title="3. 什么是Xgboost"></a>3. 什么是Xgboost</h2><p>Xgboost使用下式作为目标函数：</p>
-<script type="math/tex; mode=display">Obj = \sum_iL(y_i,F_{m-1}(x_i)+f_m(x_i))+\Omega(F_{m-1})+\Omega(f_m)</script><p>其中$\Omega$表示正则项，一般而言有下式：</p>
-<script type="math/tex; mode=display">\Omega(f)=\gamma T + \frac{1}{2}\lambda\lVert\omega\rVert^2</script><p>其中$T$表示决策树集合$f$的叶子节点数，而$\omega$表示叶子节点的输出。将目标函数进行泰勒展开并近似到二阶项有：</p>
-<script type="math/tex; mode=display">Obj\approx\sum_i\{L(y_i,F_{m-1}(x_i))+\frac{\partial L(y_i,F_{m-1}(x_i))}{\partial F_{m-1}(x_i)}f_m(x_i)+\frac{1}{2}\frac{\partial^2L(y_i,F_{m-1}(x_i))}{\partial F_{m-1}(x_i)^2}f_m(x_i)^2\} \\
-+\Omega(F_{m-1})+\Omega(f_m)</script><p>用$g_i$表示一阶导数，$h_i$表示二阶导数，将常数项$L(y_i,F_{m-1}(x_i))$与$\Omega(F_{m-1})$并入$C$，展开$\Omega(f_m)$，则有：</p>
-<script type="math/tex; mode=display">Obj\approx\sum_i\{g_if_m(x_i)+\frac{1}{2}(h_i+\lambda)f_m(x_i)^2\}+C+\gamma T</script><p>已知$f_m$是一棵决策树，且有$T$个叶子节点，第$t$个叶子节点的权重为$w_t$，则上式可以变为：</p>
-<script type="math/tex; mode=display">Obj\approx\sum_t\{w_t\sum_ig_iI(x_i\in S_t)+\frac{1}{2}w_t^2\sum_i(h_i+\lambda)I(x_i\in S_t)+\gamma\}+C</script><p>其中$S_t$表示样本进入决策树第$t$号节点的集合。使用目标函数对$w_t$求导并令导数为0，可以得到：</p>
-<script type="math/tex; mode=display">w_t=-\frac{\sum_{x_i\in S_t}g_i}{\sum_{x_i\in S_t}(h_i+\lambda)}</script><p>也就是说对于一个叶节点，这个叶节点的权值$w_t$是由到达该节点的样本的$g_i$和$h_i$决定的。以前的决策树一般都会使用样本目标的平均数或众数来决定叶节点的权值，这是Xgboost和这些决策树不同的一个地方。将上式结果代入目标函数最终可以得到：</p>
-<script type="math/tex; mode=display">Obj\approx-\frac{1}{2}\sum_t\frac{(\sum_{x_i\in S_t}g_i)^2}{\sum_{x_i\in S_t}(h_i+\lambda)}+\gamma T+C</script><p>以前的决策树会使用信息增益，信息增益率和基尼系数来决定选择一个特征和特征值展开决策树，Xgboost直接使用目标函数，每次会选择一个使目标函数达到最小的特征和特征值展开决策树，具体步骤如下：<br>(1) 选择一个特征和特征值<br>(2) 计算以该特征值展开决策树后新的叶子节点的权重$w_t$<br>(3) 将$w_t$代入目标函数，计算目标函数值<br>(4) 选择使目标函数最小的特征和特征值展开决策树</p>
-<h2 id="4-如何求解Xgboost"><a href="#4-如何求解Xgboost" class="headerlink" title="4. 如何求解Xgboost"></a>4. 如何求解Xgboost</h2><p>(1) 使用训练样本学习第一棵决策树$f_1$<br>(2) 计算损失函数关于$f_1$的输出的一阶导数和二阶导数<br>(3) 根据一阶导数和二阶导数，使用训练样本学习第二棵决策树$f_2$<br>(4) 计算损失函数关于$f_1+f_2$的输出的一阶导数和二阶导数<br>(5) 根据一阶导数和二阶导数，使用训练样本学习第三棵决策树$f_3$<br>(6) 重复上面的步骤，直到到达训练结束条件，对于第$i$棵决策树，可以给其乘上一个系数$\alpha_i$调整其输出影响</p>
-<h2 id="5-其他"><a href="#5-其他" class="headerlink" title="5. 其他"></a>5. 其他</h2><p>(1) Xgboost可以实现并行运算，提升效率。这里的并行运算是指在特征选择时的并行运算，可以加快算出最佳分割点。<br>(2) Xgboost可以处理特征缺失值，对于缺失值，将其放置可以使得目标函数最小的一边。<br>(3) Xgboost在计算特征重要性时，有几种方法，一般是计算使用这种特征分割的平均增益，增益可以是损失函数的降低程度，也可以是基尼系数，也可以是信息熵增益，还可以是多种指标的组合。有一种简单的方法是统计使用这种特征进行分割的次数。</p>
+        <h2 id="1-什么是主题模型"><a href="#1-什么是主题模型" class="headerlink" title="1. 什么是主题模型"></a>1. 什么是主题模型</h2><p>看了几天LDA主题模型，说实话到现在依然很懵。。。但是为了加深记忆，还是把一些自己的理解做一下记录。主题模型是从语料库中挖掘出隐含的信息，比文档的主题分布，每个主题的词语分布。主题模型的厉害之处在于它是无监督学习的，也就是不需要有标记过的数据。主题模型不需要知道有哪些主题，只需要知道总共有多少个主题，就可以自动为每个文档生成主题分布，自动为每个主题生成词分布。主题模型需要提前为其设置一共有多少个主题以及一共有多少个单词。</p>
+<h2 id="2-LDA模型原理"><a href="#2-LDA模型原理" class="headerlink" title="2. LDA模型原理"></a>2. LDA模型原理</h2><p>LDA主题模型又叫做隐含狄利克雷分布主题模型。我的理解是隐含代表这个模型需要处理隐变量，狄利克雷分布则是主题模型中每篇文档的主题分布的先验和每个主题中词分布的先验。假设每篇文档有一个主题分布$\theta_d$，每个主题有一个词分布$t_k$，则生成这篇文档的最大似然有下式：</p>
+<script type="math/tex; mode=display">P(d|\theta_d,\{t_k\})=\prod_{i}\theta_d(z_{d,i})t_{z_{d,i}}(w_i)</script><p>其中$z_{d,i}$表示文档$d$第$i$个词的主题，$w_i$表示文档$d$第$i$个词，$\theta_d(z_{d,i})$表示文档第$i$个词的主题是$z_{d,i}$的概率，$t_{z_{d,i}}(w_i)$表示在主题$z_{d,i}$下抽到$w_i$的概率。LDA模型对每篇文档和每个主题都单独有一个先验分布，每个先验分布都是狄利克雷分布，文档$d$主题分布的先验记为$Dir(\alpha_d)$，主题$k$词分布的先验记为$Dir(\beta_k)$。有了这些先验知识，现在的需求就改为求生成文档$d$的最大后验概率：</p>
+<script type="math/tex; mode=display">P(\theta_{d},\{t_k\}|\alpha_d,\{\beta_k\},d)=\{Dir(\theta_d|\alpha_d)\prod_{k}Dir(t_k|\beta_k)\}\prod_i\theta_d(z_{d,i})t_{z_{d,i}}(w_i)</script><p>这个式子可以转化为：</p>
+<script type="math/tex; mode=display">P(\theta_{d},\{t_k\}|\alpha_d,\{\beta_k\},d)=\{Dir(\theta_d|\alpha_d)\prod_{i}\theta_d(z_{d,i})\}\prod_{k}Dir(t_k|\beta_k)\prod_it_{z_{d,i}}(w_i) \\
+=Dir(\theta_d|\alpha_d+\hat{\alpha}_d)\prod_kDir(t_k|\beta_k+\hat{\beta}_k)</script><p>这是狄利克雷分布的一个性质，即狄利克雷先验乘上多项式分布似然等于狄利克雷后验。现在可以有两个目标，第一个目标是求最大后验分布，即求可以使上式达到最大的$\theta_d$和$\{t_k\}$；第二个目标是求后验分布的期望，根据狄利克雷分布的期望性质$Dir(\theta_d|\alpha_d+\hat{\alpha}_d)$等于$\alpha_d+\hat{\alpha}_d$，$Dir(t_k|\beta_k+\hat{\beta}_k)$的期望等于$\beta_k+\hat{\beta}_k$。对于求最大后验，一般做法是对参数求导令导数等于0，通过解方程或迭代的形式求出最佳参数。而对于求后验分布的期望，则要先求出后验分布的形式，然后列出求期望公式求得其期望。然后需要注意的是，上面的式子是建立在已知文档当中每个词的主题的条件下的，但是前面有说到，LDA是无监督学习的，也就是说是事先不知道各个文档各个词的主题的。如果将各个文档各个词的主题$z_{d,i}$看作是隐变量，就可以采用EM算法进行求解了。然后LDA模型的学习与训练过程是这样的：<br>(1) 已知先验分布，列出带有隐变量的后验分布式子<br>(2) 使用EM算法求出最大后验分布<br>(3) 使用最大后验分布确定文档中每个词的主题<br>(4) 现在每个词的主题明确了，带入后验分布式子求出后验分布<br>(5) 将该后验分布分解成文档的狄利克雷后验分布乘上各个主题的狄利克雷后验分布<br>(6) 使用后验分布更新文档和各个主题的先验分布<br>(7) 重复(1)~(6)过程，直到各个文档各个主题的先验分布收敛<br>(8) 使用狄利克雷先验分布的期望作为各个文档的主题分布，作为各个主题的词分布<br>LDA的预测过程和训练过程是一样的，最后使用收敛的文档主题先验分布的期望作为文档的主题分布，然后从中取出概率最大的主题作为文档的主题。</p>
+<h2 id="3-LDA主题模型学习感想"><a href="#3-LDA主题模型学习感想" class="headerlink" title="3. LDA主题模型学习感想"></a>3. LDA主题模型学习感想</h2><p>说实话看LDA主题模型看了几天依然没有完全看懂，上面的求解过程是我自己的理解，很多博客说求解LDA主题模型的参数用到变分EM算法或吉布斯采样，我觉得这个变分EM算法应该就和我理解的使用EM算法求最大后验分布是同一个东东吧（疑惑.jpg）。然后这篇博客很多地方也没有把概念说清楚，因为真的有太多概念了，所以懒得写了。。。</p>
 
     </div>
 
@@ -277,8 +269,8 @@
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/08/图卷积神经网络（GCN）/" rel="next" title="图卷积神经网络（GCN）">
-                <i class="fa fa-chevron-left"></i> 图卷积神经网络（GCN）
+              <a href="/2020/02/10/L1和L2正则化/" rel="next" title="L1和L2正则化">
+                <i class="fa fa-chevron-left"></i> L1和L2正则化
               </a>
             
           </div>
@@ -286,10 +278,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/10/优化器原理/" rel="prev" title="优化器原理">
-                优化器原理 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -377,7 +365,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是GBDT"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是GBDT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-如何求解GBDT"><span class="nav-number">2.</span> <span class="nav-text">2. 如何求解GBDT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-什么是Xgboost"><span class="nav-number">3.</span> <span class="nav-text">3. 什么是Xgboost</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-如何求解Xgboost"><span class="nav-number">4.</span> <span class="nav-text">4. 如何求解Xgboost</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-其他"><span class="nav-number">5.</span> <span class="nav-text">5. 其他</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是主题模型"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是主题模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-LDA模型原理"><span class="nav-number">2.</span> <span class="nav-text">2. LDA模型原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-LDA主题模型学习感想"><span class="nav-number">3.</span> <span class="nav-text">3. LDA主题模型学习感想</span></a></li></ol></div>
             
 
           </div>
