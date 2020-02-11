@@ -57,19 +57,21 @@
   };
 </script>
 
-  <meta name="description" content="1. 什么是GBDTGBDT又叫梯度提升树，使用CART决策树作为基学习器，利用Boosting的集成思想训练模型。与AdaBoost不同，每轮学习GBDT不会根据训练结果调整样本权重，而是希望求得一个学习器$h_m$使得目标函数达到最小，即： h_m=arg\min_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))已知$F_{m-1}$，则损失函数对$F_{m-1">
-<meta name="keywords" content="机器学习">
+  <meta name="description" content="1. 什么是HMM模型HMM模型，又叫隐马尔可夫模型，主要用于求解序列的隐状态。HMM是一个生成模型，通过隐状态之间的转移矩阵和隐状态到观测状态的发射矩阵决定隐状态和观测状态的联合分布。HMM模型有三个假设，第一个是观测独立性假设，序列每个时刻的观测状态仅与序列在该时刻的隐状态有关，即 P(o_1,o_2,...,o_t|s_1,s_2,...,s_t)=\prod_{i=1}^tP(o_i|s_">
+<meta name="keywords" content="机器学习,NLP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GBDT和Xgboost">
-<meta property="og:url" content="http://yoursite.com/2020/02/09/GBDT和Xgboost/index.html">
+<meta property="og:title" content="HMM-隐马尔可夫模型">
+<meta property="og:url" content="http://yoursite.com/2020/02/11/HMM-隐马尔可夫模型/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 什么是GBDTGBDT又叫梯度提升树，使用CART决策树作为基学习器，利用Boosting的集成思想训练模型。与AdaBoost不同，每轮学习GBDT不会根据训练结果调整样本权重，而是希望求得一个学习器$h_m$使得目标函数达到最小，即： h_m=arg\min_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))已知$F_{m-1}$，则损失函数对$F_{m-1">
+<meta property="og:description" content="1. 什么是HMM模型HMM模型，又叫隐马尔可夫模型，主要用于求解序列的隐状态。HMM是一个生成模型，通过隐状态之间的转移矩阵和隐状态到观测状态的发射矩阵决定隐状态和观测状态的联合分布。HMM模型有三个假设，第一个是观测独立性假设，序列每个时刻的观测状态仅与序列在该时刻的隐状态有关，即 P(o_1,o_2,...,o_t|s_1,s_2,...,s_t)=\prod_{i=1}^tP(o_i|s_">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-09T09:12:08.142Z">
+<meta property="og:image" content="http://chuantu.xyz/t6/715/1581409890x992245926.png">
+<meta property="og:updated_time" content="2020-02-11T10:30:34.931Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GBDT和Xgboost">
-<meta name="twitter:description" content="1. 什么是GBDTGBDT又叫梯度提升树，使用CART决策树作为基学习器，利用Boosting的集成思想训练模型。与AdaBoost不同，每轮学习GBDT不会根据训练结果调整样本权重，而是希望求得一个学习器$h_m$使得目标函数达到最小，即： h_m=arg\min_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))已知$F_{m-1}$，则损失函数对$F_{m-1">
-  <link rel="canonical" href="http://yoursite.com/2020/02/09/GBDT和Xgboost/">
+<meta name="twitter:title" content="HMM-隐马尔可夫模型">
+<meta name="twitter:description" content="1. 什么是HMM模型HMM模型，又叫隐马尔可夫模型，主要用于求解序列的隐状态。HMM是一个生成模型，通过隐状态之间的转移矩阵和隐状态到观测状态的发射矩阵决定隐状态和观测状态的联合分布。HMM模型有三个假设，第一个是观测独立性假设，序列每个时刻的观测状态仅与序列在该时刻的隐状态有关，即 P(o_1,o_2,...,o_t|s_1,s_2,...,s_t)=\prod_{i=1}^tP(o_i|s_">
+<meta name="twitter:image" content="http://chuantu.xyz/t6/715/1581409890x992245926.png">
+  <link rel="canonical" href="http://yoursite.com/2020/02/11/HMM-隐马尔可夫模型/">
 
 
 <script id="page.configurations">
@@ -78,7 +80,7 @@
   };
 </script>
 
-  <title>GBDT和Xgboost | Hexo</title>
+  <title>HMM-隐马尔可夫模型 | Hexo</title>
   
 
 
@@ -193,7 +195,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/09/GBDT和Xgboost/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/11/HMM-隐马尔可夫模型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +209,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">GBDT和Xgboost
+          <h1 class="post-title" itemprop="name headline">HMM-隐马尔可夫模型
 
               
             
@@ -227,7 +229,7 @@
                 
               
 
-              <time title="创建时间：2020-02-09 11:43:16 / 修改时间：17:12:08" itemprop="dateCreated datePublished" datetime="2020-02-09T11:43:16+08:00">2020-02-09</time>
+              <time title="创建时间：2020-02-11 16:10:21 / 修改时间：18:30:34" itemprop="dateCreated datePublished" datetime="2020-02-11T16:10:21+08:00">2020-02-11</time>
             </span>
           
             
@@ -246,21 +248,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-什么是GBDT"><a href="#1-什么是GBDT" class="headerlink" title="1. 什么是GBDT"></a>1. 什么是GBDT</h2><p>GBDT又叫梯度提升树，使用CART决策树作为基学习器，利用Boosting的集成思想训练模型。与AdaBoost不同，每轮学习GBDT不会根据训练结果调整样本权重，而是希望求得一个学习器$h_m$使得目标函数达到最小，即：</p>
-<script type="math/tex; mode=display">h_m=arg\min_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))</script><p>已知$F_{m-1}$，则损失函数对$F_{m-1}$在各个样本的一阶梯度等于：</p>
-<script type="math/tex; mode=display">\frac{\partial L(y_i,F_{m-1}(x_i))}{\partial F_{m-1}(x_i)}</script><p>我们知道一个函数关于一个变量的梯度，代表变量可以使得函数有最大上升的方向。而梯度的反方向则代表变量可以使得函数有最大下降的方向。所以要找到一个最佳$h_m$，可以使$h_m(x_i)$尽量接近$-\frac{\partial L(y_i,F_{m-1}(x_i))}{\partial F_{m-1}(x_i)}$，即$h_m$尽量拟合损失函数的负梯度。这就是GBDT的算法思想。在其他博客经常能看到说GBDT的每棵决策树是拟合损失函数的残差，这是不准确的，拟合残差是因为损失函数是均方误差函数，均方误差的一阶梯度几乎等于残差。而实际上GBDT是使每棵决策树去拟合损失函数的负梯度使得损失函数每次都能往降低的方向发展。</p>
-<h2 id="2-如何求解GBDT"><a href="#2-如何求解GBDT" class="headerlink" title="2. 如何求解GBDT"></a>2. 如何求解GBDT</h2><p>(1) 使用CART决策树训练数据，得到第一个基学习器$h_1$<br>(2) 在训练样本上计算损失函数与预测结果的负梯度，使用负梯度更新样本的学习目标<br>(3) 继续使用CART决策树训练数据，得到第二个基学习器$h_2$<br>(4) 在训练样本上计算损失函数与两个学习器求和后的预测结果的负梯度，使用负梯度更新样本的学习目标<br>(5) 重复(3)(4)步骤，直到达到训练结束条件<br>(6) 将各个学习器的预测结果求和，有时可以将各个学习器的预测结果乘上一个系数，这个系数表示学习率</p>
-<h2 id="3-什么是Xgboost"><a href="#3-什么是Xgboost" class="headerlink" title="3. 什么是Xgboost"></a>3. 什么是Xgboost</h2><p>Xgboost使用下式作为目标函数：</p>
-<script type="math/tex; mode=display">Obj = \sum_iL(y_i,F_{m-1}(x_i)+f_m(x_i))+\Omega(F_{m-1})+\Omega(f_m)</script><p>其中$\Omega$表示正则项，一般而言有下式：</p>
-<script type="math/tex; mode=display">\Omega(f)=\gamma T + \frac{1}{2}\lambda\lVert\omega\rVert^2</script><p>其中$T$表示决策树集合$f$的叶子节点数，而$\omega$表示叶子节点的输出。将目标函数进行泰勒展开并近似到二阶项有：</p>
-<script type="math/tex; mode=display">Obj\approx\sum_i\{L(y_i,F_{m-1}(x_i))+\frac{\partial L(y_i,F_{m-1}(x_i))}{\partial F_{m-1}(x_i)}f_m(x_i)+\frac{1}{2}\frac{\partial^2L(y_i,F_{m-1}(x_i))}{\partial F_{m-1}(x_i)^2}f_m(x_i)^2\} \\
-+\Omega(F_{m-1})+\Omega(f_m)</script><p>用$g_i$表示一阶导数，$h_i$表示二阶导数，将常数项$L(y_i,F_{m-1}(x_i))$与$\Omega(F_{m-1})$并入$C$，展开$\Omega(f_m)$，则有：</p>
-<script type="math/tex; mode=display">Obj\approx\sum_i\{g_if_m(x_i)+\frac{1}{2}(h_i+\lambda)f_m(x_i)^2\}+C+\gamma T</script><p>已知$f_m$是一棵决策树，且有$T$个叶子节点，第$t$个叶子节点的权重为$w_t$，则上式可以变为：</p>
-<script type="math/tex; mode=display">Obj\approx\sum_t\{w_t\sum_ig_iI(x_i\in S_t)+\frac{1}{2}w_t^2\sum_i(h_i+\lambda)I(x_i\in S_t)+\gamma\}+C</script><p>其中$S_t$表示样本进入决策树第$t$号节点的集合。使用目标函数对$w_t$求导并令导数为0，可以得到：</p>
-<script type="math/tex; mode=display">w_t=-\frac{\sum_{x_i\in S_t}g_i}{\sum_{x_i\in S_t}(h_i+\lambda)}</script><p>也就是说对于一个叶节点，这个叶节点的权值$w_t$是由到达该节点的样本的$g_i$和$h_i$决定的。以前的决策树一般都会使用样本目标的平均数或众数来决定叶节点的权值，这是Xgboost和这些决策树不同的一个地方。将上式结果代入目标函数最终可以得到：</p>
-<script type="math/tex; mode=display">Obj\approx-\frac{1}{2}\sum_t\frac{(\sum_{x_i\in S_t}g_i)^2}{\sum_{x_i\in S_t}(h_i+\lambda)}+\gamma T+C</script><p>以前的决策树会使用信息增益，信息增益率和基尼系数来决定选择一个特征和特征值展开决策树，Xgboost直接使用目标函数，每次会选择一个使目标函数达到最小的特征和特征值展开决策树，具体步骤如下：<br>(1) 选择一个特征和特征值<br>(2) 计算以该特征值展开决策树后新的叶子节点的权重$w_t$<br>(3) 将$w_t$代入目标函数，计算目标函数值<br>(4) 选择使目标函数最小的特征和特征值展开决策树</p>
-<h2 id="4-如何求解Xgboost"><a href="#4-如何求解Xgboost" class="headerlink" title="4. 如何求解Xgboost"></a>4. 如何求解Xgboost</h2><p>(1) 使用训练样本学习第一棵决策树$f_1$<br>(2) 计算损失函数关于$f_1$的输出的一阶导数和二阶导数<br>(3) 根据一阶导数和二阶导数，使用训练样本学习第二棵决策树$f_2$<br>(4) 计算损失函数关于$f_1+f_2$的输出的一阶导数和二阶导数<br>(5) 根据一阶导数和二阶导数，使用训练样本学习第三棵决策树$f_3$<br>(6) 重复上面的步骤，直到到达训练结束条件，对于第$i$棵决策树，可以给其乘上一个系数$\alpha_i$调整其输出影响</p>
-<h2 id="5-其他"><a href="#5-其他" class="headerlink" title="5. 其他"></a>5. 其他</h2><p>(1) Xgboost可以实现并行运算，提升效率。这里的并行运算是指在特征选择时的并行运算，可以加快算出最佳分割点。<br>(2) Xgboost可以处理特征缺失值，对于缺失值，将其放置可以使得目标函数最小的一边。<br>(3) Xgboost在计算特征重要性时，有几种方法，一般是计算使用这种特征分割的平均增益，增益可以是损失函数的降低程度，也可以是基尼系数，也可以是信息熵增益，还可以是多种指标的组合。有一种简单的方法是统计使用这种特征进行分割的次数。</p>
+        <h2 id="1-什么是HMM模型"><a href="#1-什么是HMM模型" class="headerlink" title="1. 什么是HMM模型"></a>1. 什么是HMM模型</h2><p>HMM模型，又叫隐马尔可夫模型，主要用于求解序列的隐状态。HMM是一个生成模型，通过隐状态之间的转移矩阵和隐状态到观测状态的发射矩阵决定隐状态和观测状态的联合分布。HMM模型有三个假设，第一个是观测独立性假设，序列每个时刻的观测状态仅与序列在该时刻的隐状态有关，即</p>
+<script type="math/tex; mode=display">P(o_1,o_2,...,o_t|s_1,s_2,...,s_t)=\prod_{i=1}^tP(o_i|s_i)</script><p>第二个是每个隐状态仅与上一个时刻的隐状态相关，即：</p>
+<script type="math/tex; mode=display">P(s_1,s_2,...s_t)=P(s_1)\prod_{i=2}^tP(s_i|s_{i-1})</script><p>第三个假设是无论在序列哪一个时刻，上述两个假设的条件分布都是不变的。在这三个假设中，第一个假设对应到HMM模型的发射矩阵，第二个假设对应到HMM模型的转移矩阵，第三个假设使得整个序列共享发射矩阵和转移矩阵的参数。HMM模型可以画成下面一幅概率图模型：<br><img src="http://chuantu.xyz/t6/715/1581409890x992245926.png" alt><br>其中每一条有向边，表示两个量之间的依赖关系。</p>
+<h2 id="2-HMM模型的求解"><a href="#2-HMM模型的求解" class="headerlink" title="2. HMM模型的求解"></a>2. HMM模型的求解</h2><p>HMM模型有三大问题：<br>(1) 已知初始隐状态分布$\pi$，转移矩阵$A$和发射矩阵$B$，观测序列$o_1,o_2,…,o_t$，如何求得最有可能的隐状态$s_1,s_2,…s_t$。<br>(2) 已知初始隐状态分布$\pi$，转移矩阵$A$和发射矩阵$B$，观测序列$o_1,o_2,…,o_t$，如何求该观测序列出现的概率$P(O|\pi,A,B)$。<br>(3) 已知一堆观测序列，如何求初始隐状态分布$\pi$，转移矩阵$A$和发射矩阵$B$的参数值，使得$P(O|\pi,A,B)$可以达到最大。</p>
+<h3 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h3><p>问题一又称为解码问题，将观测序列$O$解码成隐状态序列$S$，问题一是要求：</p>
+<script type="math/tex; mode=display">arg\max_{S}P(S|O,\lambda)</script><p>因为有：</p>
+<script type="math/tex; mode=display">P(S|O,\lambda) \propto P(O,S|\lambda)</script><p>所以又等价于求：</p>
+<script type="math/tex; mode=display">arg\max_{S}P(O,S|\lambda)</script><p>我们已知：</p>
+<script type="math/tex; mode=display">P(O=o_1,o_2,...,o_t,S=s_1,s_2,...,s_t|\lambda=\{\pi,A,B\})=P(s_1|\pi)\prod_{i=1}^tP(o_i|s_i,B)\prod_{i=2}^tP(s_i|s_{i-1},A)</script><p>我们可以构建状态$F[i,j]$表示在时刻$i$隐状态为$j$的最大概率，则有状态转移方程：</p>
+<script type="math/tex; mode=display">F[i,j]=\max_k\{F[i-1,k]P(o_i|s_i=j,B)P(s_i=j|s_{i-1}=k,A)\}</script><p>这么转移方程表示从上一时刻的状态$k$转移到这一时刻的状态$j$可以得到最大的概率：</p>
+<script type="math/tex; mode=display">P(O=o_1,o_2,...,o_i,S=s_1,s_2,...,s_{i-1}=k,s_i=j|\lambda)</script><p>最终我们可以知道解码求得的$S=s_1,s_2,…s_t$的最大概率值等于$\max_jF[t,j]$。如果每一步使用一个数组$Q[i,j]$存储这个概率值由上一个时刻哪个状态转移过来的，那么从$Q[t,j]$开始往回找，就可以找到使得概率值最大的隐状态$S$了，这个$S$就是解码的答案。这个动态规划算法的时间复杂度是$O(序列长度*隐状态种类^2)$，该算法也叫作维比特算法。</p>
+<h3 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h3><p>问题二又称为评估问题，评估观测序列的出现概率，问题二是要求：</p>
+<script type="math/tex; mode=display">P(O=o_1,o_2,...o_t|\lambda)=\sum_{S}P(O=o_1,o_2,...,o_t,S|\lambda)\\=\sum_{i}P(O=o_1,o_2,...,o_t,S=s_1,s_2,...,s_t=i|\lambda)\\=\sum_{i}\sum_{j}P(O=o_1,o_2,...,o_t,S=s1,s2,...,s_{t-1}=j,s_t=i|\lambda)\\=
+\sum_{i}\sum_{j}P(O=o_1,o_2,...,o_t,S=s_1,s_2,...s_{t-1}=j|\lambda)P(s_{t}=i|s_{t-1}=j,\lambda)P(o_t|s_t=i,\lambda)</script><p>所以可以设状态$F[i,j]$表示隐状态序列长度为$i$且第$i$个时刻的隐状态等于$j$的概率，即：</p>
+<script type="math/tex; mode=display">F[i,j]=P(O=o_1,o_2,...,o_i,S=s_1,s_2,...,s_{i}=j|\lambda)</script><p>所以有：</p>
+<script type="math/tex; mode=display">F[i,j]=\sum_{k}F[i-1,k]P(s_i=j|s_{i-1}=k,\lambda)P(o_i|s_i=j,\lambda)</script><p>最后的答案为：</p>
+<script type="math/tex; mode=display">\sum_{i}F[t,i]=\sum_iP(O=o_1,o_2,...,o_t,S=s_1,s_2,...,s_t=i|\lambda)=P(O=o_1,o_2,...,o_t|\lambda)</script><p>这就是前向算法的过程，和解码问题不同，前向算法在动态规划过程不是求最大值而是求和。然后还可以从后往前分析得到后向算法。当需要求中间某个观测状态是某个值时的概率时，需要结合前向后向算法。</p>
+<h3 id="问题3"><a href="#问题3" class="headerlink" title="问题3"></a>问题3</h3><p>问题三又称为学习问题，学习HMM模型的参数，问题三是要求：</p>
+<script type="math/tex; mode=display">arg\max_{\lambda}P(O|\lambda)</script><p>可以看到这是要求最大似然，所以可以按照一般的求最大似然的方法去求解参数。注意到：</p>
+<script type="math/tex; mode=display">P(O|\lambda)=\sum_{S}P(O,S|\lambda)=\sum_{S}P(S|\lambda)P(O|S,\lambda)</script><p>$S$可以看作是隐状态，所以可以使用EM算法对参数进行求解。在求解过程中，因为参数是有约束的，比如转移概率的和等于1等等，所以还需要用到拉格朗日乘子法。最终，结合EM算法和拉格朗日乘子法就可以求出较好的$\lambda$了。</p>
+<h2 id="3-HMM模型杂谈"><a href="#3-HMM模型杂谈" class="headerlink" title="3. HMM模型杂谈"></a>3. HMM模型杂谈</h2><p>HMM模型的优点是模型简单，容易求解；缺点是HMM模型需要满足三个假设，即观测独立性假设，齐次性假设和马尔可夫假设。如果不符合这些假设，HMM模型就不适用了。然后HMM模型是一个生成模型，数据的内部联系简单，如果数据的内部联系复杂，或数据样本数目少则不适合使用HMM模型。</p>
 
     </div>
 
@@ -274,11 +282,13 @@
         <div class="post-tags">
             <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
+            <a href="/tags/NLP/" rel="tag"># NLP</a>
+          
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/08/图卷积神经网络（GCN）/" rel="next" title="图卷积神经网络（GCN）">
-                <i class="fa fa-chevron-left"></i> 图卷积神经网络（GCN）
+              <a href="/2020/02/11/LDA主题模型/" rel="next" title="LDA主题模型">
+                <i class="fa fa-chevron-left"></i> LDA主题模型
               </a>
             
           </div>
@@ -286,10 +296,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/10/优化器原理/" rel="prev" title="优化器原理">
-                优化器原理 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -379,7 +385,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是GBDT"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是GBDT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-如何求解GBDT"><span class="nav-number">2.</span> <span class="nav-text">2. 如何求解GBDT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-什么是Xgboost"><span class="nav-number">3.</span> <span class="nav-text">3. 什么是Xgboost</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-如何求解Xgboost"><span class="nav-number">4.</span> <span class="nav-text">4. 如何求解Xgboost</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-其他"><span class="nav-number">5.</span> <span class="nav-text">5. 其他</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是HMM模型"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是HMM模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-HMM模型的求解"><span class="nav-number">2.</span> <span class="nav-text">2. HMM模型的求解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题1"><span class="nav-number">2.1.</span> <span class="nav-text">问题1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题2"><span class="nav-number">2.2.</span> <span class="nav-text">问题2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题3"><span class="nav-number">2.3.</span> <span class="nav-text">问题3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-HMM模型杂谈"><span class="nav-number">3.</span> <span class="nav-text">3. HMM模型杂谈</span></a></li></ol></div>
             
 
           </div>
