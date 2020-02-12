@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="1. 什么是谱聚类谱聚类算法是一种聚类算法，算法思想是首先将样本特征降维，然后对降维后的样本采用其他聚类算法进行聚类。 2. 如何求解由于谱聚类算法有几种版本，这里讲解最常用的版本。已知有$N$个样本，每个样本都有一个$M$维向量$x_i$，则可以对这些样本计算出一个相似矩阵$W$，计算方式如下： W_{i,j}=e^{\frac{-\lVert x_i-x_j\rVert^2}{2\sigma^">
-<meta name="keywords" content="机器学习">
+  <meta name="description" content="1. 什么是进程，什么是线程进程是程序在计算机内运行的一个实体，而线程是进程在执行时的一个实体。如果把程序看作是食谱，那么进程运行过程就可以看作是厨师做菜的过程，厨师做菜时使用的工具和食材可以看作是进程占用的系统资源。有时候一道菜并不是由一个厨师完成的，而是由多个厨师合作完成的。这些厨师在合作时，有的东西是共用的比如食材，有些东西是私用的比如工具，这时候这些厨师一起作业的过程可以看作是进程在运行，">
+<meta name="keywords" content="计算机基础,C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="谱聚类算法原理">
-<meta property="og:url" content="http://yoursite.com/2020/02/08/谱聚类算法原理/index.html">
+<meta property="og:title" content="进程与线程">
+<meta property="og:url" content="http://yoursite.com/2020/02/12/进程与线程/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 什么是谱聚类谱聚类算法是一种聚类算法，算法思想是首先将样本特征降维，然后对降维后的样本采用其他聚类算法进行聚类。 2. 如何求解由于谱聚类算法有几种版本，这里讲解最常用的版本。已知有$N$个样本，每个样本都有一个$M$维向量$x_i$，则可以对这些样本计算出一个相似矩阵$W$，计算方式如下： W_{i,j}=e^{\frac{-\lVert x_i-x_j\rVert^2}{2\sigma^">
+<meta property="og:description" content="1. 什么是进程，什么是线程进程是程序在计算机内运行的一个实体，而线程是进程在执行时的一个实体。如果把程序看作是食谱，那么进程运行过程就可以看作是厨师做菜的过程，厨师做菜时使用的工具和食材可以看作是进程占用的系统资源。有时候一道菜并不是由一个厨师完成的，而是由多个厨师合作完成的。这些厨师在合作时，有的东西是共用的比如食材，有些东西是私用的比如工具，这时候这些厨师一起作业的过程可以看作是进程在运行，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-08T14:23:06.602Z">
+<meta property="og:updated_time" content="2020-02-12T09:49:08.580Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="谱聚类算法原理">
-<meta name="twitter:description" content="1. 什么是谱聚类谱聚类算法是一种聚类算法，算法思想是首先将样本特征降维，然后对降维后的样本采用其他聚类算法进行聚类。 2. 如何求解由于谱聚类算法有几种版本，这里讲解最常用的版本。已知有$N$个样本，每个样本都有一个$M$维向量$x_i$，则可以对这些样本计算出一个相似矩阵$W$，计算方式如下： W_{i,j}=e^{\frac{-\lVert x_i-x_j\rVert^2}{2\sigma^">
-  <link rel="canonical" href="http://yoursite.com/2020/02/08/谱聚类算法原理/">
+<meta name="twitter:title" content="进程与线程">
+<meta name="twitter:description" content="1. 什么是进程，什么是线程进程是程序在计算机内运行的一个实体，而线程是进程在执行时的一个实体。如果把程序看作是食谱，那么进程运行过程就可以看作是厨师做菜的过程，厨师做菜时使用的工具和食材可以看作是进程占用的系统资源。有时候一道菜并不是由一个厨师完成的，而是由多个厨师合作完成的。这些厨师在合作时，有的东西是共用的比如食材，有些东西是私用的比如工具，这时候这些厨师一起作业的过程可以看作是进程在运行，">
+  <link rel="canonical" href="http://yoursite.com/2020/02/12/进程与线程/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>谱聚类算法原理 | Hexo</title>
+  <title>进程与线程 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/08/谱聚类算法原理/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/12/进程与线程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">谱聚类算法原理
+          <h1 class="post-title" itemprop="name headline">进程与线程
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-08 14:42:07 / 修改时间：22:23:06" itemprop="dateCreated datePublished" datetime="2020-02-08T14:42:07+08:00">2020-02-08</time>
+              <time title="创建时间：2020-02-12 16:43:34 / 修改时间：17:49:08" itemprop="dateCreated datePublished" datetime="2020-02-12T16:43:34+08:00">2020-02-12</time>
             </span>
           
             
@@ -246,24 +246,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-什么是谱聚类"><a href="#1-什么是谱聚类" class="headerlink" title="1. 什么是谱聚类"></a>1. 什么是谱聚类</h2><p>谱聚类算法是一种聚类算法，算法思想是首先将样本特征降维，然后对降维后的样本采用其他聚类算法进行聚类。</p>
-<h2 id="2-如何求解"><a href="#2-如何求解" class="headerlink" title="2. 如何求解"></a>2. 如何求解</h2><p>由于谱聚类算法有几种版本，这里讲解最常用的版本。已知有$N$个样本，每个样本都有一个$M$维向量$x_i$，则可以对这些样本计算出一个相似矩阵$W$，计算方式如下：</p>
-<script type="math/tex; mode=display">W_{i,j}=e^{\frac{-\lVert x_i-x_j\rVert^2}{2\sigma^2}}</script><p>其中$\sigma$是一个超参数，用来调整顶点之间的相似度大小。计算出矩阵$W$，接着可以计算矩阵$D$，矩阵$D$是一个对角矩阵，且有：</p>
-<script type="math/tex; mode=display">D_{i,i}=\sum_{j}W_{i,j}</script><p>接着可以使用矩阵$W$和矩阵$D$，计算拉普拉斯矩阵$L$：</p>
-<script type="math/tex; mode=display">L = D - W</script><p>为什么要求$L$？首先$L$是半正定的，$L$所有的特征值均大于等于0，其次$L$存在一个特征值等于0，再者$L$满足以下性质：</p>
-<script type="math/tex; mode=display">f^TLf=\frac{1}{2}\sum_{i,j}W_{i,j}(f_i-f_j)^2</script><p>为什么满足这个性质，大家可以自己动笔算算，将$L=D-W$代入化简即可得到上式。现在我们将矩阵$W$看作是一个图的邻接矩阵，即将$W_{i,j}$看作是顶点$i$和顶点$j$的边权，现在我们想要将顶点划分为$K$类，可以看作是将$W$代表的图划分为$K$个子图，且这$K$个子图之间的边权和尽量小。可以表示为：</p>
-<script type="math/tex; mode=display">\min\frac{1}{2}\sum_{k}cut(A_k,\hat{A_k})</script><p>其中$A_k$表示第$k$类集合的顶点，$\hat{A_k}$表示除第$k$类集合外的其他顶点，$cut$表示求第第$k$类集合顶点和其他集合顶点的切割，即边权和。但是求这个式子的最小值有个问题就是容易将1个顶点归为1个集合，我们希望一个集合内部的顶点数尽量多，所以可以改进目标函数为：</p>
-<script type="math/tex; mode=display">\min\frac{1}{2}\sum_{k}\frac{cut(A_k,\hat{A_k})}{vol(A_k)}</script><script type="math/tex; mode=display">vol(A_k)=\sum_iD_{i,i}I(v_i\in A_k)</script><p>这表明，一个集合内部顶点数越多，则分母越大，所以目标函数值也会少，算是一种对顶点数大的奖励。现在我们对每一类集合构造一个向量$h_k$：</p>
-<script type="math/tex; mode=display">h_{k,i}=
-\begin{cases}
-\frac{1}{\sqrt{vol(A_k)}},v_i\in A_k \\
-0,v_i\notin A_k \\
-\end{cases}</script><p>可以看到不同集合向量间是正交的，因为每个点只会在一个集合中，即如果向量$h_{k,i}\ne 0$，则其他向量$h_{j,i}=0$。而且还有这样一条性质：</p>
-<script type="math/tex; mode=display">h_k^TDh_k=1</script><script type="math/tex; mode=display">==> H^TDH=I</script><p>然后还有下面一条重要的性质：</p>
-<script type="math/tex; mode=display">h_k^TLh_k=(H^TLH)_{k,k}=\frac{cut(A_k,\hat{A_k})}{vol(A_k)}</script><script type="math/tex; mode=display">==>Tr(H^TLH)=\sum_{k}\frac{cut(A_k,\hat{A_k})}{vol(A_k)}</script><p>所以现在问题等价于求：</p>
-<script type="math/tex; mode=display">\min{Tr(H^TLH)}</script><script type="math/tex; mode=display">st. H^TDH=I</script><p>设$H=D^{-\frac{1}{2}}F$，则问题可以转换成：</p>
-<script type="math/tex; mode=display">\min{Tr(F^TD^{-\frac{1}{2}}LD^{-\frac{1}{2}}F)}</script><script type="math/tex; mode=display">st. F^TF=I</script><p>其中，$D^{-\frac{1}{2}}LD^{-\frac{1}{2}}$是标准化的拉普拉斯矩阵。现在我们需要求$F$中的每一列$f$，如果$f$是矩阵$D^{-\frac{1}{2}}LD^{-\frac{1}{2}}$的特征向量，那么有：</p>
-<script type="math/tex; mode=display">f^TD^{-\frac{1}{2}}LD^{-\frac{1}{2}}f=\lambda</script><p>$\lambda$是特征值。很容易证明当$f$是特征值最小的向量时，其对应的特征值是上式的最小值解，当$f$是特征值最大的向量时，其对应的特征值是上式的最大值解。现在我们要求最小解，所以可以利用贪心算法的思路，向将特征值最小的特征向量作为矩阵$F$的第一列，特征值第二小的特征向量作为矩阵$F$的第二列，特征值第$k$小的特征向量作为矩阵$F$的第$k$列。照着这个思路求出来的矩阵$F$恰好又可以满足$F^TF=I$这个约束。假设我们求出了最标准最正确的解，现在看$H$矩阵的每一行，每一行代表样本属于哪一类，所以只有一个元素不为0，其他都等于0，对应到矩阵$F$也是一样的。如果直接使用矩阵$F$的每一行的向量代表样本，则聚类是容易的，因为每个样本的向量只有一个元素有值，将有值的归为一类即可。我们可以先对矩阵$F$的每一行标准化为只有一个元素为1，然后使用其他聚类算法对这些样本进行聚类。需要注意的是，上面矩阵$F$每一行只有一个元素有值，是在标准解的条件下才会成立的，我们使用特征向量作为解，特征向量组成的矩阵在每一行可能并不止一个元素不为0，所以这种方法只是一个近似解。现在总结一下谱聚类的算法步骤：<br>(1) 构造相似矩阵$W$。<br>(2) 根据$W$,求出矩阵$D$。<br>(3) 根据$W$和$D$，求出拉普拉斯矩阵$L$。<br>(4) 标准化拉普拉斯矩阵$D^{-\frac{1}{2}}LD^{-\frac{1}{2}}$。<br>(5) 对标准化拉普拉斯矩阵求出特征值前$k$小的特征向量组成矩阵$F$。<br>(6) 对矩阵$F$的每一行进行标准化。<br>(7) 矩阵$F$的每一行对应一个样本的向量，使用其他聚类算法使用这些向量进行聚类。</p>
+        <h2 id="1-什么是进程，什么是线程"><a href="#1-什么是进程，什么是线程" class="headerlink" title="1. 什么是进程，什么是线程"></a>1. 什么是进程，什么是线程</h2><p>进程是程序在计算机内运行的一个实体，而线程是进程在执行时的一个实体。如果把程序看作是食谱，那么进程运行过程就可以看作是厨师做菜的过程，厨师做菜时使用的工具和食材可以看作是进程占用的系统资源。有时候一道菜并不是由一个厨师完成的，而是由多个厨师合作完成的。这些厨师在合作时，有的东西是共用的比如食材，有些东西是私用的比如工具，这时候这些厨师一起作业的过程可以看作是进程在运行，而每个厨师做自己那份工作的过程可以看作是线程在执行。简单概括，进程是一个实体，拥有系统资源以及指令，线程也是一个实体，拥有少量资源执行指令。</p>
+<h2 id="2-进程的内存结构"><a href="#2-进程的内存结构" class="headerlink" title="2. 进程的内存结构"></a>2. 进程的内存结构</h2><p>进程在内存中使用虚拟地址，虚拟地址指向虚拟内存，虚拟内存每个地址都需要通过页表映射到物理内存的一个地址才可以使用。使用虚拟内存的一个好处是，每个进程都可以独享自己的虚拟内存，彷佛自己一个霸占了所有内存，但实际上这些是通过页表映射在共用一个物理内存。当物理内存不够用时，按照页表置换算法，将一个虚拟地址对应物理地址的页面转移到物理磁盘，然后将该物理地址与其他虚拟地址联系起来注册到页表，转移出去的页面在下次需要用时，可以按照同样的过程从磁盘转移回物理内存。进程在虚拟内存中，从低地址到高地址有这么几个成分：预留段，文本段，数据段，堆，栈，内核空间。其中用户空间包括文本段，数据段，堆，栈。下面逐一讲解各个段的作用。</p>
+<h3 id="文本段（-text）"><a href="#文本段（-text）" class="headerlink" title="文本段（.text）"></a>文本段（.text）</h3><p>文本段存储程序指令以及字符串常量</p>
+<h3 id="数据段（-data和-bss）"><a href="#数据段（-data和-bss）" class="headerlink" title="数据段（.data和.bss）"></a>数据段（.data和.bss）</h3><p>数据段用于存储全局变量和静态变量，可以分为两个区，其中.data存储有初始化的全局变量和静态变量，.bss存储没有初始化的全局变量个静态变量。</p>
+<h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><p>堆用于存储程序动态申请的空间，可以对应到C++中使用new申请的空间。堆是从低地址往高地址扩展，每当堆的空间不足时，可以调用brk函数或sbrk函数移动堆的边界指针来扩展或缩小堆的空间大小。从堆中申请的空间需要自己手动释放，如果不释放可能会造成内存泄漏。内存泄漏会导致程序在运行过占用空间不断增大直到发生错误。进程结束后，系统会自动回收堆占用的空间，这说明堆内部的数据的生存周期是整个进程的运行期间。</p>
+<h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><p>栈用于存储函数的参数，局部变量和返回值。发生中断时，栈也可以用于存储寄存器等环境值，保存进程的运行状态。栈是从高地址往低地址扩展，栈的空间大小一般有限制，当超出范围时会报错，当然也是可以通过设置编译器系统参数来修改这个限制值。栈内部的数据的生存周期是函数的运行期间，当函数返回值时，栈内部与该函数有关的数据都会被清除，这个清除过程是由系统自动完成的，所以栈存储的数据无需程序员手动释放。</p>
+<h2 id="3-进程和线程的区别"><a href="#3-进程和线程的区别" class="headerlink" title="3. 进程和线程的区别"></a>3. 进程和线程的区别</h2><p>进程与线程的区别，总结起来有以下几点：<br>(1) 进程是系统分配和调度资源的独立单位，线程是CPU调度和分派的基本单位。<br>(2) 进程拥有自己独立的系统资源，线程使用进程的资源，自己拥有一点在执行中必不可少的资源（如程序计数器，一组寄存器和栈）。<br>(3) 一个进程必须有至少一个线程，一个线程只能隶属于一个进程。<br>(4) 进程之间的资源是独立的，一个进程崩溃并不会影响其他进程。线程之间的资源大多是共享的，一个线程崩溃是有可能导致整个进程崩溃从而导致所有线程崩溃。所以，多进程的程序比多线程的程序更健壮。<br>(5) 多进程之间的切换比多线程之间的切换耗费资源较大，效率差一些。<br>(6) 多进程不共享空间资源，需要使用进程间通信技术维持共同工作。多线程共享空间资源，在互相通信时效率更高。<br>(7) 进程作为独立的实体，可以迁移；线程依附于进程，无法单独迁移。<br>(8) 总而言之，多线程执行高效，开销小；多进程有利于资源的管理和保护，使得程序更健壮。</p>
 
     </div>
 
@@ -275,13 +264,15 @@
           
         
         <div class="post-tags">
-            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+            <a href="/tags/计算机基础/" rel="tag"># 计算机基础</a>
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/07/Bagging（随机森林）和Boosting（AdaBoost）/" rel="next" title="Bagging（随机森林）和Boosting（AdaBoost）">
-                <i class="fa fa-chevron-left"></i> Bagging（随机森林）和Boosting（AdaBoost）
+              <a href="/2020/02/12/CRF-条件随机场/" rel="next" title="CRF-条件随机场">
+                <i class="fa fa-chevron-left"></i> CRF-条件随机场
               </a>
             
           </div>
@@ -289,10 +280,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/08/图卷积神经网络（GCN）/" rel="prev" title="图卷积神经网络（GCN）">
-                图卷积神经网络（GCN） <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -386,7 +373,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是谱聚类"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是谱聚类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-如何求解"><span class="nav-number">2.</span> <span class="nav-text">2. 如何求解</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是进程，什么是线程"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是进程，什么是线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-进程的内存结构"><span class="nav-number">2.</span> <span class="nav-text">2. 进程的内存结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文本段（-text）"><span class="nav-number">2.1.</span> <span class="nav-text">文本段（.text）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据段（-data和-bss）"><span class="nav-number">2.2.</span> <span class="nav-text">数据段（.data和.bss）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆"><span class="nav-number">2.3.</span> <span class="nav-text">堆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈"><span class="nav-number">2.4.</span> <span class="nav-text">栈</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-进程和线程的区别"><span class="nav-number">3.</span> <span class="nav-text">3. 进程和线程的区别</span></a></li></ol></div>
             
 
           </div>
