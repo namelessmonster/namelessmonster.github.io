@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="1. 什么是偏差偏差表示模型的期望输出与真实值之间的误差，以回归任务为例，偏差可以表示为： bias^2=(E_D[f_D(x)]-y)^2其中，$f_D$表示由数据集$D$学习到的模型，每次采样得到一个数据集$D$，都可以训练得到一个模型$f_D$，对这些模型求期望，可以得到该模型的期望输出$E_D[f_D(x)]$，这个期望输出与真实值之间的差异就是模型的偏差。 2. 什么是方差方差表示模型在">
+  <meta name="description" content="1. 什么是主成分分析主成分分析是一种数据降维技术，可以将特征从高维空间降维到低维空间，从而提高数据特征的处理效率。主成分分析的目的是找到$K$个特征，这$K$个特征是互相都不相关的，而且要求这$K$个特征的方差尽量大。特征之间不相关保证特征之间不会互相影响；特征的方差尽量大则保证数据在特征上取值尽量分散，有利于利用特征区分样本。 2. 主成分分析的步骤已知数据样本的特征用矩阵$A_{nm}$表示">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="偏差和方差">
-<meta property="og:url" content="http://yoursite.com/2020/02/07/偏差和方差/index.html">
+<meta property="og:title" content="PCA-主成分分析">
+<meta property="og:url" content="http://yoursite.com/2020/02/13/PCA-主成分分析/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 什么是偏差偏差表示模型的期望输出与真实值之间的误差，以回归任务为例，偏差可以表示为： bias^2=(E_D[f_D(x)]-y)^2其中，$f_D$表示由数据集$D$学习到的模型，每次采样得到一个数据集$D$，都可以训练得到一个模型$f_D$，对这些模型求期望，可以得到该模型的期望输出$E_D[f_D(x)]$，这个期望输出与真实值之间的差异就是模型的偏差。 2. 什么是方差方差表示模型在">
+<meta property="og:description" content="1. 什么是主成分分析主成分分析是一种数据降维技术，可以将特征从高维空间降维到低维空间，从而提高数据特征的处理效率。主成分分析的目的是找到$K$个特征，这$K$个特征是互相都不相关的，而且要求这$K$个特征的方差尽量大。特征之间不相关保证特征之间不会互相影响；特征的方差尽量大则保证数据在特征上取值尽量分散，有利于利用特征区分样本。 2. 主成分分析的步骤已知数据样本的特征用矩阵$A_{nm}$表示">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-13T04:59:52.525Z">
+<meta property="og:updated_time" content="2020-02-13T08:52:37.924Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="偏差和方差">
-<meta name="twitter:description" content="1. 什么是偏差偏差表示模型的期望输出与真实值之间的误差，以回归任务为例，偏差可以表示为： bias^2=(E_D[f_D(x)]-y)^2其中，$f_D$表示由数据集$D$学习到的模型，每次采样得到一个数据集$D$，都可以训练得到一个模型$f_D$，对这些模型求期望，可以得到该模型的期望输出$E_D[f_D(x)]$，这个期望输出与真实值之间的差异就是模型的偏差。 2. 什么是方差方差表示模型在">
-  <link rel="canonical" href="http://yoursite.com/2020/02/07/偏差和方差/">
+<meta name="twitter:title" content="PCA-主成分分析">
+<meta name="twitter:description" content="1. 什么是主成分分析主成分分析是一种数据降维技术，可以将特征从高维空间降维到低维空间，从而提高数据特征的处理效率。主成分分析的目的是找到$K$个特征，这$K$个特征是互相都不相关的，而且要求这$K$个特征的方差尽量大。特征之间不相关保证特征之间不会互相影响；特征的方差尽量大则保证数据在特征上取值尽量分散，有利于利用特征区分样本。 2. 主成分分析的步骤已知数据样本的特征用矩阵$A_{nm}$表示">
+  <link rel="canonical" href="http://yoursite.com/2020/02/13/PCA-主成分分析/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>偏差和方差 | Hexo</title>
+  <title>PCA-主成分分析 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/07/偏差和方差/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/13/PCA-主成分分析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">偏差和方差
+          <h1 class="post-title" itemprop="name headline">PCA-主成分分析
 
               
             
@@ -227,21 +227,11 @@
                 
               
 
-              <time title="创建时间：2020-02-07 15:26:53" itemprop="dateCreated datePublished" datetime="2020-02-07T15:26:53+08:00">2020-02-07</time>
+              <time title="创建时间：2020-02-13 15:36:14 / 修改时间：16:52:37" itemprop="dateCreated datePublished" datetime="2020-02-13T15:36:14+08:00">2020-02-13</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-02-13 12:59:52" itemprop="dateModified" datetime="2020-02-13T12:59:52+08:00">2020-02-13</time>
-              </span>
             
           
 
@@ -256,21 +246,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-什么是偏差"><a href="#1-什么是偏差" class="headerlink" title="1. 什么是偏差"></a>1. 什么是偏差</h2><p>偏差表示模型的期望输出与真实值之间的误差，以回归任务为例，偏差可以表示为：</p>
-<script type="math/tex; mode=display">bias^2=(E_D[f_D(x)]-y)^2</script><p>其中，$f_D$表示由数据集$D$学习到的模型，每次采样得到一个数据集$D$，都可以训练得到一个模型$f_D$，对这些模型求期望，可以得到该模型的期望输出$E_D[f_D(x)]$，这个期望输出与真实值之间的差异就是模型的偏差。</p>
-<h2 id="2-什么是方差"><a href="#2-什么是方差" class="headerlink" title="2. 什么是方差"></a>2. 什么是方差</h2><p>方差表示模型在不同数据集扰动下的表现，方差小说明模型在不同数据集下训练，对同一个数据的输出并没有产生太大的差别，方差大说明模型在不同数据集下训练，对同一个数据的输出差距大。方差可以表示为：</p>
-<script type="math/tex; mode=display">var=E_D[(f_D(x)-\hat{f}(x))^2]</script><script type="math/tex; mode=display">\hat{f}(x)=E_D[f_D(x)]</script><p>模型在不同数据集训练下的输出与模型期望输出之间的差异就是模型的方差。</p>
-<h2 id="3-偏差，方差和噪声的关系"><a href="#3-偏差，方差和噪声的关系" class="headerlink" title="3. 偏差，方差和噪声的关系"></a>3. 偏差，方差和噪声的关系</h2><p>现在有一个数据集$D$，从该数据集下学习得到模型$f_D$，假设这是一个回归任务，则泛化损失误差期望为：</p>
-<script type="math/tex; mode=display">E_D[(f_D(x)-y_D)^2]</script><script type="math/tex; mode=display">=E_D[(f_D(x)-\hat{f}(x)+\hat{f}(x)-y_D)^2]</script><script type="math/tex; mode=display">=E_D[(f_D(x)-\hat{f}(x))^2]+E_D[(\hat{f}(x)-y_D)^2]+2E_D[...]</script><script type="math/tex; mode=display">=E_D[(f_D(x)-\hat{f}(x))^2]+E_D[(\hat{f}(x)-y+y-y_D)^2]</script><script type="math/tex; mode=display">=E_D[(f_D(x)-\hat{f}(x))^2]+E_D[(\hat{f}(x)-y)^2]+E_D[(y-y_D)^2]+2E_D[...]</script><script type="math/tex; mode=display">=E_D[(f_D(x)-\hat{f}(x))^2]+(\hat{f}(x)-y)^2+E_D[(y-y_D)^2]</script><script type="math/tex; mode=display">=var+bias^2+noise</script><p>可以看到损失函数可以转化为方差，偏差和噪声的和。一般噪声是不可约的，所以要提高模型主要从方差和偏差入手，即偏差和方差越小，模型性能越小。但是往往，偏差与方差是存在一些矛盾的，即方差越小偏差反而越大或者偏差越小方差反而越大的情况，称为偏差-方差窘境。训练误差大称为欠拟合，训练误差小但泛化误差大称为过拟合，过拟合是偏差小方差大的一种表现。针对过拟合有以下几种方法：</p>
-<ol>
-<li>增大数据集规模</li>
-<li>增加正则项，降低模型复杂度</li>
-<li>交叉验证（K折交叉验证和留一法）</li>
-<li>Holdout和early stop</li>
-<li>使用dropout</li>
-<li>使用集成模型</li>
-<li>给模型加噪声，增强模型的鲁棒性</li>
-</ol>
+        <h2 id="1-什么是主成分分析"><a href="#1-什么是主成分分析" class="headerlink" title="1. 什么是主成分分析"></a>1. 什么是主成分分析</h2><p>主成分分析是一种数据降维技术，可以将特征从高维空间降维到低维空间，从而提高数据特征的处理效率。主成分分析的目的是找到$K$个特征，这$K$个特征是互相都不相关的，而且要求这$K$个特征的方差尽量大。特征之间不相关保证特征之间不会互相影响；特征的方差尽量大则保证数据在特征上取值尽量分散，有利于利用特征区分样本。</p>
+<h2 id="2-主成分分析的步骤"><a href="#2-主成分分析的步骤" class="headerlink" title="2. 主成分分析的步骤"></a>2. 主成分分析的步骤</h2><p>已知数据样本的特征用矩阵$A_{nm}$表示，则PCA的步骤有：<br>(1) 计算特征的协方差矩阵$B_{mm}=\frac{1}{n}A^TA$。<br>(2) 计算协方差矩阵的特征值和特征向量。<br>(3) 选择前$k$大的特征值对应的特征向量组成矩阵$C_{mk}$。<br>(4) 得到矩阵$D_{nk}=AC$，矩阵$D$就是降维后的特征。</p>
+<h2 id="3-主成分分析的原理"><a href="#3-主成分分析的原理" class="headerlink" title="3. 主成分分析的原理"></a>3. 主成分分析的原理</h2><p>假设我们现在将每个样本映射到一维，映射矩阵只有一列，设该列为$w$，则有：</p>
+<script type="math/tex; mode=display">y=Aw</script><p>根据PCA的要求，$y$的方差要最大，已知$y$的方差为：</p>
+<script type="math/tex; mode=display">\frac{1}{n}y^Ty=\frac{1}{n}w^TA^TAw=w^T\{\frac{1}{n}A^TA\}w</script><p>我们知道$w$是一个权重向量，表示各个特征的权重，新特征是原特征的加权和，所以有约束：</p>
+<script type="math/tex; mode=display">\lVert w \rVert=1</script><p>所以现在是要求：</p>
+<script type="math/tex; mode=display">arg\max_{w}w^T\{\frac{1}{n}A^TA\}w</script><script type="math/tex; mode=display">st. \lVert w \rVert=1</script><p>使用拉格朗日乘子法求上述带约束的最优化问题，可以得到：</p>
+<script type="math/tex; mode=display">\frac{1}{n}A^TAw=\lambda w</script><p>所以新特征的方差为：</p>
+<script type="math/tex; mode=display">w^T\{\frac{1}{n}A^TA\}w=\lambda\lVert w \rVert^2=\lambda</script><p>已知$\frac{1}{n}A^TA$是矩阵$A$的协方差矩阵，所以$w$是矩阵$A$协方差矩阵的特征向量，而且方差等于特征向量的特征值。因为要求方差最大，所以选最大的特征值和对应的特征向量，即解得$w$为最大特征值对应的特征向量。</p>
+<p>上面的过程是求解只有一个新特征时的降维矩阵，当需要$k$个新特征时，首先需要协方差矩阵是单位矩阵，即各个特征之间是不相关的，其次需要各个特征的方差都尽量大。已知各个特征向量之间是正交的，所以可以取前$k$大的特征值对应的特征向量组成降维矩阵。</p>
 
     </div>
 
@@ -287,8 +272,8 @@
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/07/SVM原理与推导/" rel="next" title="SVM原理与推导">
-                <i class="fa fa-chevron-left"></i> SVM原理与推导
+              <a href="/2020/02/13/word2vec原理/" rel="next" title="word2vec原理">
+                <i class="fa fa-chevron-left"></i> word2vec原理
               </a>
             
           </div>
@@ -296,10 +281,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/07/决策树原理与推导/" rel="prev" title="决策树原理与推导">
-                决策树原理与推导 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -393,7 +374,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是偏差"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是偏差</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-什么是方差"><span class="nav-number">2.</span> <span class="nav-text">2. 什么是方差</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-偏差，方差和噪声的关系"><span class="nav-number">3.</span> <span class="nav-text">3. 偏差，方差和噪声的关系</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是主成分分析"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是主成分分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-主成分分析的步骤"><span class="nav-number">2.</span> <span class="nav-text">2. 主成分分析的步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-主成分分析的原理"><span class="nav-number">3.</span> <span class="nav-text">3. 主成分分析的原理</span></a></li></ol></div>
             
 
           </div>
