@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="1. 什么是进程，什么是线程进程是程序在计算机内运行的一个实体，而线程是进程在执行时的一个实体。如果把程序看作是食谱，那么进程运行过程就可以看作是厨师做菜的过程，厨师做菜时使用的工具和食材可以看作是进程占用的系统资源。有时候一道菜并不是由一个厨师完成的，而是由多个厨师合作完成的。这些厨师在合作时，有的东西是共用的比如食材，有些东西是私用的比如工具，这时候这些厨师一起作业的过程可以看作是进程在运行，">
-<meta name="keywords" content="计算机基础,C++">
+  <meta name="description" content="1. 红黑树红黑树是一种平衡二叉树，相比起AVL树，红黑树在树的平衡上放松了一些约束，实际上也没有必要达到AVL树这么严格的平衡度，这会导致每次插入或删除都需要旋转一些次数才能维护。红黑树主要有以下五个性质：(1) 每个节点要么是红色，要么是黑色(2) 根节点是黑色(3) 叶节点是黑色(4) 红色节点的子节点是黑色(5) 任意一节点到叶节点每条路径的黑色节点数一样维护这五个性质，可以证明对红黑树的">
+<meta name="keywords" content="计算机基础，数据结构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="进程与线程">
-<meta property="og:url" content="http://yoursite.com/2020/02/12/进程与线程/index.html">
+<meta property="og:title" content="红黑树，B树，B+树">
+<meta property="og:url" content="http://yoursite.com/2020/02/13/红黑树，B树，B-树/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 什么是进程，什么是线程进程是程序在计算机内运行的一个实体，而线程是进程在执行时的一个实体。如果把程序看作是食谱，那么进程运行过程就可以看作是厨师做菜的过程，厨师做菜时使用的工具和食材可以看作是进程占用的系统资源。有时候一道菜并不是由一个厨师完成的，而是由多个厨师合作完成的。这些厨师在合作时，有的东西是共用的比如食材，有些东西是私用的比如工具，这时候这些厨师一起作业的过程可以看作是进程在运行，">
+<meta property="og:description" content="1. 红黑树红黑树是一种平衡二叉树，相比起AVL树，红黑树在树的平衡上放松了一些约束，实际上也没有必要达到AVL树这么严格的平衡度，这会导致每次插入或删除都需要旋转一些次数才能维护。红黑树主要有以下五个性质：(1) 每个节点要么是红色，要么是黑色(2) 根节点是黑色(3) 叶节点是黑色(4) 红色节点的子节点是黑色(5) 任意一节点到叶节点每条路径的黑色节点数一样维护这五个性质，可以证明对红黑树的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-12T09:49:08.580Z">
+<meta property="og:updated_time" content="2020-02-13T10:54:32.685Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="进程与线程">
-<meta name="twitter:description" content="1. 什么是进程，什么是线程进程是程序在计算机内运行的一个实体，而线程是进程在执行时的一个实体。如果把程序看作是食谱，那么进程运行过程就可以看作是厨师做菜的过程，厨师做菜时使用的工具和食材可以看作是进程占用的系统资源。有时候一道菜并不是由一个厨师完成的，而是由多个厨师合作完成的。这些厨师在合作时，有的东西是共用的比如食材，有些东西是私用的比如工具，这时候这些厨师一起作业的过程可以看作是进程在运行，">
-  <link rel="canonical" href="http://yoursite.com/2020/02/12/进程与线程/">
+<meta name="twitter:title" content="红黑树，B树，B+树">
+<meta name="twitter:description" content="1. 红黑树红黑树是一种平衡二叉树，相比起AVL树，红黑树在树的平衡上放松了一些约束，实际上也没有必要达到AVL树这么严格的平衡度，这会导致每次插入或删除都需要旋转一些次数才能维护。红黑树主要有以下五个性质：(1) 每个节点要么是红色，要么是黑色(2) 根节点是黑色(3) 叶节点是黑色(4) 红色节点的子节点是黑色(5) 任意一节点到叶节点每条路径的黑色节点数一样维护这五个性质，可以证明对红黑树的">
+  <link rel="canonical" href="http://yoursite.com/2020/02/13/红黑树，B树，B-树/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>进程与线程 | Hexo</title>
+  <title>红黑树，B树，B+树 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/12/进程与线程/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/13/红黑树，B树，B-树/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">进程与线程
+          <h1 class="post-title" itemprop="name headline">红黑树，B树，B+树
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-12 16:43:34 / 修改时间：17:49:08" itemprop="dateCreated datePublished" datetime="2020-02-12T16:43:34+08:00">2020-02-12</time>
+              <time title="创建时间：2020-02-13 17:41:33 / 修改时间：18:54:32" itemprop="dateCreated datePublished" datetime="2020-02-13T17:41:33+08:00">2020-02-13</time>
             </span>
           
             
@@ -246,13 +246,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-什么是进程，什么是线程"><a href="#1-什么是进程，什么是线程" class="headerlink" title="1. 什么是进程，什么是线程"></a>1. 什么是进程，什么是线程</h2><p>进程是程序在计算机内运行的一个实体，而线程是进程在执行时的一个实体。如果把程序看作是食谱，那么进程运行过程就可以看作是厨师做菜的过程，厨师做菜时使用的工具和食材可以看作是进程占用的系统资源。有时候一道菜并不是由一个厨师完成的，而是由多个厨师合作完成的。这些厨师在合作时，有的东西是共用的比如食材，有些东西是私用的比如工具，这时候这些厨师一起作业的过程可以看作是进程在运行，而每个厨师做自己那份工作的过程可以看作是线程在执行。简单概括，进程是一个实体，拥有系统资源以及指令，线程也是一个实体，拥有少量资源执行指令。</p>
-<h2 id="2-进程的内存结构"><a href="#2-进程的内存结构" class="headerlink" title="2. 进程的内存结构"></a>2. 进程的内存结构</h2><p>进程在内存中使用虚拟地址，虚拟地址指向虚拟内存，虚拟内存每个地址都需要通过页表映射到物理内存的一个地址才可以使用。使用虚拟内存的一个好处是，每个进程都可以独享自己的虚拟内存，彷佛自己一个霸占了所有内存，但实际上这些是通过页表映射在共用一个物理内存。当物理内存不够用时，按照页表置换算法，将一个虚拟地址对应物理地址的页面转移到物理磁盘，然后将该物理地址与其他虚拟地址联系起来注册到页表，转移出去的页面在下次需要用时，可以按照同样的过程从磁盘转移回物理内存。进程在虚拟内存中，从低地址到高地址有这么几个成分：预留段，文本段，数据段，堆，栈，内核空间。其中用户空间包括文本段，数据段，堆，栈。下面逐一讲解各个段的作用。</p>
-<h3 id="文本段（-text）"><a href="#文本段（-text）" class="headerlink" title="文本段（.text）"></a>文本段（.text）</h3><p>文本段存储程序指令以及字符串常量</p>
-<h3 id="数据段（-data和-bss）"><a href="#数据段（-data和-bss）" class="headerlink" title="数据段（.data和.bss）"></a>数据段（.data和.bss）</h3><p>数据段用于存储全局变量和静态变量，可以分为两个区，其中.data存储有初始化的全局变量和静态变量，.bss存储没有初始化的全局变量个静态变量。</p>
-<h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><p>堆用于存储程序动态申请的空间，可以对应到C++中使用new申请的空间。堆是从低地址往高地址扩展，每当堆的空间不足时，可以调用brk函数或sbrk函数移动堆的边界指针来扩展或缩小堆的空间大小。从堆中申请的空间需要自己手动释放，如果不释放可能会造成内存泄漏。内存泄漏会导致程序在运行过占用空间不断增大直到发生错误。进程结束后，系统会自动回收堆占用的空间，这说明堆内部的数据的生存周期是整个进程的运行期间。</p>
-<h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><p>栈用于存储函数的参数，局部变量和返回值。发生中断时，栈也可以用于存储寄存器等环境值，保存进程的运行状态。栈是从高地址往低地址扩展，栈的空间大小一般有限制，当超出范围时会报错，当然也是可以通过设置编译器系统参数来修改这个限制值。栈内部的数据的生存周期是函数的运行期间，当函数返回值时，栈内部与该函数有关的数据都会被清除，这个清除过程是由系统自动完成的，所以栈存储的数据无需程序员手动释放。</p>
-<h2 id="3-进程和线程的区别"><a href="#3-进程和线程的区别" class="headerlink" title="3. 进程和线程的区别"></a>3. 进程和线程的区别</h2><p>进程与线程的区别，总结起来有以下几点：<br>(1) 进程是系统分配和调度资源的独立单位，线程是CPU调度和分派的基本单位。<br>(2) 进程拥有自己独立的系统资源，线程使用进程的资源，自己拥有一点在执行中必不可少的资源（如程序计数器，一组寄存器和栈）。<br>(3) 一个进程必须有至少一个线程，一个线程只能隶属于一个进程。<br>(4) 进程之间的资源是独立的，一个进程崩溃并不会影响其他进程。线程之间的资源大多是共享的，一个线程崩溃是有可能导致整个进程崩溃从而导致所有线程崩溃。所以，多进程的程序比多线程的程序更健壮。<br>(5) 多进程之间的切换比多线程之间的切换耗费资源较大，效率差一些。<br>(6) 多进程不共享空间资源，需要使用进程间通信技术维持共同工作。多线程共享空间资源，在互相通信时效率更高。<br>(7) 进程作为独立的实体，可以迁移；线程依附于进程，无法单独迁移。<br>(8) 总而言之，多线程执行高效，开销小；多进程有利于资源的管理和保护，使得程序更健壮。</p>
+        <h2 id="1-红黑树"><a href="#1-红黑树" class="headerlink" title="1. 红黑树"></a>1. 红黑树</h2><p>红黑树是一种平衡二叉树，相比起AVL树，红黑树在树的平衡上放松了一些约束，实际上也没有必要达到AVL树这么严格的平衡度，这会导致每次插入或删除都需要旋转一些次数才能维护。红黑树主要有以下五个性质：<br>(1) 每个节点要么是红色，要么是黑色<br>(2) 根节点是黑色<br>(3) 叶节点是黑色<br>(4) 红色节点的子节点是黑色<br>(5) 任意一节点到叶节点每条路径的黑色节点数一样<br>维护这五个性质，可以证明对红黑树的插入，删除，查询等操作的期望时间复杂度是$O(\log n)$的。红黑树在维护性质上主要依靠三种基本操作，分别是左旋，右旋和变色。</p>
+<h2 id="2-B-树（B树）"><a href="#2-B-树（B树）" class="headerlink" title="2. B-树（B树）"></a>2. B-树（B树）</h2><p>B-树是B树不是B减树，B-树和B树是同一个东西。与平衡二叉树不同，B-树可以看作是平衡多叉树。B-树有这些性质：<br>(1) 根节点的子节点数为$[2,m]$<br>(2) 非根非叶节点的子节点数为$[m/2,m]$<br>(3) 每个叶节点的高度一致<br>(4) 每个节点键的个数等于其子节点数减一<br>B-树使用键来划分数据，大于第1个键的数据划分到第一棵子树，在第1个键和第2个键之间的数据划分到第二棵子树，大于最后一个键的数据划分到最后一棵子树。B-树和B+树的一个不同，就是B-树的键上是有数据的，在查询时，当直接命中键就可以直接返回。B-树在插入时，如果遇到子节点数大于等于$m$时，则将该节点分裂成两个节点，每个节点取一半的键。在删除时，如果遇到子节点数小于$m/2$时，可以从兄弟节点借一个子节点；如果不存在可以借的子节点，则和兄弟节点合并，合并时将自身的子树全部接到兄弟节点上，兄弟节点在合并后可能需要分裂，之后将自己的节点重新插入B-树当作插入B-树处理。通过上述步骤不断往根节点递归调整，就可以在每次插入或删除后维护B-树的性质了。</p>
+<h2 id="3-B-树"><a href="#3-B-树" class="headerlink" title="3. B+树"></a>3. B+树</h2><p>B+树在B-树的基础上做了一些修改，主要有这些性质：<br>(1) 根节点的子节点数为$[2,m]$<br>(2) 非根非叶节点的子节点数为$[m/2,m]$<br>(3) 每个叶节点的高度一致<br>(4) 每个节点键的格式等于其子节点数<br>(5) 叶节点有一条链连接<br>B+树比起B树最大的区别就是B+树所有的数据都存储在叶节点，非叶节点全部看作索引，即使非叶节点的值等于查找值，也要到叶节点才能取得数据。这么做的好处首先是B+树的非叶节点只需要存储索引值而不需要存储整个数据，其次查找效率稳定。非叶节点只需要存储索引值，大大提升节省了B+树的存储空间；查找效率稳定是指无论查找哪个数所需要的时间都是差不多的。B+树的性质(4)使得在合并节点时更简单，直接进行合并就可以，这说明B+树在处理删除时，维护性质比B-树更简单，效率也更高。性质(5)使得B+树可以在命中区域周围继续搜索，完成区域查找。</p>
 
     </div>
 
@@ -264,15 +260,13 @@
           
         
         <div class="post-tags">
-            <a href="/tags/计算机基础/" rel="tag"># 计算机基础</a>
-          
-            <a href="/tags/C/" rel="tag"># C++</a>
+            <a href="/tags/计算机基础，数据结构/" rel="tag"># 计算机基础，数据结构</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/12/CRF-条件随机场/" rel="next" title="CRF-条件随机场">
-                <i class="fa fa-chevron-left"></i> CRF-条件随机场
+              <a href="/2020/02/13/PCA-主成分分析/" rel="next" title="PCA-主成分分析">
+                <i class="fa fa-chevron-left"></i> PCA-主成分分析
               </a>
             
           </div>
@@ -280,10 +274,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/12/Kmeans数学原理/" rel="prev" title="Kmeans数学原理">
-                Kmeans数学原理 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -379,7 +369,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是进程，什么是线程"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是进程，什么是线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-进程的内存结构"><span class="nav-number">2.</span> <span class="nav-text">2. 进程的内存结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文本段（-text）"><span class="nav-number">2.1.</span> <span class="nav-text">文本段（.text）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据段（-data和-bss）"><span class="nav-number">2.2.</span> <span class="nav-text">数据段（.data和.bss）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆"><span class="nav-number">2.3.</span> <span class="nav-text">堆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈"><span class="nav-number">2.4.</span> <span class="nav-text">栈</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-进程和线程的区别"><span class="nav-number">3.</span> <span class="nav-text">3. 进程和线程的区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-红黑树"><span class="nav-number">1.</span> <span class="nav-text">1. 红黑树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-B-树（B树）"><span class="nav-number">2.</span> <span class="nav-text">2. B-树（B树）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-B-树"><span class="nav-number">3.</span> <span class="nav-text">3. B+树</span></a></li></ol></div>
             
 
           </div>
