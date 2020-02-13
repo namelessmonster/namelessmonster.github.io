@@ -57,18 +57,18 @@
   };
 </script>
 
-  <meta name="description" content="1. 什么是偏差偏差表示模型的期望输出与真实值之间的误差，以回归任务为例，偏差可以表示为： bias=(E_D[f_D(x)]-y)^2其中，$f_D$表示由数据集$D$学习到的模型，每次采样得到一个数据集$D$，都可以训练得到一个模型$f_D$，对这些模型求期望，可以得到该模型的期望输出$E_D[f_D(x)]$，这个期望输出与真实值之间的差异就是模型的偏差。 2. 什么是方差方差表示模型在不同">
+  <meta name="description" content="1. 什么是偏差偏差表示模型的期望输出与真实值之间的误差，以回归任务为例，偏差可以表示为： bias^2=(E_D[f_D(x)]-y)^2其中，$f_D$表示由数据集$D$学习到的模型，每次采样得到一个数据集$D$，都可以训练得到一个模型$f_D$，对这些模型求期望，可以得到该模型的期望输出$E_D[f_D(x)]$，这个期望输出与真实值之间的差异就是模型的偏差。 2. 什么是方差方差表示模型在">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="偏差和方差">
 <meta property="og:url" content="http://yoursite.com/2020/02/07/偏差和方差/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 什么是偏差偏差表示模型的期望输出与真实值之间的误差，以回归任务为例，偏差可以表示为： bias=(E_D[f_D(x)]-y)^2其中，$f_D$表示由数据集$D$学习到的模型，每次采样得到一个数据集$D$，都可以训练得到一个模型$f_D$，对这些模型求期望，可以得到该模型的期望输出$E_D[f_D(x)]$，这个期望输出与真实值之间的差异就是模型的偏差。 2. 什么是方差方差表示模型在不同">
+<meta property="og:description" content="1. 什么是偏差偏差表示模型的期望输出与真实值之间的误差，以回归任务为例，偏差可以表示为： bias^2=(E_D[f_D(x)]-y)^2其中，$f_D$表示由数据集$D$学习到的模型，每次采样得到一个数据集$D$，都可以训练得到一个模型$f_D$，对这些模型求期望，可以得到该模型的期望输出$E_D[f_D(x)]$，这个期望输出与真实值之间的差异就是模型的偏差。 2. 什么是方差方差表示模型在">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-08T09:10:14.572Z">
+<meta property="og:updated_time" content="2020-02-13T04:59:52.525Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="偏差和方差">
-<meta name="twitter:description" content="1. 什么是偏差偏差表示模型的期望输出与真实值之间的误差，以回归任务为例，偏差可以表示为： bias=(E_D[f_D(x)]-y)^2其中，$f_D$表示由数据集$D$学习到的模型，每次采样得到一个数据集$D$，都可以训练得到一个模型$f_D$，对这些模型求期望，可以得到该模型的期望输出$E_D[f_D(x)]$，这个期望输出与真实值之间的差异就是模型的偏差。 2. 什么是方差方差表示模型在不同">
+<meta name="twitter:description" content="1. 什么是偏差偏差表示模型的期望输出与真实值之间的误差，以回归任务为例，偏差可以表示为： bias^2=(E_D[f_D(x)]-y)^2其中，$f_D$表示由数据集$D$学习到的模型，每次采样得到一个数据集$D$，都可以训练得到一个模型$f_D$，对这些模型求期望，可以得到该模型的期望输出$E_D[f_D(x)]$，这个期望输出与真实值之间的差异就是模型的偏差。 2. 什么是方差方差表示模型在">
   <link rel="canonical" href="http://yoursite.com/2020/02/07/偏差和方差/">
 
 
@@ -240,7 +240,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-02-08 17:10:14" itemprop="dateModified" datetime="2020-02-08T17:10:14+08:00">2020-02-08</time>
+                <time title="修改时间：2020-02-13 12:59:52" itemprop="dateModified" datetime="2020-02-13T12:59:52+08:00">2020-02-13</time>
               </span>
             
           
@@ -257,11 +257,11 @@
 
       
         <h2 id="1-什么是偏差"><a href="#1-什么是偏差" class="headerlink" title="1. 什么是偏差"></a>1. 什么是偏差</h2><p>偏差表示模型的期望输出与真实值之间的误差，以回归任务为例，偏差可以表示为：</p>
-<script type="math/tex; mode=display">bias=(E_D[f_D(x)]-y)^2</script><p>其中，$f_D$表示由数据集$D$学习到的模型，每次采样得到一个数据集$D$，都可以训练得到一个模型$f_D$，对这些模型求期望，可以得到该模型的期望输出$E_D[f_D(x)]$，这个期望输出与真实值之间的差异就是模型的偏差。</p>
+<script type="math/tex; mode=display">bias^2=(E_D[f_D(x)]-y)^2</script><p>其中，$f_D$表示由数据集$D$学习到的模型，每次采样得到一个数据集$D$，都可以训练得到一个模型$f_D$，对这些模型求期望，可以得到该模型的期望输出$E_D[f_D(x)]$，这个期望输出与真实值之间的差异就是模型的偏差。</p>
 <h2 id="2-什么是方差"><a href="#2-什么是方差" class="headerlink" title="2. 什么是方差"></a>2. 什么是方差</h2><p>方差表示模型在不同数据集扰动下的表现，方差小说明模型在不同数据集下训练，对同一个数据的输出并没有产生太大的差别，方差大说明模型在不同数据集下训练，对同一个数据的输出差距大。方差可以表示为：</p>
 <script type="math/tex; mode=display">var=E_D[(f_D(x)-\hat{f}(x))^2]</script><script type="math/tex; mode=display">\hat{f}(x)=E_D[f_D(x)]</script><p>模型在不同数据集训练下的输出与模型期望输出之间的差异就是模型的方差。</p>
 <h2 id="3-偏差，方差和噪声的关系"><a href="#3-偏差，方差和噪声的关系" class="headerlink" title="3. 偏差，方差和噪声的关系"></a>3. 偏差，方差和噪声的关系</h2><p>现在有一个数据集$D$，从该数据集下学习得到模型$f_D$，假设这是一个回归任务，则泛化损失误差期望为：</p>
-<script type="math/tex; mode=display">E_D[(f_D(x)-y_D)^2]</script><script type="math/tex; mode=display">=E_D[(f_D(x)-\hat{f}(x)+\hat{f}(x)-y_D)^2]</script><script type="math/tex; mode=display">=E_D[(f_D(x)-\hat{f}(x))^2]+E_D[(\hat{f}(x)-y_D)^2]+2E_D[...]</script><script type="math/tex; mode=display">=E_D[(f_D(x)-\hat{f}(x))^2]+E_D[(\hat{f}(x)-y+y-y_D)^2]</script><script type="math/tex; mode=display">=E_D[(f_D(x)-\hat{f}(x))^2]+E_D[(\hat{f}(x)-y)^2]+E_D[(y-y_D)^2]+2E_D[...]</script><script type="math/tex; mode=display">=E_D[(f_D(x)-\hat{f}(x))^2]+(\hat{f}(x)-y)^2+E_D[(y-y_D)^2]</script><script type="math/tex; mode=display">=var+bias+noise</script><p>可以看到损失函数可以转化为方差，偏差和噪声的和。一般噪声是不可约的，所以要提高模型主要从方差和偏差入手，即偏差和方差越小，模型性能越小。但是往往，偏差与方差是存在一些矛盾的，即方差越小偏差反而越大或者偏差越小方差反而越大的情况，称为偏差-方差窘境。训练误差大称为欠拟合，训练误差小但泛化误差大称为过拟合，过拟合是偏差小方差大的一种表现。针对过拟合有以下几种方法：</p>
+<script type="math/tex; mode=display">E_D[(f_D(x)-y_D)^2]</script><script type="math/tex; mode=display">=E_D[(f_D(x)-\hat{f}(x)+\hat{f}(x)-y_D)^2]</script><script type="math/tex; mode=display">=E_D[(f_D(x)-\hat{f}(x))^2]+E_D[(\hat{f}(x)-y_D)^2]+2E_D[...]</script><script type="math/tex; mode=display">=E_D[(f_D(x)-\hat{f}(x))^2]+E_D[(\hat{f}(x)-y+y-y_D)^2]</script><script type="math/tex; mode=display">=E_D[(f_D(x)-\hat{f}(x))^2]+E_D[(\hat{f}(x)-y)^2]+E_D[(y-y_D)^2]+2E_D[...]</script><script type="math/tex; mode=display">=E_D[(f_D(x)-\hat{f}(x))^2]+(\hat{f}(x)-y)^2+E_D[(y-y_D)^2]</script><script type="math/tex; mode=display">=var+bias^2+noise</script><p>可以看到损失函数可以转化为方差，偏差和噪声的和。一般噪声是不可约的，所以要提高模型主要从方差和偏差入手，即偏差和方差越小，模型性能越小。但是往往，偏差与方差是存在一些矛盾的，即方差越小偏差反而越大或者偏差越小方差反而越大的情况，称为偏差-方差窘境。训练误差大称为欠拟合，训练误差小但泛化误差大称为过拟合，过拟合是偏差小方差大的一种表现。针对过拟合有以下几种方法：</p>
 <ol>
 <li>增大数据集规模</li>
 <li>增加正则项，降低模型复杂度</li>
