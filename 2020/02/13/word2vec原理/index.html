@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="1. 什么是进程，什么是线程进程是程序在计算机内运行的一个实体，而线程是进程在执行时的一个实体。如果把程序看作是食谱，那么进程运行过程就可以看作是厨师做菜的过程，厨师做菜时使用的工具和食材可以看作是进程占用的系统资源。有时候一道菜并不是由一个厨师完成的，而是由多个厨师合作完成的。这些厨师在合作时，有的东西是共用的比如食材，有些东西是私用的比如工具，这时候这些厨师一起作业的过程可以看作是进程在运行，">
-<meta name="keywords" content="计算机基础,C++">
+  <meta name="description" content="1. 什么是word2vecword2vec用于将词在高维稀疏空间的one-hot向量映射到低维稠密空间的向量，且要求这个向量保留尽量多的语义信息。word2vec在语料库中从词的上下文词中提取出语义信息，并作用到对该词的低维向量求解。word2vec会设置一个窗口大小，并认为窗口内的词组成窗口中心词的上下文。 2. CBOW现在有一句话“A B C D E”，我们需要提取词“C”的语义特征，CB">
+<meta name="keywords" content="机器学习,NLP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="进程与线程">
-<meta property="og:url" content="http://yoursite.com/2020/02/12/进程与线程/index.html">
+<meta property="og:title" content="word2vec原理">
+<meta property="og:url" content="http://yoursite.com/2020/02/13/word2vec原理/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 什么是进程，什么是线程进程是程序在计算机内运行的一个实体，而线程是进程在执行时的一个实体。如果把程序看作是食谱，那么进程运行过程就可以看作是厨师做菜的过程，厨师做菜时使用的工具和食材可以看作是进程占用的系统资源。有时候一道菜并不是由一个厨师完成的，而是由多个厨师合作完成的。这些厨师在合作时，有的东西是共用的比如食材，有些东西是私用的比如工具，这时候这些厨师一起作业的过程可以看作是进程在运行，">
+<meta property="og:description" content="1. 什么是word2vecword2vec用于将词在高维稀疏空间的one-hot向量映射到低维稠密空间的向量，且要求这个向量保留尽量多的语义信息。word2vec在语料库中从词的上下文词中提取出语义信息，并作用到对该词的低维向量求解。word2vec会设置一个窗口大小，并认为窗口内的词组成窗口中心词的上下文。 2. CBOW现在有一句话“A B C D E”，我们需要提取词“C”的语义特征，CB">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-12T09:49:08.580Z">
+<meta property="og:updated_time" content="2020-02-13T07:13:45.488Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="进程与线程">
-<meta name="twitter:description" content="1. 什么是进程，什么是线程进程是程序在计算机内运行的一个实体，而线程是进程在执行时的一个实体。如果把程序看作是食谱，那么进程运行过程就可以看作是厨师做菜的过程，厨师做菜时使用的工具和食材可以看作是进程占用的系统资源。有时候一道菜并不是由一个厨师完成的，而是由多个厨师合作完成的。这些厨师在合作时，有的东西是共用的比如食材，有些东西是私用的比如工具，这时候这些厨师一起作业的过程可以看作是进程在运行，">
-  <link rel="canonical" href="http://yoursite.com/2020/02/12/进程与线程/">
+<meta name="twitter:title" content="word2vec原理">
+<meta name="twitter:description" content="1. 什么是word2vecword2vec用于将词在高维稀疏空间的one-hot向量映射到低维稠密空间的向量，且要求这个向量保留尽量多的语义信息。word2vec在语料库中从词的上下文词中提取出语义信息，并作用到对该词的低维向量求解。word2vec会设置一个窗口大小，并认为窗口内的词组成窗口中心词的上下文。 2. CBOW现在有一句话“A B C D E”，我们需要提取词“C”的语义特征，CB">
+  <link rel="canonical" href="http://yoursite.com/2020/02/13/word2vec原理/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>进程与线程 | Hexo</title>
+  <title>word2vec原理 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/12/进程与线程/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/13/word2vec原理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">进程与线程
+          <h1 class="post-title" itemprop="name headline">word2vec原理
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-12 16:43:34 / 修改时间：17:49:08" itemprop="dateCreated datePublished" datetime="2020-02-12T16:43:34+08:00">2020-02-12</time>
+              <time title="创建时间：2020-02-13 14:18:07 / 修改时间：15:13:45" itemprop="dateCreated datePublished" datetime="2020-02-13T14:18:07+08:00">2020-02-13</time>
             </span>
           
             
@@ -246,13 +246,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-什么是进程，什么是线程"><a href="#1-什么是进程，什么是线程" class="headerlink" title="1. 什么是进程，什么是线程"></a>1. 什么是进程，什么是线程</h2><p>进程是程序在计算机内运行的一个实体，而线程是进程在执行时的一个实体。如果把程序看作是食谱，那么进程运行过程就可以看作是厨师做菜的过程，厨师做菜时使用的工具和食材可以看作是进程占用的系统资源。有时候一道菜并不是由一个厨师完成的，而是由多个厨师合作完成的。这些厨师在合作时，有的东西是共用的比如食材，有些东西是私用的比如工具，这时候这些厨师一起作业的过程可以看作是进程在运行，而每个厨师做自己那份工作的过程可以看作是线程在执行。简单概括，进程是一个实体，拥有系统资源以及指令，线程也是一个实体，拥有少量资源执行指令。</p>
-<h2 id="2-进程的内存结构"><a href="#2-进程的内存结构" class="headerlink" title="2. 进程的内存结构"></a>2. 进程的内存结构</h2><p>进程在内存中使用虚拟地址，虚拟地址指向虚拟内存，虚拟内存每个地址都需要通过页表映射到物理内存的一个地址才可以使用。使用虚拟内存的一个好处是，每个进程都可以独享自己的虚拟内存，彷佛自己一个霸占了所有内存，但实际上这些是通过页表映射在共用一个物理内存。当物理内存不够用时，按照页表置换算法，将一个虚拟地址对应物理地址的页面转移到物理磁盘，然后将该物理地址与其他虚拟地址联系起来注册到页表，转移出去的页面在下次需要用时，可以按照同样的过程从磁盘转移回物理内存。进程在虚拟内存中，从低地址到高地址有这么几个成分：预留段，文本段，数据段，堆，栈，内核空间。其中用户空间包括文本段，数据段，堆，栈。下面逐一讲解各个段的作用。</p>
-<h3 id="文本段（-text）"><a href="#文本段（-text）" class="headerlink" title="文本段（.text）"></a>文本段（.text）</h3><p>文本段存储程序指令以及字符串常量</p>
-<h3 id="数据段（-data和-bss）"><a href="#数据段（-data和-bss）" class="headerlink" title="数据段（.data和.bss）"></a>数据段（.data和.bss）</h3><p>数据段用于存储全局变量和静态变量，可以分为两个区，其中.data存储有初始化的全局变量和静态变量，.bss存储没有初始化的全局变量个静态变量。</p>
-<h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><p>堆用于存储程序动态申请的空间，可以对应到C++中使用new申请的空间。堆是从低地址往高地址扩展，每当堆的空间不足时，可以调用brk函数或sbrk函数移动堆的边界指针来扩展或缩小堆的空间大小。从堆中申请的空间需要自己手动释放，如果不释放可能会造成内存泄漏。内存泄漏会导致程序在运行过占用空间不断增大直到发生错误。进程结束后，系统会自动回收堆占用的空间，这说明堆内部的数据的生存周期是整个进程的运行期间。</p>
-<h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><p>栈用于存储函数的参数，局部变量和返回值。发生中断时，栈也可以用于存储寄存器等环境值，保存进程的运行状态。栈是从高地址往低地址扩展，栈的空间大小一般有限制，当超出范围时会报错，当然也是可以通过设置编译器系统参数来修改这个限制值。栈内部的数据的生存周期是函数的运行期间，当函数返回值时，栈内部与该函数有关的数据都会被清除，这个清除过程是由系统自动完成的，所以栈存储的数据无需程序员手动释放。</p>
-<h2 id="3-进程和线程的区别"><a href="#3-进程和线程的区别" class="headerlink" title="3. 进程和线程的区别"></a>3. 进程和线程的区别</h2><p>进程与线程的区别，总结起来有以下几点：<br>(1) 进程是系统分配和调度资源的独立单位，线程是CPU调度和分派的基本单位。<br>(2) 进程拥有自己独立的系统资源，线程使用进程的资源，自己拥有一点在执行中必不可少的资源（如程序计数器，一组寄存器和栈）。<br>(3) 一个进程必须有至少一个线程，一个线程只能隶属于一个进程。<br>(4) 进程之间的资源是独立的，一个进程崩溃并不会影响其他进程。线程之间的资源大多是共享的，一个线程崩溃是有可能导致整个进程崩溃从而导致所有线程崩溃。所以，多进程的程序比多线程的程序更健壮。<br>(5) 多进程之间的切换比多线程之间的切换耗费资源较大，效率差一些。<br>(6) 多进程不共享空间资源，需要使用进程间通信技术维持共同工作。多线程共享空间资源，在互相通信时效率更高。<br>(7) 进程作为独立的实体，可以迁移；线程依附于进程，无法单独迁移。<br>(8) 总而言之，多线程执行高效，开销小；多进程有利于资源的管理和保护，使得程序更健壮。</p>
+        <h2 id="1-什么是word2vec"><a href="#1-什么是word2vec" class="headerlink" title="1. 什么是word2vec"></a>1. 什么是word2vec</h2><p>word2vec用于将词在高维稀疏空间的one-hot向量映射到低维稠密空间的向量，且要求这个向量保留尽量多的语义信息。word2vec在语料库中从词的上下文词中提取出语义信息，并作用到对该词的低维向量求解。word2vec会设置一个窗口大小，并认为窗口内的词组成窗口中心词的上下文。</p>
+<h2 id="2-CBOW"><a href="#2-CBOW" class="headerlink" title="2. CBOW"></a>2. CBOW</h2><p>现在有一句话“A B C D E”，我们需要提取词“C”的语义特征，CBOW将“A”，“B”，“D”，“E”作为“C”的语义特征，首先将“A”，“B”，“D”，“E”的one-hot向量映射到低维空间，对这4个低维向量求和或取平均，然后再利用利用低维向量去预测最有可能的词，具体做法可以是将低维向量映射回高维空间，对映射结果进行softmax，值最大的词就是最有可能的词。这个最有可能的词的期望输出应该是“C”。CBOW在组合“A”，“B”，“D”，“E”的低维特征时，只是简单求和或取平均，没有考虑到词的位置顺序。</p>
+<h2 id="3-Skip-gram"><a href="#3-Skip-gram" class="headerlink" title="3. Skip-gram"></a>3. Skip-gram</h2><p>同样有一句话“A B C D E”，同样需要提取“C”的语义特征，Skip-gram首先将“C”的one-hot向量映射到低维空间，然后将这个低维向量去预测最有可能的上下文，这个最有可能的上下文应该是“A”，“B”，“D”和“E”。Skip-gram在输出上下文时，只是简单认为“A”，“B”，“D”，“E”的输出概率应该尽量大，没有考虑它们的位置顺序，所以可以将数据样本(“C”，“A B D E”)分解成(“C”，“A”)，(“C”，“B”)，(“C”，“D”)和(“C”，“E”)。</p>
+<h2 id="4-哈夫曼softmax过程"><a href="#4-哈夫曼softmax过程" class="headerlink" title="4. 哈夫曼softmax过程"></a>4. 哈夫曼softmax过程</h2><p>前面介绍CBOW和Skip-gram，在得到低维特征后，需要通过映射回高维空间，从高维的分布中去确定最有可能的输出。我们可以把这个过程看作是一个有一个隐藏层没有激活函数的神经网络，输入是one-hot，输出是一个分布，中间隐藏层是低维特征表示。我们现在想要学习输入映射到隐藏层的矩阵，这个矩阵决定了词的低维表示。这个神经网络模型的损失函数是输出分布与预期输出分布的交叉熵，优化方法是梯度下降法。如果词的种类很多，则高维空间的维度数很大，那么这个神经网络的训练过程需要消耗较多资源，所以这里提出了哈夫曼softmax过程。哈夫曼softmax有以下步骤：<br>(1) 对词构建哈夫曼树。<br>(2) 哈夫曼树每个节点构建一个逻辑回归二分类器。<br>(3) 低维特征输入到哈夫曼树的根节点。<br>(4) 对当前节点，其逻辑回归分类器的输出$out$表示往右子树走的概率，如果输出词在左子树，使用$1-out$作为概率输出，否则直接使用$out$作为输出。<br>(5) 对于输出词所在的路径，记录沿着这条路径走的概率，反向传播梯度更新路径上经过的逻辑回归分类器的参数。</p>
+<p>假设低维空间维度等于$H$，高维空间维度等于$N$，则原来的方法在更新梯度时总共需要更新的参数量为$H<em>N$，而使用哈夫曼softmax方法需要更新的参数量为$H</em>\log N$，大大提高了参数学习效率。</p>
+<h2 id="5-负采样"><a href="#5-负采样" class="headerlink" title="5. 负采样"></a>5. 负采样</h2><p>负采样是另一种提高参数学习效率的方法。负采样有以下过程：<br>(1) 选择目标输出的词，并随机选择$k$个不是目标输出的词。<br>(2) 对输出的高维分布，只关注这$k+1$个位置的表现，使用这$k+1$个位置的输出计算损失函数，计算梯度并反向传播梯度更新参数。</p>
+<p>使用负采样的方法，需要更新的参数量为$(k+1)*H$，一般负采样的$k$设置为2~20之间的一个数。</p>
+<h2 id="6-优缺点"><a href="#6-优缺点" class="headerlink" title="6. 优缺点"></a>6. 优缺点</h2><p>word2vec模型的优点有：<br>(1) 实现简单<br>(2) 速度快<br>缺点有：<br>(1) 词的上下文提取使用词袋模型，没有考虑上下文词的位置与顺序，使得词的语义信息不够准。<br>(2) 不能很好的区分词的多义问题，比如“bank”可以是银行，也可以是“河岸”，然而一旦词向量确定，无法根据词的不同意义加以区分。<br>(3) 对于一个词只能提供一个确定的结果，无法根据词所处的实际上下文情况加以调整，在泛化能力上有待提高。</p>
 
     </div>
 
@@ -264,15 +265,15 @@
           
         
         <div class="post-tags">
-            <a href="/tags/计算机基础/" rel="tag"># 计算机基础</a>
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
-            <a href="/tags/C/" rel="tag"># C++</a>
+            <a href="/tags/NLP/" rel="tag"># NLP</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/12/CRF-条件随机场/" rel="next" title="CRF-条件随机场">
-                <i class="fa fa-chevron-left"></i> CRF-条件随机场
+              <a href="/2020/02/12/Kmeans数学原理/" rel="next" title="Kmeans数学原理">
+                <i class="fa fa-chevron-left"></i> Kmeans数学原理
               </a>
             
           </div>
@@ -280,10 +281,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/12/Kmeans数学原理/" rel="prev" title="Kmeans数学原理">
-                Kmeans数学原理 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -377,7 +374,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是进程，什么是线程"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是进程，什么是线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-进程的内存结构"><span class="nav-number">2.</span> <span class="nav-text">2. 进程的内存结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文本段（-text）"><span class="nav-number">2.1.</span> <span class="nav-text">文本段（.text）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据段（-data和-bss）"><span class="nav-number">2.2.</span> <span class="nav-text">数据段（.data和.bss）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆"><span class="nav-number">2.3.</span> <span class="nav-text">堆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈"><span class="nav-number">2.4.</span> <span class="nav-text">栈</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-进程和线程的区别"><span class="nav-number">3.</span> <span class="nav-text">3. 进程和线程的区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是word2vec"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是word2vec</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-CBOW"><span class="nav-number">2.</span> <span class="nav-text">2. CBOW</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Skip-gram"><span class="nav-number">3.</span> <span class="nav-text">3. Skip-gram</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-哈夫曼softmax过程"><span class="nav-number">4.</span> <span class="nav-text">4. 哈夫曼softmax过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-负采样"><span class="nav-number">5.</span> <span class="nav-text">5. 负采样</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-优缺点"><span class="nav-number">6.</span> <span class="nav-text">6. 优缺点</span></a></li></ol></div>
             
 
           </div>
