@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="1. 什么是Bagging（随机森林）Bagging的思想是均匀地、有放回地从大小为D的数据集采样出M个样本构成数据集，总共采样N次用于分别训练N个模型，在预测阶段使用这N个模型共同决定样本的分类或回归结果。在这里，随机森林是一个很好的例子。随机森林就是学习N棵决策树共同决定样本的预测结果。随机森林的随机体现在两点：(1) 每棵决策树的训练样本是采用有放回的随机获取的。(2) 每棵决策树在训练时，">
+  <meta name="description" content="1. 什么是数据不平衡数据不平衡是指数据样本的分布偏向某一侧，使得一侧的数据样本数很多而另一侧数据样本数很少，形成一种不平衡。数据不平衡会导致学习出来的模型不能很好地掌握少数数据样本的规律，受到多数数据样本的“污染”。举个最简单的例子，一个二分类问题，98%的样本是一种标签而剩余2%是另一种标签，这时候分类模型只需要全部输出一种标签就可以有98%的正确率了。 2. 数据不平衡处理方法扩充数据集扩充">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Bagging（随机森林）和Boosting（AdaBoost）">
-<meta property="og:url" content="http://yoursite.com/2020/02/07/Bagging（随机森林）和Boosting（AdaBoost）/index.html">
+<meta property="og:title" content="机器学习之数据不平衡">
+<meta property="og:url" content="http://yoursite.com/2020/02/14/机器学习之数据不平衡/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 什么是Bagging（随机森林）Bagging的思想是均匀地、有放回地从大小为D的数据集采样出M个样本构成数据集，总共采样N次用于分别训练N个模型，在预测阶段使用这N个模型共同决定样本的分类或回归结果。在这里，随机森林是一个很好的例子。随机森林就是学习N棵决策树共同决定样本的预测结果。随机森林的随机体现在两点：(1) 每棵决策树的训练样本是采用有放回的随机获取的。(2) 每棵决策树在训练时，">
+<meta property="og:description" content="1. 什么是数据不平衡数据不平衡是指数据样本的分布偏向某一侧，使得一侧的数据样本数很多而另一侧数据样本数很少，形成一种不平衡。数据不平衡会导致学习出来的模型不能很好地掌握少数数据样本的规律，受到多数数据样本的“污染”。举个最简单的例子，一个二分类问题，98%的样本是一种标签而剩余2%是另一种标签，这时候分类模型只需要全部输出一种标签就可以有98%的正确率了。 2. 数据不平衡处理方法扩充数据集扩充">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-10T07:16:43.073Z">
+<meta property="og:updated_time" content="2020-02-14T15:03:48.659Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bagging（随机森林）和Boosting（AdaBoost）">
-<meta name="twitter:description" content="1. 什么是Bagging（随机森林）Bagging的思想是均匀地、有放回地从大小为D的数据集采样出M个样本构成数据集，总共采样N次用于分别训练N个模型，在预测阶段使用这N个模型共同决定样本的分类或回归结果。在这里，随机森林是一个很好的例子。随机森林就是学习N棵决策树共同决定样本的预测结果。随机森林的随机体现在两点：(1) 每棵决策树的训练样本是采用有放回的随机获取的。(2) 每棵决策树在训练时，">
-  <link rel="canonical" href="http://yoursite.com/2020/02/07/Bagging（随机森林）和Boosting（AdaBoost）/">
+<meta name="twitter:title" content="机器学习之数据不平衡">
+<meta name="twitter:description" content="1. 什么是数据不平衡数据不平衡是指数据样本的分布偏向某一侧，使得一侧的数据样本数很多而另一侧数据样本数很少，形成一种不平衡。数据不平衡会导致学习出来的模型不能很好地掌握少数数据样本的规律，受到多数数据样本的“污染”。举个最简单的例子，一个二分类问题，98%的样本是一种标签而剩余2%是另一种标签，这时候分类模型只需要全部输出一种标签就可以有98%的正确率了。 2. 数据不平衡处理方法扩充数据集扩充">
+  <link rel="canonical" href="http://yoursite.com/2020/02/14/机器学习之数据不平衡/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>Bagging（随机森林）和Boosting（AdaBoost） | Hexo</title>
+  <title>机器学习之数据不平衡 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/07/Bagging（随机森林）和Boosting（AdaBoost）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/14/机器学习之数据不平衡/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">Bagging（随机森林）和Boosting（AdaBoost）
+          <h1 class="post-title" itemprop="name headline">机器学习之数据不平衡
 
               
             
@@ -227,21 +227,11 @@
                 
               
 
-              <time title="创建时间：2020-02-07 19:47:37" itemprop="dateCreated datePublished" datetime="2020-02-07T19:47:37+08:00">2020-02-07</time>
+              <time title="创建时间：2020-02-14 21:59:47 / 修改时间：23:03:48" itemprop="dateCreated datePublished" datetime="2020-02-14T21:59:47+08:00">2020-02-14</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-02-10 15:16:43" itemprop="dateModified" datetime="2020-02-10T15:16:43+08:00">2020-02-10</time>
-              </span>
             
           
 
@@ -256,21 +246,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-什么是Bagging（随机森林）"><a href="#1-什么是Bagging（随机森林）" class="headerlink" title="1. 什么是Bagging（随机森林）"></a>1. 什么是Bagging（随机森林）</h2><p>Bagging的思想是均匀地、有放回地从大小为D的数据集采样出M个样本构成数据集，总共采样N次用于分别训练N个模型，在预测阶段使用这N个模型共同决定样本的分类或回归结果。在这里，随机森林是一个很好的例子。随机森林就是学习N棵决策树共同决定样本的预测结果。随机森林的随机体现在两点：<br>(1) 每棵决策树的训练样本是采用有放回的随机获取的。<br>(2) 每棵决策树在训练时，在选取特征和特征值对决策树进行划分时，首先随机选取$m$个特征，然后再从这$m$个特征中按照某种规则比如信息增益率或基尼系数或某种目标函数等等，选择最佳特征和特征值进行划分。</p>
-<p>随机森林有一个特性，就是可以计算袋外错误率。什么是袋外错误率呢？对于每一棵决策树，使用有放回的随机获取训练样本，大约会有$\frac{1}{3}$的样本没有被采样到。反过来说，对于每一个样本，大约会有$\frac{1}{3}$棵决策树没有使用到这个样本进行训练，所以可以使用随机森林这$\frac{1}{3}$的决策树对这个样本进行预测。所有样本的预测错误率就可以称为袋外错误率。这个袋外错误率有什么用呢？首先，袋外错误率可以作为在验证集上的效果看待，所以可以决定每棵决策树的深度，对每棵决策树进行剪枝。其次，袋外错误率还可以评价特征的重要程度，对样本在某个特征处加上噪声，计算袋外错误率的变化，如果变化大说明这个特征很重要，否则说明这个特征重要性并不高。因为有这个袋外错误率，所以随机森林可以不用进行交叉验证。另外，随机森林在计算特征重要性时，除了可以使用袋外错误率，还可以使用基尼指数增益。</p>
-<p>随机森林树的个数是否越多越好？首先随着树的个数增多，随机森林在训练时需要占用更多的资源，如果增加树的个数对提升模型效果作用不大，增加树的个数反而会不好。其次，随机森林引入随机抽样和随机抽列使模型鲁棒性更强，对异常点的敏感度减小，如果是树的个数很多，这种随机性反而会下降，使得模型容易过拟合，泛化性能下降。所以树的个数需要根据具体业务需求确定。</p>
-<h2 id="2-什么是Boosting（AdaBoost）"><a href="#2-什么是Boosting（AdaBoost）" class="headerlink" title="2. 什么是Boosting（AdaBoost）"></a>2. 什么是Boosting（AdaBoost）</h2><p>Boosting是一种提升的思想，是串行执行的，当前模型重视对前面模型的误差进行学习，将所有合在一起共同决定预测结果。在这里，AdaBoost是一个很好的例子。AdaBoost的算法思想是在当前轮学习中，增大误差的权重，从而使得下一轮学习更重视当前轮的误差。以二分类任务为例，首先第一步，数据集D含有N个样本，每个样本的权重为$w_i^1=\frac{1}{N}$。使用这N个样本学习得到第一个分类器$f_1$，该分类器的错误率为$\epsilon_1$，使用$\epsilon_1$计算可以得到$\alpha_1$：</p>
-<script type="math/tex; mode=display">\epsilon_1=\sum_i{w_iI(f_1(x_i)\ne y_i)}</script><script type="math/tex; mode=display">\alpha_1=\frac{1}{2}\ln{\frac{1-\epsilon_1}{\epsilon_1}}</script><p>其中$G$函数表示将模型输出映射到分类结果，使用$\alpha_1$更新样本的权重，对于正确分类的样本，使用下式更新权重：</p>
-<script type="math/tex; mode=display">w_i^2=\frac{w_i^{1}e^{-\alpha_1}}{Z_1}</script><p>其中$Z_1$是归一化项，对于错误分类的样本，使用下式更新权重：</p>
-<script type="math/tex; mode=display">w_i^2=\frac{w_i^1e^{\alpha_1}}{Z_1}</script><p>总结一下就是：</p>
-<script type="math/tex; mode=display">w_i^2=\frac{w_i^1e^{-\alpha_1y_if_1(x_i)}}{Z_1}</script><p>这样就完成了第一轮的学习，接着进入第二轮的学习，由此类推，当学习了M个分类器后，使用下式组合M个分类器的结果：</p>
-<script type="math/tex; mode=display">F(x)=\sum_i{\alpha_if_i(x)}</script><script type="math/tex; mode=display">G(x)=sign(F(x))</script><p>对于AdaBoost为什么这样计算各个分类器的权重与这样进行样本权重的更新，实际上这是由AdaBoost在处理二分类问题时最小化指数损失函数决定的。所以在使用AdaBoost处理多分类问题或回归问题时，使用其他类型的损失函数，需要针对最小化损失函数来决定各个学习器的权重与各个样本权重的更新方式。现在证明一下为什么AdaBoost这样计算分类器权重以及为什么样本权重是这样更新的。已知损失函数是指数损失函数，且AdaBoost是加法模型，所以有：</p>
-<script type="math/tex; mode=display">L=\sum_i{e^{-y_iF_m(x_i)}}</script><script type="math/tex; mode=display">=\sum_i{e^{-y_iF_{m-1}(x_i)}e^{-y_i\alpha_mf_m(x_i)}}</script><script type="math/tex; mode=display">=\sum_i{w_ie^{-y_i\alpha_mf_m(x_i)}}</script><script type="math/tex; mode=display">=e^{-\alpha_m}\sum_iw_iI(y_i=f_m(x_i))+e^{\alpha_m}\sum_iw_iI(y_i\ne f_m(x_i))</script><script type="math/tex; mode=display">=e^{-\alpha_m}\sum_iw_i+(e^{\alpha_m}-e^{-\alpha_m})\sum_iw_iI(y_i\ne f_m(x_i))</script><p>对$\alpha_m$求导并令导数为0，可以得到：</p>
-<script type="math/tex; mode=display">-e^{-\alpha_m}\sum_iw_i+(e^{\alpha_m}+e^{-\alpha_m})\sum_iw_iI(y_i\ne f_m(x_i))=0</script><script type="math/tex; mode=display">==> -e^{-\alpha_m}\sum_i\frac{w_i}{Z}+(e^{\alpha_m}+e^{-\alpha_m})\sum_i\frac{w_i}{Z}I(y_i\ne f_m(x_i))=0</script><p>其中$Z$是归一化因子，这样可以得到：</p>
-<script type="math/tex; mode=display">-e^{-\alpha_m}+(e^{\alpha_m}+e^{-\alpha_m}\epsilon_m)=0</script><p>可以求得：</p>
-<script type="math/tex; mode=display">\alpha_m=\frac{1}{2}\ln\frac{1-\epsilon_m}{\epsilon_m}</script><p>这样就求出来$\alpha_m$了，现在还需要求$w_i$：</p>
-<script type="math/tex; mode=display">w_{m,i}=e^{-y_iF_m(x_i)}=e^{-y_i\alpha_mf_m(x_i)}e^{-y_iF_{m-1}(x_i)}=e^{-y_i\alpha_mf_m(x_i)}w_{m-1,i}</script><p>这样就求出来$w_i$的更新方式了。</p>
-<h2 id="3-什么是Stacking"><a href="#3-什么是Stacking" class="headerlink" title="3. 什么是Stacking"></a>3. 什么是Stacking</h2><p>Stacking的思想是将一些模型的输出经过组合当作特征输入到另一些模型中学习，最终的输出作为预测结果。</p>
+        <h2 id="1-什么是数据不平衡"><a href="#1-什么是数据不平衡" class="headerlink" title="1. 什么是数据不平衡"></a>1. 什么是数据不平衡</h2><p>数据不平衡是指数据样本的分布偏向某一侧，使得一侧的数据样本数很多而另一侧数据样本数很少，形成一种不平衡。数据不平衡会导致学习出来的模型不能很好地掌握少数数据样本的规律，受到多数数据样本的“污染”。举个最简单的例子，一个二分类问题，98%的样本是一种标签而剩余2%是另一种标签，这时候分类模型只需要全部输出一种标签就可以有98%的正确率了。</p>
+<h2 id="2-数据不平衡处理方法"><a href="#2-数据不平衡处理方法" class="headerlink" title="2. 数据不平衡处理方法"></a>2. 数据不平衡处理方法</h2><h3 id="扩充数据集"><a href="#扩充数据集" class="headerlink" title="扩充数据集"></a>扩充数据集</h3><p>扩充数据集就是收集更多的数据，在收集更多的数据的过程中，如果真实的数据分布并不存在不平衡的问题，在期望上最终采集出来的数据集也会接近真实分布，从而解决数据不平衡的问题。</p>
+<h3 id="上采样和下采样"><a href="#上采样和下采样" class="headerlink" title="上采样和下采样"></a>上采样和下采样</h3><p>上采样就是重复将少数样本添加进数据集，可以适当添加噪声。而下采样就是从多数样本中采样，减少多数样本与少数样本之间的不平衡。上采样因为只是简单重复少数样本，实际作用和增大少数样本在目标函数的权重相当。下采样又会缺失一些已有信息，无法完全利用所有数据。无论是上采样还是下采样都有可能会改变数据分布，从而对模型的学习过程与预测效果造成影响。</p>
+<h3 id="人造数据"><a href="#人造数据" class="headerlink" title="人造数据"></a>人造数据</h3><p>人造数据就是利用现有数据，分析其规律，利用规律去制造新的数据。一般而言，我们会认为数据的分布满足邻近性，即相邻的样本是同类的可能性会更大。SMOTE算法就是基于这个原理，这个算法首先会选择一个少数类样本，然后求出该样本的少数类$k$近邻，接着从这$k$近邻中随机选出一个少数类样本，然后在这两个样本的线段中随机产生一个新的少数类样本。这个方法存在一个问题就是会模糊少数类和多数类的边界，为了解决这个问题，几个改进版的SMOTE算法又被提了出来，比如有Borderline-SMOTE算法。</p>
+<h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><p>一些模型是可以天然克服数据不平衡问题的，比如SVM和决策树。</p>
+<p>可以在目标函数的计算中，提高少数类样本的权重，从而重视模型对少数类样本的学习，削弱多数类对模型的“污染”。</p>
+<p>还可以将分类问题看作是异常检测问题，将少数类当作异常点，套用异常检测模型。异常检测模型常见的有oneClassSvm，孤立森林。</p>
+<p>还可以使用聚类算法处理数据，比如使用DBSCAN算法。多数类样本一般处于高密度空间而少数类样本处于低密度空间，利用这一特性可以区分出多数类样本的一些特性，然后不符合多数类特性的就当作少数类。</p>
+<p>还有一种boosting算法，训练三个基分类器。首先使用全部样本训练分类器L1，然后使用相同数目的L1分对的样本和分错的样本训练分类器L2，最后使用L1和L2分类结果不一致的样本训练分类器L3。结合三个分类器投票决定样本的分类结果，只有当L2和L3都认为是少数类，才认为输入样本是少数类，否则就是多数类。</p>
+<p>还有一种方法将多数类划分为L个子集，每个子集的大小和少数类数目相当，然后训练L个模型。在预测时，综合这L个模型的输出结果作为预测结果。</p>
+<h3 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h3><p>使用精确率和召回率综合评价，可以使用F1值，也可以使用PR曲线，ROC曲线和正确率则不适合用于数据不平衡的任务。</p>
 
     </div>
 
@@ -287,8 +273,8 @@
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/07/决策树原理与推导/" rel="next" title="决策树原理与推导">
-                <i class="fa fa-chevron-left"></i> 决策树原理与推导
+              <a href="/2020/02/14/机器学习之特征选择/" rel="next" title="机器学习之特征选择">
+                <i class="fa fa-chevron-left"></i> 机器学习之特征选择
               </a>
             
           </div>
@@ -296,10 +282,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/08/谱聚类算法原理/" rel="prev" title="谱聚类算法原理">
-                谱聚类算法原理 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -395,7 +377,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是Bagging（随机森林）"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是Bagging（随机森林）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-什么是Boosting（AdaBoost）"><span class="nav-number">2.</span> <span class="nav-text">2. 什么是Boosting（AdaBoost）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-什么是Stacking"><span class="nav-number">3.</span> <span class="nav-text">3. 什么是Stacking</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是数据不平衡"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是数据不平衡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-数据不平衡处理方法"><span class="nav-number">2.</span> <span class="nav-text">2. 数据不平衡处理方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#扩充数据集"><span class="nav-number">2.1.</span> <span class="nav-text">扩充数据集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上采样和下采样"><span class="nav-number">2.2.</span> <span class="nav-text">上采样和下采样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#人造数据"><span class="nav-number">2.3.</span> <span class="nav-text">人造数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型"><span class="nav-number">2.4.</span> <span class="nav-text">模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评价指标"><span class="nav-number">2.5.</span> <span class="nav-text">评价指标</span></a></li></ol></li></ol></div>
             
 
           </div>
