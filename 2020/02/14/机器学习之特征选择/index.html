@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="1. 红黑树红黑树是一种平衡二叉树，相比起AVL树，红黑树在树的平衡上放松了一些约束，实际上也没有必要达到AVL树这么严格的平衡度，这会导致每次插入或删除都需要旋转一些次数才能维护。红黑树主要有以下五个性质：(1) 每个节点要么是红色，要么是黑色(2) 根节点是黑色(3) 叶节点是黑色(4) 红色节点的子节点是黑色(5) 任意一节点到叶节点每条路径的黑色节点数一样维护这五个性质，可以证明对红黑树的">
-<meta name="keywords" content="计算机基础，数据结构">
+  <meta name="description" content="1. 什么是特征选择特征选择，顾名思义，就是在数据样本的一大堆特征中筛选出一些特征，用于后续的模型学习。与降维不同，特征选择只会选择特征而不会组合特征。常见的特征选择方法可以归为三大类，分别是过滤法，包裹法和嵌入法。 2. 过滤法过滤法的主要思想是对每个特征计算统计量，去掉统计量不符合阈值要求的特征，保留统计量符合阈值要求的特征。统计量可以是方差，卡方检验，皮尔森系数，互信息等等，也可以是单独使用">
+<meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="红黑树，B树，B+树">
-<meta property="og:url" content="http://yoursite.com/2020/02/13/红黑树，B树，B-树/index.html">
+<meta property="og:title" content="机器学习之特征选择">
+<meta property="og:url" content="http://yoursite.com/2020/02/14/机器学习之特征选择/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 红黑树红黑树是一种平衡二叉树，相比起AVL树，红黑树在树的平衡上放松了一些约束，实际上也没有必要达到AVL树这么严格的平衡度，这会导致每次插入或删除都需要旋转一些次数才能维护。红黑树主要有以下五个性质：(1) 每个节点要么是红色，要么是黑色(2) 根节点是黑色(3) 叶节点是黑色(4) 红色节点的子节点是黑色(5) 任意一节点到叶节点每条路径的黑色节点数一样维护这五个性质，可以证明对红黑树的">
+<meta property="og:description" content="1. 什么是特征选择特征选择，顾名思义，就是在数据样本的一大堆特征中筛选出一些特征，用于后续的模型学习。与降维不同，特征选择只会选择特征而不会组合特征。常见的特征选择方法可以归为三大类，分别是过滤法，包裹法和嵌入法。 2. 过滤法过滤法的主要思想是对每个特征计算统计量，去掉统计量不符合阈值要求的特征，保留统计量符合阈值要求的特征。统计量可以是方差，卡方检验，皮尔森系数，互信息等等，也可以是单独使用">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-13T10:55:12.793Z">
+<meta property="og:updated_time" content="2020-02-14T08:56:52.625Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="红黑树，B树，B+树">
-<meta name="twitter:description" content="1. 红黑树红黑树是一种平衡二叉树，相比起AVL树，红黑树在树的平衡上放松了一些约束，实际上也没有必要达到AVL树这么严格的平衡度，这会导致每次插入或删除都需要旋转一些次数才能维护。红黑树主要有以下五个性质：(1) 每个节点要么是红色，要么是黑色(2) 根节点是黑色(3) 叶节点是黑色(4) 红色节点的子节点是黑色(5) 任意一节点到叶节点每条路径的黑色节点数一样维护这五个性质，可以证明对红黑树的">
-  <link rel="canonical" href="http://yoursite.com/2020/02/13/红黑树，B树，B-树/">
+<meta name="twitter:title" content="机器学习之特征选择">
+<meta name="twitter:description" content="1. 什么是特征选择特征选择，顾名思义，就是在数据样本的一大堆特征中筛选出一些特征，用于后续的模型学习。与降维不同，特征选择只会选择特征而不会组合特征。常见的特征选择方法可以归为三大类，分别是过滤法，包裹法和嵌入法。 2. 过滤法过滤法的主要思想是对每个特征计算统计量，去掉统计量不符合阈值要求的特征，保留统计量符合阈值要求的特征。统计量可以是方差，卡方检验，皮尔森系数，互信息等等，也可以是单独使用">
+  <link rel="canonical" href="http://yoursite.com/2020/02/14/机器学习之特征选择/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>红黑树，B树，B+树 | Hexo</title>
+  <title>机器学习之特征选择 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/13/红黑树，B树，B-树/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/14/机器学习之特征选择/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">红黑树，B树，B+树
+          <h1 class="post-title" itemprop="name headline">机器学习之特征选择
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-13 17:41:33 / 修改时间：18:55:12" itemprop="dateCreated datePublished" datetime="2020-02-13T17:41:33+08:00">2020-02-13</time>
+              <time title="创建时间：2020-02-14 15:21:09 / 修改时间：16:56:52" itemprop="dateCreated datePublished" datetime="2020-02-14T15:21:09+08:00">2020-02-14</time>
             </span>
           
             
@@ -246,9 +246,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-红黑树"><a href="#1-红黑树" class="headerlink" title="1. 红黑树"></a>1. 红黑树</h2><p>红黑树是一种平衡二叉树，相比起AVL树，红黑树在树的平衡上放松了一些约束，实际上也没有必要达到AVL树这么严格的平衡度，这会导致每次插入或删除都需要旋转一些次数才能维护。红黑树主要有以下五个性质：<br>(1) 每个节点要么是红色，要么是黑色<br>(2) 根节点是黑色<br>(3) 叶节点是黑色<br>(4) 红色节点的子节点是黑色<br>(5) 任意一节点到叶节点每条路径的黑色节点数一样<br>维护这五个性质，可以证明对红黑树的插入，删除，查询等操作的期望时间复杂度是$O(\log n)$的。红黑树在维护性质上主要依靠三种基本操作，分别是左旋，右旋和变色。</p>
-<h2 id="2-B-树（B树）"><a href="#2-B-树（B树）" class="headerlink" title="2. B-树（B树）"></a>2. B-树（B树）</h2><p>B-树是B树不是B减树，B-树和B树是同一个东西。与平衡二叉树不同，B-树可以看作是平衡多叉树。B-树有这些性质：<br>(1) 根节点的子节点数为$[2,m]$<br>(2) 非根非叶节点的子节点数为$[m/2,m]$<br>(3) 每个叶节点的高度一致<br>(4) 每个节点键的个数等于其子节点数减一<br>B-树使用键来划分数据，大于第1个键的数据划分到第一棵子树，在第1个键和第2个键之间的数据划分到第二棵子树，大于最后一个键的数据划分到最后一棵子树。B-树和B+树的一个不同，就是B-树的键上是有数据的，在查询时，当直接命中键就可以直接返回。B-树在插入时，如果遇到子节点数大于等于$m$时，则将该节点分裂成两个节点，每个节点取一半的键。在删除时，如果遇到子节点数小于$m/2$时，可以从兄弟节点借一个子节点；如果不存在可以借的子节点，则和兄弟节点合并，合并时将自身的子树全部接到兄弟节点上，兄弟节点在合并后可能需要分裂，之后将自己的节点重新插入B-树当作插入B-树处理。通过上述步骤不断往根节点递归调整，就可以在每次插入或删除后维护B-树的性质了。</p>
-<h2 id="3-B-树"><a href="#3-B-树" class="headerlink" title="3. B+树"></a>3. B+树</h2><p>B+树在B-树的基础上做了一些修改，主要有这些性质：<br>(1) 根节点的子节点数为$[2,m]$<br>(2) 非根非叶节点的子节点数为$[m/2,m]$<br>(3) 每个叶节点的高度一致<br>(4) 每个节点键的格式等于其子节点数<br>(5) 叶节点有一条链连接<br>B+树比起B树最大的区别就是B+树所有的数据都存储在叶节点，非叶节点全部看作索引，即使非叶节点的值等于查找值，也要到叶节点才能取得数据。这么做的好处首先是B+树的非叶节点只需要存储索引值而不需要存储整个数据，其次查找效率稳定。非叶节点只需要存储索引值，大大节省了B+树的存储空间；查找效率稳定是指无论查找哪个数所需要的时间都是差不多的。B+树的性质(4)使得在合并节点时更简单，直接进行合并就可以，这说明B+树在处理删除时，维护性质比B-树更简单，效率也更高。性质(5)使得B+树可以在命中区域周围继续搜索，完成区域查找。</p>
+        <h2 id="1-什么是特征选择"><a href="#1-什么是特征选择" class="headerlink" title="1. 什么是特征选择"></a>1. 什么是特征选择</h2><p>特征选择，顾名思义，就是在数据样本的一大堆特征中筛选出一些特征，用于后续的模型学习。与降维不同，特征选择只会选择特征而不会组合特征。常见的特征选择方法可以归为三大类，分别是过滤法，包裹法和嵌入法。</p>
+<h2 id="2-过滤法"><a href="#2-过滤法" class="headerlink" title="2. 过滤法"></a>2. 过滤法</h2><p>过滤法的主要思想是对每个特征计算统计量，去掉统计量不符合阈值要求的特征，保留统计量符合阈值要求的特征。统计量可以是方差，卡方检验，皮尔森系数，互信息等等，也可以是单独使用该特征训练模型在验证集上的表现。过滤法更多的是处理单特征，即每个特征单独作用，单独计算指标，然后按照指标过滤。</p>
+<h3 id="利用方差筛选"><a href="#利用方差筛选" class="headerlink" title="利用方差筛选"></a>利用方差筛选</h3><p>这个方法单独计算每个特征的方差，方差越大，说明数据样本在这个特征上的取值越发散；方差越小，说明数据样本在该特征上重复取值的可能性越大。当存在大量数据样本在一个特征上取值相同时，如果不存在数据不均衡问题，则这个特征对模型预测的贡献一般会比较小，所以可以去除方差小于某个阈值的特征。但是这种方法会受到不同特征量纲不一致的影响，一种可能可以的方法是利用最大最小值归一化的方法将特征值映射到$[0,1]$的范围再计算方差。</p>
+<h3 id="卡方检验方法"><a href="#卡方检验方法" class="headerlink" title="卡方检验方法"></a>卡方检验方法</h3><p>卡方检验的过程是这样的，首先我们认为特征$X$是离散随机变量，特征$Y$也是离散随机变量。我们假设$X$和$Y$是独立的，所以理论上，无论$X$取什么值，$Y$的条件分布都应该是不变的，即$Y$的分布应该有：</p>
+<script type="math/tex; mode=display">P(y)=P(y|x)</script><p>这样我们就可以根据从数据集中统计出来的$P(y)$得到每个$P(y|x)$，利用$P(x)P(y|x)$乘上数据样本数得到在每个$X$下每个$Y$理论频数$t(x,y)$。然后我们又可以通过在数据集上统计得到实际频数$f(x,y)$，然后根据下式求出卡方检验值：</p>
+<script type="math/tex; mode=display">\sum_{x}\sum_{y}\frac{(f(x,y)-t(x,y))^2}{t(x,y)}</script><p>经过证明，上述式子符合卡方分布。使用由上式求得的值通过查表可以得到$X$和$Y$是独立的这一假设有多大可能性成立，然后就可以确定特征$X$对$Y$是否有用了。对每个特征都重复这个过程，保留与$Y$相关可能性最大的前$K$个特征完成特征选择。</p>
+<h3 id="皮尔森系数"><a href="#皮尔森系数" class="headerlink" title="皮尔森系数"></a>皮尔森系数</h3><p>皮尔森系数的计算公式如下：</p>
+<script type="math/tex; mode=display">p_{X,Y}=\frac{Cov(X,Y)}{\sigma_X\sigma_Y}</script><p>即皮尔森系数等于特征的协方差除以两个特征标准差之积。皮尔森系数可以测量两个变量的线性相关性，但不能测量非线性相关性，即当两个变量的皮尔森系数值为0时，只能说两个变量线性不相关，但不能说无关，因为也可以是非线性相关，比如$y=x^2$。皮尔森系数的取值范围是$[-1,1]$，在判断相关性质上与协方差相似，但一个优势是皮尔森系数不受$X$和$Y$的量纲的影响。很多时候先对特征作标准化然后计算协方差，其实就是计算皮尔森系数。使用皮尔森系数对特征作筛选，可以除去绝对值较小的特征，但也需要注意可能存在非线性相关的特征。</p>
+<h3 id="基于模型性能的特征选择"><a href="#基于模型性能的特征选择" class="headerlink" title="基于模型性能的特征选择"></a>基于模型性能的特征选择</h3><p>使用单特征的数据样本对模型进行训练，比如可以使用决策树，随机森林等树模型，这类模型可以处理非线性相关的特征。然后使用训练好的模型在验证集上计算性能指标，根据指标值对特征进行筛选。</p>
+<h2 id="3-包裹法"><a href="#3-包裹法" class="headerlink" title="3. 包裹法"></a>3. 包裹法</h2><p>包裹法最常见的方法是递归特征消除。递归特征消除要求基学习器可以计算特征重要性。逻辑回归模型可以依据学习到的权重参数$w$作为特征的重要性；决策树，随机森林等树模型可以依据选择特征进行分裂的指标来确定特征重要性。最通用的做法是在某个特征上添加噪声，然后分析添加噪声前后模型的性能变化，变化较大说明该特征对模型预测的影响大，即特征的重要性大。</p>
+<p>递归特征消除的过程就是在每轮迭代，依据特征重要性指标，去除重要性小的特征，然后重复这个过程，直到达到结束条件。可以有两种方法，一种是按照贪心的思路，一路往前不回头。另一种是加入回溯，搜索出特征的最佳组合。</p>
+<h2 id="4-嵌入法"><a href="#4-嵌入法" class="headerlink" title="4. 嵌入法"></a>4. 嵌入法</h2><p>嵌入法就是将特征选择与模型训练的过程结合到一起，让模型能够自动筛选特征。最典型的应用就是逻辑回归模型加L1正则化。加入L1正则化可以得到稀疏的参数，即很多参数值为0，那些值为0的参数所对应的特征就是模型自动筛选掉的特征。决策树和随机森林这些树模型也是在训练模型时自动就可以完成特征选择。</p>
 
     </div>
 
@@ -260,13 +269,13 @@
           
         
         <div class="post-tags">
-            <a href="/tags/计算机基础，数据结构/" rel="tag"># 计算机基础，数据结构</a>
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/13/PCA-主成分分析/" rel="next" title="PCA-主成分分析">
-                <i class="fa fa-chevron-left"></i> PCA-主成分分析
+              <a href="/2020/02/13/红黑树，B树，B-树/" rel="next" title="红黑树，B树，B+树">
+                <i class="fa fa-chevron-left"></i> 红黑树，B树，B+树
               </a>
             
           </div>
@@ -274,10 +283,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/14/机器学习之特征选择/" rel="prev" title="机器学习之特征选择">
-                机器学习之特征选择 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -373,7 +378,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-红黑树"><span class="nav-number">1.</span> <span class="nav-text">1. 红黑树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-B-树（B树）"><span class="nav-number">2.</span> <span class="nav-text">2. B-树（B树）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-B-树"><span class="nav-number">3.</span> <span class="nav-text">3. B+树</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是特征选择"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是特征选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-过滤法"><span class="nav-number">2.</span> <span class="nav-text">2. 过滤法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#利用方差筛选"><span class="nav-number">2.1.</span> <span class="nav-text">利用方差筛选</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卡方检验方法"><span class="nav-number">2.2.</span> <span class="nav-text">卡方检验方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#皮尔森系数"><span class="nav-number">2.3.</span> <span class="nav-text">皮尔森系数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于模型性能的特征选择"><span class="nav-number">2.4.</span> <span class="nav-text">基于模型性能的特征选择</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-包裹法"><span class="nav-number">3.</span> <span class="nav-text">3. 包裹法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-嵌入法"><span class="nav-number">4.</span> <span class="nav-text">4. 嵌入法</span></a></li></ol></div>
             
 
           </div>
