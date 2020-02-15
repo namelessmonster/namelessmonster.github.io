@@ -57,18 +57,18 @@
   };
 </script>
 
-  <meta name="description" content="1. 什么是SVMSVM中文名是支持向量机，是一个判别模型，主要用于分类任务。SVM旨在在一堆数据点中，找出一个可以将数据点划分为两类的超平面，且要求超平面距离每一类的所有点尽量远。 2. 如何求解定义一个超平面$\{W,b\}$，对于每一个数据点$(X,Y)$，如果$Y=1$，则要求$XW^T+b&amp;gt;0$，如果$Y=-1$，则要求$XW^T+b&amp;lt;0$，所以可以总结成： Y(XW^T+b">
+  <meta name="description" content="1. 什么是SVMSVM中文名是支持向量机，是一个判别模型，主要用于分类任务。SVM旨在在一堆数据点中，找出一个可以将数据点划分为两类的超平面，且要求超平面距离每一类的所有点尽量远。 2. 如何求解定义一个超平面$\{w,b\}$，对于每一个数据点$(x_i,y_i)$，如果$y_i=1$，则要求$wx_i+b&amp;gt;0$，如果$y_i=-1$，则要求$wx_i+b&amp;lt;0$，所以可以总结成：">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SVM原理与推导">
 <meta property="og:url" content="http://yoursite.com/2020/02/07/SVM原理与推导/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 什么是SVMSVM中文名是支持向量机，是一个判别模型，主要用于分类任务。SVM旨在在一堆数据点中，找出一个可以将数据点划分为两类的超平面，且要求超平面距离每一类的所有点尽量远。 2. 如何求解定义一个超平面$\{W,b\}$，对于每一个数据点$(X,Y)$，如果$Y=1$，则要求$XW^T+b&amp;gt;0$，如果$Y=-1$，则要求$XW^T+b&amp;lt;0$，所以可以总结成： Y(XW^T+b">
+<meta property="og:description" content="1. 什么是SVMSVM中文名是支持向量机，是一个判别模型，主要用于分类任务。SVM旨在在一堆数据点中，找出一个可以将数据点划分为两类的超平面，且要求超平面距离每一类的所有点尽量远。 2. 如何求解定义一个超平面$\{w,b\}$，对于每一个数据点$(x_i,y_i)$，如果$y_i=1$，则要求$wx_i+b&amp;gt;0$，如果$y_i=-1$，则要求$wx_i+b&amp;lt;0$，所以可以总结成：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-10T09:35:36.443Z">
+<meta property="og:updated_time" content="2020-02-15T08:42:11.200Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVM原理与推导">
-<meta name="twitter:description" content="1. 什么是SVMSVM中文名是支持向量机，是一个判别模型，主要用于分类任务。SVM旨在在一堆数据点中，找出一个可以将数据点划分为两类的超平面，且要求超平面距离每一类的所有点尽量远。 2. 如何求解定义一个超平面$\{W,b\}$，对于每一个数据点$(X,Y)$，如果$Y=1$，则要求$XW^T+b&amp;gt;0$，如果$Y=-1$，则要求$XW^T+b&amp;lt;0$，所以可以总结成： Y(XW^T+b">
+<meta name="twitter:description" content="1. 什么是SVMSVM中文名是支持向量机，是一个判别模型，主要用于分类任务。SVM旨在在一堆数据点中，找出一个可以将数据点划分为两类的超平面，且要求超平面距离每一类的所有点尽量远。 2. 如何求解定义一个超平面$\{w,b\}$，对于每一个数据点$(x_i,y_i)$，如果$y_i=1$，则要求$wx_i+b&amp;gt;0$，如果$y_i=-1$，则要求$wx_i+b&amp;lt;0$，所以可以总结成：">
   <link rel="canonical" href="http://yoursite.com/2020/02/07/SVM原理与推导/">
 
 
@@ -240,7 +240,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-02-10 17:35:36" itemprop="dateModified" datetime="2020-02-10T17:35:36+08:00">2020-02-10</time>
+                <time title="修改时间：2020-02-15 16:42:11" itemprop="dateModified" datetime="2020-02-15T16:42:11+08:00">2020-02-15</time>
               </span>
             
           
@@ -257,21 +257,26 @@
 
       
         <h2 id="1-什么是SVM"><a href="#1-什么是SVM" class="headerlink" title="1. 什么是SVM"></a>1. 什么是SVM</h2><p>SVM中文名是支持向量机，是一个判别模型，主要用于分类任务。SVM旨在在一堆数据点中，找出一个可以将数据点划分为两类的超平面，且要求超平面距离每一类的所有点尽量远。</p>
-<h2 id="2-如何求解"><a href="#2-如何求解" class="headerlink" title="2. 如何求解"></a>2. 如何求解</h2><p>定义一个超平面$\{W,b\}$，对于每一个数据点$(X,Y)$，如果$Y=1$，则要求$XW^T+b&gt;0$，如果$Y=-1$，则要求$XW^T+b&lt;0$，所以可以总结成：</p>
-<script type="math/tex; mode=display">Y(XW^T+b)>0</script><p>对于点$(X,Y)$，向量$X$到超平面的距离为$\frac{|XW^T+b|}{\sqrt{WW^T}}$。SVM要求数据集的点到超平面的最短距离最大，即：</p>
-<script type="math/tex; mode=display">\max_{W,b}\min_{X}\frac{|XW^T+b|}{\sqrt{WW^T}}</script><p>对于一个超平面，既可以使用$\{W,b\}$表示，也可以使用$\{2W,2b\}$表示，总之$\{kW,kb\}$表示的是同一个平面，所以为了有唯一解，添加一个约束：</p>
-<script type="math/tex; mode=display">\min\{|XW^T+b|\}=1</script><p>所以SVM要求数据集的点到超平面的最短距离最大可表示为：</p>
-<script type="math/tex; mode=display">\max_{W,b}\frac{1}{\sqrt{WW^T}}</script><p>这等价于：</p>
-<script type="math/tex; mode=display">\min_{W} \frac{1}{2}WW^T</script><p>所以SVM的数学模型可以表示为以下几个式子：</p>
-<script type="math/tex; mode=display">\min_{W} \frac{1}{2}WW^T</script><script type="math/tex; mode=display">Y_i(X_iW^T+b) \ge 1,i=1,2,...</script><p>使用拉格朗日乘数法消除约束，可以得到：</p>
-<script type="math/tex; mode=display">L(W,b,\lambda)=\frac{1}{2}WW^T+\sum_{i}{\lambda_i(1-Y_i(X_iW^T+b))}</script><script type="math/tex; mode=display">\lambda_i \ge 0,i=1,2,...</script><p>现在原问题等于求解：</p>
-<script type="math/tex; mode=display">\min_{W,b}\max_{\lambda}L(W,b,\lambda)</script><script type="math/tex; mode=display">\lambda_i \ge 0,i=1,2,...</script><p>使用凸优化问题的对偶性质，转化成求对偶问题的解：</p>
-<script type="math/tex; mode=display">\max_{\lambda}\min_{W,b}L(W,b,\lambda)</script><script type="math/tex; mode=display">\lambda_i \ge 0,i=1,2,...</script><p>使用$L(W,b,\lambda)$对$W,b$求导，令导数为0，可以得到使用$\lambda$表示$W,b$的式子，将其代入$L(W,b,\lambda)$可以得到一个关于$\lambda$的式子$f(\lambda)$，对$f(\lambda)$使用SMO算法，可以求出$\lambda$的近似解，通过$\lambda$求出$W,b$，从而完成SVM的参数求解过程。</p>
-<h2 id="3-扩展"><a href="#3-扩展" class="headerlink" title="3. 扩展"></a>3. 扩展</h2><p>上述是求解线性SVM的大致过程，当非线性的情况时，即无法全部正确分类时，可以将约束条件</p>
-<script type="math/tex; mode=display">Y_i(X_iW^T+b)\ge 1,i=1,2,...</script><p>变成</p>
-<script type="math/tex; mode=display">Y_i(X_iW^T+b)\ge 1+\xi_i,i=1,2,...</script><p>其中$\xi_i$是松弛量，用来度量样本越界的程度，所以损失函数需要加上每个样本的$\xi_i$，即：</p>
-<script type="math/tex; mode=display">\min_{W,\xi}\{ \frac{1}{2}\lVert W\rVert^2+ C\sum_i\xi_i \}</script><script type="math/tex; mode=display">\xi_i \ge 0</script><p>最小化损失函数等价于也要考虑最小化所有样本的越界量。将第一项看作正则项，则这样的损失函数又称为hinge函数。非线性情况还可以使用核函数。核函数的作用是将高维向量内积转换为低维向量的核函数，可以由此将向量从低维转为高维算出内积并节省计算成本。另外，SVR模型可以用于回归任务，将$XW^T+b$当作回归值。</p>
-<h2 id="4-优缺点"><a href="#4-优缺点" class="headerlink" title="4. 优缺点"></a>4. 优缺点</h2><p>优点：<br>(1) 使用核函数和松弛量，SVM可以处理非线性情况<br>(2) SVM的边界选择只涉及到支持向量的样本，一定程度上提升了鲁棒性<br>(3) SVM在数据量小的情况下也能保持不错的效果<br>(4) SVM面对样本的增删改查，具有很好的鲁棒性，因为SVM只会受到支持向量的样本的影响。<br>缺点：<br>(1) 大数据量的样本，SVM的学习需要较大资源<br>(2) 如果异常值数量多或者异常值异常程度大，SVM的效果会收到影响<br>(3) SVM在处理多分类问题时存在困难<br>(4) SVM受超参数的影响比较大，比如核函数的选取等等</p>
+<h2 id="2-如何求解"><a href="#2-如何求解" class="headerlink" title="2. 如何求解"></a>2. 如何求解</h2><p>定义一个超平面$\{w,b\}$，对于每一个数据点$(x_i,y_i)$，如果$y_i=1$，则要求$wx_i+b&gt;0$，如果$y_i=-1$，则要求$wx_i+b&lt;0$，所以可以总结成：</p>
+<script type="math/tex; mode=display">y_i(wx_i+b)>0</script><p>对于点$(x_i,y_i)$，向量$x_i$到超平面的距离为$\frac{|wx_i+b|}{\lVert w\rVert}$。SVM要求数据集的点到超平面的最短距离最大，即：</p>
+<script type="math/tex; mode=display">\max_{w,b}\min_{x}\frac{|wx+b|}{\lVert w\rVert}</script><p>对于一个超平面，既可以使用$\{w,b\}$表示，也可以使用$\{2w,2b\}$表示，总之$\{kw,kb\}$表示的是同一个平面，所以为了有唯一解，添加一个约束：</p>
+<script type="math/tex; mode=display">\min\{|wx+b|\}=1</script><p>所以SVM要求数据集的点到超平面的最短距离最大可表示为：</p>
+<script type="math/tex; mode=display">\max_{w,b}\frac{1}{\lVert w\rVert}</script><p>这等价于：</p>
+<script type="math/tex; mode=display">\min_{w} \frac{1}{2}\lVert w\rVert^2</script><p>所以SVM的数学模型可以表示为以下几个式子：</p>
+<script type="math/tex; mode=display">\min_{W} \frac{1}{2}\lVert w\rVert^2</script><script type="math/tex; mode=display">st. y_i(wx_i+b) \ge 1,i=1,2,...</script><p>使用拉格朗日乘数法消除约束，可以得到：</p>
+<script type="math/tex; mode=display">L(w,b,\lambda)=\frac{1}{2}\lVert w\rVert^2+\sum_{i}{\lambda_i(1-y_i(wx_i+b))}</script><script type="math/tex; mode=display">\lambda_i \ge 0,i=1,2,...</script><p>现在原问题等于求解：</p>
+<script type="math/tex; mode=display">\min_{w,b}\max_{\lambda}L(w,b,\lambda)</script><script type="math/tex; mode=display">\lambda_i \ge 0,i=1,2,...</script><p>使用凸优化问题的对偶性质，转化成求对偶问题的解：</p>
+<script type="math/tex; mode=display">\max_{\lambda}\min_{w,b}L(w,b,\lambda)</script><script type="math/tex; mode=display">\lambda_i \ge 0,i=1,2,...</script><p>使用$L(w,b,\lambda)$对$w,b$求导，令导数为0，可以得到:</p>
+<script type="math/tex; mode=display">w=\sum_{i}\lambda_iy_ix_i</script><script type="math/tex; mode=display">\sum_{i}\lambda_iy_i=0</script><p>将其代入$L(w,b,\lambda)$可以得到一个关于$\lambda$的式子$f(\lambda)$：</p>
+<script type="math/tex; mode=display">f(\lambda)=\sum_{i}\lambda_i-\frac{1}{2}\sum_{i}\sum_{j}\lambda_i\lambda_jy_iy_jx_ix_j</script><p>现在要求解的问题等价于：</p>
+<script type="math/tex; mode=display">\max_{\lambda}f(\lambda)</script><script type="math/tex; mode=display">st. \lambda_i\ge 0,i=1,2,...</script><script type="math/tex; mode=display">\sum_{i}\lambda_iy_i=0</script><p>对$f(\lambda)$使用SMO算法，可以求出$\lambda$的近似解，通过$\lambda$求出$w,b$，从而完成SVM的参数求解过程。</p>
+<h2 id="3-扩展"><a href="#3-扩展" class="headerlink" title="3. 扩展"></a>3. 扩展</h2><p>上述过程是使用SVM求解线性可分问题时的步骤，但很多时候，数据样本不是线性可分的。此时可以有两个技巧：核函数和松弛项。加入松弛项可以要求SVM不用对全部样本正确分类，只需要惩罚分类不正确的样本即可；加入核函数可以将非线性可分的样本映射到高维空间，增加特征，在高维空间可能线性可分。加入松弛项和核函数，SVM要求解的问题变成：</p>
+<script type="math/tex; mode=display">\min_{w,b,\xi} \frac{1}{2}\lVert w\rVert^2+C\sum_i\ \xi_i</script><script type="math/tex; mode=display">st. y_i(w\hat{x}_i+b)\ge 1-\xi_i,i=1,2,...</script><script type="math/tex; mode=display">\xi_i\ge 0,i=1,2,...</script><p>其中，$\hat{x}_i$表示将$x_i$映射到高维空间。同样地，使用拉格朗日乘子法求解，求导有：</p>
+<script type="math/tex; mode=display">w=\sum_{i}\lambda_iy_ix_i</script><script type="math/tex; mode=display">\sum_{i}\lambda_iy_i=0</script><script type="math/tex; mode=display">\lambda_i+\mu_i=C,i=1,2,...</script><p>将上面的求导结果代入目标函数可以得到：</p>
+<script type="math/tex; mode=display">f(\lambda)=\sum_{i}\lambda_i-\frac{1}{2}\sum_{i}\sum_{j}\lambda_i\lambda_jy_iy_jK(x_i,x_j)</script><p>其中$K(x_i,x_j)$表示求高维空间$\hat{x}_i$和$\hat{x}_j$的内积。在这种情况下要求解的问题变为：</p>
+<script type="math/tex; mode=display">\max_{\lambda}f(\lambda)</script><script type="math/tex; mode=display">st. 0\le\lambda_i\le C,i=1,2,...</script><script type="math/tex; mode=display">\sum_{i}\lambda_iy_i=0</script><p>对上面的问题使用SMO算法求解，即可求出$\lambda$，进而求出$w$，$b$，最终完成对非线性SVM的求解。</p>
+<p>还有SVR模型是SVM模型的回归版本，可以用于回归任务，算法思想是将$wx_i+b$当作回归值。和SVM不同，SVM是要求点在两个支持向量以外，而SVR则要求点在两个支持向量以内，超出的部分需要进行惩罚。在SVR中，两个支持向量与$wx_i+b$的距离并不是一个单位法向量的距离，而是由两个超参数设置的。求解的过程和SVM相似，就是列出式子，使用拉格朗日乘子法和SMO算法求解即可。</p>
+<h2 id="4-优缺点"><a href="#4-优缺点" class="headerlink" title="4. 优缺点"></a>4. 优缺点</h2><p>优点：<br>(1) 使用核函数和松弛量，SVM可以处理非线性情况<br>(2) SVM的边界选择只涉及到支持向量的样本，一定程度上提升了鲁棒性<br>(3) SVM在数据量小的情况下也能保持不错的效果<br>(4) SVM面对样本的增删改查，具有很好的鲁棒性，因为SVM只会受到支持向量的样本的影响。<br>缺点：<br>(1) 在对大数据量的样本学习时，SVM的学习需要较大资源<br>(2) 如果异常值数量多或者异常值异常程度大，SVM的效果会收到影响<br>(3) SVM在处理多分类问题时存在困难<br>(4) SVM受超参数的影响比较大，比如核函数的选取等等</p>
 
     </div>
 
