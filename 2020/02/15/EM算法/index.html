@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="1. 什么是特征选择特征选择，顾名思义，就是在数据样本的一大堆特征中筛选出一些特征，用于后续的模型学习。与降维不同，特征选择只会选择特征而不会组合特征。常见的特征选择方法可以归为三大类，分别是过滤法，包裹法和嵌入法。 2. 过滤法过滤法的主要思想是对每个特征计算统计量，去掉统计量不符合阈值要求的特征，保留统计量符合阈值要求的特征。统计量可以是方差，卡方检验，皮尔森系数，互信息等等，也可以是单独使用">
+  <meta name="description" content="1. 什么是EM算法EM算法主要用于求解具有隐变量的最大似然问题。一般我们再求最大似然时，会有以下式子： arg\max_{\theta} \prod_{i}P(x_i|\theta)对这个式子取对数得到： arg\max_{\theta} \sum_{i}\log P(x_i|\theta)但是有时候我们不能直接计算出$P(x_i|\theta)$，$P(x_i|\theta)$的计算需要一个中">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习之特征选择">
-<meta property="og:url" content="http://yoursite.com/2020/02/14/机器学习之特征选择/index.html">
+<meta property="og:title" content="EM算法">
+<meta property="og:url" content="http://yoursite.com/2020/02/15/EM算法/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 什么是特征选择特征选择，顾名思义，就是在数据样本的一大堆特征中筛选出一些特征，用于后续的模型学习。与降维不同，特征选择只会选择特征而不会组合特征。常见的特征选择方法可以归为三大类，分别是过滤法，包裹法和嵌入法。 2. 过滤法过滤法的主要思想是对每个特征计算统计量，去掉统计量不符合阈值要求的特征，保留统计量符合阈值要求的特征。统计量可以是方差，卡方检验，皮尔森系数，互信息等等，也可以是单独使用">
+<meta property="og:description" content="1. 什么是EM算法EM算法主要用于求解具有隐变量的最大似然问题。一般我们再求最大似然时，会有以下式子： arg\max_{\theta} \prod_{i}P(x_i|\theta)对这个式子取对数得到： arg\max_{\theta} \sum_{i}\log P(x_i|\theta)但是有时候我们不能直接计算出$P(x_i|\theta)$，$P(x_i|\theta)$的计算需要一个中">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-14T08:56:52.625Z">
+<meta property="og:updated_time" content="2020-02-15T06:13:58.266Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习之特征选择">
-<meta name="twitter:description" content="1. 什么是特征选择特征选择，顾名思义，就是在数据样本的一大堆特征中筛选出一些特征，用于后续的模型学习。与降维不同，特征选择只会选择特征而不会组合特征。常见的特征选择方法可以归为三大类，分别是过滤法，包裹法和嵌入法。 2. 过滤法过滤法的主要思想是对每个特征计算统计量，去掉统计量不符合阈值要求的特征，保留统计量符合阈值要求的特征。统计量可以是方差，卡方检验，皮尔森系数，互信息等等，也可以是单独使用">
-  <link rel="canonical" href="http://yoursite.com/2020/02/14/机器学习之特征选择/">
+<meta name="twitter:title" content="EM算法">
+<meta name="twitter:description" content="1. 什么是EM算法EM算法主要用于求解具有隐变量的最大似然问题。一般我们再求最大似然时，会有以下式子： arg\max_{\theta} \prod_{i}P(x_i|\theta)对这个式子取对数得到： arg\max_{\theta} \sum_{i}\log P(x_i|\theta)但是有时候我们不能直接计算出$P(x_i|\theta)$，$P(x_i|\theta)$的计算需要一个中">
+  <link rel="canonical" href="http://yoursite.com/2020/02/15/EM算法/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>机器学习之特征选择 | Hexo</title>
+  <title>EM算法 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/14/机器学习之特征选择/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/15/EM算法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">机器学习之特征选择
+          <h1 class="post-title" itemprop="name headline">EM算法
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-14 15:21:09 / 修改时间：16:56:52" itemprop="dateCreated datePublished" datetime="2020-02-14T15:21:09+08:00">2020-02-14</time>
+              <time title="创建时间：2020-02-15 12:55:23 / 修改时间：14:13:58" itemprop="dateCreated datePublished" datetime="2020-02-15T12:55:23+08:00">2020-02-15</time>
             </span>
           
             
@@ -246,18 +246,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-什么是特征选择"><a href="#1-什么是特征选择" class="headerlink" title="1. 什么是特征选择"></a>1. 什么是特征选择</h2><p>特征选择，顾名思义，就是在数据样本的一大堆特征中筛选出一些特征，用于后续的模型学习。与降维不同，特征选择只会选择特征而不会组合特征。常见的特征选择方法可以归为三大类，分别是过滤法，包裹法和嵌入法。</p>
-<h2 id="2-过滤法"><a href="#2-过滤法" class="headerlink" title="2. 过滤法"></a>2. 过滤法</h2><p>过滤法的主要思想是对每个特征计算统计量，去掉统计量不符合阈值要求的特征，保留统计量符合阈值要求的特征。统计量可以是方差，卡方检验，皮尔森系数，互信息等等，也可以是单独使用该特征训练模型在验证集上的表现。过滤法更多的是处理单特征，即每个特征单独作用，单独计算指标，然后按照指标过滤。</p>
-<h3 id="利用方差筛选"><a href="#利用方差筛选" class="headerlink" title="利用方差筛选"></a>利用方差筛选</h3><p>这个方法单独计算每个特征的方差，方差越大，说明数据样本在这个特征上的取值越发散；方差越小，说明数据样本在该特征上重复取值的可能性越大。当存在大量数据样本在一个特征上取值相同时，如果不存在数据不均衡问题，则这个特征对模型预测的贡献一般会比较小，所以可以去除方差小于某个阈值的特征。但是这种方法会受到不同特征量纲不一致的影响，一种可能可以的方法是利用最大最小值归一化的方法将特征值映射到$[0,1]$的范围再计算方差。</p>
-<h3 id="卡方检验方法"><a href="#卡方检验方法" class="headerlink" title="卡方检验方法"></a>卡方检验方法</h3><p>卡方检验的过程是这样的，首先我们认为特征$X$是离散随机变量，特征$Y$也是离散随机变量。我们假设$X$和$Y$是独立的，所以理论上，无论$X$取什么值，$Y$的条件分布都应该是不变的，即$Y$的分布应该有：</p>
-<script type="math/tex; mode=display">P(y)=P(y|x)</script><p>这样我们就可以根据从数据集中统计出来的$P(y)$得到每个$P(y|x)$，利用$P(x)P(y|x)$乘上数据样本数得到在每个$X$下每个$Y$理论频数$t(x,y)$。然后我们又可以通过在数据集上统计得到实际频数$f(x,y)$，然后根据下式求出卡方检验值：</p>
-<script type="math/tex; mode=display">\sum_{x}\sum_{y}\frac{(f(x,y)-t(x,y))^2}{t(x,y)}</script><p>经过证明，上述式子符合卡方分布。使用由上式求得的值通过查表可以得到$X$和$Y$是独立的这一假设有多大可能性成立，然后就可以确定特征$X$对$Y$是否有用了。对每个特征都重复这个过程，保留与$Y$相关可能性最大的前$K$个特征完成特征选择。</p>
-<h3 id="皮尔森系数"><a href="#皮尔森系数" class="headerlink" title="皮尔森系数"></a>皮尔森系数</h3><p>皮尔森系数的计算公式如下：</p>
-<script type="math/tex; mode=display">p_{X,Y}=\frac{Cov(X,Y)}{\sigma_X\sigma_Y}</script><p>即皮尔森系数等于特征的协方差除以两个特征标准差之积。皮尔森系数可以测量两个变量的线性相关性，但不能测量非线性相关性，即当两个变量的皮尔森系数值为0时，只能说两个变量线性不相关，但不能说无关，因为也可以是非线性相关，比如$y=x^2$。皮尔森系数的取值范围是$[-1,1]$，在判断相关性质上与协方差相似，但一个优势是皮尔森系数不受$X$和$Y$的量纲的影响。很多时候先对特征作标准化然后计算协方差，其实就是计算皮尔森系数。使用皮尔森系数对特征作筛选，可以除去绝对值较小的特征，但也需要注意可能存在非线性相关的特征。</p>
-<h3 id="基于模型性能的特征选择"><a href="#基于模型性能的特征选择" class="headerlink" title="基于模型性能的特征选择"></a>基于模型性能的特征选择</h3><p>使用单特征的数据样本对模型进行训练，比如可以使用决策树，随机森林等树模型，这类模型可以处理非线性相关的特征。然后使用训练好的模型在验证集上计算性能指标，根据指标值对特征进行筛选。</p>
-<h2 id="3-包裹法"><a href="#3-包裹法" class="headerlink" title="3. 包裹法"></a>3. 包裹法</h2><p>包裹法最常见的方法是递归特征消除。递归特征消除要求基学习器可以计算特征重要性。逻辑回归模型可以依据学习到的权重参数$w$作为特征的重要性；决策树，随机森林等树模型可以依据选择特征进行分裂的指标来确定特征重要性。最通用的做法是在某个特征上添加噪声，然后分析添加噪声前后模型的性能变化，变化较大说明该特征对模型预测的影响大，即特征的重要性大。</p>
-<p>递归特征消除的过程就是在每轮迭代，依据特征重要性指标，去除重要性小的特征，然后重复这个过程，直到达到结束条件。可以有两种方法，一种是按照贪心的思路，一路往前不回头。另一种是加入回溯，搜索出特征的最佳组合。</p>
-<h2 id="4-嵌入法"><a href="#4-嵌入法" class="headerlink" title="4. 嵌入法"></a>4. 嵌入法</h2><p>嵌入法就是将特征选择与模型训练的过程结合到一起，让模型能够自动筛选特征。最典型的应用就是逻辑回归模型加L1正则化。加入L1正则化可以得到稀疏的参数，即很多参数值为0，那些值为0的参数所对应的特征就是模型自动筛选掉的特征。决策树和随机森林这些树模型也是在训练模型时自动就可以完成特征选择。</p>
+        <h2 id="1-什么是EM算法"><a href="#1-什么是EM算法" class="headerlink" title="1. 什么是EM算法"></a>1. 什么是EM算法</h2><p>EM算法主要用于求解具有隐变量的最大似然问题。一般我们再求最大似然时，会有以下式子：</p>
+<script type="math/tex; mode=display">arg\max_{\theta} \prod_{i}P(x_i|\theta)</script><p>对这个式子取对数得到：</p>
+<script type="math/tex; mode=display">arg\max_{\theta} \sum_{i}\log P(x_i|\theta)</script><p>但是有时候我们不能直接计算出$P(x_i|\theta)$，$P(x_i|\theta)$的计算需要一个中间变量使用全概率求得，即：</p>
+<script type="math/tex; mode=display">P(x_i|\theta)=\sum_{z} P(x_i,z|\theta)</script><p>所以现在求最大似然等价于求下式：</p>
+<script type="math/tex; mode=display">arg\max_{\theta} \sum_{i}\log \sum_{z}P(x_i,z|\theta)</script><p>正常的求解思路就是使用上式对$\theta$求导，令导数为0，然后解出最佳的$\theta$。但是注意到求对数内部还有一个求和，如果$P(x_i,z|\theta)$有着高斯分布或其他分布的形式，那么导数形式会非常难看，这时候EM算法就派上用场了。</p>
+<h2 id="2-怎么使用EM算法求解"><a href="#2-怎么使用EM算法求解" class="headerlink" title="2. 怎么使用EM算法求解"></a>2. 怎么使用EM算法求解</h2><p>在使用EM算法之前，有一个很重要的不等式需要介绍一下，这个不等式就是琴生不等式。琴生不等式有以下形式：</p>
+<script type="math/tex; mode=display">E[f(x)]\ge f(E[x])</script><p>其中$f(x)$是凸函数。如果$f(x)$是凹函数，则琴生不等式有以下形式：</p>
+<script type="math/tex; mode=display">E[f(x)]\le f(E[x])</script><p>琴生不等式取等号的条件是变量$x$是一个常数。</p>
+<p>现在我们对最大似然式子变换一下得到：</p>
+<script type="math/tex; mode=display">\sum_{i}\log\sum_{z}P(x_i,z|\theta)=\sum_{i}\log\sum_{z}Q_i(z)\frac{P(x_i,z|\theta)}{Q_i(z)}</script><p>已知对数函数是一个凸函数，我们将$\frac{P(x_i,z|\theta)}{Q_i(z)}$看作变量$x$，将对数函数看作函数$f$，将$Q_i(z)$看作随机变量$x$的分布，则根据琴生不等式有：</p>
+<script type="math/tex; mode=display">\sum_{i}\log\sum_{z}Q_i(z)\frac{P(x_i,z|\theta)}{Q_i(z)}\ge\sum_{i}\sum_{z}Q_i(z)\log\frac{P(x_i,z|\theta)}{Q_i(z)}</script><p>EM算法有两个步骤，第一个步骤是E步，使上述不等式取等号；第二步是M步，最大化下界。要使不等式取等号，需要使得$\frac{P(x_i,z|\theta)}{Q_i(z)}$是常数。已知$Q_i(z)$是一个分布，所以有：</p>
+<script type="math/tex; mode=display">\sum_{z}Q_i(z)=1</script><p>所以有：</p>
+<script type="math/tex; mode=display">P(x_i|\theta)=\sum_{z}P(x_i,z|\theta)=\sum_{z}Q_i(z)\cdot C=C</script><p>所以有：</p>
+<script type="math/tex; mode=display">Q_i(z)=\frac{P(x_i,z|\theta)}{C}=\frac{P(x_i,z|\theta)}{\sum_{z}P(x_i,z|\theta)}=\frac{P(x_i,z|\theta)}{P(x_i|\theta)}=P(z|x_i,\theta)</script><p>所以$Q_i(z)$是关于变量$z$的后验概率$P(z|x_i,\theta)$。这就是EM算法的E步，根据当前的$\theta$求出关于隐变量$z$的后验概率。接下来，EM算法的M步，将$Q_i(z)$固定看作与$\theta$无关，使用琴生不等式的右边对$\theta$求导并令导数等于0，解出一个新的参数$\theta$最大化琴生不等式的右边式子，即最大化下界。现在通过M步得到一个新的$\theta$就可以利用当前$\theta$更新$Q_i(z)$，然后固定$Q_i(z)$更新$\theta$到达更大的下界，循环往复直到收敛。</p>
+<p>现在总结一下EM算法的步骤：<br>(1) 列出最大似然式子<br>(2) 将最大似然式子分解出隐变量，并将最大似然式子转换成对数最大似然式子<br>(3) 使用琴生不等式得到对数最大似然式子的下界<br>(4) 选择一个$\theta$作为初值<br>(5) E步：利用$\theta$求出$Q_i(z)$，使琴生不等式取等号<br>(6) M步：固定$Q_i(z)$，使用下界对$\theta$求导令导数为0，找到一个新的$\theta$极大化下界<br>(7) 重复(5)(6)两步，直到收敛</p>
+<h2 id="3-其他"><a href="#3-其他" class="headerlink" title="3. 其他"></a>3. 其他</h2><p>EM算法的出现，使得具有隐变量的式子也可以求最大似然。但是EM算法是对似然函数的下界求极大值，所以可能会达到局部最优而无法达到全局最优，能否达到全局最优取决于初值的设定。EM算法对初值的设置是敏感，即$\theta$的初始设置对EM算法的效果有一定的影响，所以往往会设定不同的初值使用EM算法多次求解，从而缓解初值设置对EM算法效果的影响。</p>
 
     </div>
 
@@ -274,8 +278,8 @@
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/13/红黑树，B树，B-树/" rel="next" title="红黑树，B树，B+树">
-                <i class="fa fa-chevron-left"></i> 红黑树，B树，B+树
+              <a href="/2020/02/14/机器学习之数据不平衡/" rel="next" title="机器学习之数据不平衡">
+                <i class="fa fa-chevron-left"></i> 机器学习之数据不平衡
               </a>
             
           </div>
@@ -283,10 +287,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/14/机器学习之数据不平衡/" rel="prev" title="机器学习之数据不平衡">
-                机器学习之数据不平衡 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -382,7 +382,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是特征选择"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是特征选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-过滤法"><span class="nav-number">2.</span> <span class="nav-text">2. 过滤法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#利用方差筛选"><span class="nav-number">2.1.</span> <span class="nav-text">利用方差筛选</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卡方检验方法"><span class="nav-number">2.2.</span> <span class="nav-text">卡方检验方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#皮尔森系数"><span class="nav-number">2.3.</span> <span class="nav-text">皮尔森系数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于模型性能的特征选择"><span class="nav-number">2.4.</span> <span class="nav-text">基于模型性能的特征选择</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-包裹法"><span class="nav-number">3.</span> <span class="nav-text">3. 包裹法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-嵌入法"><span class="nav-number">4.</span> <span class="nav-text">4. 嵌入法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是EM算法"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是EM算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-怎么使用EM算法求解"><span class="nav-number">2.</span> <span class="nav-text">2. 怎么使用EM算法求解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-其他"><span class="nav-number">3.</span> <span class="nav-text">3. 其他</span></a></li></ol></div>
             
 
           </div>
