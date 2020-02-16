@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="1. 什么是决策树决策树是一个判别模型，可以用于分类，也可以用于回归。在决策树的每层会选取一个特征对数据点进行划分，一般的决策树是按层扩展的，即决策树第$i$层的节点都是使用同一个特征进行划分，但也有按节点扩展的，即每个节点内部自己决定特征进行扩展。当达到最大深度或节点内部都可以归为同一类时，该节点停止扩展。决策树算法的实现主要有三种，分别是ID3算法，C4.5算法和CART算法。 2. ID3算">
-<meta name="keywords" content="机器学习">
+  <meta name="description" content="综述ELMo，GPT，Bert都是NLP任务中的预训练模型，可以根据语料的上下文动态地调整词向量，不再像是在Word2Vec，GloVe，fastText这些预训练模型中，一旦确定了一个词的向量便不会再变。举个简单的例子，apple可以有两种意思，一个意思是水果，另一个意思是公司。如果使用Word2Vec，GloVe，FastText这些模型去训练，得到的apple只能有一个词向量，但是一个词向量">
+<meta name="keywords" content="机器学习,NLP,深度学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="决策树原理与推导">
-<meta property="og:url" content="http://yoursite.com/2020/02/07/决策树原理与推导/index.html">
+<meta property="og:title" content="ELMo，GPT和Bert">
+<meta property="og:url" content="http://yoursite.com/2020/02/16/ELMo，GPT和Bert/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 什么是决策树决策树是一个判别模型，可以用于分类，也可以用于回归。在决策树的每层会选取一个特征对数据点进行划分，一般的决策树是按层扩展的，即决策树第$i$层的节点都是使用同一个特征进行划分，但也有按节点扩展的，即每个节点内部自己决定特征进行扩展。当达到最大深度或节点内部都可以归为同一类时，该节点停止扩展。决策树算法的实现主要有三种，分别是ID3算法，C4.5算法和CART算法。 2. ID3算">
+<meta property="og:description" content="综述ELMo，GPT，Bert都是NLP任务中的预训练模型，可以根据语料的上下文动态地调整词向量，不再像是在Word2Vec，GloVe，fastText这些预训练模型中，一旦确定了一个词的向量便不会再变。举个简单的例子，apple可以有两种意思，一个意思是水果，另一个意思是公司。如果使用Word2Vec，GloVe，FastText这些模型去训练，得到的apple只能有一个词向量，但是一个词向量">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-07T10:06:27.560Z">
+<meta property="og:updated_time" content="2020-02-16T09:31:40.460Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="决策树原理与推导">
-<meta name="twitter:description" content="1. 什么是决策树决策树是一个判别模型，可以用于分类，也可以用于回归。在决策树的每层会选取一个特征对数据点进行划分，一般的决策树是按层扩展的，即决策树第$i$层的节点都是使用同一个特征进行划分，但也有按节点扩展的，即每个节点内部自己决定特征进行扩展。当达到最大深度或节点内部都可以归为同一类时，该节点停止扩展。决策树算法的实现主要有三种，分别是ID3算法，C4.5算法和CART算法。 2. ID3算">
-  <link rel="canonical" href="http://yoursite.com/2020/02/07/决策树原理与推导/">
+<meta name="twitter:title" content="ELMo，GPT和Bert">
+<meta name="twitter:description" content="综述ELMo，GPT，Bert都是NLP任务中的预训练模型，可以根据语料的上下文动态地调整词向量，不再像是在Word2Vec，GloVe，fastText这些预训练模型中，一旦确定了一个词的向量便不会再变。举个简单的例子，apple可以有两种意思，一个意思是水果，另一个意思是公司。如果使用Word2Vec，GloVe，FastText这些模型去训练，得到的apple只能有一个词向量，但是一个词向量">
+  <link rel="canonical" href="http://yoursite.com/2020/02/16/ELMo，GPT和Bert/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>决策树原理与推导 | Hexo</title>
+  <title>ELMo，GPT和Bert | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/07/决策树原理与推导/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/16/ELMo，GPT和Bert/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">决策树原理与推导
+          <h1 class="post-title" itemprop="name headline">ELMo，GPT和Bert
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-07 16:43:03 / 修改时间：18:06:27" itemprop="dateCreated datePublished" datetime="2020-02-07T16:43:03+08:00">2020-02-07</time>
+              <time title="创建时间：2020-02-16 16:16:42 / 修改时间：17:31:40" itemprop="dateCreated datePublished" datetime="2020-02-16T16:16:42+08:00">2020-02-16</time>
             </span>
           
             
@@ -246,16 +246,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-什么是决策树"><a href="#1-什么是决策树" class="headerlink" title="1. 什么是决策树"></a>1. 什么是决策树</h2><p>决策树是一个判别模型，可以用于分类，也可以用于回归。在决策树的每层会选取一个特征对数据点进行划分，一般的决策树是按层扩展的，即决策树第$i$层的节点都是使用同一个特征进行划分，但也有按节点扩展的，即每个节点内部自己决定特征进行扩展。当达到最大深度或节点内部都可以归为同一类时，该节点停止扩展。决策树算法的实现主要有三种，分别是ID3算法，C4.5算法和CART算法。</p>
-<h2 id="2-ID3算法"><a href="#2-ID3算法" class="headerlink" title="2. ID3算法"></a>2. ID3算法</h2><p>ID3算法构建的决策树有二个要点：第一点是使用信息增益决定采用哪个特征进行划分，信息增益的计算方式决定1了该算法构建的决策树只能用于分类任务；第二点是每次选取一种特征后，对该特征的所有取值都构造一个子节点，所以ID3算法构建的决策树，特征值必须是离散的。</p>
-<p>信息增益对应着信息熵的减少，信息熵的计算方式如下：</p>
-<script type="math/tex; mode=display">Entropy=-\sum_{i}p_i\log{p_i},i=1,2...</script><p>对决策树第$k$层计算信息熵，等于对第$k$层各个节点内部计算信息熵并求和，计算时$p_i$表示在节点内部类别为$i$的概率。假设第$k$层的信息熵等于$e_k$，则第$k+1$层到第$k$层的信息增益等于</p>
-<script type="math/tex; mode=display">\Delta=e_k-e_{k+1}</script><p>ID3算法每次选取特征时，都会使用使得信息增益最大的特征进行划分，即使用贪心的算法思想构建决策树。但是这种方法有一个问题，当一个属性的取值较多时，往往分割出来的结果会更具体，即熵值越低，ID3算法也的确会倾向于选择这种特征进行决策树的展开，但这往往会造成过拟合。</p>
-<h2 id="3-C4-5算法"><a href="#3-C4-5算法" class="headerlink" title="3. C4.5算法"></a>3. C4.5算法</h2><p>通过前面的介绍，我们可以看到ID3决策树存在三个问题：第一点是ID3决策树只能处理离散特征值，第二点是ID3决策树只能用于分类任务，第三点是ID3决策树使用信息增益作为特征选取的指标存在过拟合的风险。C4.5算法就是为了解决ID3算法第一点和第三点问题而提出的。首先特征值现在可以不是离散值了，所以C4.5在选择特征后，假设需要划分出$j$个子节点，则选择$j-1$个值，将值域划分为$j$个空间，在对应值域的数据划分到对应的子节点。其次使用信息增益率代替信息增益作为特征选择的指标，信息增益率使用下式表示：</p>
-<script type="math/tex; mode=display">r=\frac{\Delta}{IV}</script><script type="math/tex; mode=display">IV=-\sum_{j}p_j\log{p_j}</script><p>其中$r$表示信息增益率，$\Delta$表示信息增益。$IV$的计算公式表示将节点划分成$J$个子节点后数据样本的分布熵，$p_j$表示在第$j$个子空间的数据样本数占在节点总样本数的比例。可以看到当特征按照特征值分得越细，则$IV$值越大，对应的信息增益率也会变小，所以使用信息增益率可以避免ID3总是分割特征值多的特征，从而降低过拟合的风险。</p>
-<h2 id="4-CART算法"><a href="#4-CART算法" class="headerlink" title="4. CART算法"></a>4. CART算法</h2><p>无论是ID3算法还是C4.5算法，都只能运用在分类任务。CART算法克服了ID3和C4.5只能用于分类任务的问题，既可以用于分类任务也可以用于回归任务。CART有两个重要要点：第一点是CART算法构造的决策树是二叉树，第二点是CART算法使用基尼系数作为特征及特征值的选取指标。CART根据基尼系数选择一个特征当中的一个特征值，将小于该特征值的数据样本划分到左子树，大于等于该特征值的数据样本划分到右子树。基尼系数的计算公式如下：</p>
-<script type="math/tex; mode=display">Gini(p)=\sum_i{p_i(1-p_i)}=1-\sum_{i}p_i^2</script><p>CART会选择基尼系数最小的特征和特征值进行划分，在计算基尼系数时，$p_i$表示在节点内部数据样本属于第$i$类的频率。在处理分类任务时，CART选择叶节点内样本数目最多的类别作为该节点的分类结果；在处理回归任务时，CART会选择叶节点内样本的统计结果作为该节点的数值预测。</p>
-<h2 id="5-其他"><a href="#5-其他" class="headerlink" title="5. 其他"></a>5. 其他</h2><p>在使用决策树对数据样本进行学习与预测时，有时会出现过拟合，解决过拟合的主要思路是限制树的生长，减小树的规模。可以是限制决策树的深度或叶子节点数，可以是使用验证集对树进行剪枝。使用验证集对决策树剪枝的思路是，如果去掉该节点的子树在验证集表现更好，则去掉这个节点的子树。</p>
+        <h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>ELMo，GPT，Bert都是NLP任务中的预训练模型，可以根据语料的上下文动态地调整词向量，不再像是在Word2Vec，GloVe，fastText这些预训练模型中，一旦确定了一个词的向量便不会再变。举个简单的例子，apple可以有两种意思，一个意思是水果，另一个意思是公司。如果使用Word2Vec，GloVe，FastText这些模型去训练，得到的apple只能有一个词向量，但是一个词向量是无法区分apple的两个意思的。ELMo，GPT和Bert这三个预训练模型不仅可以解决多义词的缺陷，而且GPT和Bert预训练的产物并不仅仅是词向量，还顺带包括解决NLP任务的模型参数。就是说GPT和Bert不仅帮我们预训练好词向量，还帮我们设计好怎么解决下游的NLP问题，不需要再重新设计模型。</p>
+<h2 id="ELMo"><a href="#ELMo" class="headerlink" title="ELMo"></a>ELMo</h2><p>ELMo模型使用上下文预测中心词作为词向量的预训练任务，将预测中心词看作从两个方向预测中心词，有最大似然目标如下：</p>
+<script type="math/tex; mode=display">Obj=\max_{\theta} \{\sum_{i=1}^n\log P(w_i|w_1,w_2,...,w_{i-1},\theta)+\log P(w_i|w_{i+1},w_{i+2},...,w_{n},\theta)\}</script><p>其中$P(w_i|w_1,w_2,..w_{i-1}|\theta)$使用正向LSTM输出，$P(w_i|w_{i+1},w_{i+2},…,w_n|\theta)$使用反向LSTM输出。通过对这两个LSTM模型学习参数，最大化语料库的似然函数。学习完模型参数后，当ELMo作为预训练模型用于下游NLP任务时，对每一层的LSTM输出作一个加权求和得到词向量，然后将词向量作用于下游NLP任务。</p>
+<h2 id="GPT"><a href="#GPT" class="headerlink" title="GPT"></a>GPT</h2><p>GPT模型使用上文预测下一个词作为词向量的预训练任务，将预测下一个词看作从前文预测下一个词，有最大似然目标函数如下：</p>
+<script type="math/tex; mode=display">Obj=\max_{\theta}\{\sum_{i=1}^n\log P(w_i|w_1,w_2,...,w_{i-1},\theta)\}</script><p>与ELMo模型不同，GPT使用Transformer解码器代替LSTM输出$P(w_i|w_1,w_2,…,w_{i-1},\theta)$。Transformer解码器和Transformer编码器不同，解码器在计算attention时会通过mask层阻挡预测词下文的影响，只使用预测词上文来输出预测词位置的向量。通过预训练我们可以得到词向量和Transformer解码器的参数。从某种意义上说，GPT已经不是为了学习词向量了，GPT是为了得到一个通用NLP任务的预训练模型。我们从GPT的输入可以看到，词向量是固定的，但是当词向量作用于Transformer解码器互相影响后得到的输出，这些输出不仅具有词的语义信息还具有了整段文本的句法与语义信息了，所以我们不能把Transformer解码器的输出简单看作是词向量的输出了。利用GPT的输出，我们可以根据不同的NLP任务在Transformer解码器的输出后面简单添加一些层或稍作组合，就可以用于解决各种NLP任务。实验表明，在针对不同NLP任务时，添加上GPT的预训练任务一起学习效果会更好。</p>
+<h2 id="Bert"><a href="#Bert" class="headerlink" title="Bert"></a>Bert</h2><p>Bert和GPT一样，也是奔着得到一个通用NLP任务的预训练模型的目的。Bert使用Transformer编码器代替GPT的Transformer解码器，想要通过上下文去预测中心词而不是仅通过上文预测下一个词，即目标函数如下：</p>
+<script type="math/tex; mode=display">Obj=\max_{\theta}\{\sum_{i=1}^n\log P(w_i|w_1,w_2,...,w_{i-1},w_{i+1},w_{i+2},...,w_{n},\theta)\}</script><p>ELMo模型虽然有用到双向，但是将上文和下文的作用看作是两个独立的作用，并不是真正的双向，真正的双向应该是上文和下文共同起作用而不是独立起作用。Transformer编码器在每一层与每一层之间都是全连接的，也就是每个词都可以受到上文词和下文词的影响。但是在使用Transformer编码器预测中心词时有一个很大的问题，就是自己可以看见自己，因为Transformer编码器每层之间是全连通的。所以为了解决这个问题，Bert将语料库中15%的词替换成标记[mask]，然后在预测时只计算这部分[mask]的预测结果的似然函数，只利用这部分似然函数调整模型参数。然后这又有一个问题，就是在将Bert用于一些NLP任务时，输入的语料是不会有[mask]标记的，除非是完形填空任务。所以需要确保Bert具备“穿透”作用，即确定Bert可以自己看见自己。所以在15%的[mask]中选出10%恢复为原来的词，这样在计算似然函数时会要求模型自己看见自己输出这个位置的词。然后Bert厉害的地方是Bert还考虑到了纠错，当处理单词纠错复原任务或本身输入语料存在错误时，输入语料的一些位置的词语是不正确的，为了模拟这种情况，Bert在15%[mask]中再选出10%随机替换成其他词。现在Bert通过预测这15%的词作为预训练任务学习模型参数，学习出来的模型可以很好地应对完型填空，单词纠错复原，文本分类等任务了。</p>
+<p>Bert的预训练任务除了通过上下文预测中心词以外，还有一个预测句子关系的任务。输入是使用一个分隔符连接的两个句子，输出是判断两个句子是否存在上下关系，即第二个句子是否是第一个句子的下一个句子。Bert对这两个预训练任务一起学习，不断调整模型参数，最终得到了现在我们常见的Bert预训练模型了。现在总结一下Bert的工作流程：</p>
+<p>预训练之完型填空：<br>(1) 随机选择15%单词使用[mask]标记覆盖<br>(2) 从15%的[mask]中，随机选择10%复原，再随机选择10%随机替换成另一个词<br>(3) 输入是词向量+位置向量+句子向量（句子向量全部相同）<br>(4) 对15%的单词计算似然函数，通过梯度法不断调整模型参数最大化似然函数</p>
+<p>预训练之句子关系预测：<br>(1) 使用一个分隔符按顺序串联两个句子<br>(2) 对每一对构成上下关系的句子，随机选择一对不构成上下关系的句子作为负例。<br>(3) 输入是词向量+位置向量+句子向量（不同句子的句子向量不同，同一句子的句子向量相同）<br>(4) 对两个句子，预测第二句话是否是第一句话的下一句话。不断调整参数降低预测错误率。</p>
+<p>得到Bert预训练模型后，就可以使用Bert处理各种NLP任务了。关于Bert更详细的解析以及Bert怎么用于各种NLP任务，可以参考这篇文章：<a href="https://zhuanlan.zhihu.com/p/46652512" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/46652512</a></p>
+<p>最后再贴上一篇很不错的关于ELMo，GPT和Bert的文章：<a href="https://www.cnblogs.com/robert-dlut/p/9824346.html" target="_blank" rel="noopener">https://www.cnblogs.com/robert-dlut/p/9824346.html</a></p>
 
     </div>
 
@@ -269,11 +271,15 @@
         <div class="post-tags">
             <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
+            <a href="/tags/NLP/" rel="tag"># NLP</a>
+          
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+          
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/07/偏差和方差/" rel="next" title="偏差和方差">
-                <i class="fa fa-chevron-left"></i> 偏差和方差
+              <a href="/2020/02/16/GloVe模型和FastText模型/" rel="next" title="GloVe模型和FastText模型">
+                <i class="fa fa-chevron-left"></i> GloVe模型和FastText模型
               </a>
             
           </div>
@@ -281,10 +287,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/07/Bagging（随机森林）和Boosting（AdaBoost）/" rel="prev" title="Bagging（随机森林）和Boosting（AdaBoost）">
-                Bagging（随机森林）和Boosting（AdaBoost） <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -380,7 +382,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是决策树"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是决策树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-ID3算法"><span class="nav-number">2.</span> <span class="nav-text">2. ID3算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-C4-5算法"><span class="nav-number">3.</span> <span class="nav-text">3. C4.5算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-CART算法"><span class="nav-number">4.</span> <span class="nav-text">4. CART算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-其他"><span class="nav-number">5.</span> <span class="nav-text">5. 其他</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#综述"><span class="nav-number">1.</span> <span class="nav-text">综述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ELMo"><span class="nav-number">2.</span> <span class="nav-text">ELMo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GPT"><span class="nav-number">3.</span> <span class="nav-text">GPT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bert"><span class="nav-number">4.</span> <span class="nav-text">Bert</span></a></li></ol></div>
             
 
           </div>
