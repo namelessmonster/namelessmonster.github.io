@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="1. 什么是进程，什么是线程进程是程序在计算机内运行的一个实体，而线程是进程在执行时的一个实体。如果把程序看作是食谱，那么进程运行过程就可以看作是厨师做菜的过程，厨师做菜时使用的工具和食材可以看作是进程占用的系统资源。有时候一道菜并不是由一个厨师完成的，而是由多个厨师合作完成的。这些厨师在合作时，有的东西是共用的比如食材，有些东西是私用的比如工具，这时候这些厨师一起作业的过程可以看作是进程在运行，">
-<meta name="keywords" content="计算机基础,C++">
+  <meta name="description" content="1. 什么是LDALDA和PCA一样，是一种降维技术。不同的是，PCA可以用于无监督学习，通过最大化特征方差构造新特征。而LDA则是用于监督学习，要求数据有标签，通过最大化类间方差和最小化类内方差构造新特征。 2. 怎么求解LDALDA降维目标是构造一个新特征，使得每个类别在新特征下的方差最大，同时最小化类内方差。假设数据特征是$x$，标签为$y$，总共有$K$个类别，新特征的线性变换参数为$w$">
+<meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="进程与线程">
-<meta property="og:url" content="http://yoursite.com/2020/02/12/进程与线程/index.html">
+<meta property="og:title" content="LDA降维原理">
+<meta property="og:url" content="http://yoursite.com/2020/02/18/LDA降维原理/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 什么是进程，什么是线程进程是程序在计算机内运行的一个实体，而线程是进程在执行时的一个实体。如果把程序看作是食谱，那么进程运行过程就可以看作是厨师做菜的过程，厨师做菜时使用的工具和食材可以看作是进程占用的系统资源。有时候一道菜并不是由一个厨师完成的，而是由多个厨师合作完成的。这些厨师在合作时，有的东西是共用的比如食材，有些东西是私用的比如工具，这时候这些厨师一起作业的过程可以看作是进程在运行，">
+<meta property="og:description" content="1. 什么是LDALDA和PCA一样，是一种降维技术。不同的是，PCA可以用于无监督学习，通过最大化特征方差构造新特征。而LDA则是用于监督学习，要求数据有标签，通过最大化类间方差和最小化类内方差构造新特征。 2. 怎么求解LDALDA降维目标是构造一个新特征，使得每个类别在新特征下的方差最大，同时最小化类内方差。假设数据特征是$x$，标签为$y$，总共有$K$个类别，新特征的线性变换参数为$w$">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-12T09:49:08.580Z">
+<meta property="og:updated_time" content="2020-02-18T14:30:28.966Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="进程与线程">
-<meta name="twitter:description" content="1. 什么是进程，什么是线程进程是程序在计算机内运行的一个实体，而线程是进程在执行时的一个实体。如果把程序看作是食谱，那么进程运行过程就可以看作是厨师做菜的过程，厨师做菜时使用的工具和食材可以看作是进程占用的系统资源。有时候一道菜并不是由一个厨师完成的，而是由多个厨师合作完成的。这些厨师在合作时，有的东西是共用的比如食材，有些东西是私用的比如工具，这时候这些厨师一起作业的过程可以看作是进程在运行，">
-  <link rel="canonical" href="http://yoursite.com/2020/02/12/进程与线程/">
+<meta name="twitter:title" content="LDA降维原理">
+<meta name="twitter:description" content="1. 什么是LDALDA和PCA一样，是一种降维技术。不同的是，PCA可以用于无监督学习，通过最大化特征方差构造新特征。而LDA则是用于监督学习，要求数据有标签，通过最大化类间方差和最小化类内方差构造新特征。 2. 怎么求解LDALDA降维目标是构造一个新特征，使得每个类别在新特征下的方差最大，同时最小化类内方差。假设数据特征是$x$，标签为$y$，总共有$K$个类别，新特征的线性变换参数为$w$">
+  <link rel="canonical" href="http://yoursite.com/2020/02/18/LDA降维原理/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>进程与线程 | Hexo</title>
+  <title>LDA降维原理 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/12/进程与线程/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/18/LDA降维原理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">进程与线程
+          <h1 class="post-title" itemprop="name headline">LDA降维原理
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-12 16:43:34 / 修改时间：17:49:08" itemprop="dateCreated datePublished" datetime="2020-02-12T16:43:34+08:00">2020-02-12</time>
+              <time title="创建时间：2020-02-18 21:35:56 / 修改时间：22:30:28" itemprop="dateCreated datePublished" datetime="2020-02-18T21:35:56+08:00">2020-02-18</time>
             </span>
           
             
@@ -246,13 +246,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-什么是进程，什么是线程"><a href="#1-什么是进程，什么是线程" class="headerlink" title="1. 什么是进程，什么是线程"></a>1. 什么是进程，什么是线程</h2><p>进程是程序在计算机内运行的一个实体，而线程是进程在执行时的一个实体。如果把程序看作是食谱，那么进程运行过程就可以看作是厨师做菜的过程，厨师做菜时使用的工具和食材可以看作是进程占用的系统资源。有时候一道菜并不是由一个厨师完成的，而是由多个厨师合作完成的。这些厨师在合作时，有的东西是共用的比如食材，有些东西是私用的比如工具，这时候这些厨师一起作业的过程可以看作是进程在运行，而每个厨师做自己那份工作的过程可以看作是线程在执行。简单概括，进程是一个实体，拥有系统资源以及指令，线程也是一个实体，拥有少量资源执行指令。</p>
-<h2 id="2-进程的内存结构"><a href="#2-进程的内存结构" class="headerlink" title="2. 进程的内存结构"></a>2. 进程的内存结构</h2><p>进程在内存中使用虚拟地址，虚拟地址指向虚拟内存，虚拟内存每个地址都需要通过页表映射到物理内存的一个地址才可以使用。使用虚拟内存的一个好处是，每个进程都可以独享自己的虚拟内存，彷佛自己一个霸占了所有内存，但实际上这些是通过页表映射在共用一个物理内存。当物理内存不够用时，按照页表置换算法，将一个虚拟地址对应物理地址的页面转移到物理磁盘，然后将该物理地址与其他虚拟地址联系起来注册到页表，转移出去的页面在下次需要用时，可以按照同样的过程从磁盘转移回物理内存。进程在虚拟内存中，从低地址到高地址有这么几个成分：预留段，文本段，数据段，堆，栈，内核空间。其中用户空间包括文本段，数据段，堆，栈。下面逐一讲解各个段的作用。</p>
-<h3 id="文本段（-text）"><a href="#文本段（-text）" class="headerlink" title="文本段（.text）"></a>文本段（.text）</h3><p>文本段存储程序指令以及字符串常量</p>
-<h3 id="数据段（-data和-bss）"><a href="#数据段（-data和-bss）" class="headerlink" title="数据段（.data和.bss）"></a>数据段（.data和.bss）</h3><p>数据段用于存储全局变量和静态变量，可以分为两个区，其中.data存储有初始化的全局变量和静态变量，.bss存储没有初始化的全局变量个静态变量。</p>
-<h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><p>堆用于存储程序动态申请的空间，可以对应到C++中使用new申请的空间。堆是从低地址往高地址扩展，每当堆的空间不足时，可以调用brk函数或sbrk函数移动堆的边界指针来扩展或缩小堆的空间大小。从堆中申请的空间需要自己手动释放，如果不释放可能会造成内存泄漏。内存泄漏会导致程序在运行过占用空间不断增大直到发生错误。进程结束后，系统会自动回收堆占用的空间，这说明堆内部的数据的生存周期是整个进程的运行期间。</p>
-<h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><p>栈用于存储函数的参数，局部变量和返回值。发生中断时，栈也可以用于存储寄存器等环境值，保存进程的运行状态。栈是从高地址往低地址扩展，栈的空间大小一般有限制，当超出范围时会报错，当然也是可以通过设置编译器系统参数来修改这个限制值。栈内部的数据的生存周期是函数的运行期间，当函数返回值时，栈内部与该函数有关的数据都会被清除，这个清除过程是由系统自动完成的，所以栈存储的数据无需程序员手动释放。</p>
-<h2 id="3-进程和线程的区别"><a href="#3-进程和线程的区别" class="headerlink" title="3. 进程和线程的区别"></a>3. 进程和线程的区别</h2><p>进程与线程的区别，总结起来有以下几点：<br>(1) 进程是系统分配和调度资源的独立单位，线程是CPU调度和分派的基本单位。<br>(2) 进程拥有自己独立的系统资源，线程使用进程的资源，自己拥有一点在执行中必不可少的资源（如程序计数器，一组寄存器和栈）。<br>(3) 一个进程必须有至少一个线程，一个线程只能隶属于一个进程。<br>(4) 进程之间的资源是独立的，一个进程崩溃并不会影响其他进程。线程之间的资源大多是共享的，一个线程崩溃是有可能导致整个进程崩溃从而导致所有线程崩溃。所以，多进程的程序比多线程的程序更健壮。<br>(5) 多进程之间的切换比多线程之间的切换耗费资源较大，效率差一些。<br>(6) 多进程不共享空间资源，需要使用进程间通信技术维持共同工作。多线程共享空间资源，在互相通信时效率更高。<br>(7) 进程作为独立的实体，可以迁移；线程依附于进程，无法单独迁移。<br>(8) 总而言之，多线程执行高效，开销小；多进程有利于资源的管理和保护，使得程序更健壮。</p>
+        <h2 id="1-什么是LDA"><a href="#1-什么是LDA" class="headerlink" title="1. 什么是LDA"></a>1. 什么是LDA</h2><p>LDA和PCA一样，是一种降维技术。不同的是，PCA可以用于无监督学习，通过最大化特征方差构造新特征。而LDA则是用于监督学习，要求数据有标签，通过最大化类间方差和最小化类内方差构造新特征。</p>
+<h2 id="2-怎么求解LDA"><a href="#2-怎么求解LDA" class="headerlink" title="2. 怎么求解LDA"></a>2. 怎么求解LDA</h2><p>LDA降维目标是构造一个新特征，使得每个类别在新特征下的方差最大，同时最小化类内方差。假设数据特征是$x$，标签为$y$，总共有$K$个类别，新特征的线性变换参数为$w$，则可以使用下面的式子计算在新特征下的类内方差：</p>
+<script type="math/tex; mode=display">inner_k=\sum_{y_i=k}(w^Tx_i-w^T\mu_k)^2=\sum_{y_i=k}w^T(x_i-\mu_k)^2w=w^T(\sum_{y_i=k}(x_i-\mu_k)(x_i-\mu_k)^T)w</script><p>其中，$\mu_k$表示类别$k$的样本特征的均值。每个类别都可以计算出类内方差，则总的类内方差等于：</p>
+<script type="math/tex; mode=display">inner=w^T(\sum_{k=1}^K\sum_{y_i=k}(x_i-\mu_k)(x_i-\mu_k)^T)w=w^TS_ww</script><p>同样地，定义类间方差：</p>
+<script type="math/tex; mode=display">var=\sum_{k=0}^Kw^T(\mu_k-\mu)(\mu_k-\mu)^Tw=w^T(\sum_{k=0}^K(\mu_k-\mu)(\mu_k-\mu)^T)w=w^TS_bw</script><p>其中，$\mu$是所有样本特征的均值。LDA希望类间方差$var$尽量大的同时类内方差$inner$尽量小，所以可以认为要求：</p>
+<script type="math/tex; mode=display">w=arg\max_{w}\frac{w^TS_bw}{w^TS_ww}</script><p>注意到，当存在一个解$w$时，$w$的任意倍数也可以是解，所以加上限制：</p>
+<script type="math/tex; mode=display">w^TS_ww=1</script><p>现在可以使用拉格朗日乘子法求解，对$w$求导得到：</p>
+<script type="math/tex; mode=display">S_w^{-1}S_bw=\lambda w</script><p>其中$\lambda$是拉格朗日乘子法在约束项的系数。所以$w$的最优解是$S_w^-1S_b$特征值最大对应的特征向量。和PCA一样，要选出$m$个新特征，就选择特征值前$m$大的特征向量。需要注意的是，因为$S_w$一般是不可逆的，所以需要修正为$S_W+\beta E$，$\beta$是一个很小的值。还有因为$S_b$的秩小于等于类别数$K$，所以LDA的新特征数不能大于$K$。</p>
+<p>现在总结一下LDA的流程：<br>(1) 计算出类内方差矩阵$S_w$和类间方差矩阵$S_b$<br>(2) 求$S_w^{-1}S_b$的特征向量<br>(3) 选择特征值前$m$大的特征向量组成降维矩阵<br>(4) 使用原矩阵左乘降维矩阵，得到降维结果</p>
 
     </div>
 
@@ -264,15 +266,13 @@
           
         
         <div class="post-tags">
-            <a href="/tags/计算机基础/" rel="tag"># 计算机基础</a>
-          
-            <a href="/tags/C/" rel="tag"># C++</a>
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/12/CRF-条件随机场/" rel="next" title="CRF-条件随机场">
-                <i class="fa fa-chevron-left"></i> CRF-条件随机场
+              <a href="/2020/02/17/Transformer-XL和XLnet/" rel="next" title="Transformer-XL和XL-net">
+                <i class="fa fa-chevron-left"></i> Transformer-XL和XL-net
               </a>
             
           </div>
@@ -280,10 +280,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/12/Kmeans数学原理/" rel="prev" title="Kmeans数学原理">
-                Kmeans数学原理 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -379,7 +375,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是进程，什么是线程"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是进程，什么是线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-进程的内存结构"><span class="nav-number">2.</span> <span class="nav-text">2. 进程的内存结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文本段（-text）"><span class="nav-number">2.1.</span> <span class="nav-text">文本段（.text）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据段（-data和-bss）"><span class="nav-number">2.2.</span> <span class="nav-text">数据段（.data和.bss）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆"><span class="nav-number">2.3.</span> <span class="nav-text">堆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈"><span class="nav-number">2.4.</span> <span class="nav-text">栈</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-进程和线程的区别"><span class="nav-number">3.</span> <span class="nav-text">3. 进程和线程的区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是LDA"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是LDA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-怎么求解LDA"><span class="nav-number">2.</span> <span class="nav-text">2. 怎么求解LDA</span></a></li></ol></div>
             
 
           </div>
