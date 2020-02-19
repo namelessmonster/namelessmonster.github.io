@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="综述ELMo，GPT，Bert都是NLP任务中的预训练模型，可以根据语料的上下文动态地调整词向量，不再像是在Word2Vec，GloVe，fastText这些预训练模型中，一旦确定了一个词的向量便不会再变。举个简单的例子，apple可以有两种意思，一个意思是水果，另一个意思是公司。如果使用Word2Vec，GloVe，FastText这些模型去训练，得到的apple只能有一个词向量，但是一个词向量">
-<meta name="keywords" content="机器学习,深度学习,NLP">
+  <meta name="description" content="综述采样方法有什么用？采样方法可以帮助我们从已知分布中采样样本，也可以帮助我们去近似未知分布。 均匀分布采样如果我们想从一个均匀分布采样样本，那么这很简单，可以使用下式采集样本： x_{t+1}=a(x_t+c)\ mod\ m这个式子表示从$[0,m-1]$中等概率采样。一般会要求$m$是一个质数，如果$m$不是质数，我们可以找一个最接近$m$的质数，然后通过组合或拒绝来达到均匀分布的效果 正态">
+<meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ELMo，GPT和Bert">
-<meta property="og:url" content="http://yoursite.com/2020/02/16/ELMo，GPT和Bert/index.html">
+<meta property="og:title" content="MCMC（马尔可夫链蒙特卡洛方法）和吉布斯采样">
+<meta property="og:url" content="http://yoursite.com/2020/02/19/MCMC（马尔可夫链蒙特卡洛方法）和吉布斯采样/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="综述ELMo，GPT，Bert都是NLP任务中的预训练模型，可以根据语料的上下文动态地调整词向量，不再像是在Word2Vec，GloVe，fastText这些预训练模型中，一旦确定了一个词的向量便不会再变。举个简单的例子，apple可以有两种意思，一个意思是水果，另一个意思是公司。如果使用Word2Vec，GloVe，FastText这些模型去训练，得到的apple只能有一个词向量，但是一个词向量">
+<meta property="og:description" content="综述采样方法有什么用？采样方法可以帮助我们从已知分布中采样样本，也可以帮助我们去近似未知分布。 均匀分布采样如果我们想从一个均匀分布采样样本，那么这很简单，可以使用下式采集样本： x_{t+1}=a(x_t+c)\ mod\ m这个式子表示从$[0,m-1]$中等概率采样。一般会要求$m$是一个质数，如果$m$不是质数，我们可以找一个最接近$m$的质数，然后通过组合或拒绝来达到均匀分布的效果 正态">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-16T09:31:40.460Z">
+<meta property="og:updated_time" content="2020-02-19T15:09:41.993Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ELMo，GPT和Bert">
-<meta name="twitter:description" content="综述ELMo，GPT，Bert都是NLP任务中的预训练模型，可以根据语料的上下文动态地调整词向量，不再像是在Word2Vec，GloVe，fastText这些预训练模型中，一旦确定了一个词的向量便不会再变。举个简单的例子，apple可以有两种意思，一个意思是水果，另一个意思是公司。如果使用Word2Vec，GloVe，FastText这些模型去训练，得到的apple只能有一个词向量，但是一个词向量">
-  <link rel="canonical" href="http://yoursite.com/2020/02/16/ELMo，GPT和Bert/">
+<meta name="twitter:title" content="MCMC（马尔可夫链蒙特卡洛方法）和吉布斯采样">
+<meta name="twitter:description" content="综述采样方法有什么用？采样方法可以帮助我们从已知分布中采样样本，也可以帮助我们去近似未知分布。 均匀分布采样如果我们想从一个均匀分布采样样本，那么这很简单，可以使用下式采集样本： x_{t+1}=a(x_t+c)\ mod\ m这个式子表示从$[0,m-1]$中等概率采样。一般会要求$m$是一个质数，如果$m$不是质数，我们可以找一个最接近$m$的质数，然后通过组合或拒绝来达到均匀分布的效果 正态">
+  <link rel="canonical" href="http://yoursite.com/2020/02/19/MCMC（马尔可夫链蒙特卡洛方法）和吉布斯采样/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>ELMo，GPT和Bert | Hexo</title>
+  <title>MCMC（马尔可夫链蒙特卡洛方法）和吉布斯采样 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/16/ELMo，GPT和Bert/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/19/MCMC（马尔可夫链蒙特卡洛方法）和吉布斯采样/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">ELMo，GPT和Bert
+          <h1 class="post-title" itemprop="name headline">MCMC（马尔可夫链蒙特卡洛方法）和吉布斯采样
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-16 16:16:42 / 修改时间：17:31:40" itemprop="dateCreated datePublished" datetime="2020-02-16T16:16:42+08:00">2020-02-16</time>
+              <time title="创建时间：2020-02-19 21:48:34 / 修改时间：23:09:41" itemprop="dateCreated datePublished" datetime="2020-02-19T21:48:34+08:00">2020-02-19</time>
             </span>
           
             
@@ -246,18 +246,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>ELMo，GPT，Bert都是NLP任务中的预训练模型，可以根据语料的上下文动态地调整词向量，不再像是在Word2Vec，GloVe，fastText这些预训练模型中，一旦确定了一个词的向量便不会再变。举个简单的例子，apple可以有两种意思，一个意思是水果，另一个意思是公司。如果使用Word2Vec，GloVe，FastText这些模型去训练，得到的apple只能有一个词向量，但是一个词向量是无法区分apple的两个意思的。ELMo，GPT和Bert这三个预训练模型不仅可以解决多义词的缺陷，而且GPT和Bert预训练的产物并不仅仅是词向量，还顺带包括解决NLP任务的模型参数。就是说GPT和Bert不仅帮我们预训练好词向量，还帮我们设计好怎么解决下游的NLP问题，不需要再重新设计模型。</p>
-<h2 id="ELMo"><a href="#ELMo" class="headerlink" title="ELMo"></a>ELMo</h2><p>ELMo模型使用上下文预测中心词作为词向量的预训练任务，将预测中心词看作从两个方向预测中心词，有最大似然目标如下：</p>
-<script type="math/tex; mode=display">Obj=\max_{\theta} \{\sum_{i=1}^n\log P(w_i|w_1,w_2,...,w_{i-1},\theta)+\log P(w_i|w_{i+1},w_{i+2},...,w_{n},\theta)\}</script><p>其中$P(w_i|w_1,w_2,..w_{i-1}|\theta)$使用正向LSTM输出，$P(w_i|w_{i+1},w_{i+2},…,w_n|\theta)$使用反向LSTM输出。通过对这两个LSTM模型学习参数，最大化语料库的似然函数。学习完模型参数后，当ELMo作为预训练模型用于下游NLP任务时，对每一层的LSTM输出作一个加权求和得到词向量，然后将词向量作用于下游NLP任务。</p>
-<h2 id="GPT"><a href="#GPT" class="headerlink" title="GPT"></a>GPT</h2><p>GPT模型使用上文预测下一个词作为词向量的预训练任务，将预测下一个词看作从前文预测下一个词，有最大似然目标函数如下：</p>
-<script type="math/tex; mode=display">Obj=\max_{\theta}\{\sum_{i=1}^n\log P(w_i|w_1,w_2,...,w_{i-1},\theta)\}</script><p>与ELMo模型不同，GPT使用Transformer解码器代替LSTM输出$P(w_i|w_1,w_2,…,w_{i-1},\theta)$。Transformer解码器和Transformer编码器不同，解码器在计算attention时会通过mask层阻挡预测词下文的影响，只使用预测词上文来输出预测词位置的向量。通过预训练我们可以得到词向量和Transformer解码器的参数。从某种意义上说，GPT已经不是为了学习词向量了，GPT是为了得到一个通用NLP任务的预训练模型。我们从GPT的输入可以看到，词向量是固定的，但是当词向量作用于Transformer解码器互相影响后得到的输出，这些输出不仅具有词的语义信息还具有了整段文本的句法与语义信息了，所以我们不能把Transformer解码器的输出简单看作是词向量的输出了。利用GPT的输出，我们可以根据不同的NLP任务在Transformer解码器的输出后面简单添加一些层或稍作组合，就可以用于解决各种NLP任务。实验表明，在针对不同NLP任务时，添加上GPT的预训练任务一起学习效果会更好。</p>
-<h2 id="Bert"><a href="#Bert" class="headerlink" title="Bert"></a>Bert</h2><p>Bert和GPT一样，也是奔着得到一个通用NLP任务的预训练模型的目的。Bert使用Transformer编码器代替GPT的Transformer解码器，想要通过上下文去预测中心词而不是仅通过上文预测下一个词，即目标函数如下：</p>
-<script type="math/tex; mode=display">Obj=\max_{\theta}\{\sum_{i=1}^n\log P(w_i|w_1,w_2,...,w_{i-1},w_{i+1},w_{i+2},...,w_{n},\theta)\}</script><p>ELMo模型虽然有用到双向，但是将上文和下文的作用看作是两个独立的作用，并不是真正的双向，真正的双向应该是上文和下文共同起作用而不是独立起作用。Transformer编码器在每一层与每一层之间都是全连接的，也就是每个词都可以受到上文词和下文词的影响。但是在使用Transformer编码器预测中心词时有一个很大的问题，就是自己可以看见自己，因为Transformer编码器每层之间是全连通的。所以为了解决这个问题，Bert将语料库中15%的词替换成标记[mask]，然后在预测时只计算这部分[mask]的预测结果的似然函数，只利用这部分似然函数调整模型参数。然后这又有一个问题，就是在将Bert用于一些NLP任务时，输入的语料是不会有[mask]标记的，除非是完形填空任务。所以需要确保Bert具备“穿透”作用，即确定Bert可以自己看见自己。所以在15%的[mask]中选出10%恢复为原来的词，这样在计算似然函数时会要求模型自己看见自己输出这个位置的词。然后Bert厉害的地方是Bert还考虑到了纠错，当处理单词纠错复原任务或本身输入语料存在错误时，输入语料的一些位置的词语是不正确的，为了模拟这种情况，Bert在15%[mask]中再选出10%随机替换成其他词。现在Bert通过预测这15%的词作为预训练任务学习模型参数，学习出来的模型可以很好地应对完型填空，单词纠错复原，文本分类等任务了。</p>
-<p>Bert的预训练任务除了通过上下文预测中心词以外，还有一个预测句子关系的任务。输入是使用一个分隔符连接的两个句子，输出是判断两个句子是否存在上下关系，即第二个句子是否是第一个句子的下一个句子。Bert对这两个预训练任务一起学习，不断调整模型参数，最终得到了现在我们常见的Bert预训练模型了。现在总结一下Bert的工作流程：</p>
-<p>预训练之完型填空：<br>(1) 随机选择15%单词使用[mask]标记覆盖<br>(2) 从15%的[mask]中，随机选择10%复原，再随机选择10%随机替换成另一个词<br>(3) 输入是词向量+位置向量+句子向量（句子向量全部相同）<br>(4) 对15%的单词计算似然函数，通过梯度法不断调整模型参数最大化似然函数</p>
-<p>预训练之句子关系预测：<br>(1) 使用一个分隔符按顺序串联两个句子<br>(2) 对每一对构成上下关系的句子，随机选择一对不构成上下关系的句子作为负例。<br>(3) 输入是词向量+位置向量+句子向量（不同句子的句子向量不同，同一句子的句子向量相同）<br>(4) 对两个句子，预测第二句话是否是第一句话的下一句话。不断调整参数降低预测错误率。</p>
-<p>得到Bert预训练模型后，就可以使用Bert处理各种NLP任务了。关于Bert更详细的解析以及Bert怎么用于各种NLP任务，可以参考这篇文章：<a href="https://zhuanlan.zhihu.com/p/46652512" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/46652512</a></p>
-<p>最后再贴上一篇很不错的关于ELMo，GPT和Bert的文章：<a href="https://www.cnblogs.com/robert-dlut/p/9824346.html" target="_blank" rel="noopener">https://www.cnblogs.com/robert-dlut/p/9824346.html</a></p>
+        <h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>采样方法有什么用？采样方法可以帮助我们从已知分布中采样样本，也可以帮助我们去近似未知分布。</p>
+<h2 id="均匀分布采样"><a href="#均匀分布采样" class="headerlink" title="均匀分布采样"></a>均匀分布采样</h2><p>如果我们想从一个均匀分布采样样本，那么这很简单，可以使用下式采集样本：</p>
+<script type="math/tex; mode=display">x_{t+1}=a(x_t+c)\ mod\ m</script><p>这个式子表示从$[0,m-1]$中等概率采样。一般会要求$m$是一个质数，如果$m$不是质数，我们可以找一个最接近$m$的质数，然后通过组合或拒绝来达到均匀分布的效果</p>
+<h2 id="正态分布采样"><a href="#正态分布采样" class="headerlink" title="正态分布采样"></a>正态分布采样</h2><p>使用均匀分布得到两个随机数$x$和$y$，然后使用下式采样：</p>
+<script type="math/tex; mode=display">z_1=\sqrt{-2\ln x}\cos(2\pi y)</script><script type="math/tex; mode=display">z_2=\sqrt{-2\ln x}\sin(2\pi y)</script><p>$z_1$和$z_2$均符合正态分布。</p>
+<h2 id="拒绝采样"><a href="#拒绝采样" class="headerlink" title="拒绝采样"></a>拒绝采样</h2><p>有一个已知的分布$q(x)$，我们需要根据$q(x)$进行采样，但是没有一种较好的直接采样的方法。现在我们可以从分布$p(x)$中采样，且$kp(x)\ge q(x)$，那么我们可以设计这样一种的采样方法：<br>(1) 从分布$p(x)$采样，得到$x$<br>(2) 从均匀分布$[0,kp(x)]$中采样，得到$y$<br>(3) 如果$y\gt q(x)$，则拒绝$x$，重复(1)(2)直到$y \le q(x)$，接受$x$</p>
+<h2 id="MCMC"><a href="#MCMC" class="headerlink" title="MCMC"></a>MCMC</h2><p>假设现在需要从分布$q(x)$中采样。MCMC的思想是构造一个马尔可夫链，使得该马尔可夫链的平稳分布等于$q(x)$，即：</p>
+<script type="math/tex; mode=display">q(x)P(y|x)=q(y)P(x|y)</script><p>构造一个矩阵$P(y|x)$使得马尔可夫链能够收敛到平稳状态，则无论初始分布是什么，最终都会收敛到$q(x)$。我们假设初始时状态是$x_0$，可以认为初始分布是$p(x_0)=1$，则从$x_0$出发，从$P(x_1|x_0)$采样得到$x_1$，从$P(x_2|x_1)$采样得到$x_2$，直到初始分布收敛到平稳分布，这也意味着$x_t$的分布满足$q(x)$，此时$x_t$的每次转移都是从$q(x)$中进行采样。</p>
+<p>对于分布$q(x)$，我们构造一个矩阵$Q(y|x)$，因为有可能：</p>
+<script type="math/tex; mode=display">q(x)Q(y|x)\ne q(y)Q(x|y)</script><p>所以我们设：</p>
+<script type="math/tex; mode=display">q(x)Q(y|x)A(y|x)=q(y)Q(x|y)A(x|y)</script><script type="math/tex; mode=display">A(y|x)=q(x)Q(x|y)</script><script type="math/tex; mode=display">A(x|y)=q(y)Q(y|x)</script><p>可以看到，这样就使得$q(x)$是$Q(y|x)A(y|x)$的平稳分布了。我们可以将$Q(y|x)$看作是马尔可夫转移矩阵，$A(y|x)$看作是接受率，每次按照$Q(y|x)$采样状态转移，然后使用拒绝采样方法使用结束率$A(y|x)$判断是否接受状态转移，这样是等价于按照$Q(y|x)A(y|x)$采样状态转移的。如果$A(y|x)$很小，接受率很低时，可以通过对$A(y|x)$和$A(x|y)$放缩，使得较大值等于1，这样没有打破平稳状态的条件而且也增大了接受率。</p>
+<h2 id="吉布斯采样"><a href="#吉布斯采样" class="headerlink" title="吉布斯采样"></a>吉布斯采样</h2><p>对于联合概率$P(x_1,x_2,…,x_n)$，如果想要从这个联合概率中采样，首先我们注意到：</p>
+<script type="math/tex; mode=display">P(A)P(x_1=x_B|x_2,...,x_n)=P(x_1=x_A|x_2,...,x_n)P(x_1=x_B|x_2,...,x_n)P(x_2,...,x_n)</script><script type="math/tex; mode=display">P(B)P(x_1=x_A|x_2,...,x_n)=P(x_1=x_B|x_2,...,x_n)P(x_1=x_A|x_2,...,x_n)P(x_2,...,x_n)</script><p>如果$P(A)$和$P(B)$除了在$x_1$上取值不同以外其他都取值相同，那么有：</p>
+<script type="math/tex; mode=display">P(A)Q(B|A)=P(B)Q(A|B)</script><script type="math/tex; mode=display">Q(B|A)=P(x_1=x_B|x_2,...,x_n)</script><script type="math/tex; mode=display">Q(A|B)=P(x_1=x_A|x_2,...,x_n)</script><p>其他轴是同理的，这启示我们如果不知道联合分布$P(x_1,x_2,…,x_n)$，但知道每个轴的条件分布$P(x_k|x_1,x_2,…,x_{k-1},x_{k+1},…,x_n)$，我们就可以通过吉布斯采样得到联合分布$P(x_1,x_2,…,x_n)$的样本。吉布斯采样的过程如下：<br>(1) 选择初始状态$X_0=(x_1^0,x_2^0,…,x_n^0)$<br>(2) 选择轴$k=1,2,…,n$，依据分布$P(x_k|x_1^t,x_2^t,…,x_{k-1}^t,x_{k+1}^{t-1},…,x_n^{t-1})$采样$x_k^t$，转移到新状态$X_t=(x_1^t,x_2^t,…,x_k^t,x_{k+1}^{t-1},…,x_n^{t-1})$<br>(3) 重复步骤(2)直到收敛<br>上述过程就可以从未知的联合分布$P(x_1,x_2,…,x_n)$中采样到样本了。</p>
 
     </div>
 
@@ -271,15 +273,11 @@
         <div class="post-tags">
             <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
-            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
-          
-            <a href="/tags/NLP/" rel="tag"># NLP</a>
-          
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/16/GloVe模型和FastText模型/" rel="next" title="GloVe模型和FastText模型">
-                <i class="fa fa-chevron-left"></i> GloVe模型和FastText模型
+              <a href="/2020/02/18/LDA降维原理/" rel="next" title="LDA降维原理">
+                <i class="fa fa-chevron-left"></i> LDA降维原理
               </a>
             
           </div>
@@ -287,10 +285,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/17/Transformer-XL和XLnet/" rel="prev" title="Transformer-XL和XL-net">
-                Transformer-XL和XL-net <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -386,7 +380,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#综述"><span class="nav-number">1.</span> <span class="nav-text">综述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ELMo"><span class="nav-number">2.</span> <span class="nav-text">ELMo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GPT"><span class="nav-number">3.</span> <span class="nav-text">GPT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bert"><span class="nav-number">4.</span> <span class="nav-text">Bert</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#综述"><span class="nav-number">1.</span> <span class="nav-text">综述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#均匀分布采样"><span class="nav-number">2.</span> <span class="nav-text">均匀分布采样</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正态分布采样"><span class="nav-number">3.</span> <span class="nav-text">正态分布采样</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拒绝采样"><span class="nav-number">4.</span> <span class="nav-text">拒绝采样</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MCMC"><span class="nav-number">5.</span> <span class="nav-text">MCMC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#吉布斯采样"><span class="nav-number">6.</span> <span class="nav-text">吉布斯采样</span></a></li></ol></div>
             
 
           </div>
