@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1. 什么是主题模型看了几天LDA主题模型，说实话到现在依然很懵。。。但是为了加深记忆，还是把一些自己的理解做一下记录。主题模型是从语料库中挖掘出隐含的信息，比文档的主题分布，每个主题的词语分布。主题模型的厉害之处在于它是无监督学习的，也就是不需要有标记过的数据。主题模型不需要知道有哪些主题，只需要知道总共有多少个主题，就可以自动为每个文档生成主题分布，自动为每个主题生成词分布。主题模型需要提前为">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-11T08:10:56.520Z">
+<meta property="og:updated_time" content="2020-02-19T13:03:32.968Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LDA主题模型">
 <meta name="twitter:description" content="1. 什么是主题模型看了几天LDA主题模型，说实话到现在依然很懵。。。但是为了加深记忆，还是把一些自己的理解做一下记录。主题模型是从语料库中挖掘出隐含的信息，比文档的主题分布，每个主题的词语分布。主题模型的厉害之处在于它是无监督学习的，也就是不需要有标记过的数据。主题模型不需要知道有哪些主题，只需要知道总共有多少个主题，就可以自动为每个文档生成主题分布，自动为每个主题生成词分布。主题模型需要提前为">
@@ -227,11 +227,21 @@
                 
               
 
-              <time title="创建时间：2020-02-11 12:40:38 / 修改时间：16:10:56" itemprop="dateCreated datePublished" datetime="2020-02-11T12:40:38+08:00">2020-02-11</time>
+              <time title="创建时间：2020-02-11 12:40:38" itemprop="dateCreated datePublished" datetime="2020-02-11T12:40:38+08:00">2020-02-11</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-02-19 21:03:32" itemprop="dateModified" datetime="2020-02-19T21:03:32+08:00">2020-02-19</time>
+              </span>
             
           
 
@@ -251,8 +261,11 @@
 <script type="math/tex; mode=display">P(d|\theta_d,\{t_k\})=\prod_{i}\theta_d(z_{d,i})t_{z_{d,i}}(w_i)</script><p>其中$z_{d,i}$表示文档$d$第$i$个词的主题，$w_i$表示文档$d$第$i$个词，$\theta_d(z_{d,i})$表示文档第$i$个词的主题是$z_{d,i}$的概率，$t_{z_{d,i}}(w_i)$表示在主题$z_{d,i}$下抽到$w_i$的概率。LDA模型对每篇文档和每个主题都单独有一个先验分布，每个先验分布都是狄利克雷分布，文档$d$主题分布的先验记为$Dir(\alpha_d)$，主题$k$词分布的先验记为$Dir(\beta_k)$。有了这些先验知识，现在的需求就改为求生成文档$d$的最大后验概率：</p>
 <script type="math/tex; mode=display">P(\theta_{d},\{t_k\}|\alpha_d,\{\beta_k\},d)=\{Dir(\theta_d|\alpha_d)\prod_{k}Dir(t_k|\beta_k)\}\prod_i\theta_d(z_{d,i})t_{z_{d,i}}(w_i)</script><p>这个式子可以转化为：</p>
 <script type="math/tex; mode=display">P(\theta_{d},\{t_k\}|\alpha_d,\{\beta_k\},d)=\{Dir(\theta_d|\alpha_d)\prod_{i}\theta_d(z_{d,i})\}\prod_{k}Dir(t_k|\beta_k)\prod_it_{z_{d,i}}(w_i) \\
-=Dir(\theta_d|\alpha_d+\hat{\alpha}_d)\prod_kDir(t_k|\beta_k+\hat{\beta}_k)</script><p>这是狄利克雷分布的一个性质，即狄利克雷先验乘上多项式分布似然等于狄利克雷后验。现在可以有两个目标，第一个目标是求最大后验分布，即求可以使上式达到最大的$\theta_d$和$\{t_k\}$；第二个目标是求后验分布的期望，根据狄利克雷分布的期望性质$Dir(\theta_d|\alpha_d+\hat{\alpha}_d)$等于$\alpha_d+\hat{\alpha}_d$，$Dir(t_k|\beta_k+\hat{\beta}_k)$的期望等于$\beta_k+\hat{\beta}_k$。对于求最大后验，一般做法是对参数求导令导数等于0，通过解方程或迭代的形式求出最佳参数。而对于求后验分布的期望，则要先求出后验分布的形式，然后列出求期望公式求得其期望。然后需要注意的是，上面的式子是建立在已知文档当中每个词的主题的条件下的，但是前面有说到，LDA是无监督学习的，也就是说是事先不知道各个文档各个词的主题的。如果将各个文档各个词的主题$z_{d,i}$看作是隐变量，就可以采用EM算法进行求解了。然后LDA模型的学习与训练过程是这样的：<br>(1) 已知先验分布，列出带有隐变量的后验分布式子<br>(2) 使用EM算法求出最大后验分布<br>(3) 使用最大后验分布确定文档中每个词的主题<br>(4) 现在每个词的主题明确了，带入后验分布式子求出后验分布<br>(5) 将该后验分布分解成文档的狄利克雷后验分布乘上各个主题的狄利克雷后验分布<br>(6) 使用后验分布更新文档和各个主题的先验分布<br>(7) 重复(1)~(6)过程，直到各个文档各个主题的先验分布收敛<br>(8) 使用狄利克雷先验分布的期望作为各个文档的主题分布，作为各个主题的词分布<br>LDA的预测过程和训练过程是一样的，最后使用收敛的文档主题先验分布的期望作为文档的主题分布，然后从中取出概率最大的主题作为文档的主题。</p>
-<h2 id="3-LDA主题模型学习感想"><a href="#3-LDA主题模型学习感想" class="headerlink" title="3. LDA主题模型学习感想"></a>3. LDA主题模型学习感想</h2><p>说实话看LDA主题模型看了几天依然没有完全看懂，上面的求解过程是我自己的理解，很多博客说求解LDA主题模型的参数用到变分EM算法或吉布斯采样，我觉得这个变分EM算法应该就和我理解的使用EM算法求最大后验分布是同一个东东吧（疑惑.jpg）。然后这篇博客很多地方也没有把概念说清楚，因为真的有太多概念了，所以懒得写了。。。</p>
+=Dir(\theta_d|\alpha_d+\hat{\alpha}_d)\prod_kDir(t_k|\beta_k+\hat{\beta}_k)</script><p>这是狄利克雷分布的一个性质，即狄利克雷先验乘上多项式分布似然等于狄利克雷后验。需要注意的是，上面的式子是建立在已知文档当中每个词的主题的条件下的，但是前面有说到，LDA是无监督学习的，也就是说是事先不知道各个文档各个词的主题的。求解LDA有吉布斯采样方法和变分EM算法。</p>
+<p>吉布斯采样方法通过近似得到后验概率$P(z,d|\alpha_d,\{\beta_k\})$，得到这个后验概率后就通过采样得到一个期望的各个文档各个词的主题，得到各个文档各个词的主题就可以更新狄利克雷先验分布了，照着这个步骤迭代直到先验分布收敛，收敛后的先验分布就是我们要求的后验分布。</p>
+<p>变分EM算法，使用$q(\theta_d,\{\beta_k\},z|\gamma,\xi,\lambda)$去近似后验分布$P(\theta_d,\{\beta_k\},z|\alpha_d,\{\beta_k\},d)$，假设：</p>
+<script type="math/tex; mode=display">q(\theta_d,\{\beta_k\},z|\gamma,\xi,\lambda)=q(\theta_d|\gamma)q(\{beta_k\}|\xi)q(z|\lambda)</script><p>通过最小化$q$分布和$p$分布之间的KL散度来达到近似求解效果。变分EM算法在E步固定$\alpha$和$\beta$，求$\gamma$，$\xi$和$\lambda$；在M步固定$\gamma$，$\xi$和$\lambda$，求$\alpha$和$\beta$。如此反复直到收敛，求得的$\alpha$和$\beta$就是要求的狄利克雷后验分布的期望。</p>
+<p>更具体的求解步骤和讲解可以参考：<a href="https://www.cnblogs.com/pinard/p/6831308.html" target="_blank" rel="noopener">https://www.cnblogs.com/pinard/p/6831308.html</a></p>
 
     </div>
 
@@ -379,7 +392,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是主题模型"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是主题模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-LDA模型原理"><span class="nav-number">2.</span> <span class="nav-text">2. LDA模型原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-LDA主题模型学习感想"><span class="nav-number">3.</span> <span class="nav-text">3. LDA主题模型学习感想</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是主题模型"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是主题模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-LDA模型原理"><span class="nav-number">2.</span> <span class="nav-text">2. LDA模型原理</span></a></li></ol></div>
             
 
           </div>
