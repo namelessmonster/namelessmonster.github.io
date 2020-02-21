@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="1. 红黑树红黑树是一种平衡二叉树，相比起AVL树，红黑树在树的平衡上放松了一些约束，实际上也没有必要达到AVL树这么严格的平衡度，这会导致每次插入或删除都需要旋转一些次数才能维护。红黑树主要有以下五个性质：(1) 每个节点要么是红色，要么是黑色(2) 根节点是黑色(3) 叶节点是黑色(4) 红色节点的子节点是黑色(5) 任意一节点到叶节点每条路径的黑色节点数一样维护这五个性质，可以证明对红黑树的">
-<meta name="keywords" content="计算机基础,数据结构">
+  <meta name="description" content="BN在使用神经网络训练数据，常常使用批梯度下降的优化方法。这种优化方法相比起全梯度下降方法有一个问题，就是收敛速度慢，因为每一批数据的分布与全部数据的分布存在着不一致，且每一批数据的分布是变化的，这使得神经网络需要不断根据输入分布的不同调整权重去适应不同的输入分布。然后，神经网络层与层之间的联系是复杂的，前面层输入分布的变化会影响输出分布，而输出分布又会影响后面层的输入分布进而影响后面层的输出分布">
+<meta name="keywords" content="机器学习,深度学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="红黑树，B树，B+树">
-<meta property="og:url" content="http://yoursite.com/2020/02/13/红黑树，B树，B-树/index.html">
+<meta property="og:title" content="BN和Dropout">
+<meta property="og:url" content="http://yoursite.com/2020/02/21/BN和Dropout/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 红黑树红黑树是一种平衡二叉树，相比起AVL树，红黑树在树的平衡上放松了一些约束，实际上也没有必要达到AVL树这么严格的平衡度，这会导致每次插入或删除都需要旋转一些次数才能维护。红黑树主要有以下五个性质：(1) 每个节点要么是红色，要么是黑色(2) 根节点是黑色(3) 叶节点是黑色(4) 红色节点的子节点是黑色(5) 任意一节点到叶节点每条路径的黑色节点数一样维护这五个性质，可以证明对红黑树的">
+<meta property="og:description" content="BN在使用神经网络训练数据，常常使用批梯度下降的优化方法。这种优化方法相比起全梯度下降方法有一个问题，就是收敛速度慢，因为每一批数据的分布与全部数据的分布存在着不一致，且每一批数据的分布是变化的，这使得神经网络需要不断根据输入分布的不同调整权重去适应不同的输入分布。然后，神经网络层与层之间的联系是复杂的，前面层输入分布的变化会影响输出分布，而输出分布又会影响后面层的输入分布进而影响后面层的输出分布">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-14T09:15:01.902Z">
+<meta property="og:updated_time" content="2020-02-21T16:24:41.455Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="红黑树，B树，B+树">
-<meta name="twitter:description" content="1. 红黑树红黑树是一种平衡二叉树，相比起AVL树，红黑树在树的平衡上放松了一些约束，实际上也没有必要达到AVL树这么严格的平衡度，这会导致每次插入或删除都需要旋转一些次数才能维护。红黑树主要有以下五个性质：(1) 每个节点要么是红色，要么是黑色(2) 根节点是黑色(3) 叶节点是黑色(4) 红色节点的子节点是黑色(5) 任意一节点到叶节点每条路径的黑色节点数一样维护这五个性质，可以证明对红黑树的">
-  <link rel="canonical" href="http://yoursite.com/2020/02/13/红黑树，B树，B-树/">
+<meta name="twitter:title" content="BN和Dropout">
+<meta name="twitter:description" content="BN在使用神经网络训练数据，常常使用批梯度下降的优化方法。这种优化方法相比起全梯度下降方法有一个问题，就是收敛速度慢，因为每一批数据的分布与全部数据的分布存在着不一致，且每一批数据的分布是变化的，这使得神经网络需要不断根据输入分布的不同调整权重去适应不同的输入分布。然后，神经网络层与层之间的联系是复杂的，前面层输入分布的变化会影响输出分布，而输出分布又会影响后面层的输入分布进而影响后面层的输出分布">
+  <link rel="canonical" href="http://yoursite.com/2020/02/21/BN和Dropout/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>红黑树，B树，B+树 | Hexo</title>
+  <title>BN和Dropout | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/13/红黑树，B树，B-树/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/21/BN和Dropout/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">红黑树，B树，B+树
+          <h1 class="post-title" itemprop="name headline">BN和Dropout
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-13 17:41:33" itemprop="dateCreated datePublished" datetime="2020-02-13T17:41:33+08:00">2020-02-13</time>
+              <time title="创建时间：2020-02-21 22:44:00" itemprop="dateCreated datePublished" datetime="2020-02-21T22:44:00+08:00">2020-02-21</time>
             </span>
           
             
@@ -240,7 +240,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-02-14 17:15:01" itemprop="dateModified" datetime="2020-02-14T17:15:01+08:00">2020-02-14</time>
+                <time title="修改时间：2020-02-22 00:24:41" itemprop="dateModified" datetime="2020-02-22T00:24:41+08:00">2020-02-22</time>
               </span>
             
           
@@ -256,9 +256,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-红黑树"><a href="#1-红黑树" class="headerlink" title="1. 红黑树"></a>1. 红黑树</h2><p>红黑树是一种平衡二叉树，相比起AVL树，红黑树在树的平衡上放松了一些约束，实际上也没有必要达到AVL树这么严格的平衡度，这会导致每次插入或删除都需要旋转一些次数才能维护。红黑树主要有以下五个性质：<br>(1) 每个节点要么是红色，要么是黑色<br>(2) 根节点是黑色<br>(3) 叶节点是黑色<br>(4) 红色节点的子节点是黑色<br>(5) 任意一节点到叶节点每条路径的黑色节点数一样<br>维护这五个性质，可以证明对红黑树的插入，删除，查询等操作的期望时间复杂度是$O(\log n)$的。红黑树在维护性质上主要依靠三种基本操作，分别是左旋，右旋和变色。</p>
-<h2 id="2-B-树（B树）"><a href="#2-B-树（B树）" class="headerlink" title="2. B-树（B树）"></a>2. B-树（B树）</h2><p>B-树是B树不是B减树，B-树和B树是同一个东西。与平衡二叉树不同，B-树可以看作是平衡多叉树。B-树有这些性质：<br>(1) 根节点的子节点数为$[2,m]$<br>(2) 非根非叶节点的子节点数为$[m/2,m]$<br>(3) 每个叶节点的高度一致<br>(4) 每个节点键的个数等于其子节点数减一<br>B-树使用键来划分数据，大于第1个键的数据划分到第一棵子树，在第1个键和第2个键之间的数据划分到第二棵子树，大于最后一个键的数据划分到最后一棵子树。B-树和B+树的一个不同，就是B-树的键上是有数据的，在查询时，当直接命中键就可以直接返回。B-树在插入时，如果遇到子节点数大于等于$m$时，则将该节点分裂成两个节点，每个节点取一半的键。在删除时，如果遇到子节点数小于$m/2$时，可以从兄弟节点借一个子节点；如果不存在可以借的子节点，则和兄弟节点合并，合并时将自身的子树全部接到兄弟节点上，兄弟节点在合并后可能需要分裂，之后将自己的节点重新插入B-树当作插入B-树处理。通过上述步骤不断往根节点递归调整，就可以在每次插入或删除后维护B-树的性质了。</p>
-<h2 id="3-B-树"><a href="#3-B-树" class="headerlink" title="3. B+树"></a>3. B+树</h2><p>B+树在B-树的基础上做了一些修改，主要有这些性质：<br>(1) 根节点的子节点数为$[2,m]$<br>(2) 非根非叶节点的子节点数为$[m/2,m]$<br>(3) 每个叶节点的高度一致<br>(4) 每个节点键的格式等于其子节点数<br>(5) 叶节点有一条链连接<br>B+树比起B树最大的区别就是B+树所有的数据都存储在叶节点，非叶节点全部看作索引，即使非叶节点的值等于查找值，也要到叶节点才能取得数据。这么做的好处首先是B+树的非叶节点只需要存储索引值而不需要存储整个数据，其次查找效率稳定。非叶节点只需要存储索引值，大大节省了B+树的存储空间；查找效率稳定是指无论查找哪个数所需要的时间都是差不多的。B+树的性质(4)使得在合并节点时更简单，直接进行合并就可以，这说明B+树在处理删除时，维护性质比B-树更简单，效率也更高。性质(5)使得B+树可以在命中区域周围继续搜索，完成区域查找。</p>
+        <h2 id="BN"><a href="#BN" class="headerlink" title="BN"></a>BN</h2><p>在使用神经网络训练数据，常常使用批梯度下降的优化方法。这种优化方法相比起全梯度下降方法有一个问题，就是收敛速度慢，因为每一批数据的分布与全部数据的分布存在着不一致，且每一批数据的分布是变化的，这使得神经网络需要不断根据输入分布的不同调整权重去适应不同的输入分布。然后，神经网络层与层之间的联系是复杂的，前面层输入分布的变化会影响输出分布，而输出分布又会影响后面层的输入分布进而影响后面层的输出分布，最终作用到最后一层影响网络的输出。前面层的变动如同蝴蝶效应般对网络的输出影响巨大。在使用梯度下降调整网络参数时，可以理解成是通过调整网络参数来间接调整网络每一层的分布，这种间接调整需要不断适应网络每层分布的变化，使得网络参数训练效果不好，收敛速度慢。比如我们希望将第$i$层的分布调整成均值为$\mu_i$，方差为$\sigma_i$，这并不是由第$i$层的参数决定的，而是由第$1,2,…,i$层的参数决定的，这种需要调整众多参数拟合分布的训练方式导致训练速度慢。</p>
+<p>而网络训练速度慢还有一个原因就是梯度消失，以$sigmoid$激活函数为例，如果某一层的分布处于$sigmoid$函数的饱和区时，此时若梯度的趋势是将分布调整到$sigmoid$函数的非饱和区，显然速度是非常慢的，因为梯度值非常小。</p>
+<p>基于以上两个原因，深度神经网络往往会出现训练速度慢的问题，而BN的出现正是为了解决这个问题。这里先介绍BN的做法，首先对每个神经元，都有$N$个输入样本，计算这$N$个样本的均值和方差：</p>
+<script type="math/tex; mode=display">\mu=\frac{1}{N}\sum_{i=1}^Nx_i</script><script type="math/tex; mode=display">\sigma^2=\frac{1}{N}\sum_{i=1}^N(x_i-\mu)^2</script><p>然后对每个样本标准化，调整输入分布为均值等于0，方差等于1：</p>
+<script type="math/tex; mode=display">\hat{x}_i=\frac{x_i-\mu}{\sigma}</script><p>将输入分布调整为均值为$\beta$，方差为$\gamma^2$：</p>
+<script type="math/tex; mode=display">z=\gamma*\hat{x}_i+\beta</script><p>综上，这个神经元的输入样本为：</p>
+<script type="math/tex; mode=display">y=a(z)</script><p>其中$a$是激活函数。可以看到，BN是将每一层每一个神经元的分布都调整为均值等于$\beta$，方差等于$\gamma^2$，这里$\beta$和$\gamma$是参数，是可以通过数据样本学习调整的，每个神经元都有属于自己的$\gamma$和$\beta$。那么为什么BN可以加速网络的学习速度呢。前面提到，影响网络学习速度的有两个主要原因：第一是网络层与层之间联系紧密，通过调整网络参数间接调整分布，参数的紧密联系导致这个过程很慢；第二是梯度在非线性激活函数的饱和区值很小，调整速度慢。BN可以很好地应对这两个问题，首先BN使得网络每一个神经元可以直接通过参数调整分布不再通过参数间接调整分布。因为BN的每一个神经元都会学习两个参数$\gamma$和$\beta$，这两个参数直接决定神经元的输入分布，关于该神经元的输入分布不再受到前面若干层参数的影响，解除了这种复杂的联系。其次，BN层可以通过快速调整分布来快速将输入分布调整至激活函数的非饱和区，提高学习速度。没有BN层时，若要将调整参数使分布从饱和区移向非饱和区，因为梯度很小的缘故，需要调整很长时间才可以将分布移到非饱和区。现在有了BN层，就可以直接通过调整$\gamma$和$\beta$快速将分布从饱和区移向非饱和区。以上就是BN层的原理。BN层在训练时，每个神经元会记录每一批数据的输入分布，通过每一批的输入分布估计总体的输入分布，在预测时使用估计的整体分布对输入标准化。预测时的过程如下，首先通过每一批数据估计总体的期望和方差：</p>
+<script type="math/tex; mode=display">\hat{\mu} = \frac{1}{T}\sum_{i=1}^T\mu_i</script><script type="math/tex; mode=display">\hat{\sigma}^2 = \frac{m}{m-1}\sum_{i=1}^T\sigma_i^2</script><p>其中$m$是训练时一批数据的大小，对输入进行标准化：</p>
+<script type="math/tex; mode=display">\hat{x}=\frac{x-\hat{\mu}}{\hat{\sigma}}</script><p>将输入移向该神经元的分布：</p>
+<script type="math/tex; mode=display">z=\gamma*\hat{x}+\beta</script><script type="math/tex; mode=display">y=a(z)</script><p>以上就是BN的预测过程，除了BN，其实还有LN，IN，GN，不过应用最广泛当属BN，LN也有一定的应用。</p>
+<h2 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h2><p>Dropout是根据一定的概率将神经网络某一层的神经元关闭，假设这个概率为0.5，这意味着该层的神经元有50%的概率处于关闭状态。更一般的，假设Dropout关闭神经元的概率为$p$，则打开神经元的概率为$q=1-p$。在训练时，Dropout会依据概率$p$关闭神经元，而在预测时，为了还原神经元的期望输出，会将权重乘上$q=1-p$。更常见的做法是在训练时将权重除以$q$，在预测时权重不用做改变。Dropout能起到正则化的作用，因为Dropout本质上可以看作是训练多个共享权重的模型，一些模型使用一部分权重，另一些模型使用另一部分权重，模型与模型之间有共用的权重也有不共用的权重，在预测时使用这些模型的期望作为预测结果，这类似于bagging，可以起到减小方差，防止过拟合的正则化效果。Dropout的另一种解释是运用了奥卡姆剃刀原理，通过关闭一些神经元，降低深度神经网络参数之间联系的复杂程度，找到更简单的特征联系，从而起到正则化的效果。</p>
 
     </div>
 
@@ -270,15 +278,15 @@
           
         
         <div class="post-tags">
-            <a href="/tags/计算机基础/" rel="tag"># 计算机基础</a>
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
-            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/13/PCA-主成分分析/" rel="next" title="PCA-主成分分析">
-                <i class="fa fa-chevron-left"></i> PCA-主成分分析
+              <a href="/2020/02/21/RNN和LSTM/" rel="next" title="RNN和LSTM">
+                <i class="fa fa-chevron-left"></i> RNN和LSTM
               </a>
             
           </div>
@@ -286,10 +294,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/14/机器学习之特征选择/" rel="prev" title="机器学习之特征选择">
-                机器学习之特征选择 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -385,7 +389,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-红黑树"><span class="nav-number">1.</span> <span class="nav-text">1. 红黑树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-B-树（B树）"><span class="nav-number">2.</span> <span class="nav-text">2. B-树（B树）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-B-树"><span class="nav-number">3.</span> <span class="nav-text">3. B+树</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BN"><span class="nav-number">1.</span> <span class="nav-text">BN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dropout"><span class="nav-number">2.</span> <span class="nav-text">Dropout</span></a></li></ol></div>
             
 
           </div>
