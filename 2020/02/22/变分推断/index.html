@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="1. 什么是L1正则化L1正则化就是在损失函数后面加上模型参数的绝对值和： Obj=L(X,Y,\Theta)+\lambda\sum_{i}|w_i|其中$\lambda$调整正则项影响因子，$w_i$是模型参数。 2. 什么是L2正则化L2正则项就是在损失函数后面加上模型参数的平方和： Obj=L(X,Y,\Theta)+\lambda\sum_{i}w_i^23. L1和L2正则化作用的解释">
-<meta name="keywords" content="机器学习,深度学习">
+  <meta name="description" content="变分推断在使用EM算法求极大似然时，有以下步骤： \ln P(x|\theta)=\ln\sum_{z}P(x,z|\theta)=\ln\sum_{z}Q(z)\frac{P(x,z|\theta)}{Q(z)}\ge\sum_{z}Q(z)\ln\frac{P(x,z|\theta)}{Q(z)}当上述不等式取等号时有： Q(z)=P(z|x,\theta)就是说，当$Q(z)$是隐变量$z$">
+<meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="L1和L2正则化">
-<meta property="og:url" content="http://yoursite.com/2020/02/10/L1和L2正则化/index.html">
+<meta property="og:title" content="变分推断">
+<meta property="og:url" content="http://yoursite.com/2020/02/22/变分推断/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 什么是L1正则化L1正则化就是在损失函数后面加上模型参数的绝对值和： Obj=L(X,Y,\Theta)+\lambda\sum_{i}|w_i|其中$\lambda$调整正则项影响因子，$w_i$是模型参数。 2. 什么是L2正则化L2正则项就是在损失函数后面加上模型参数的平方和： Obj=L(X,Y,\Theta)+\lambda\sum_{i}w_i^23. L1和L2正则化作用的解释">
+<meta property="og:description" content="变分推断在使用EM算法求极大似然时，有以下步骤： \ln P(x|\theta)=\ln\sum_{z}P(x,z|\theta)=\ln\sum_{z}Q(z)\frac{P(x,z|\theta)}{Q(z)}\ge\sum_{z}Q(z)\ln\frac{P(x,z|\theta)}{Q(z)}当上述不等式取等号时有： Q(z)=P(z|x,\theta)就是说，当$Q(z)$是隐变量$z$">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-10T08:10:58.815Z">
+<meta property="og:updated_time" content="2020-02-22T14:43:22.820Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="L1和L2正则化">
-<meta name="twitter:description" content="1. 什么是L1正则化L1正则化就是在损失函数后面加上模型参数的绝对值和： Obj=L(X,Y,\Theta)+\lambda\sum_{i}|w_i|其中$\lambda$调整正则项影响因子，$w_i$是模型参数。 2. 什么是L2正则化L2正则项就是在损失函数后面加上模型参数的平方和： Obj=L(X,Y,\Theta)+\lambda\sum_{i}w_i^23. L1和L2正则化作用的解释">
-  <link rel="canonical" href="http://yoursite.com/2020/02/10/L1和L2正则化/">
+<meta name="twitter:title" content="变分推断">
+<meta name="twitter:description" content="变分推断在使用EM算法求极大似然时，有以下步骤： \ln P(x|\theta)=\ln\sum_{z}P(x,z|\theta)=\ln\sum_{z}Q(z)\frac{P(x,z|\theta)}{Q(z)}\ge\sum_{z}Q(z)\ln\frac{P(x,z|\theta)}{Q(z)}当上述不等式取等号时有： Q(z)=P(z|x,\theta)就是说，当$Q(z)$是隐变量$z$">
+  <link rel="canonical" href="http://yoursite.com/2020/02/22/变分推断/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>L1和L2正则化 | Hexo</title>
+  <title>变分推断 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/10/L1和L2正则化/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/22/变分推断/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">L1和L2正则化
+          <h1 class="post-title" itemprop="name headline">变分推断
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-10 15:25:08 / 修改时间：16:10:58" itemprop="dateCreated datePublished" datetime="2020-02-10T15:25:08+08:00">2020-02-10</time>
+              <time title="创建时间：2020-02-22 22:04:15 / 修改时间：22:43:22" itemprop="dateCreated datePublished" datetime="2020-02-22T22:04:15+08:00">2020-02-22</time>
             </span>
           
             
@@ -246,10 +246,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-什么是L1正则化"><a href="#1-什么是L1正则化" class="headerlink" title="1. 什么是L1正则化"></a>1. 什么是L1正则化</h2><p>L1正则化就是在损失函数后面加上模型参数的绝对值和：</p>
-<script type="math/tex; mode=display">Obj=L(X,Y,\Theta)+\lambda\sum_{i}|w_i|</script><p>其中$\lambda$调整正则项影响因子，$w_i$是模型参数。</p>
-<h2 id="2-什么是L2正则化"><a href="#2-什么是L2正则化" class="headerlink" title="2. 什么是L2正则化"></a>2. 什么是L2正则化</h2><p>L2正则项就是在损失函数后面加上模型参数的平方和：</p>
-<script type="math/tex; mode=display">Obj=L(X,Y,\Theta)+\lambda\sum_{i}w_i^2</script><h2 id="3-L1和L2正则化作用的解释"><a href="#3-L1和L2正则化作用的解释" class="headerlink" title="3. L1和L2正则化作用的解释"></a>3. L1和L2正则化作用的解释</h2><p>L1正则项一般可以得到更为稀疏的参数，即使得部分参数等于0，更注重关注少量特征。而L2正则项一般可以使得参数的绝对值变得更小，形成小而分散的参数，更注重关注多个特征。L1正则可以用于特征选择，在一定程度上也可以防止过拟合。L2正则主要用于防止过拟合。关于L1和L2正则项详细的推导，推荐这篇文章：<br><a href="https://baijiahao.baidu.com/s?id=1621054167310242353&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">https://baijiahao.baidu.com/s?id=1621054167310242353&amp;wfr=spider&amp;for=pc</a></p>
+        <h2 id="变分推断"><a href="#变分推断" class="headerlink" title="变分推断"></a>变分推断</h2><p>在使用EM算法求极大似然时，有以下步骤：</p>
+<script type="math/tex; mode=display">\ln P(x|\theta)=\ln\sum_{z}P(x,z|\theta)=\ln\sum_{z}Q(z)\frac{P(x,z|\theta)}{Q(z)}\ge\sum_{z}Q(z)\ln\frac{P(x,z|\theta)}{Q(z)}</script><p>当上述不等式取等号时有：</p>
+<script type="math/tex; mode=display">Q(z)=P(z|x,\theta)</script><p>就是说，当$Q(z)$是隐变量$z$的后验分布时，上述不等式取等号。EM算法的E步，就是固定$\theta$求出$Q(z)$，M步就是固定$Q(z)$更新$\theta$，直到收敛。然后，现在有一个问题，当后验分布$P(z|x,\theta)$很复杂时，怎么求这个后验分布？这时候变分推断就派上用场了。变分推断本质是对$Q(z)$制定一些假设和约束，在这些假设与约束下尽量逼近后验分布$P(z|x,\theta)$。其实EM算法的不等式还可以表示为：</p>
+<script type="math/tex; mode=display">\ln P(x|\theta)=\sum_zQ(z)\ln\frac{P(x,z|\theta)}{Q(z)}-\sum_{z}Q(z)\ln\frac{P(z|x,\theta)}{Q(z)}</script><p>可以看到，等式右边第二项很明显就是分布$Q(z)$和后验分布$P(z|x,\theta)$的相对熵。在EM算法中，当$\theta$固定后，$\ln P(x|\theta)$也就固定，此时要求$Q(z)$近似后验分布$P(z|x,\theta)$等价于最大化等式右边第一项，所以变分推断就是在$Q(z)$的假设与约束下找到可以最大化等式右边第一项的$Q(z)$，此时的$Q(z)$是最接近后验分布$P(z|x,\theta)$的。一般而言，会假设$Q(z)$可以分解成若干项的乘积，同时假设$Q(z)$符合由某些参数决定的分布，即将$Q(z)$分解成下式：</p>
+<script type="math/tex; mode=display">Q(z)=\prod_{i} Q(z_i|\phi_i)</script><p>其中$z$分解成几个相互独立的成分$z_i$，每个成分由符合由参数$\phi_i$决定的分布。将$Q(z)$代入需要最大化的目标函数，通过对$Q(z)$的参数$\phi$求导并令导数等于0，可以得到$Q(z)$的分布形式，将此时的$Q(z)$视作后验分布$P(z|x,\theta)$的近似。</p>
+<p>总结一下，变分推断的目的是构造一个分布$Q(z)$，这个分布符合某些假设，在这些假设的框架下去近似后验分布$P(z|x,\theta)$</p>
+<h2 id="变分EM"><a href="#变分EM" class="headerlink" title="变分EM"></a>变分EM</h2><p>在EM算法的E步，利用变分推断求出$Q(z)$来近似后验分布$P(z|x,\theta)$；接着在M步，就可以固定$Q(z)$，更新参数$\theta$。变分EM与普通EM本质都是EM算法，只是变分EM算法在E步求后验分布$P(z|x,\theta)$时需要使用到变分推断的方法。</p>
 
     </div>
 
@@ -263,13 +266,11 @@
         <div class="post-tags">
             <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
-            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
-          
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/10/优化器原理/" rel="next" title="优化器原理">
-                <i class="fa fa-chevron-left"></i> 优化器原理
+              <a href="/2020/02/21/BN和Dropout/" rel="next" title="BN和Dropout">
+                <i class="fa fa-chevron-left"></i> BN和Dropout
               </a>
             
           </div>
@@ -277,10 +278,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/11/LDA主题模型/" rel="prev" title="LDA主题模型">
-                LDA主题模型 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -376,7 +373,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是L1正则化"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是L1正则化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-什么是L2正则化"><span class="nav-number">2.</span> <span class="nav-text">2. 什么是L2正则化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-L1和L2正则化作用的解释"><span class="nav-number">3.</span> <span class="nav-text">3. L1和L2正则化作用的解释</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#变分推断"><span class="nav-number">1.</span> <span class="nav-text">变分推断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变分EM"><span class="nav-number">2.</span> <span class="nav-text">变分EM</span></a></li></ol></div>
             
 
           </div>
