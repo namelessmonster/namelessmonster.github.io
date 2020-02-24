@@ -65,12 +65,12 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1. 什么是HMM模型HMM模型，又叫隐马尔可夫模型，主要用于求解序列的隐状态。HMM是一个生成模型，通过隐状态之间的转移矩阵和隐状态到观测状态的发射矩阵决定隐状态和观测状态的联合分布。HMM模型有三个假设，第一个是观测独立性假设，序列每个时刻的观测状态仅与序列在该时刻的隐状态有关，即 P(o_1,o_2,...,o_t|s_1,s_2,...,s_t)=\prod_{i=1}^tP(o_i|s_">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://chuantu.xyz/t6/715/1581409890x992245926.png">
-<meta property="og:updated_time" content="2020-02-11T10:30:34.931Z">
+<meta property="og:image" content="http://yoursite.com/2020/02/11/HMM-隐马尔可夫模型/1.png">
+<meta property="og:updated_time" content="2020-02-24T08:46:38.252Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HMM-隐马尔可夫模型">
 <meta name="twitter:description" content="1. 什么是HMM模型HMM模型，又叫隐马尔可夫模型，主要用于求解序列的隐状态。HMM是一个生成模型，通过隐状态之间的转移矩阵和隐状态到观测状态的发射矩阵决定隐状态和观测状态的联合分布。HMM模型有三个假设，第一个是观测独立性假设，序列每个时刻的观测状态仅与序列在该时刻的隐状态有关，即 P(o_1,o_2,...,o_t|s_1,s_2,...,s_t)=\prod_{i=1}^tP(o_i|s_">
-<meta name="twitter:image" content="http://chuantu.xyz/t6/715/1581409890x992245926.png">
+<meta name="twitter:image" content="http://yoursite.com/2020/02/11/HMM-隐马尔可夫模型/1.png">
   <link rel="canonical" href="http://yoursite.com/2020/02/11/HMM-隐马尔可夫模型/">
 
 
@@ -229,11 +229,21 @@
                 
               
 
-              <time title="创建时间：2020-02-11 16:10:21 / 修改时间：18:30:34" itemprop="dateCreated datePublished" datetime="2020-02-11T16:10:21+08:00">2020-02-11</time>
+              <time title="创建时间：2020-02-11 16:10:21" itemprop="dateCreated datePublished" datetime="2020-02-11T16:10:21+08:00">2020-02-11</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-02-24 16:46:38" itemprop="dateModified" datetime="2020-02-24T16:46:38+08:00">2020-02-24</time>
+              </span>
             
           
 
@@ -250,7 +260,7 @@
       
         <h2 id="1-什么是HMM模型"><a href="#1-什么是HMM模型" class="headerlink" title="1. 什么是HMM模型"></a>1. 什么是HMM模型</h2><p>HMM模型，又叫隐马尔可夫模型，主要用于求解序列的隐状态。HMM是一个生成模型，通过隐状态之间的转移矩阵和隐状态到观测状态的发射矩阵决定隐状态和观测状态的联合分布。HMM模型有三个假设，第一个是观测独立性假设，序列每个时刻的观测状态仅与序列在该时刻的隐状态有关，即</p>
 <script type="math/tex; mode=display">P(o_1,o_2,...,o_t|s_1,s_2,...,s_t)=\prod_{i=1}^tP(o_i|s_i)</script><p>第二个是每个隐状态仅与上一个时刻的隐状态相关，即：</p>
-<script type="math/tex; mode=display">P(s_1,s_2,...s_t)=P(s_1)\prod_{i=2}^tP(s_i|s_{i-1})</script><p>第三个假设是无论在序列哪一个时刻，上述两个假设的条件分布都是不变的。在这三个假设中，第一个假设对应到HMM模型的发射矩阵，第二个假设对应到HMM模型的转移矩阵，第三个假设使得整个序列共享发射矩阵和转移矩阵的参数。HMM模型可以画成下面一幅概率图模型：<br><img src="http://chuantu.xyz/t6/715/1581409890x992245926.png" alt><br>其中每一条有向边，表示两个量之间的依赖关系。</p>
+<script type="math/tex; mode=display">P(s_1,s_2,...s_t)=P(s_1)\prod_{i=2}^tP(s_i|s_{i-1})</script><p>第三个假设是无论在序列哪一个时刻，上述两个假设的条件分布都是不变的。在这三个假设中，第一个假设对应到HMM模型的发射矩阵，第二个假设对应到HMM模型的转移矩阵，第三个假设使得整个序列共享发射矩阵和转移矩阵的参数。HMM模型可以画成下面一幅概率图模型：<br><img src="//yoursite.com/2020/02/11/HMM-隐马尔可夫模型/1.png" alt><br>其中每一条有向边，表示两个量之间的依赖关系。</p>
 <h2 id="2-HMM模型的求解"><a href="#2-HMM模型的求解" class="headerlink" title="2. HMM模型的求解"></a>2. HMM模型的求解</h2><p>HMM模型有三大问题：<br>(1) 已知初始隐状态分布$\pi$，转移矩阵$A$和发射矩阵$B$，观测序列$o_1,o_2,…,o_t$，如何求得最有可能的隐状态$s_1,s_2,…s_t$。<br>(2) 已知初始隐状态分布$\pi$，转移矩阵$A$和发射矩阵$B$，观测序列$o_1,o_2,…,o_t$，如何求该观测序列出现的概率$P(O|\pi,A,B)$。<br>(3) 已知一堆观测序列，如何求初始隐状态分布$\pi$，转移矩阵$A$和发射矩阵$B$的参数值，使得$P(O|\pi,A,B)$可以达到最大。</p>
 <h3 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h3><p>问题一又称为解码问题，将观测序列$O$解码成隐状态序列$S$，问题一是要求：</p>
 <script type="math/tex; mode=display">arg\max_{S}P(S|O,\lambda)</script><p>因为有：</p>
@@ -351,7 +361,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -374,7 +384,9 @@
         
           
         
-        <span class="site-state-item-count">6</span>
+          
+        
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span>
         
       </div>
