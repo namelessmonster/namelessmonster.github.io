@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="1. 什么是数据不平衡数据不平衡是指数据样本的分布偏向某一侧，使得一侧的数据样本数很多而另一侧数据样本数很少，形成一种不平衡。数据不平衡会导致学习出来的模型不能很好地掌握少数数据样本的规律，受到多数数据样本的“污染”。举个最简单的例子，一个二分类问题，98%的样本是一种标签而剩余2%是另一种标签，这时候分类模型只需要全部输出一种标签就可以有98%的正确率了。 2. 数据不平衡处理方法扩充数据集扩充">
-<meta name="keywords" content="机器学习">
+  <meta name="description" content="知识蒸馏知识蒸馏的作用是使用小网络使得小网络的性能和大网络差不多，从而实现大网络的模型压缩。将大网络压缩成小网络有以下步骤：(1) 训练大网络(2) 将训练好的大网络的输出logit，使用一个温度值$T$放缩，得到$\frac{1}{T}$logit，将放缩后的logit经过softmax层，得到soft label(3) 对小网络，使用两项目标函数：第一个目标函数要求小网络的输出logic使用同">
+<meta name="keywords" content="机器学习,深度学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习之数据不平衡">
-<meta property="og:url" content="http://yoursite.com/2020/02/14/机器学习之数据不平衡/index.html">
+<meta property="og:title" content="知识蒸馏与模型压缩">
+<meta property="og:url" content="http://yoursite.com/2020/02/25/知识蒸馏与模型压缩/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 什么是数据不平衡数据不平衡是指数据样本的分布偏向某一侧，使得一侧的数据样本数很多而另一侧数据样本数很少，形成一种不平衡。数据不平衡会导致学习出来的模型不能很好地掌握少数数据样本的规律，受到多数数据样本的“污染”。举个最简单的例子，一个二分类问题，98%的样本是一种标签而剩余2%是另一种标签，这时候分类模型只需要全部输出一种标签就可以有98%的正确率了。 2. 数据不平衡处理方法扩充数据集扩充">
+<meta property="og:description" content="知识蒸馏知识蒸馏的作用是使用小网络使得小网络的性能和大网络差不多，从而实现大网络的模型压缩。将大网络压缩成小网络有以下步骤：(1) 训练大网络(2) 将训练好的大网络的输出logit，使用一个温度值$T$放缩，得到$\frac{1}{T}$logit，将放缩后的logit经过softmax层，得到soft label(3) 对小网络，使用两项目标函数：第一个目标函数要求小网络的输出logic使用同">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-14T15:03:48.659Z">
+<meta property="og:updated_time" content="2020-02-25T14:45:12.025Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习之数据不平衡">
-<meta name="twitter:description" content="1. 什么是数据不平衡数据不平衡是指数据样本的分布偏向某一侧，使得一侧的数据样本数很多而另一侧数据样本数很少，形成一种不平衡。数据不平衡会导致学习出来的模型不能很好地掌握少数数据样本的规律，受到多数数据样本的“污染”。举个最简单的例子，一个二分类问题，98%的样本是一种标签而剩余2%是另一种标签，这时候分类模型只需要全部输出一种标签就可以有98%的正确率了。 2. 数据不平衡处理方法扩充数据集扩充">
-  <link rel="canonical" href="http://yoursite.com/2020/02/14/机器学习之数据不平衡/">
+<meta name="twitter:title" content="知识蒸馏与模型压缩">
+<meta name="twitter:description" content="知识蒸馏知识蒸馏的作用是使用小网络使得小网络的性能和大网络差不多，从而实现大网络的模型压缩。将大网络压缩成小网络有以下步骤：(1) 训练大网络(2) 将训练好的大网络的输出logit，使用一个温度值$T$放缩，得到$\frac{1}{T}$logit，将放缩后的logit经过softmax层，得到soft label(3) 对小网络，使用两项目标函数：第一个目标函数要求小网络的输出logic使用同">
+  <link rel="canonical" href="http://yoursite.com/2020/02/25/知识蒸馏与模型压缩/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>机器学习之数据不平衡 | Hexo</title>
+  <title>知识蒸馏与模型压缩 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/14/机器学习之数据不平衡/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/25/知识蒸馏与模型压缩/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">机器学习之数据不平衡
+          <h1 class="post-title" itemprop="name headline">知识蒸馏与模型压缩
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-14 21:59:47 / 修改时间：23:03:48" itemprop="dateCreated datePublished" datetime="2020-02-14T21:59:47+08:00">2020-02-14</time>
+              <time title="创建时间：2020-02-25 21:45:30 / 修改时间：22:45:12" itemprop="dateCreated datePublished" datetime="2020-02-25T21:45:30+08:00">2020-02-25</time>
             </span>
           
             
@@ -246,17 +246,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-什么是数据不平衡"><a href="#1-什么是数据不平衡" class="headerlink" title="1. 什么是数据不平衡"></a>1. 什么是数据不平衡</h2><p>数据不平衡是指数据样本的分布偏向某一侧，使得一侧的数据样本数很多而另一侧数据样本数很少，形成一种不平衡。数据不平衡会导致学习出来的模型不能很好地掌握少数数据样本的规律，受到多数数据样本的“污染”。举个最简单的例子，一个二分类问题，98%的样本是一种标签而剩余2%是另一种标签，这时候分类模型只需要全部输出一种标签就可以有98%的正确率了。</p>
-<h2 id="2-数据不平衡处理方法"><a href="#2-数据不平衡处理方法" class="headerlink" title="2. 数据不平衡处理方法"></a>2. 数据不平衡处理方法</h2><h3 id="扩充数据集"><a href="#扩充数据集" class="headerlink" title="扩充数据集"></a>扩充数据集</h3><p>扩充数据集就是收集更多的数据，在收集更多的数据的过程中，如果真实的数据分布并不存在不平衡的问题，在期望上最终采集出来的数据集也会接近真实分布，从而解决数据不平衡的问题。</p>
-<h3 id="上采样和下采样"><a href="#上采样和下采样" class="headerlink" title="上采样和下采样"></a>上采样和下采样</h3><p>上采样就是重复将少数样本添加进数据集，可以适当添加噪声。而下采样就是从多数样本中采样，减少多数样本与少数样本之间的不平衡。上采样因为只是简单重复少数样本，实际作用和增大少数样本在目标函数的权重相当。下采样又会缺失一些已有信息，无法完全利用所有数据。无论是上采样还是下采样都有可能会改变数据分布，从而对模型的学习过程与预测效果造成影响。</p>
-<h3 id="人造数据"><a href="#人造数据" class="headerlink" title="人造数据"></a>人造数据</h3><p>人造数据就是利用现有数据，分析其规律，利用规律去制造新的数据。一般而言，我们会认为数据的分布满足邻近性，即相邻的样本是同类的可能性会更大。SMOTE算法就是基于这个原理，这个算法首先会选择一个少数类样本，然后求出该样本的少数类$k$近邻，接着从这$k$近邻中随机选出一个少数类样本，然后在这两个样本的线段中随机产生一个新的少数类样本。这个方法存在一个问题就是会模糊少数类和多数类的边界，为了解决这个问题，几个改进版的SMOTE算法又被提了出来，比如有Borderline-SMOTE算法。</p>
-<h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><p>一些模型是可以天然克服数据不平衡问题的，比如SVM和决策树。</p>
-<p>可以在目标函数的计算中，提高少数类样本的权重，从而重视模型对少数类样本的学习，削弱多数类对模型的“污染”。</p>
-<p>还可以将分类问题看作是异常检测问题，将少数类当作异常点，套用异常检测模型。异常检测模型常见的有oneClassSvm，孤立森林。</p>
-<p>还可以使用聚类算法处理数据，比如使用DBSCAN算法。多数类样本一般处于高密度空间而少数类样本处于低密度空间，利用这一特性可以区分出多数类样本的一些特性，然后不符合多数类特性的就当作少数类。</p>
-<p>还有一种boosting算法，训练三个基分类器。首先使用全部样本训练分类器L1，然后使用相同数目的L1分对的样本和分错的样本训练分类器L2，最后使用L1和L2分类结果不一致的样本训练分类器L3。结合三个分类器投票决定样本的分类结果，只有当L2和L3都认为是少数类，才认为输入样本是少数类，否则就是多数类。</p>
-<p>还有一种方法将多数类划分为L个子集，每个子集的大小和少数类数目相当，然后训练L个模型。在预测时，综合这L个模型的输出结果作为预测结果。</p>
-<h3 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h3><p>使用精确率和召回率综合评价，可以使用F1值，也可以使用PR曲线，ROC曲线和正确率则不适合用于数据不平衡的任务。</p>
+        <h2 id="知识蒸馏"><a href="#知识蒸馏" class="headerlink" title="知识蒸馏"></a>知识蒸馏</h2><p>知识蒸馏的作用是使用小网络使得小网络的性能和大网络差不多，从而实现大网络的模型压缩。将大网络压缩成小网络有以下步骤：<br>(1) 训练大网络<br>(2) 将训练好的大网络的输出logit，使用一个温度值$T$放缩，得到$\frac{1}{T}$logit，将放缩后的logit经过softmax层，得到soft label<br>(3) 对小网络，使用两项目标函数：第一个目标函数要求小网络的输出logic使用同一个温度$T$放缩，放缩后经过softmax层，要求softmax层的输出结果和soft label的交叉熵最小；第二个目标函数要求小网络没有经过放缩的softmax层输出结果与正确标签的one-hot向量的交叉熵最小。</p>
+<p>知识蒸馏之所以能起作用，我的理解有两点：<br>(1) 通过温度$T$，使得输出logit更平缓，类间的差距缩小，但是类间的相对关系不变，平缓的输出更容易拟合<br>(2) 大模型参数多，能输出更极端的logit，而小模型参数小输出的logit无法兼顾那么多极端情况，使小模型的输出没那么极端且保持类间输出的相对关系，可以通过对大模型和小模型的logit同时放缩，在放缩中进行拟合，这么做会更容易。</p>
+<h2 id="在线蒸馏"><a href="#在线蒸馏" class="headerlink" title="在线蒸馏"></a>在线蒸馏</h2><p>知识蒸馏除了可以压缩模型，还可以提升模型的学习效率。在使用分布式的学习场景时，通常需要用到分布式的梯度下降算法优化模型参数，而分布式的梯度下降算法需要有一个中心机器来同步不同机器的梯度更新情况，这种做法效率不高，且最终效果往往没有单机情况好。知识蒸馏可以应用于分布式的参数学习环境：<br>(1) 各个机器单独从同一份数据集中抽样数据学习，单独更新模型参数<br>(2) 特定时刻，统计所有机器对数据样本的输出logit期望，组成teacher model<br>(3) 各个机器单独学习，在原来的基础上加上teacher model的输出指导，单独更新模型参数<br>通过这样的方式，就可以利用知识蒸馏合并模型，实现模型的分布式学习，有实验结果表明，这种学习方式比分布式SGD更好。</p>
+<h2 id="模型压缩"><a href="#模型压缩" class="headerlink" title="模型压缩"></a>模型压缩</h2><p>模型压缩旨在减小模型占用的存储空间，可分为减小模型占用存储空间和减小模型占用运行空间。减小模型占用存储空间一般有剪枝和量化的方法，而减小模型占用运行空间则有量化、低秩分解和知识蒸馏的方法。</p>
+<h3 id="剪枝"><a href="#剪枝" class="headerlink" title="剪枝"></a>剪枝</h3><p>类似于L1正则化，将权重较小的值直接标记为0，此时权重矩阵是一个稀疏矩阵，可以使用稀疏矩阵的存储方法存储，减小存储空间。剪枝可以减小存储空间，但在运行时依然要将矩阵对应位置的值置零，所以没有减小运行空间。</p>
+<h3 id="量化"><a href="#量化" class="headerlink" title="量化"></a>量化</h3><p>量化是减小数字的位数，比如将64位的double压缩到使用8位表示。量化会导致一些数值误差，是一种有损的方法。量化可以有效降低模型的存储与运行空间。</p>
+<h3 id="低秩分解"><a href="#低秩分解" class="headerlink" title="低秩分解"></a>低秩分解</h3><p>低秩分解在于将一个很大的$N<em>M$的权重矩阵分解成两个较小的$N</em>K$和$K<em>M$的矩阵的乘积。当这种分解不存在时，也可以使用两个小矩阵去近似，没有必要完全相等，比如可以使用$K</em>1$和$1<em>K$的乘积近似一个$K</em>K$的卷积核，即将一个卷积核分解成两个一维向量的乘积。低秩分解因为是利用小矩阵的乘积去近似大矩阵，所以也是有损的压缩方式，但有时候这种有损的压缩方式又会带来一些惊喜，我们可以将这种近似看作一种正则化。</p>
+<h3 id="知识蒸馏-1"><a href="#知识蒸馏-1" class="headerlink" title="知识蒸馏"></a>知识蒸馏</h3><p>前面已经提过，这里就不赘述了。</p>
 
     </div>
 
@@ -270,11 +267,13 @@
         <div class="post-tags">
             <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+          
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/14/机器学习之特征选择/" rel="next" title="机器学习之特征选择">
-                <i class="fa fa-chevron-left"></i> 机器学习之特征选择
+              <a href="/2020/02/24/MinMax和MCTS/" rel="next" title="MinMax和MCTS">
+                <i class="fa fa-chevron-left"></i> MinMax和MCTS
               </a>
             
           </div>
@@ -282,10 +281,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/15/EM算法/" rel="prev" title="EM算法">
-                EM算法 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -383,7 +378,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是数据不平衡"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是数据不平衡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-数据不平衡处理方法"><span class="nav-number">2.</span> <span class="nav-text">2. 数据不平衡处理方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#扩充数据集"><span class="nav-number">2.1.</span> <span class="nav-text">扩充数据集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上采样和下采样"><span class="nav-number">2.2.</span> <span class="nav-text">上采样和下采样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#人造数据"><span class="nav-number">2.3.</span> <span class="nav-text">人造数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型"><span class="nav-number">2.4.</span> <span class="nav-text">模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评价指标"><span class="nav-number">2.5.</span> <span class="nav-text">评价指标</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#知识蒸馏"><span class="nav-number">1.</span> <span class="nav-text">知识蒸馏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在线蒸馏"><span class="nav-number">2.</span> <span class="nav-text">在线蒸馏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型压缩"><span class="nav-number">3.</span> <span class="nav-text">模型压缩</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#剪枝"><span class="nav-number">3.1.</span> <span class="nav-text">剪枝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#量化"><span class="nav-number">3.2.</span> <span class="nav-text">量化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#低秩分解"><span class="nav-number">3.3.</span> <span class="nav-text">低秩分解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#知识蒸馏-1"><span class="nav-number">3.4.</span> <span class="nav-text">知识蒸馏</span></a></li></ol></li></ol></div>
             
 
           </div>
