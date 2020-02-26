@@ -57,21 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="1. 什么是条件随机场NLP中CRF模型可以简单看作是线性链条件随机场，是一种判别模型，是无向概率图模型，有下图形式： 有向图中每条有向边$A-&amp;gt;B$表示随机变量$B$依赖于随机变量$A$，有向边表示$P(B|A)$，所以有$P(A,B)=P(A)P(B|A)$。但在无向图中，我们不知道哪个随机变量依赖于哪个随机变量，只知道这几个随机变量是相关的。如果我们对每条无向边$A-B$定义一个联合概">
-<meta name="keywords" content="机器学习,NLP">
+  <meta name="description" content="贝叶斯推断贝叶斯决策是求这样的问题： P(x|D)=\int_{\theta}P(x|\theta,D)P(\theta|D)d\theta即在已知一个数据集$D$的情况下，求数据样本$x$出现的概率$P(x|D)$。上面的式子将$P(x|D)$积分展开，$P(x|\theta,D)$表示模型参数是$\theta$在数据集$D$上预测样本$x$出现的概率，是一个似然函数。而$P(\theta|D)">
+<meta name="keywords" content="机器学习,深度学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CRF-条件随机场">
-<meta property="og:url" content="http://yoursite.com/2020/02/12/CRF-条件随机场/index.html">
+<meta property="og:title" content="贝叶斯神经网络">
+<meta property="og:url" content="http://yoursite.com/2020/02/26/贝叶斯神经网络/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 什么是条件随机场NLP中CRF模型可以简单看作是线性链条件随机场，是一种判别模型，是无向概率图模型，有下图形式： 有向图中每条有向边$A-&amp;gt;B$表示随机变量$B$依赖于随机变量$A$，有向边表示$P(B|A)$，所以有$P(A,B)=P(A)P(B|A)$。但在无向图中，我们不知道哪个随机变量依赖于哪个随机变量，只知道这几个随机变量是相关的。如果我们对每条无向边$A-B$定义一个联合概">
+<meta property="og:description" content="贝叶斯推断贝叶斯决策是求这样的问题： P(x|D)=\int_{\theta}P(x|\theta,D)P(\theta|D)d\theta即在已知一个数据集$D$的情况下，求数据样本$x$出现的概率$P(x|D)$。上面的式子将$P(x|D)$积分展开，$P(x|\theta,D)$表示模型参数是$\theta$在数据集$D$上预测样本$x$出现的概率，是一个似然函数。而$P(\theta|D)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2020/02/12/CRF-条件随机场/1.png">
-<meta property="og:updated_time" content="2020-02-24T08:45:58.618Z">
+<meta property="og:updated_time" content="2020-02-26T06:35:35.994Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CRF-条件随机场">
-<meta name="twitter:description" content="1. 什么是条件随机场NLP中CRF模型可以简单看作是线性链条件随机场，是一种判别模型，是无向概率图模型，有下图形式： 有向图中每条有向边$A-&amp;gt;B$表示随机变量$B$依赖于随机变量$A$，有向边表示$P(B|A)$，所以有$P(A,B)=P(A)P(B|A)$。但在无向图中，我们不知道哪个随机变量依赖于哪个随机变量，只知道这几个随机变量是相关的。如果我们对每条无向边$A-B$定义一个联合概">
-<meta name="twitter:image" content="http://yoursite.com/2020/02/12/CRF-条件随机场/1.png">
-  <link rel="canonical" href="http://yoursite.com/2020/02/12/CRF-条件随机场/">
+<meta name="twitter:title" content="贝叶斯神经网络">
+<meta name="twitter:description" content="贝叶斯推断贝叶斯决策是求这样的问题： P(x|D)=\int_{\theta}P(x|\theta,D)P(\theta|D)d\theta即在已知一个数据集$D$的情况下，求数据样本$x$出现的概率$P(x|D)$。上面的式子将$P(x|D)$积分展开，$P(x|\theta,D)$表示模型参数是$\theta$在数据集$D$上预测样本$x$出现的概率，是一个似然函数。而$P(\theta|D)">
+  <link rel="canonical" href="http://yoursite.com/2020/02/26/贝叶斯神经网络/">
 
 
 <script id="page.configurations">
@@ -80,7 +78,7 @@
   };
 </script>
 
-  <title>CRF-条件随机场 | Hexo</title>
+  <title>贝叶斯神经网络 | Hexo</title>
   
 
 
@@ -195,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/12/CRF-条件随机场/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/26/贝叶斯神经网络/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -209,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">CRF-条件随机场
+          <h1 class="post-title" itemprop="name headline">贝叶斯神经网络
 
               
             
@@ -229,21 +227,11 @@
                 
               
 
-              <time title="创建时间：2020-02-12 11:35:23" itemprop="dateCreated datePublished" datetime="2020-02-12T11:35:23+08:00">2020-02-12</time>
+              <time title="创建时间：2020-02-26 11:42:55 / 修改时间：14:35:35" itemprop="dateCreated datePublished" datetime="2020-02-26T11:42:55+08:00">2020-02-26</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-02-24 16:45:58" itemprop="dateModified" datetime="2020-02-24T16:45:58+08:00">2020-02-24</time>
-              </span>
             
           
 
@@ -258,14 +246,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-什么是条件随机场"><a href="#1-什么是条件随机场" class="headerlink" title="1. 什么是条件随机场"></a>1. 什么是条件随机场</h2><p>NLP中CRF模型可以简单看作是线性链条件随机场，是一种判别模型，是无向概率图模型，有下图形式：</p>
-<p><img src="//yoursite.com/2020/02/12/CRF-条件随机场/1.png" alt><br>有向图中每条有向边$A-&gt;B$表示随机变量$B$依赖于随机变量$A$，有向边表示$P(B|A)$，所以有$P(A,B)=P(A)P(B|A)$。但在无向图中，我们不知道哪个随机变量依赖于哪个随机变量，只知道这几个随机变量是相关的。如果我们对每条无向边$A-B$定义一个联合概率$P(A,B)$是不合理的，比如现在有一个团，团内部随机变量两两相连，假设有10个随机变量，则这10个随机变量的联合概率可能依赖于这10个随机变量而无法分解成2个2个随机变量的联合概率的乘积。基于这个事实，可以对每个最大团定义一个势函数，这个势函数直接求得这个最大团的联合概率。然后整个无向图所有随机变量的联合概率等于所有最大团的联合概率的乘积。无向图所有最大团，一些最大团之间是有重合，注意所有最大团是指无向图的每条边都至少属于一个最大团，需要覆盖所有的边。至于为什么无向图的概率等于所有最大团的势函数的乘积，这个我是靠细细品味才理解的，并没有从数理层面分析，所以就不写了。</p>
-<h2 id="2-线性链条件随机场求解"><a href="#2-线性链条件随机场求解" class="headerlink" title="2. 线性链条件随机场求解"></a>2. 线性链条件随机场求解</h2><p>CRF模型在用于处理序列问题时，一般是使用线性链条件随机场模型。从上面的图可以看到，这个无向图每个三角形构成了一个最大团，所以可以对图上所有的三角形定义势函数，我们可以将势函数看作特征函数：</p>
-<script type="math/tex; mode=display">f(x_i,x_{i-1},y)</script><p>一般而言，特征函数不止一个。现在我们有一个堆数据样本$(X,Y)$，希望从这堆样本中学习到$P(Y|X)$，使得下式成立：</p>
-<script type="math/tex; mode=display">\sum_{x,y}\hat{p}(x,y)f(x,y)=\sum_{x,y}\hat{p}(x)p(y|x)f(x,y)</script><p>同时使得下式达到最大值：</p>
-<script type="math/tex; mode=display">-\sum_{x,y}\hat{p}(x)p(y|x)\log p(y|x)</script><p>其中$\hat{p}(x)$和$\hat{p}(x,y)$是从样本统计得到的，我们要求的是$p(y|x)$，可以看出这就是最大熵模型，本质上CRF是可以通过最大熵原理求得的。根据最大熵模型的求解，可以得到：</p>
-<script type="math/tex; mode=display">p(y|x)=\frac{1}{Z(x)}e^{\sum_iw_if_i(x,y)}</script><script type="math/tex; mode=display">Z(x)=\sum_ye^{\sum_iw_if_i(x,y)}</script><p>现在需要求$w_i$。上面的式子是从拉格朗日乘子法得到的，将$p(y|x)$代回拉格朗日式子，求得$w_i$的极大值点就是$w_i$的解。我们还可以换一个角度，使用$p(y|x)$在样本上通过求最大似然得到$w_i$，可以证明这两种做法本质是一样的。最大熵模型一般使用GIS或IIS求$w_i$，所以CRF也可以使用这两种方法。现在我们知道怎么使用数据样本得到CRF的模型参数，如果我们有一个输入$x$，怎么利用模型参数求最大的$p(y|x)$对应的$y$呢。我们可以借鉴HMM模型的解码问题，使用维比特算法的动态规划思想求出最大的$p(y|x)$和对应的$y$，这样就解决了CRF的解码问题了。</p>
-<h2 id="3-杂谈"><a href="#3-杂谈" class="headerlink" title="3. 杂谈"></a>3. 杂谈</h2><p>CRF模型与HMM模型比较，有这么几个优势：<br>(1) CRF是判别模型，HMM是生成模型，HMM有观测独立性假设，要求输入序列内部是互相独立的，而CRF因为是对条件概率建模，所以对输入序列内部没有任何约束，输入序列内部的任何约束也与条件概率无关。<br>(2) CRF使用无向概率图，变量之间的联系更复杂，更能应付更一般的情况。而HMM模型因为是有向概率图，要求变量之间的联系有迹可循，且联系是单向简单的。<br>(3) CRF可以按照需求定义各种特征函数，使得模型更灵活，能处理更多问题，而且可解释性更强。而HMM模型是已经定死了，规则就那些。实际上，可以利用CRF构造出任何一个HMM模型，但无法反向操作。</p>
+        <h2 id="贝叶斯推断"><a href="#贝叶斯推断" class="headerlink" title="贝叶斯推断"></a>贝叶斯推断</h2><p>贝叶斯决策是求这样的问题：</p>
+<script type="math/tex; mode=display">P(x|D)=\int_{\theta}P(x|\theta,D)P(\theta|D)d\theta</script><p>即在已知一个数据集$D$的情况下，求数据样本$x$出现的概率$P(x|D)$。上面的式子将$P(x|D)$积分展开，$P(x|\theta,D)$表示模型参数是$\theta$在数据集$D$上预测样本$x$出现的概率，是一个似然函数。而$P(\theta|D)$是关于参数$\theta$的后验概率。上面的式子可以变成这样的形式：</p>
+<script type="math/tex; mode=display">P(x|D)=E_{p(\theta|D)}[P(x|\theta,D)]</script><p>表示以概率$p(\theta|D)$采样参数$\theta$，得到$P(x|\theta,D)$的期望。这个期望并不好求，因为需要穷举所有的$\theta$，显然这是不可能的，注意到似然函数$P(x|\theta,D)$是容易求解的，所以我们可以使用蒙特卡洛方法，按照概率$p(\theta|D)$采样若干参数$\theta$，计算$P(x|\theta,D)$的平均值作为期望的近似。现在问题的关键就是求$P(\theta|D)$，只要求出$P(\theta|D)$，就可以使用蒙特卡洛方法求出$P(x|D)$了。</p>
+<h2 id="贝叶斯推断-1"><a href="#贝叶斯推断-1" class="headerlink" title="贝叶斯推断"></a>贝叶斯推断</h2><p>贝叶斯推断是求解后验概率，用到变分推断的方法。现在我们需要求后验概率$P(\theta|D)$，根据贝叶斯公式我们有：</p>
+<script type="math/tex; mode=display">P(\theta|D)=\frac{P(D|\theta)P(\theta)}{P(D)}</script><script type="math/tex; mode=display">P(D)=\int_{\theta} P(D|\theta)P(\theta)d\theta</script><p>可以看到，如果想通过贝叶斯公式求后验概率，需要求出边缘分布$P(D)$，但是这个积分很不好求。变分推断的方法是假设后验$P(\theta|D)$和先验$P(\theta)$符合同一种分布由不同参数控制，设$P(\theta|\lambda)$由参数$\lambda$控制，现在的目标是调整参数$\lambda$使得分布$P(\theta|\lambda)$近似$P(\theta|D)$，即要求两个分布的相对熵最小：</p>
+<script type="math/tex; mode=display">\min_{\lambda}L(\lambda)=\int_{\theta} P(\theta|\lambda)\log\frac{P(\theta|\lambda)}{P(\theta|D)}d\theta</script><p>将关于$P(\theta|D)$的贝叶斯公式代入上式，得到：</p>
+<script type="math/tex; mode=display">L(\lambda)=\int_{\theta}\{P(\theta|\lambda)\log\frac{P(\theta|\lambda)}{P(\theta)}-P(\theta|\lambda)\log P(D|\theta)+P(\theta|\lambda)\log P(D)\} d\theta</script><p>求上式的最小值，$\lambda$的取值与$P(D)$无关，所以简化成：</p>
+<script type="math/tex; mode=display">L(\lambda)=D_{KL}[P(\theta|\lambda)||P(\theta)]-E_{P(\theta|\lambda)}[P(D|\theta)]</script><p>上式求和第一项是后验分布和先验分布的KL散度值，第二项是似然函数$P(D|\theta)$在分布$P(\theta|\lambda)$下的期望。继续简化式子，得到：</p>
+<script type="math/tex; mode=display">L(\lambda)=E_{P(\theta|\lambda)}[P(\theta|\lambda)]-E_{P(\theta|\lambda)}[P(\theta)]-E_{P(\theta|\lambda)}[P(D|\theta)]</script><p>在求解贝叶斯决策的时候我们用到了蒙特卡洛方法近似，这里同样也可以使用蒙特卡洛方法近似，得到：</p>
+<script type="math/tex; mode=display">L(\lambda)\approx \frac{1}{N}\sum_{i=1}^N\{P(\theta_i|\lambda)-P(\theta_i)-P(D_i|\theta_i)\}</script><p>上式表示对第$i$个样本$D_i$，采样第$i$个参数$\theta_i$，对采样的结果求期望，这个期望近似等于$L(\lambda)$。采用梯度下降法寻找最佳的$\lambda$，发现$P(\theta_i)$和$P(D_i\theta_i)$无法对$\lambda$求导，所以需要用到一个技巧。假设$P(\theta|\lambda)$是一个均值为$\lambda_1$，标准差为$\lambda_2$的分布，在使用$P(\theta|\lambda)$对$\theta$采样时可以先在标准正态分布中采样，然后将采样结果乘上$\lambda_2$加上$\lambda_1$，得到在参数$\lambda$下的采样结果。这样做使得$\theta_i$与参数$\lambda$有关，所以求梯度时，可以通过路径$\frac{\partial \theta_i}{\partial \lambda}$求得关于$\lambda$的梯度。这种做法主要是利用了这样一个性质：</p>
+<script type="math/tex; mode=display">\frac{\partial}{\partial \lambda}E_{p(\theta)}[f(\lambda)]=E_{p(\theta)}[\frac{\partial}{\partial\lambda}f(\lambda)]</script><p>在采样的分布$p(\theta)$与$\lambda$无关时，上式总是成立。已知标准正态分布与参数$\lambda$无关，此时期望的梯度等于梯度的期望，所以可以对采样的样本求梯度，然后再对梯度求平均近似对期望求梯度。</p>
+<p>综上，我们在学习每个样本时都采样一个参数，计算$L(\lambda)$，然后使用梯度下降法不断更新$\lambda$直到收敛，最后我们就可以使用$P(\theta|\lambda)$近似后验分布$P(\theta|D)$了。</p>
+<h2 id="贝叶斯神经网络"><a href="#贝叶斯神经网络" class="headerlink" title="贝叶斯神经网络"></a>贝叶斯神经网络</h2><p>贝叶斯神经网络与贝叶斯网络是不同的，贝叶斯网络是有向图的概率图模型，而贝叶斯神经网络就是求神经网络的后验概率。普通的神经网络是判别模型，求的是最大似然，当目标函数添加了正则项则是求最大后验。贝叶斯神经网络并不是求最大似然和最大后验，而是要求神经网络参数的后验分布。为什么要求神经网络的后验分布，如果我们知道了后验分布就可以利用后验分布求贝叶斯推断问题，而且相比起普通神经网络，贝叶斯神经网络知道参数的分布而不只是一个最佳参数，后验分布可以作为新数据集的先验分布而求最大后验只能假设先验分布符合某种分布等等，总之知道一个分布比知道一个值更有作为。</p>
+<p>上一章节讲述的贝叶斯推断过程，将参数$\theta$看作一个神经网络的参数，就是贝叶斯神经网络的求解过程。神经网络是多层的，假设输入$X$是确定的，第一层的输出$Y$取决于：</p>
+<script type="math/tex; mode=display">Y=XW</script><p>其中$W$是模型参数，符合一个特定分布，比如高斯分布。那么Y的分布等于W的分布经过线性变换$X$，所以$Y$的分布在X确定的情况下是确定，由W的分布确定。在训练时，可以不用采样模型参数W，而是直接采样模型输出Y，直接利用Y计算对W的梯度，从而更新W的分布参数。这样做可以加速训练速度。</p>
+<p>最后在这里贴上一篇非常棒的文章，本文的许多内容都有参考这篇文章：<a href="https://zhuanlan.zhihu.com/p/81170602" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/81170602</a></p>
 
     </div>
 
@@ -279,13 +275,13 @@
         <div class="post-tags">
             <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
-            <a href="/tags/NLP/" rel="tag"># NLP</a>
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/11/HMM-隐马尔可夫模型/" rel="next" title="HMM-隐马尔可夫模型">
-                <i class="fa fa-chevron-left"></i> HMM-隐马尔可夫模型
+              <a href="/2020/02/25/知识蒸馏与模型压缩/" rel="next" title="知识蒸馏与模型压缩">
+                <i class="fa fa-chevron-left"></i> 知识蒸馏与模型压缩
               </a>
             
           </div>
@@ -293,10 +289,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/12/进程与线程/" rel="prev" title="进程与线程">
-                进程与线程 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -394,7 +386,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是条件随机场"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是条件随机场</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-线性链条件随机场求解"><span class="nav-number">2.</span> <span class="nav-text">2. 线性链条件随机场求解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-杂谈"><span class="nav-number">3.</span> <span class="nav-text">3. 杂谈</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#贝叶斯推断"><span class="nav-number">1.</span> <span class="nav-text">贝叶斯推断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贝叶斯推断-1"><span class="nav-number">2.</span> <span class="nav-text">贝叶斯推断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贝叶斯神经网络"><span class="nav-number">3.</span> <span class="nav-text">贝叶斯神经网络</span></a></li></ol></div>
             
 
           </div>
