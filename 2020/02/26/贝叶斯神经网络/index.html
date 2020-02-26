@@ -57,18 +57,18 @@
   };
 </script>
 
-  <meta name="description" content="贝叶斯推断贝叶斯决策是求这样的问题： P(x|D)=\int_{\theta}P(x|\theta,D)P(\theta|D)d\theta即在已知一个数据集$D$的情况下，求数据样本$x$出现的概率$P(x|D)$。上面的式子将$P(x|D)$积分展开，$P(x|\theta,D)$表示模型参数是$\theta$在数据集$D$上预测样本$x$出现的概率，是一个似然函数。而$P(\theta|D)">
+  <meta name="description" content="贝叶斯决策贝叶斯决策是求这样的问题： P(x|D)=\int_{\theta}P(x|\theta,D)P(\theta|D)d\theta即在已知一个数据集$D$的情况下，求数据样本$x$出现的概率$P(x|D)$。上面的式子将$P(x|D)$积分展开，$P(x|\theta,D)$表示模型参数是$\theta$在数据集$D$上预测样本$x$出现的概率，是一个似然函数。而$P(\theta|D)">
 <meta name="keywords" content="机器学习,深度学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="贝叶斯神经网络">
 <meta property="og:url" content="http://yoursite.com/2020/02/26/贝叶斯神经网络/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="贝叶斯推断贝叶斯决策是求这样的问题： P(x|D)=\int_{\theta}P(x|\theta,D)P(\theta|D)d\theta即在已知一个数据集$D$的情况下，求数据样本$x$出现的概率$P(x|D)$。上面的式子将$P(x|D)$积分展开，$P(x|\theta,D)$表示模型参数是$\theta$在数据集$D$上预测样本$x$出现的概率，是一个似然函数。而$P(\theta|D)">
+<meta property="og:description" content="贝叶斯决策贝叶斯决策是求这样的问题： P(x|D)=\int_{\theta}P(x|\theta,D)P(\theta|D)d\theta即在已知一个数据集$D$的情况下，求数据样本$x$出现的概率$P(x|D)$。上面的式子将$P(x|D)$积分展开，$P(x|\theta,D)$表示模型参数是$\theta$在数据集$D$上预测样本$x$出现的概率，是一个似然函数。而$P(\theta|D)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-26T06:35:35.994Z">
+<meta property="og:updated_time" content="2020-02-26T06:41:47.533Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="贝叶斯神经网络">
-<meta name="twitter:description" content="贝叶斯推断贝叶斯决策是求这样的问题： P(x|D)=\int_{\theta}P(x|\theta,D)P(\theta|D)d\theta即在已知一个数据集$D$的情况下，求数据样本$x$出现的概率$P(x|D)$。上面的式子将$P(x|D)$积分展开，$P(x|\theta,D)$表示模型参数是$\theta$在数据集$D$上预测样本$x$出现的概率，是一个似然函数。而$P(\theta|D)">
+<meta name="twitter:description" content="贝叶斯决策贝叶斯决策是求这样的问题： P(x|D)=\int_{\theta}P(x|\theta,D)P(\theta|D)d\theta即在已知一个数据集$D$的情况下，求数据样本$x$出现的概率$P(x|D)$。上面的式子将$P(x|D)$积分展开，$P(x|\theta,D)$表示模型参数是$\theta$在数据集$D$上预测样本$x$出现的概率，是一个似然函数。而$P(\theta|D)">
   <link rel="canonical" href="http://yoursite.com/2020/02/26/贝叶斯神经网络/">
 
 
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-26 11:42:55 / 修改时间：14:35:35" itemprop="dateCreated datePublished" datetime="2020-02-26T11:42:55+08:00">2020-02-26</time>
+              <time title="创建时间：2020-02-26 11:42:55 / 修改时间：14:41:47" itemprop="dateCreated datePublished" datetime="2020-02-26T11:42:55+08:00">2020-02-26</time>
             </span>
           
             
@@ -246,10 +246,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="贝叶斯推断"><a href="#贝叶斯推断" class="headerlink" title="贝叶斯推断"></a>贝叶斯推断</h2><p>贝叶斯决策是求这样的问题：</p>
+        <h2 id="贝叶斯决策"><a href="#贝叶斯决策" class="headerlink" title="贝叶斯决策"></a>贝叶斯决策</h2><p>贝叶斯决策是求这样的问题：</p>
 <script type="math/tex; mode=display">P(x|D)=\int_{\theta}P(x|\theta,D)P(\theta|D)d\theta</script><p>即在已知一个数据集$D$的情况下，求数据样本$x$出现的概率$P(x|D)$。上面的式子将$P(x|D)$积分展开，$P(x|\theta,D)$表示模型参数是$\theta$在数据集$D$上预测样本$x$出现的概率，是一个似然函数。而$P(\theta|D)$是关于参数$\theta$的后验概率。上面的式子可以变成这样的形式：</p>
 <script type="math/tex; mode=display">P(x|D)=E_{p(\theta|D)}[P(x|\theta,D)]</script><p>表示以概率$p(\theta|D)$采样参数$\theta$，得到$P(x|\theta,D)$的期望。这个期望并不好求，因为需要穷举所有的$\theta$，显然这是不可能的，注意到似然函数$P(x|\theta,D)$是容易求解的，所以我们可以使用蒙特卡洛方法，按照概率$p(\theta|D)$采样若干参数$\theta$，计算$P(x|\theta,D)$的平均值作为期望的近似。现在问题的关键就是求$P(\theta|D)$，只要求出$P(\theta|D)$，就可以使用蒙特卡洛方法求出$P(x|D)$了。</p>
-<h2 id="贝叶斯推断-1"><a href="#贝叶斯推断-1" class="headerlink" title="贝叶斯推断"></a>贝叶斯推断</h2><p>贝叶斯推断是求解后验概率，用到变分推断的方法。现在我们需要求后验概率$P(\theta|D)$，根据贝叶斯公式我们有：</p>
+<h2 id="贝叶斯推断"><a href="#贝叶斯推断" class="headerlink" title="贝叶斯推断"></a>贝叶斯推断</h2><p>贝叶斯推断是求解后验概率，用到变分推断的方法。现在我们需要求后验概率$P(\theta|D)$，根据贝叶斯公式我们有：</p>
 <script type="math/tex; mode=display">P(\theta|D)=\frac{P(D|\theta)P(\theta)}{P(D)}</script><script type="math/tex; mode=display">P(D)=\int_{\theta} P(D|\theta)P(\theta)d\theta</script><p>可以看到，如果想通过贝叶斯公式求后验概率，需要求出边缘分布$P(D)$，但是这个积分很不好求。变分推断的方法是假设后验$P(\theta|D)$和先验$P(\theta)$符合同一种分布由不同参数控制，设$P(\theta|\lambda)$由参数$\lambda$控制，现在的目标是调整参数$\lambda$使得分布$P(\theta|\lambda)$近似$P(\theta|D)$，即要求两个分布的相对熵最小：</p>
 <script type="math/tex; mode=display">\min_{\lambda}L(\lambda)=\int_{\theta} P(\theta|\lambda)\log\frac{P(\theta|\lambda)}{P(\theta|D)}d\theta</script><p>将关于$P(\theta|D)$的贝叶斯公式代入上式，得到：</p>
 <script type="math/tex; mode=display">L(\lambda)=\int_{\theta}\{P(\theta|\lambda)\log\frac{P(\theta|\lambda)}{P(\theta)}-P(\theta|\lambda)\log P(D|\theta)+P(\theta|\lambda)\log P(D)\} d\theta</script><p>求上式的最小值，$\lambda$的取值与$P(D)$无关，所以简化成：</p>
@@ -386,7 +386,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#贝叶斯推断"><span class="nav-number">1.</span> <span class="nav-text">贝叶斯推断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贝叶斯推断-1"><span class="nav-number">2.</span> <span class="nav-text">贝叶斯推断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贝叶斯神经网络"><span class="nav-number">3.</span> <span class="nav-text">贝叶斯神经网络</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#贝叶斯决策"><span class="nav-number">1.</span> <span class="nav-text">贝叶斯决策</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贝叶斯推断"><span class="nav-number">2.</span> <span class="nav-text">贝叶斯推断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贝叶斯神经网络"><span class="nav-number">3.</span> <span class="nav-text">贝叶斯神经网络</span></a></li></ol></div>
             
 
           </div>
