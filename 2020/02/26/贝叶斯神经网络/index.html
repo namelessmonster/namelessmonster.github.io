@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="贝叶斯决策贝叶斯决策是求这样的问题： P(x|D)=\int_{\theta}P(x|\theta,D)P(\theta|D)d\theta即在已知一个数据集$D$的情况下，求数据样本$x$出现的概率$P(x|D)$。上面的式子将$P(x|D)$积分展开，$P(x|\theta,D)$表示模型参数是$\theta$在数据集$D$上预测样本$x$出现的概率，是一个似然函数。而$P(\theta|D)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-26T06:41:47.533Z">
+<meta property="og:updated_time" content="2020-02-27T14:26:20.335Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="贝叶斯神经网络">
 <meta name="twitter:description" content="贝叶斯决策贝叶斯决策是求这样的问题： P(x|D)=\int_{\theta}P(x|\theta,D)P(\theta|D)d\theta即在已知一个数据集$D$的情况下，求数据样本$x$出现的概率$P(x|D)$。上面的式子将$P(x|D)$积分展开，$P(x|\theta,D)$表示模型参数是$\theta$在数据集$D$上预测样本$x$出现的概率，是一个似然函数。而$P(\theta|D)">
@@ -227,11 +227,21 @@
                 
               
 
-              <time title="创建时间：2020-02-26 11:42:55 / 修改时间：14:41:47" itemprop="dateCreated datePublished" datetime="2020-02-26T11:42:55+08:00">2020-02-26</time>
+              <time title="创建时间：2020-02-26 11:42:55" itemprop="dateCreated datePublished" datetime="2020-02-26T11:42:55+08:00">2020-02-26</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-02-27 22:26:20" itemprop="dateModified" datetime="2020-02-27T22:26:20+08:00">2020-02-27</time>
+              </span>
             
           
 
@@ -258,7 +268,7 @@
 <script type="math/tex; mode=display">L(\lambda)\approx \frac{1}{N}\sum_{i=1}^N\{P(\theta_i|\lambda)-P(\theta_i)-P(D_i|\theta_i)\}</script><p>上式表示对第$i$个样本$D_i$，采样第$i$个参数$\theta_i$，对采样的结果求期望，这个期望近似等于$L(\lambda)$。采用梯度下降法寻找最佳的$\lambda$，发现$P(\theta_i)$和$P(D_i\theta_i)$无法对$\lambda$求导，所以需要用到一个技巧。假设$P(\theta|\lambda)$是一个均值为$\lambda_1$，标准差为$\lambda_2$的分布，在使用$P(\theta|\lambda)$对$\theta$采样时可以先在标准正态分布中采样，然后将采样结果乘上$\lambda_2$加上$\lambda_1$，得到在参数$\lambda$下的采样结果。这样做使得$\theta_i$与参数$\lambda$有关，所以求梯度时，可以通过路径$\frac{\partial \theta_i}{\partial \lambda}$求得关于$\lambda$的梯度。这种做法主要是利用了这样一个性质：</p>
 <script type="math/tex; mode=display">\frac{\partial}{\partial \lambda}E_{p(\theta)}[f(\lambda)]=E_{p(\theta)}[\frac{\partial}{\partial\lambda}f(\lambda)]</script><p>在采样的分布$p(\theta)$与$\lambda$无关时，上式总是成立。已知标准正态分布与参数$\lambda$无关，此时期望的梯度等于梯度的期望，所以可以对采样的样本求梯度，然后再对梯度求平均近似对期望求梯度。</p>
 <p>综上，我们在学习每个样本时都采样一个参数，计算$L(\lambda)$，然后使用梯度下降法不断更新$\lambda$直到收敛，最后我们就可以使用$P(\theta|\lambda)$近似后验分布$P(\theta|D)$了。</p>
-<h2 id="贝叶斯神经网络"><a href="#贝叶斯神经网络" class="headerlink" title="贝叶斯神经网络"></a>贝叶斯神经网络</h2><p>贝叶斯神经网络与贝叶斯网络是不同的，贝叶斯网络是有向图的概率图模型，而贝叶斯神经网络就是求神经网络的后验概率。普通的神经网络是判别模型，求的是最大似然，当目标函数添加了正则项则是求最大后验。贝叶斯神经网络并不是求最大似然和最大后验，而是要求神经网络参数的后验分布。为什么要求神经网络的后验分布，如果我们知道了后验分布就可以利用后验分布求贝叶斯推断问题，而且相比起普通神经网络，贝叶斯神经网络知道参数的分布而不只是一个最佳参数，后验分布可以作为新数据集的先验分布而求最大后验只能假设先验分布符合某种分布等等，总之知道一个分布比知道一个值更有作为。</p>
+<h2 id="贝叶斯神经网络"><a href="#贝叶斯神经网络" class="headerlink" title="贝叶斯神经网络"></a>贝叶斯神经网络</h2><p>贝叶斯神经网络与贝叶斯网络是不同的，贝叶斯网络是有向图的概率图模型，而贝叶斯神经网络就是求神经网络的后验概率。普通的神经网络是判别模型，求的是最大似然，当目标函数添加了正则项则是求最大后验。贝叶斯神经网络并不是求最大似然和最大后验，而是要求神经网络参数的后验分布。为什么要求神经网络的后验分布，如果我们知道了后验分布就可以利用后验分布求贝叶斯决策问题，而且相比起普通神经网络，贝叶斯神经网络知道参数的分布而不只是一个最佳参数，后验分布可以作为新数据集的先验分布而求最大后验只能假设先验分布符合某种分布等等，总之知道一个分布比知道一个值更有作为。</p>
 <p>上一章节讲述的贝叶斯推断过程，将参数$\theta$看作一个神经网络的参数，就是贝叶斯神经网络的求解过程。神经网络是多层的，假设输入$X$是确定的，第一层的输出$Y$取决于：</p>
 <script type="math/tex; mode=display">Y=XW</script><p>其中$W$是模型参数，符合一个特定分布，比如高斯分布。那么Y的分布等于W的分布经过线性变换$X$，所以$Y$的分布在X确定的情况下是确定，由W的分布确定。在训练时，可以不用采样模型参数W，而是直接采样模型输出Y，直接利用Y计算对W的梯度，从而更新W的分布参数。这样做可以加速训练速度。</p>
 <p>最后在这里贴上一篇非常棒的文章，本文的许多内容都有参考这篇文章：<a href="https://zhuanlan.zhihu.com/p/81170602" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/81170602</a></p>
