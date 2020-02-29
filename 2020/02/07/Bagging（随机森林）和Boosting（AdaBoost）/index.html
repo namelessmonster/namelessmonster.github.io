@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1. 什么是Bagging（随机森林）Bagging的思想是均匀地、有放回地从大小为D的数据集采样出M个样本构成数据集，总共采样N次用于分别训练N个模型，在预测阶段使用这N个模型共同决定样本的分类或回归结果。在这里，随机森林是一个很好的例子。随机森林就是学习N棵决策树共同决定样本的预测结果。随机森林的随机体现在两点：(1) 每棵决策树的训练样本是采用有放回的随机获取的。(2) 每棵决策树在训练时，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-29T06:52:55.758Z">
+<meta property="og:updated_time" content="2020-02-29T07:00:13.481Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bagging（随机森林）和Boosting（AdaBoost）">
 <meta name="twitter:description" content="1. 什么是Bagging（随机森林）Bagging的思想是均匀地、有放回地从大小为D的数据集采样出M个样本构成数据集，总共采样N次用于分别训练N个模型，在预测阶段使用这N个模型共同决定样本的分类或回归结果。在这里，随机森林是一个很好的例子。随机森林就是学习N棵决策树共同决定样本的预测结果。随机森林的随机体现在两点：(1) 每棵决策树的训练样本是采用有放回的随机获取的。(2) 每棵决策树在训练时，">
@@ -240,7 +240,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-02-29 14:52:55" itemprop="dateModified" datetime="2020-02-29T14:52:55+08:00">2020-02-29</time>
+                <time title="修改时间：2020-02-29 15:00:13" itemprop="dateModified" datetime="2020-02-29T15:00:13+08:00">2020-02-29</time>
               </span>
             
           
@@ -260,7 +260,7 @@
 <p>随机森林有一个特性，就是可以计算袋外错误率。什么是袋外错误率呢？对于每一棵决策树，使用有放回的随机获取训练样本，大约会有$\frac{1}{3}$的样本没有被采样到。反过来说，对于每一个样本，大约会有$\frac{1}{3}$棵决策树没有使用到这个样本进行训练，所以可以使用随机森林这$\frac{1}{3}$的决策树对这个样本进行预测。所有样本的预测错误率就可以称为袋外错误率。这个袋外错误率有什么用呢？首先，袋外错误率可以作为在验证集上的效果看待，所以可以决定每棵决策树的深度，对每棵决策树进行剪枝。其次，袋外错误率还可以评价特征的重要程度，对样本在某个特征处加上噪声，计算袋外错误率的变化，如果变化大说明这个特征很重要，否则说明这个特征重要性并不高。因为有这个袋外错误率，所以随机森林可以不用进行交叉验证。另外，随机森林在计算特征重要性时，除了可以使用袋外错误率，还可以使用基尼指数增益。</p>
 <p>随机森林树的个数是否越多越好？首先随着树的个数增多，随机森林在训练时需要占用更多的资源，如果增加树的个数对提升模型效果作用不大，增加树的个数反而会不好。其次，随机森林引入随机抽样和随机抽列使模型鲁棒性更强，对异常点的敏感度减小，如果是树的个数很多，这种随机性反而会下降，使得模型容易过拟合，泛化性能下降。所以树的个数需要根据具体业务需求确定。</p>
 <p>Bagging的作用主要是为了降低方差，降低方差的原理是利用对数据集抽样的独立性使得多个模型的方差约等于单个模型方差除以模型数量。Bagging要求模型的训练数据之间应该相互独立，但因为是在同一个有限的数据集上抽样，难免会存在一些相关性，所以随机森林并不是树越多越好，因为树越多，树之间的相关性就会越大。</p>
-<h2 id="2-什么是Boosting（AdaBoost）"><a href="#2-什么是Boosting（AdaBoost）" class="headerlink" title="2. 什么是Boosting（AdaBoost）"></a>2. 什么是Boosting（AdaBoost）</h2><p>Boosting是一种提升的思想，是串行执行的，当前模型重视对前面模型的错误样本进行学习，最后将所有模型合在一起共同决定预测结果。在这里，AdaBoost是一个很好的例子。AdaBoost的算法思想是在当前轮学习中，增大误差的权重，从而使得下一轮学习更重视当前轮的误差。以二分类任务为例，首先第一步，数据集D含有N个样本，每个样本的权重为$w_i^1=\frac{1}{N}$。使用这N个样本学习得到第一个分类器$f_1$，该分类器的错误率为$\epsilon_1$，使用$\epsilon_1$计算可以得到$\alpha_1$：</p>
+<h2 id="2-什么是Boosting（AdaBoost）"><a href="#2-什么是Boosting（AdaBoost）" class="headerlink" title="2. 什么是Boosting（AdaBoost）"></a>2. 什么是Boosting（AdaBoost）</h2><p>Boosting是一种提升的思想，是串行执行的，当前模型重视对前面模型的错误样本进行学习，最后将所有模型合在一起共同决定预测结果。在这里，AdaBoost是一个很好的例子。AdaBoost的算法思想是在当前轮学习中，增大错误样本的权重，从而使得下一轮学习更重视当前轮的错误样本。以二分类任务为例，首先第一步，数据集D含有N个样本，每个样本的权重为$w_i^1=\frac{1}{N}$。使用这N个样本学习得到第一个分类器$f_1$，该分类器的错误率为$\epsilon_1$，使用$\epsilon_1$计算可以得到$\alpha_1$：</p>
 <script type="math/tex; mode=display">\epsilon_1=\sum_i{w_iI(f_1(x_i)\ne y_i)}</script><script type="math/tex; mode=display">\alpha_1=\frac{1}{2}\ln{\frac{1-\epsilon_1}{\epsilon_1}}</script><p>其中$G$函数表示将模型输出映射到分类结果，使用$\alpha_1$更新样本的权重，对于正确分类的样本，使用下式更新权重：</p>
 <script type="math/tex; mode=display">w_i^2=\frac{w_i^{1}e^{-\alpha_1}}{Z_1}</script><p>其中$Z_1$是归一化项，对于错误分类的样本，使用下式更新权重：</p>
 <script type="math/tex; mode=display">w_i^2=\frac{w_i^1e^{\alpha_1}}{Z_1}</script><p>总结一下就是：</p>
