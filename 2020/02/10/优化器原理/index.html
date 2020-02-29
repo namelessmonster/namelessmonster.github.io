@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1. 什么是优化器在机器学习和深度学习中，我们经常需要寻找一组最佳参数使得模型在损失函数上达到最小值。这组参数可以是使用直接求解一步到位，一般是令导数为0然后得到参数的最优解；可以是使用迭代方法，每次迭代使参数往最优解靠近。优化器在求解参数的步骤一般是：(1) 求出损失函数对参数的梯度(2) 使用负梯度乘上一定步长更新参数(3) 重复迭代上面两个步骤直到收敛 2. 有哪些优化方法常用的优化方法有：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-10T06:30:07.331Z">
+<meta property="og:updated_time" content="2020-02-29T11:20:36.699Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="优化器原理">
 <meta name="twitter:description" content="1. 什么是优化器在机器学习和深度学习中，我们经常需要寻找一组最佳参数使得模型在损失函数上达到最小值。这组参数可以是使用直接求解一步到位，一般是令导数为0然后得到参数的最优解；可以是使用迭代方法，每次迭代使参数往最优解靠近。优化器在求解参数的步骤一般是：(1) 求出损失函数对参数的梯度(2) 使用负梯度乘上一定步长更新参数(3) 重复迭代上面两个步骤直到收敛 2. 有哪些优化方法常用的优化方法有：">
@@ -227,11 +227,21 @@
                 
               
 
-              <time title="创建时间：2020-02-10 13:14:47 / 修改时间：14:30:07" itemprop="dateCreated datePublished" datetime="2020-02-10T13:14:47+08:00">2020-02-10</time>
+              <time title="创建时间：2020-02-10 13:14:47" itemprop="dateCreated datePublished" datetime="2020-02-10T13:14:47+08:00">2020-02-10</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-02-29 19:20:36" itemprop="dateModified" datetime="2020-02-29T19:20:36+08:00">2020-02-29</time>
+              </span>
             
           
 
@@ -249,7 +259,7 @@
         <h2 id="1-什么是优化器"><a href="#1-什么是优化器" class="headerlink" title="1. 什么是优化器"></a>1. 什么是优化器</h2><p>在机器学习和深度学习中，我们经常需要寻找一组最佳参数使得模型在损失函数上达到最小值。这组参数可以是使用直接求解一步到位，一般是令导数为0然后得到参数的最优解；可以是使用迭代方法，每次迭代使参数往最优解靠近。优化器在求解参数的步骤一般是：<br>(1) 求出损失函数对参数的梯度<br>(2) 使用负梯度乘上一定步长更新参数<br>(3) 重复迭代上面两个步骤直到收敛</p>
 <h2 id="2-有哪些优化方法"><a href="#2-有哪些优化方法" class="headerlink" title="2. 有哪些优化方法"></a>2. 有哪些优化方法</h2><p>常用的优化方法有：梯度下降法，动量优化方法和自适应学习率优化算法。梯度下降法又可以分为标准梯度下降法，批量梯度下降法和随机梯度下降法。</p>
 <h2 id="3-各种优化方法原理"><a href="#3-各种优化方法原理" class="headerlink" title="3. 各种优化方法原理"></a>3. 各种优化方法原理</h2><h3 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h3><p>梯度下降法的步骤为：<br>(1) 求出损失函数对参数的梯度<br>(2) 使用负梯度乘上一定步长更新参数<br>这里的步长是指学习率，在梯度下降法中是一个固定的常数。标准梯度下降法会使用所有的样本计算梯度，批量梯度下降法使用一批数量样本计算梯度，而随机梯度下降法则使用一个样本计算梯度。标准梯度下降法计算时间长，随机梯度下降法收敛速度慢，所以一般采用批量梯度下降法。使用批量梯度下降法时，一批样本的数量设置很重要。梯度下降法可以使用这个式子表示：</p>
-<script type="math/tex; mode=display">W_{t+1}=W_t+\eta_tg_t</script><p>其中$W$表示参数，$\eta_t$表示第$t$轮的学习率，$g_t$表示第$t$轮的参数的梯度。</p>
+<script type="math/tex; mode=display">W_{t+1}=W_t-\eta_tg_t</script><p>其中$W$表示参数，$\eta_t$表示第$t$轮的学习率，$g_t$表示第$t$轮的参数的梯度。</p>
 <h3 id="动量优化法"><a href="#动量优化法" class="headerlink" title="动量优化法"></a>动量优化法</h3><p>梯度下降法有一个问题就是学习率是固定的，这样如果遇到平缓的坡时，参数更新速度会很慢，所以人们提出了两种加速梯度更新的方法，一种方法是利用惯性加快梯度更新，另一种方法是自适应调整学习率，在需要提高训练速度时增大学习率。利用惯性加快梯度更新的方法可以称为动量优化器。动量优化法的思想是积攒历史的梯度，如果历史的梯度总是往一个方向，则往相同方向的梯度会放大，从而提高训练速度。就像一个平缓的坡，初始时速度很慢，但不断积攒下降速度，下降速度会越来越快，这里的惯性起到了加速度的效果。常用的方法有：Momentum和NAG。</p>
 <h4 id="Momentum"><a href="#Momentum" class="headerlink" title="Momentum"></a>Momentum</h4><p>这种方法使用下述式子更新参数：</p>
 <script type="math/tex; mode=display">\begin{cases}
