@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="1. 什么是Bagging（随机森林）Bagging的思想是均匀地、有放回地从大小为D的数据集采样出M个样本构成数据集，总共采样N次用于分别训练N个模型，在预测阶段使用这N个模型共同决定样本的分类或回归结果。在这里，随机森林是一个很好的例子。随机森林就是学习N棵决策树共同决定样本的预测结果。随机森林的随机体现在两点：(1) 每棵决策树的训练样本是采用有放回的随机获取的。(2) 每棵决策树在训练时，">
-<meta name="keywords" content="机器学习">
+  <meta name="description" content="综述Transformer是一种勇于序列的神经网络模型，相比起RNN和LSTM，Transformer可以解决RNN和LSTM无法完全解决的长期依赖问题。 输入层Transformer的输入层由两个向量组成，分别是词向量和位置向量 词向量词向量由独热编码乘上系数矩阵获得，使用Embedding层 位置向量位置向量有两种实现方式，一种是利用确定性的位置编码，即位置编码一经决定不再改变；另一种是使用位">
+<meta name="keywords" content="机器学习,深度学习,NLP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Bagging（随机森林）和Boosting（AdaBoost）">
-<meta property="og:url" content="http://yoursite.com/2020/02/07/Bagging（随机森林）和Boosting（AdaBoost）/index.html">
+<meta property="og:title" content="Transformer原理">
+<meta property="og:url" content="http://yoursite.com/2020/02/29/Transformer原理/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 什么是Bagging（随机森林）Bagging的思想是均匀地、有放回地从大小为D的数据集采样出M个样本构成数据集，总共采样N次用于分别训练N个模型，在预测阶段使用这N个模型共同决定样本的分类或回归结果。在这里，随机森林是一个很好的例子。随机森林就是学习N棵决策树共同决定样本的预测结果。随机森林的随机体现在两点：(1) 每棵决策树的训练样本是采用有放回的随机获取的。(2) 每棵决策树在训练时，">
+<meta property="og:description" content="综述Transformer是一种勇于序列的神经网络模型，相比起RNN和LSTM，Transformer可以解决RNN和LSTM无法完全解决的长期依赖问题。 输入层Transformer的输入层由两个向量组成，分别是词向量和位置向量 词向量词向量由独热编码乘上系数矩阵获得，使用Embedding层 位置向量位置向量有两种实现方式，一种是利用确定性的位置编码，即位置编码一经决定不再改变；另一种是使用位">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-17T13:47:19.292Z">
+<meta property="og:updated_time" content="2020-02-29T06:00:06.088Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bagging（随机森林）和Boosting（AdaBoost）">
-<meta name="twitter:description" content="1. 什么是Bagging（随机森林）Bagging的思想是均匀地、有放回地从大小为D的数据集采样出M个样本构成数据集，总共采样N次用于分别训练N个模型，在预测阶段使用这N个模型共同决定样本的分类或回归结果。在这里，随机森林是一个很好的例子。随机森林就是学习N棵决策树共同决定样本的预测结果。随机森林的随机体现在两点：(1) 每棵决策树的训练样本是采用有放回的随机获取的。(2) 每棵决策树在训练时，">
-  <link rel="canonical" href="http://yoursite.com/2020/02/07/Bagging（随机森林）和Boosting（AdaBoost）/">
+<meta name="twitter:title" content="Transformer原理">
+<meta name="twitter:description" content="综述Transformer是一种勇于序列的神经网络模型，相比起RNN和LSTM，Transformer可以解决RNN和LSTM无法完全解决的长期依赖问题。 输入层Transformer的输入层由两个向量组成，分别是词向量和位置向量 词向量词向量由独热编码乘上系数矩阵获得，使用Embedding层 位置向量位置向量有两种实现方式，一种是利用确定性的位置编码，即位置编码一经决定不再改变；另一种是使用位">
+  <link rel="canonical" href="http://yoursite.com/2020/02/29/Transformer原理/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>Bagging（随机森林）和Boosting（AdaBoost） | Hexo</title>
+  <title>Transformer原理 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/07/Bagging（随机森林）和Boosting（AdaBoost）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/29/Transformer原理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">Bagging（随机森林）和Boosting（AdaBoost）
+          <h1 class="post-title" itemprop="name headline">Transformer原理
 
               
             
@@ -227,21 +227,11 @@
                 
               
 
-              <time title="创建时间：2020-02-07 19:47:37" itemprop="dateCreated datePublished" datetime="2020-02-07T19:47:37+08:00">2020-02-07</time>
+              <time title="创建时间：2020-02-29 12:54:40 / 修改时间：14:00:06" itemprop="dateCreated datePublished" datetime="2020-02-29T12:54:40+08:00">2020-02-29</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-02-17 21:47:19" itemprop="dateModified" datetime="2020-02-17T21:47:19+08:00">2020-02-17</time>
-              </span>
             
           
 
@@ -256,21 +246,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-什么是Bagging（随机森林）"><a href="#1-什么是Bagging（随机森林）" class="headerlink" title="1. 什么是Bagging（随机森林）"></a>1. 什么是Bagging（随机森林）</h2><p>Bagging的思想是均匀地、有放回地从大小为D的数据集采样出M个样本构成数据集，总共采样N次用于分别训练N个模型，在预测阶段使用这N个模型共同决定样本的分类或回归结果。在这里，随机森林是一个很好的例子。随机森林就是学习N棵决策树共同决定样本的预测结果。随机森林的随机体现在两点：<br>(1) 每棵决策树的训练样本是采用有放回的随机获取的。<br>(2) 每棵决策树在训练时，在选取特征和特征值对决策树进行划分时，首先随机选取$m$个特征，然后再从这$m$个特征中按照某种规则比如信息增益率或基尼系数或某种目标函数等等，选择最佳特征和特征值进行划分。</p>
-<p>随机森林有一个特性，就是可以计算袋外错误率。什么是袋外错误率呢？对于每一棵决策树，使用有放回的随机获取训练样本，大约会有$\frac{1}{3}$的样本没有被采样到。反过来说，对于每一个样本，大约会有$\frac{1}{3}$棵决策树没有使用到这个样本进行训练，所以可以使用随机森林这$\frac{1}{3}$的决策树对这个样本进行预测。所有样本的预测错误率就可以称为袋外错误率。这个袋外错误率有什么用呢？首先，袋外错误率可以作为在验证集上的效果看待，所以可以决定每棵决策树的深度，对每棵决策树进行剪枝。其次，袋外错误率还可以评价特征的重要程度，对样本在某个特征处加上噪声，计算袋外错误率的变化，如果变化大说明这个特征很重要，否则说明这个特征重要性并不高。因为有这个袋外错误率，所以随机森林可以不用进行交叉验证。另外，随机森林在计算特征重要性时，除了可以使用袋外错误率，还可以使用基尼指数增益。</p>
-<p>随机森林树的个数是否越多越好？首先随着树的个数增多，随机森林在训练时需要占用更多的资源，如果增加树的个数对提升模型效果作用不大，增加树的个数反而会不好。其次，随机森林引入随机抽样和随机抽列使模型鲁棒性更强，对异常点的敏感度减小，如果是树的个数很多，这种随机性反而会下降，使得模型容易过拟合，泛化性能下降。所以树的个数需要根据具体业务需求确定。</p>
-<h2 id="2-什么是Boosting（AdaBoost）"><a href="#2-什么是Boosting（AdaBoost）" class="headerlink" title="2. 什么是Boosting（AdaBoost）"></a>2. 什么是Boosting（AdaBoost）</h2><p>Boosting是一种提升的思想，是串行执行的，当前模型重视对前面模型的误差进行学习，将所有合在一起共同决定预测结果。在这里，AdaBoost是一个很好的例子。AdaBoost的算法思想是在当前轮学习中，增大误差的权重，从而使得下一轮学习更重视当前轮的误差。以二分类任务为例，首先第一步，数据集D含有N个样本，每个样本的权重为$w_i^1=\frac{1}{N}$。使用这N个样本学习得到第一个分类器$f_1$，该分类器的错误率为$\epsilon_1$，使用$\epsilon_1$计算可以得到$\alpha_1$：</p>
-<script type="math/tex; mode=display">\epsilon_1=\sum_i{w_iI(f_1(x_i)\ne y_i)}</script><script type="math/tex; mode=display">\alpha_1=\frac{1}{2}\ln{\frac{1-\epsilon_1}{\epsilon_1}}</script><p>其中$G$函数表示将模型输出映射到分类结果，使用$\alpha_1$更新样本的权重，对于正确分类的样本，使用下式更新权重：</p>
-<script type="math/tex; mode=display">w_i^2=\frac{w_i^{1}e^{-\alpha_1}}{Z_1}</script><p>其中$Z_1$是归一化项，对于错误分类的样本，使用下式更新权重：</p>
-<script type="math/tex; mode=display">w_i^2=\frac{w_i^1e^{\alpha_1}}{Z_1}</script><p>总结一下就是：</p>
-<script type="math/tex; mode=display">w_i^2=\frac{w_i^1e^{-\alpha_1y_if_1(x_i)}}{Z_1}</script><p>这样就完成了第一轮的学习，接着进入第二轮的学习，由此类推，当学习了M个分类器后，使用下式组合M个分类器的结果：</p>
-<script type="math/tex; mode=display">F(x)=\sum_i{\alpha_if_i(x)}</script><script type="math/tex; mode=display">G(x)=sign(F(x))</script><p>对于AdaBoost为什么这样计算各个分类器的权重与这样进行样本权重的更新，实际上这是由AdaBoost在处理二分类问题时最小化指数损失函数决定的。所以在使用AdaBoost处理多分类问题或回归问题时，使用其他类型的损失函数，需要针对最小化损失函数来决定各个学习器的权重与各个样本权重的更新方式。现在证明一下为什么AdaBoost这样计算分类器权重以及为什么样本权重是这样更新的。已知损失函数是指数损失函数，且AdaBoost是加法模型，所以有：</p>
-<script type="math/tex; mode=display">L=\sum_i{e^{-y_iF_m(x_i)}}</script><script type="math/tex; mode=display">=\sum_i{e^{-y_iF_{m-1}(x_i)}e^{-y_i\alpha_mf_m(x_i)}}</script><script type="math/tex; mode=display">=\sum_i{w_ie^{-y_i\alpha_mf_m(x_i)}}</script><script type="math/tex; mode=display">=e^{-\alpha_m}\sum_iw_iI(y_i=f_m(x_i))+e^{\alpha_m}\sum_iw_iI(y_i\ne f_m(x_i))</script><script type="math/tex; mode=display">=e^{-\alpha_m}\sum_iw_i+(e^{\alpha_m}-e^{-\alpha_m})\sum_iw_iI(y_i\ne f_m(x_i))</script><p>对$\alpha_m$求导并令导数为0，可以得到：</p>
-<script type="math/tex; mode=display">-e^{-\alpha_m}\sum_iw_i+(e^{\alpha_m}+e^{-\alpha_m})\sum_iw_iI(y_i\ne f_m(x_i))=0</script><script type="math/tex; mode=display">==> -e^{-\alpha_m}\sum_i\frac{w_i}{Z}+(e^{\alpha_m}+e^{-\alpha_m})\sum_i\frac{w_i}{Z}I(y_i\ne f_m(x_i))=0</script><p>其中$Z$是归一化因子，这样可以得到：</p>
-<script type="math/tex; mode=display">-e^{-\alpha_m}+(e^{\alpha_m}+e^{-\alpha_m}\epsilon_m)=0</script><p>可以求得：</p>
-<script type="math/tex; mode=display">\alpha_m=\frac{1}{2}\ln\frac{1-\epsilon_m}{\epsilon_m}</script><p>这样就求出来$\alpha_m$了，现在还需要求$w_i$：</p>
-<script type="math/tex; mode=display">w_{m,i}=e^{-y_iF_m(x_i)}=e^{-y_i\alpha_mf_m(x_i)}e^{-y_iF_{m-1}(x_i)}=e^{-y_i\alpha_mf_m(x_i)}w_{m-1,i}</script><p>这样就求出来$w_i$的更新方式了。</p>
-<h2 id="3-什么是Stacking"><a href="#3-什么是Stacking" class="headerlink" title="3. 什么是Stacking"></a>3. 什么是Stacking</h2><p>Stacking的思想是将一些模型的输出经过组合当作特征输入到另一些模型中学习，最终的输出作为预测结果。需要注意的是，是先使用数据训练好第一层的模型，然后再使用模型的输出作为输入训练第二层的模型，然后再训练完第二层的模型才能继续将输出作为输入送入下一层，每一层的模型是有顺序分开训练的，不是同时训练的。同时训练的应该将其看作同一个模型的不同层。</p>
+        <h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>Transformer是一种勇于序列的神经网络模型，相比起RNN和LSTM，Transformer可以解决RNN和LSTM无法完全解决的长期依赖问题。</p>
+<h2 id="输入层"><a href="#输入层" class="headerlink" title="输入层"></a>输入层</h2><p>Transformer的输入层由两个向量组成，分别是词向量和位置向量</p>
+<h3 id="词向量"><a href="#词向量" class="headerlink" title="词向量"></a>词向量</h3><p>词向量由独热编码乘上系数矩阵获得，使用Embedding层</p>
+<h3 id="位置向量"><a href="#位置向量" class="headerlink" title="位置向量"></a>位置向量</h3><p>位置向量有两种实现方式，一种是利用确定性的位置编码，即位置编码一经决定不再改变；另一种是使用位置的独热编码乘上一个可学习的参数矩阵获得，这种方法的位置编码是可以根据任务自动调整。第一种方法可以很好地应对测试集的序列长度大于训练集的序列的情况，而第二种方法可以很好地根据任务调整合适的位置编码</p>
+<h2 id="编码器-x6"><a href="#编码器-x6" class="headerlink" title="编码器(x6)"></a>编码器(x6)</h2><p>编码器由6个编码层组成，每个编码层由两个子层构成：自注意力层和前向传播层。每一层的计算都使用到layer normalization和skip-connection，即输入为$X$，中间经过的作用为函数$f$，则真正的输出$Y$为：</p>
+<script type="math/tex; mode=display">Y=LayerNorm(X+f(X))</script><h3 id="自注意力-x8"><a href="#自注意力-x8" class="headerlink" title="自注意力(x8)"></a>自注意力(x8)</h3><p>自注意力层的作用是计算输入序列自己对自己的注意力，作用是分析获得输入序列内部的依赖关系，由于输入序列自己对自己的全连通的，所以无论多长的依赖都可以计算获得。自注意力层使用了多头注意力机制，即对输入序列独立计算8次注意力，每次注意力都会关注到序列不同的依赖关系，过程如下：<br>(1) 输入序列为X，三个参数矩阵为$Q_w$，$K_w$，$V_w$<br>(2) 计算得到$Q=X\cdot Q_W$，$K=X\cdot K_W$，$V=X\cdot V_w$<br>(3) 计算注意力：$ attn=softmax(\frac{QK^T}{\sqrt{d_k}}) $<br>(4) 计算加权和得到输出：$A=attn\cdot V$<br>(5) 8次独立计算上述过程，将8次输出拼接在一起并左乘矩阵$W_0$加上偏置项$b_0$使得维度等于输入序列$X$的维度，得到总输出$f(X)$</p>
+<h3 id="前向传播"><a href="#前向传播" class="headerlink" title="前向传播"></a>前向传播</h3><p>(1) 自注意力层的输出为$X$，作为这一层的输入<br>(2) 得到输出：$FFN=max(0,XW_1+b_1)W_2+b_2$</p>
+<h2 id="解码器-x6"><a href="#解码器-x6" class="headerlink" title="解码器(x6)"></a>解码器(x6)</h2><p>解码器和编码器很多地方是一样，有几处细节不同</p>
+<h3 id="带掩码的自注意力-x8"><a href="#带掩码的自注意力-x8" class="headerlink" title="带掩码的自注意力(x8)"></a>带掩码的自注意力(x8)</h3><p>自注意力层比起编码器的自注意力层，加上了一个掩码层，使得过去的输入不会受到未来的输入的影响。因为解码器是按顺序生成序列的，所以未来是不会影响过去的，只能由过去单向影响未来，即计算注意力时，只能计算过去对未来的注意力。</p>
+<h3 id="编码-解码注意力-x8"><a href="#编码-解码注意力-x8" class="headerlink" title="编码-解码注意力(x8)"></a>编码-解码注意力(x8)</h3><p>计算完输出序列的自注意力后，还需要计算编码器的输出序列对解码器的输入序列的注意力，注意力的计算方式和自注意力相同，这一层的注意力计算不需要掩码层。</p>
+<h3 id="前向传播-1"><a href="#前向传播-1" class="headerlink" title="前向传播"></a>前向传播</h3><p>与编码器相同</p>
 
     </div>
 
@@ -284,11 +270,15 @@
         <div class="post-tags">
             <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+          
+            <a href="/tags/NLP/" rel="tag"># NLP</a>
+          
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/07/决策树原理与推导/" rel="next" title="决策树原理与推导">
-                <i class="fa fa-chevron-left"></i> 决策树原理与推导
+              <a href="/2020/02/28/TCP和UDP/" rel="next" title="TCP和UDP">
+                <i class="fa fa-chevron-left"></i> TCP和UDP
               </a>
             
           </div>
@@ -296,10 +286,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/08/谱聚类算法原理/" rel="prev" title="谱聚类算法原理">
-                谱聚类算法原理 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -399,7 +385,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是Bagging（随机森林）"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是Bagging（随机森林）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-什么是Boosting（AdaBoost）"><span class="nav-number">2.</span> <span class="nav-text">2. 什么是Boosting（AdaBoost）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-什么是Stacking"><span class="nav-number">3.</span> <span class="nav-text">3. 什么是Stacking</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#综述"><span class="nav-number">1.</span> <span class="nav-text">综述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入层"><span class="nav-number">2.</span> <span class="nav-text">输入层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#词向量"><span class="nav-number">2.1.</span> <span class="nav-text">词向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#位置向量"><span class="nav-number">2.2.</span> <span class="nav-text">位置向量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编码器-x6"><span class="nav-number">3.</span> <span class="nav-text">编码器(x6)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自注意力-x8"><span class="nav-number">3.1.</span> <span class="nav-text">自注意力(x8)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前向传播"><span class="nav-number">3.2.</span> <span class="nav-text">前向传播</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解码器-x6"><span class="nav-number">4.</span> <span class="nav-text">解码器(x6)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#带掩码的自注意力-x8"><span class="nav-number">4.1.</span> <span class="nav-text">带掩码的自注意力(x8)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编码-解码注意力-x8"><span class="nav-number">4.2.</span> <span class="nav-text">编码-解码注意力(x8)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前向传播-1"><span class="nav-number">4.3.</span> <span class="nav-text">前向传播</span></a></li></ol></li></ol></div>
             
 
           </div>
