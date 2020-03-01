@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="牛顿法牛顿法主要用于求零点，当函数$y=f(x)$处于$x_t$时，此时位于$(x_t,y_t)$，将$f(x)$在$x_t$处泰勒展开保留到一阶项，得到： y=f(x_t+\Delta x)=f(x_t)+f&apos;(x_t)\Delta x对上面的式子求零点，得到： f(x_t)+f&apos;(x_t)\Delta x=0 ==&amp;gt; \Delta x=-\frac{f(x_t)}{f&apos;(x_t)}牛顿法认为$">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-27T08:53:05.479Z">
+<meta property="og:updated_time" content="2020-03-01T17:43:44.786Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="牛顿法和拟牛顿法">
 <meta name="twitter:description" content="牛顿法牛顿法主要用于求零点，当函数$y=f(x)$处于$x_t$时，此时位于$(x_t,y_t)$，将$f(x)$在$x_t$处泰勒展开保留到一阶项，得到： y=f(x_t+\Delta x)=f(x_t)+f&apos;(x_t)\Delta x对上面的式子求零点，得到： f(x_t)+f&apos;(x_t)\Delta x=0 ==&amp;gt; \Delta x=-\frac{f(x_t)}{f&apos;(x_t)}牛顿法认为$">
@@ -227,11 +227,21 @@
                 
               
 
-              <time title="创建时间：2020-02-27 15:36:58 / 修改时间：16:53:05" itemprop="dateCreated datePublished" datetime="2020-02-27T15:36:58+08:00">2020-02-27</time>
+              <time title="创建时间：2020-02-27 15:36:58" itemprop="dateCreated datePublished" datetime="2020-02-27T15:36:58+08:00">2020-02-27</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-02 01:43:44" itemprop="dateModified" datetime="2020-03-02T01:43:44+08:00">2020-03-02</time>
+              </span>
             
           
 
@@ -254,7 +264,7 @@
 <script type="math/tex; mode=display">\theta_{t+1}=\theta_t-\frac{g'(\theta_t)}{g''(\theta_t)}</script><p>可以看到牛顿法需要用到目标函数的二阶导，当参数是多维时，即需要用到海森矩阵：</p>
 <script type="math/tex; mode=display">\theta_{t+1}=\theta_t-H_g^{-1}g'(\theta_t)</script><p>梯度下降法只用到目标函数的一阶梯度，每次往一阶梯度方向移动一小步使得目标函数值更小。而牛顿法用到了目标函数的二阶梯度，每次往一阶梯度变成零的方向移动，每次移动都希望一阶梯度变小，相比梯度下降，不仅要求目标函数变小，还要求一阶梯度也变小，所以收敛速度会更快。但是牛顿法非常依赖初值的选取，要求目标函数存在二阶导数，而且在一些情况会出现问题。</p>
 <h2 id="拟牛顿法"><a href="#拟牛顿法" class="headerlink" title="拟牛顿法"></a>拟牛顿法</h2><p>在使用牛顿法求解时，需要求出目标函数的海森矩阵的逆，这种开销是很大的。拟牛顿法旨在使用一些快速的方法近似得到海森矩阵的逆，从而提升牛顿法的优化效率。令$y_k$表示目标函数的值，$x_k$表示参数，$g_k$是目标函数对梯度的一阶导数，$H_k$是海森矩阵，则有：</p>
-<script type="math/tex; mode=display">g_{k+1}=g_k+H_k(x_{k+1}-x_k)</script><p>这个式子可以看作使用梯度下降法利用二阶导数去更新一阶导数。这样我们得到：</p>
+<script type="math/tex; mode=display">g_{k+1}=g_k+H_k(x_{k+1}-x_k)</script><p>这个式子可以看作是一阶导数在邻域内的近似。这样我们得到：</p>
 <script type="math/tex; mode=display">H_k^{-1}(g_{k+1}-g_k)=x_{k+1}-x_k</script><p>这个是拟牛顿条件。我们使用$G_k$近似$H_k$，即要求$G_k$符合拟牛顿条件：</p>
 <script type="math/tex; mode=display">G_k(g_{k+1}-g_k)=x_{k+1}-x_k</script><p>可以从$x_k$的邻域中取若干个点作为$x_{k+1}$的候选值，这样$x_{k+1}$和$g_{k+1}$都是已知的。用$D_t$表示对$G_k$的第$t$次迭代。我们可以先随机得到一个$D_0$作为迭代起点，然后在每一步迭代我们需要求出一个$\Delta D$使得：</p>
 <script type="math/tex; mode=display">D_{t+1}=D_t+\Delta D</script><p>要求$D_{t+1}$尽量满足拟牛顿条件，这样可以列出一条等式，从等式可以推导出$\Delta D$。</p>
