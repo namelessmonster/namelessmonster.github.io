@@ -57,18 +57,18 @@
   };
 </script>
 
-  <meta name="description" content="1. 什么是EM算法EM算法主要用于求解具有隐变量的最大似然问题。一般我们再求最大似然时，会有以下式子： arg\max_{\theta} \prod_{i}P(x_i|\theta)对这个式子取对数得到： arg\max_{\theta} \sum_{i}\log P(x_i|\theta)但是有时候我们不能直接计算出$P(x_i|\theta)$，$P(x_i|\theta)$的计算需要一个中">
+  <meta name="description" content="1. 什么是EM算法EM算法主要用于求解具有隐变量的最大似然问题。一般我们在求最大似然时，会有以下式子： arg\max_{\theta} \prod_{i}P(x_i|\theta)对这个式子取对数得到： arg\max_{\theta} \sum_{i}\log P(x_i|\theta)但是有时候我们不能直接计算出$P(x_i|\theta)$，$P(x_i|\theta)$的计算需要一个中">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="EM算法">
 <meta property="og:url" content="http://yoursite.com/2020/02/15/EM算法/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 什么是EM算法EM算法主要用于求解具有隐变量的最大似然问题。一般我们再求最大似然时，会有以下式子： arg\max_{\theta} \prod_{i}P(x_i|\theta)对这个式子取对数得到： arg\max_{\theta} \sum_{i}\log P(x_i|\theta)但是有时候我们不能直接计算出$P(x_i|\theta)$，$P(x_i|\theta)$的计算需要一个中">
+<meta property="og:description" content="1. 什么是EM算法EM算法主要用于求解具有隐变量的最大似然问题。一般我们在求最大似然时，会有以下式子： arg\max_{\theta} \prod_{i}P(x_i|\theta)对这个式子取对数得到： arg\max_{\theta} \sum_{i}\log P(x_i|\theta)但是有时候我们不能直接计算出$P(x_i|\theta)$，$P(x_i|\theta)$的计算需要一个中">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-15T06:13:58.266Z">
+<meta property="og:updated_time" content="2020-03-01T12:27:05.115Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EM算法">
-<meta name="twitter:description" content="1. 什么是EM算法EM算法主要用于求解具有隐变量的最大似然问题。一般我们再求最大似然时，会有以下式子： arg\max_{\theta} \prod_{i}P(x_i|\theta)对这个式子取对数得到： arg\max_{\theta} \sum_{i}\log P(x_i|\theta)但是有时候我们不能直接计算出$P(x_i|\theta)$，$P(x_i|\theta)$的计算需要一个中">
+<meta name="twitter:description" content="1. 什么是EM算法EM算法主要用于求解具有隐变量的最大似然问题。一般我们在求最大似然时，会有以下式子： arg\max_{\theta} \prod_{i}P(x_i|\theta)对这个式子取对数得到： arg\max_{\theta} \sum_{i}\log P(x_i|\theta)但是有时候我们不能直接计算出$P(x_i|\theta)$，$P(x_i|\theta)$的计算需要一个中">
   <link rel="canonical" href="http://yoursite.com/2020/02/15/EM算法/">
 
 
@@ -227,11 +227,21 @@
                 
               
 
-              <time title="创建时间：2020-02-15 12:55:23 / 修改时间：14:13:58" itemprop="dateCreated datePublished" datetime="2020-02-15T12:55:23+08:00">2020-02-15</time>
+              <time title="创建时间：2020-02-15 12:55:23" itemprop="dateCreated datePublished" datetime="2020-02-15T12:55:23+08:00">2020-02-15</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-01 20:27:05" itemprop="dateModified" datetime="2020-03-01T20:27:05+08:00">2020-03-01</time>
+              </span>
             
           
 
@@ -246,7 +256,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-什么是EM算法"><a href="#1-什么是EM算法" class="headerlink" title="1. 什么是EM算法"></a>1. 什么是EM算法</h2><p>EM算法主要用于求解具有隐变量的最大似然问题。一般我们再求最大似然时，会有以下式子：</p>
+        <h2 id="1-什么是EM算法"><a href="#1-什么是EM算法" class="headerlink" title="1. 什么是EM算法"></a>1. 什么是EM算法</h2><p>EM算法主要用于求解具有隐变量的最大似然问题。一般我们在求最大似然时，会有以下式子：</p>
 <script type="math/tex; mode=display">arg\max_{\theta} \prod_{i}P(x_i|\theta)</script><p>对这个式子取对数得到：</p>
 <script type="math/tex; mode=display">arg\max_{\theta} \sum_{i}\log P(x_i|\theta)</script><p>但是有时候我们不能直接计算出$P(x_i|\theta)$，$P(x_i|\theta)$的计算需要一个中间变量使用全概率求得，即：</p>
 <script type="math/tex; mode=display">P(x_i|\theta)=\sum_{z} P(x_i,z|\theta)</script><p>所以现在求最大似然等价于求下式：</p>
