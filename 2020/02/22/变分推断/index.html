@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="变分推断在使用EM算法求极大似然时，有以下步骤： \ln P(x|\theta)=\ln\sum_{z}P(x,z|\theta)=\ln\sum_{z}Q(z)\frac{P(x,z|\theta)}{Q(z)}\ge\sum_{z}Q(z)\ln\frac{P(x,z|\theta)}{Q(z)}当上述不等式取等号时有： Q(z)=P(z|x,\theta)就是说，当$Q(z)$是隐变量$z$">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-22T14:43:22.820Z">
+<meta property="og:updated_time" content="2020-03-01T17:01:25.945Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="变分推断">
 <meta name="twitter:description" content="变分推断在使用EM算法求极大似然时，有以下步骤： \ln P(x|\theta)=\ln\sum_{z}P(x,z|\theta)=\ln\sum_{z}Q(z)\frac{P(x,z|\theta)}{Q(z)}\ge\sum_{z}Q(z)\ln\frac{P(x,z|\theta)}{Q(z)}当上述不等式取等号时有： Q(z)=P(z|x,\theta)就是说，当$Q(z)$是隐变量$z$">
@@ -227,11 +227,21 @@
                 
               
 
-              <time title="创建时间：2020-02-22 22:04:15 / 修改时间：22:43:22" itemprop="dateCreated datePublished" datetime="2020-02-22T22:04:15+08:00">2020-02-22</time>
+              <time title="创建时间：2020-02-22 22:04:15" itemprop="dateCreated datePublished" datetime="2020-02-22T22:04:15+08:00">2020-02-22</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-02 01:01:25" itemprop="dateModified" datetime="2020-03-02T01:01:25+08:00">2020-03-02</time>
+              </span>
             
           
 
@@ -249,10 +259,10 @@
         <h2 id="变分推断"><a href="#变分推断" class="headerlink" title="变分推断"></a>变分推断</h2><p>在使用EM算法求极大似然时，有以下步骤：</p>
 <script type="math/tex; mode=display">\ln P(x|\theta)=\ln\sum_{z}P(x,z|\theta)=\ln\sum_{z}Q(z)\frac{P(x,z|\theta)}{Q(z)}\ge\sum_{z}Q(z)\ln\frac{P(x,z|\theta)}{Q(z)}</script><p>当上述不等式取等号时有：</p>
 <script type="math/tex; mode=display">Q(z)=P(z|x,\theta)</script><p>就是说，当$Q(z)$是隐变量$z$的后验分布时，上述不等式取等号。EM算法的E步，就是固定$\theta$求出$Q(z)$，M步就是固定$Q(z)$更新$\theta$，直到收敛。然后，现在有一个问题，当后验分布$P(z|x,\theta)$很复杂时，怎么求这个后验分布？这时候变分推断就派上用场了。变分推断本质是对$Q(z)$制定一些假设和约束，在这些假设与约束下尽量逼近后验分布$P(z|x,\theta)$。其实EM算法的不等式还可以表示为：</p>
-<script type="math/tex; mode=display">\ln P(x|\theta)=\sum_zQ(z)\ln\frac{P(x,z|\theta)}{Q(z)}-\sum_{z}Q(z)\ln\frac{P(z|x,\theta)}{Q(z)}</script><p>可以看到，等式右边第二项很明显就是分布$Q(z)$和后验分布$P(z|x,\theta)$的相对熵。在EM算法中，当$\theta$固定后，$\ln P(x|\theta)$也就固定，此时要求$Q(z)$近似后验分布$P(z|x,\theta)$等价于最大化等式右边第一项，所以变分推断就是在$Q(z)$的假设与约束下找到可以最大化等式右边第一项的$Q(z)$，此时的$Q(z)$是最接近后验分布$P(z|x,\theta)$的。一般而言，会假设$Q(z)$可以分解成若干项的乘积，同时假设$Q(z)$符合由某些参数决定的分布，即将$Q(z)$分解成下式：</p>
-<script type="math/tex; mode=display">Q(z)=\prod_{i} Q(z_i|\phi_i)</script><p>其中$z$分解成几个相互独立的成分$z_i$，每个成分由符合由参数$\phi_i$决定的分布。将$Q(z)$代入需要最大化的目标函数，通过对$Q(z)$的参数$\phi$求导并令导数等于0，可以得到$Q(z)$的分布形式，将此时的$Q(z)$视作后验分布$P(z|x,\theta)$的近似。</p>
-<p>总结一下，变分推断的目的是构造一个分布$Q(z)$，这个分布符合某些假设，在这些假设的框架下去近似后验分布$P(z|x,\theta)$</p>
-<h2 id="变分EM"><a href="#变分EM" class="headerlink" title="变分EM"></a>变分EM</h2><p>在EM算法的E步，利用变分推断求出$Q(z)$来近似后验分布$P(z|x,\theta)$；接着在M步，就可以固定$Q(z)$，更新参数$\theta$。变分EM与普通EM本质都是EM算法，只是变分EM算法在E步求后验分布$P(z|x,\theta)$时需要使用到变分推断的方法。</p>
+<script type="math/tex; mode=display">\ln P(x|\theta)=\sum_zQ(z)\ln\frac{P(x,z|\theta)}{Q(z)}-\sum_{z}Q(z)\ln\frac{P(z|x,\theta)}{Q(z)} \tag{a}</script><p>可以看到，等式右边第二项很明显就是分布$Q(z)$和后验分布$P(z|x,\theta)$的相对熵。在EM算法中，当$\theta$固定后，$\ln P(x|\theta)$也就固定，此时要求$Q(z)$近似后验分布$P(z|x,\theta)$等价于最大化等式右边第一项，所以变分推断就是在$Q(z)$的假设与约束下找到可以最大化等式右边第一项的$Q(z)$，此时的$Q(z)$是最接近后验分布$P(z|x,\theta)$的。一般而言，会假设$Q(z)$可以分解成若干项的乘积，同时假设$Q(z)$符合由某些参数决定的分布，即将$Q(z)$分解成下式：</p>
+<script type="math/tex; mode=display">Q(z|\phi)=\prod_{i} Q(z_i|\phi_i)</script><p>其中$z$分解成几个相互独立的成分$z_i$，每个成分是由参数$\phi_i$决定的分布。将$Q(z|\phi)$代入等式（a）右边第一项，通过对$Q(z|\phi)$的参数$\phi$求导并令导数等于0求得极大值，可以得到此时分布$Q(z|\phi)$的具体分布形式，将此时的$Q(z|\phi)$视作后验分布$P(z|x,\theta)$的近似。</p>
+<p>总结一下，变分推断的目的是构造一个分布$Q(z)$，这个分布符合某些假设$Q(z|\phi)$，在这些假设的框架下去近似后验分布$P(z|x,\theta)$</p>
+<h2 id="变分EM"><a href="#变分EM" class="headerlink" title="变分EM"></a>变分EM</h2><p>在EM算法的E步，利用变分推断求出$Q(z|\phi)$来近似后验分布$P(z|x,\theta)$；接着在M步，就可以固定$Q(z|\phi)$，更新参数$\theta$。变分EM与普通EM本质都是EM算法，只是变分EM算法在E步求后验分布$P(z|x,\theta)$时需要使用到变分推断的方法。</p>
 
     </div>
 
