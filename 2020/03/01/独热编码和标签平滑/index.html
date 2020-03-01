@@ -57,17 +57,18 @@
   };
 </script>
 
-  <meta name="description" content="title: 独热编码和标签平滑date: 2020-03-01 12:04:16 tags: 机器学习独热编码独热编码是将类别特征离散化后，使用一个只有一位为1其他位全为0的向量表示类别特征。举个例子，性别特征有三个特征值：男、女、不明，使用一个维度等于3的向量表示这个特征，男性用100表示，女性用010表示，不明用001表示。为什么要使用独热编码表示类别特征而不直接使用一个离散数字表示，比如">
+  <meta name="description" content="独热编码独热编码是将类别特征离散化后，使用一个只有一位为1其他位全为0的向量表示类别特征。举个例子，性别特征有三个特征值：男、女、不明，使用一个维度等于3的向量表示这个特征，男性用100表示，女性用010表示，不明用001表示。为什么要使用独热编码表示类别特征而不直接使用一个离散数字表示，比如男性用0表示，女性用1表示，不明用2表示。如果需要计算特征之间的距离，用这个距离表示特征值的相似性，使用独">
+<meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="独热编码和标签平滑">
 <meta property="og:url" content="http://yoursite.com/2020/03/01/独热编码和标签平滑/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="title: 独热编码和标签平滑date: 2020-03-01 12:04:16 tags: 机器学习独热编码独热编码是将类别特征离散化后，使用一个只有一位为1其他位全为0的向量表示类别特征。举个例子，性别特征有三个特征值：男、女、不明，使用一个维度等于3的向量表示这个特征，男性用100表示，女性用010表示，不明用001表示。为什么要使用独热编码表示类别特征而不直接使用一个离散数字表示，比如">
+<meta property="og:description" content="独热编码独热编码是将类别特征离散化后，使用一个只有一位为1其他位全为0的向量表示类别特征。举个例子，性别特征有三个特征值：男、女、不明，使用一个维度等于3的向量表示这个特征，男性用100表示，女性用010表示，不明用001表示。为什么要使用独热编码表示类别特征而不直接使用一个离散数字表示，比如男性用0表示，女性用1表示，不明用2表示。如果需要计算特征之间的距离，用这个距离表示特征值的相似性，使用独">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-01T06:56:25.413Z">
+<meta property="og:updated_time" content="2020-03-01T07:04:27.072Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="title: 独热编码和标签平滑date: 2020-03-01 12:04:16 tags: 机器学习独热编码独热编码是将类别特征离散化后，使用一个只有一位为1其他位全为0的向量表示类别特征。举个例子，性别特征有三个特征值：男、女、不明，使用一个维度等于3的向量表示这个特征，男性用100表示，女性用010表示，不明用001表示。为什么要使用独热编码表示类别特征而不直接使用一个离散数字表示，比如">
+<meta name="twitter:title" content="独热编码和标签平滑">
+<meta name="twitter:description" content="独热编码独热编码是将类别特征离散化后，使用一个只有一位为1其他位全为0的向量表示类别特征。举个例子，性别特征有三个特征值：男、女、不明，使用一个维度等于3的向量表示这个特征，男性用100表示，女性用010表示，不明用001表示。为什么要使用独热编码表示类别特征而不直接使用一个离散数字表示，比如男性用0表示，女性用1表示，不明用2表示。如果需要计算特征之间的距离，用这个距离表示特征值的相似性，使用独">
   <link rel="canonical" href="http://yoursite.com/2020/03/01/独热编码和标签平滑/">
 
 
@@ -77,7 +78,7 @@
   };
 </script>
 
-  <title> | Hexo</title>
+  <title>独热编码和标签平滑 | Hexo</title>
   
 
 
@@ -206,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">独热编码和标签平滑
 
               
             
@@ -226,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-03-01 12:04:16 / 修改时间：14:56:25" itemprop="dateCreated datePublished" datetime="2020-03-01T12:04:16+08:00">2020-03-01</time>
+              <time title="创建时间：2020-03-01 15:03:46 / 修改时间：15:04:27" itemprop="dateCreated datePublished" datetime="2020-03-01T15:03:46+08:00">2020-03-01</time>
             </span>
           
             
@@ -245,9 +246,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <hr>
-<p>title: 独热编码和标签平滑<br>date: 2020-03-01 12:04:16</p>
-<h2 id="tags-机器学习"><a href="#tags-机器学习" class="headerlink" title="tags: 机器学习"></a>tags: 机器学习</h2><h2 id="独热编码"><a href="#独热编码" class="headerlink" title="独热编码"></a>独热编码</h2><p>独热编码是将类别特征离散化后，使用一个只有一位为1其他位全为0的向量表示类别特征。举个例子，性别特征有三个特征值：男、女、不明，使用一个维度等于3的向量表示这个特征，男性用100表示，女性用010表示，不明用001表示。为什么要使用独热编码表示类别特征而不直接使用一个离散数字表示，比如男性用0表示，女性用1表示，不明用2表示。如果需要计算特征之间的距离，用这个距离表示特征值的相似性，使用独热编码可以保证任意两个特征值之间的距离是相同的，而使用离散值则不能保证这个特性，所以一般使用独热编码表示类别特征。</p>
+        <h2 id="独热编码"><a href="#独热编码" class="headerlink" title="独热编码"></a>独热编码</h2><p>独热编码是将类别特征离散化后，使用一个只有一位为1其他位全为0的向量表示类别特征。举个例子，性别特征有三个特征值：男、女、不明，使用一个维度等于3的向量表示这个特征，男性用100表示，女性用010表示，不明用001表示。为什么要使用独热编码表示类别特征而不直接使用一个离散数字表示，比如男性用0表示，女性用1表示，不明用2表示。如果需要计算特征之间的距离，用这个距离表示特征值的相似性，使用独热编码可以保证任意两个特征值之间的距离是相同的，而使用离散值则不能保证这个特性，所以一般使用独热编码表示类别特征。</p>
 <h2 id="标签平滑"><a href="#标签平滑" class="headerlink" title="标签平滑"></a>标签平滑</h2><p>在使用独热编码作为目标输出时，有几个问题：<br>(1) softmax函数难以拟合独热编码<br>(2) 拟合独热编码容易造成过拟合</p>
 <p>所以一般选择将尖锐的独热编码变平滑，并保证目标输出依然保持标签之间的偏序关系，即原来较大的依然较大，原来较小的依然较小。标签平滑一般的做法是设置一个概率$\xi$，在这个概率下保持标签不变，而在概率$1-\xi$下可能按照一个概率分布$P(y|\lambda)$转变成其他标签，所以现在目标输出的分布变为：</p>
 <script type="math/tex; mode=display">P(y)\propto \xi\cdot v+(1-\xi)P(y|\lambda)</script><p>v是原来的独热编码，$P(y|\lambda)$一般可以选用均匀分布或狄利克雷分布。</p>
@@ -259,6 +258,12 @@
     
 
     <footer class="post-footer">
+          
+        
+        <div class="post-tags">
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+        </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
               <a href="/2020/02/29/Transformer原理/" rel="next" title="Transformer原理">
@@ -369,7 +374,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tags-机器学习"><span class="nav-number">1.</span> <span class="nav-text">tags: 机器学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#独热编码"><span class="nav-number">2.</span> <span class="nav-text">独热编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签平滑"><span class="nav-number">3.</span> <span class="nav-text">标签平滑</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#独热编码"><span class="nav-number">1.</span> <span class="nav-text">独热编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签平滑"><span class="nav-number">2.</span> <span class="nav-text">标签平滑</span></a></li></ol></div>
             
 
           </div>
@@ -437,7 +442,62 @@
 
 
 
-  <script src="/js/next-boot.js?v=7.3.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script src="/js/next-boot.js?v=7.3.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+  
+    
+      <script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -456,17 +516,7 @@
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
 
-  
-
-  
-
-  
-
-
-  
-
-
-
+    
   
 
 
