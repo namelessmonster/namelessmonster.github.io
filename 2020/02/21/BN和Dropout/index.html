@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="BN在使用神经网络训练数据，常常使用批梯度下降的优化方法。这种优化方法相比起全梯度下降方法有一个问题，就是收敛速度慢，因为每一批数据的分布与全部数据的分布存在着不一致，且每一批数据的分布是变化的，这使得神经网络需要不断根据输入分布的不同调整权重去适应不同的输入分布。然后，神经网络层与层之间的联系是复杂的，前面层输入分布的变化会影响输出分布，而输出分布又会影响后面层的输入分布进而影响后面层的输出分布">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-21T16:24:41.455Z">
+<meta property="og:updated_time" content="2020-03-01T16:42:20.452Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BN和Dropout">
 <meta name="twitter:description" content="BN在使用神经网络训练数据，常常使用批梯度下降的优化方法。这种优化方法相比起全梯度下降方法有一个问题，就是收敛速度慢，因为每一批数据的分布与全部数据的分布存在着不一致，且每一批数据的分布是变化的，这使得神经网络需要不断根据输入分布的不同调整权重去适应不同的输入分布。然后，神经网络层与层之间的联系是复杂的，前面层输入分布的变化会影响输出分布，而输出分布又会影响后面层的输入分布进而影响后面层的输出分布">
@@ -240,7 +240,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-02-22 00:24:41" itemprop="dateModified" datetime="2020-02-22T00:24:41+08:00">2020-02-22</time>
+                <time title="修改时间：2020-03-02 00:42:20" itemprop="dateModified" datetime="2020-03-02T00:42:20+08:00">2020-03-02</time>
               </span>
             
           
@@ -262,8 +262,8 @@
 <script type="math/tex; mode=display">\mu=\frac{1}{N}\sum_{i=1}^Nx_i</script><script type="math/tex; mode=display">\sigma^2=\frac{1}{N}\sum_{i=1}^N(x_i-\mu)^2</script><p>然后对每个样本标准化，调整输入分布为均值等于0，方差等于1：</p>
 <script type="math/tex; mode=display">\hat{x}_i=\frac{x_i-\mu}{\sigma}</script><p>将输入分布调整为均值为$\beta$，方差为$\gamma^2$：</p>
 <script type="math/tex; mode=display">z=\gamma*\hat{x}_i+\beta</script><p>综上，这个神经元的输入样本为：</p>
-<script type="math/tex; mode=display">y=a(z)</script><p>其中$a$是激活函数。可以看到，BN是将每一层每一个神经元的分布都调整为均值等于$\beta$，方差等于$\gamma^2$，这里$\beta$和$\gamma$是参数，是可以通过数据样本学习调整的，每个神经元都有属于自己的$\gamma$和$\beta$。那么为什么BN可以加速网络的学习速度呢。前面提到，影响网络学习速度的有两个主要原因：第一是网络层与层之间联系紧密，通过调整网络参数间接调整分布，参数的紧密联系导致这个过程很慢；第二是梯度在非线性激活函数的饱和区值很小，调整速度慢。BN可以很好地应对这两个问题，首先BN使得网络每一个神经元可以直接通过参数调整分布不再通过参数间接调整分布。因为BN的每一个神经元都会学习两个参数$\gamma$和$\beta$，这两个参数直接决定神经元的输入分布，关于该神经元的输入分布不再受到前面若干层参数的影响，解除了这种复杂的联系。其次，BN层可以通过快速调整分布来快速将输入分布调整至激活函数的非饱和区，提高学习速度。没有BN层时，若要将调整参数使分布从饱和区移向非饱和区，因为梯度很小的缘故，需要调整很长时间才可以将分布移到非饱和区。现在有了BN层，就可以直接通过调整$\gamma$和$\beta$快速将分布从饱和区移向非饱和区。以上就是BN层的原理。BN层在训练时，每个神经元会记录每一批数据的输入分布，通过每一批的输入分布估计总体的输入分布，在预测时使用估计的整体分布对输入标准化。预测时的过程如下，首先通过每一批数据估计总体的期望和方差：</p>
-<script type="math/tex; mode=display">\hat{\mu} = \frac{1}{T}\sum_{i=1}^T\mu_i</script><script type="math/tex; mode=display">\hat{\sigma}^2 = \frac{m}{m-1}\sum_{i=1}^T\sigma_i^2</script><p>其中$m$是训练时一批数据的大小，对输入进行标准化：</p>
+<script type="math/tex; mode=display">y=a(z)</script><p>其中$a$是激活函数。可以看到，BN是将每一层每一个神经元的分布都调整为均值等于$\beta$，方差等于$\gamma^2$，这里$\beta$和$\gamma$是参数，是可以通过数据样本学习调整的，每个神经元都有属于自己的$\gamma$和$\beta$。那么为什么BN可以加速网络的学习速度呢。前面提到，影响网络学习速度的有两个主要原因：第一是网络层与层之间联系紧密，通过调整网络参数间接调整分布，参数的紧密联系导致这个过程很慢；第二是梯度在非线性激活函数的饱和区值很小，调整速度慢。BN可以很好地应对这两个问题，首先BN使得网络每一个神经元可以直接通过参数调整分布不再通过参数间接调整分布。因为BN的每一个神经元都会学习两个参数$\gamma$和$\beta$，这两个参数直接决定神经元的输入分布，关于该神经元的输入分布不再受到前面若干层参数的影响，解除了这种复杂的联系。其次，BN层可以通过快速调整分布来快速将输入分布调整至激活函数的非饱和区，提高学习速度。没有BN层时，若要将调整参数使分布从饱和区移向非饱和区，因为梯度很小的缘故，需要调整很长时间才可以将分布移到非饱和区。现在有了BN层，就可以直接通过调整$\gamma$和$\beta$快速将分布从饱和区移向非饱和区。以上就是BN层的原理。BN层在训练时，每个神经元会记录每一批数据的输入分布，通过每一批的输入分布估计总体的输入分布，在预测时使用估计的整体分布对输入标准化。预测时的过程如下，首先通过每一批数据估计总体的均值和方差：</p>
+<script type="math/tex; mode=display">\hat{\mu} = E[\mu]</script><script type="math/tex; mode=display">\hat{\sigma}^2 = \frac{m}{m-1}E[\sigma]</script><p>其中$m$是训练时一批数据的大小，对输入进行标准化：</p>
 <script type="math/tex; mode=display">\hat{x}=\frac{x-\hat{\mu}}{\hat{\sigma}}</script><p>将输入移向该神经元的分布：</p>
 <script type="math/tex; mode=display">z=\gamma*\hat{x}+\beta</script><script type="math/tex; mode=display">y=a(z)</script><p>以上就是BN的预测过程，除了BN，其实还有LN，IN，GN，不过应用最广泛当属BN，LN也有一定的应用。</p>
 <h2 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h2><p>Dropout是根据一定的概率将神经网络某一层的神经元关闭，假设这个概率为0.5，这意味着该层的神经元有50%的概率处于关闭状态。更一般的，假设Dropout关闭神经元的概率为$p$，则打开神经元的概率为$q=1-p$。在训练时，Dropout会依据概率$p$关闭神经元，而在预测时，为了还原神经元的期望输出，会将权重乘上$q=1-p$。更常见的做法是在训练时将权重除以$q$，在预测时权重不用做改变。Dropout能起到正则化的作用，因为Dropout本质上可以看作是训练多个共享权重的模型，一些模型使用一部分权重，另一些模型使用另一部分权重，模型与模型之间有共用的权重也有不共用的权重，在预测时使用这些模型的期望作为预测结果，这类似于bagging，可以起到减小方差，防止过拟合的正则化效果。Dropout的另一种解释是运用了奥卡姆剃刀原理，通过关闭一些神经元，降低深度神经网络参数之间联系的复杂程度，找到更简单的特征联系，从而起到正则化的效果。</p>
