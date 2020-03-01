@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="知识蒸馏知识蒸馏的作用是使用小网络使得小网络的性能和大网络差不多，从而实现大网络的模型压缩。将大网络压缩成小网络有以下步骤：(1) 训练大网络(2) 将训练好的大网络的输出logit，使用一个温度值$T$放缩，得到$\frac{1}{T}$logit，将放缩后的logit经过softmax层，得到soft label(3) 对小网络，使用两项目标函数：第一个目标函数要求小网络的输出logic使用同">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-25T14:45:42.949Z">
+<meta property="og:updated_time" content="2020-03-01T17:14:18.496Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="知识蒸馏与模型压缩">
 <meta name="twitter:description" content="知识蒸馏知识蒸馏的作用是使用小网络使得小网络的性能和大网络差不多，从而实现大网络的模型压缩。将大网络压缩成小网络有以下步骤：(1) 训练大网络(2) 将训练好的大网络的输出logit，使用一个温度值$T$放缩，得到$\frac{1}{T}$logit，将放缩后的logit经过softmax层，得到soft label(3) 对小网络，使用两项目标函数：第一个目标函数要求小网络的输出logic使用同">
@@ -227,11 +227,21 @@
                 
               
 
-              <time title="创建时间：2020-02-25 21:45:30 / 修改时间：22:45:42" itemprop="dateCreated datePublished" datetime="2020-02-25T21:45:30+08:00">2020-02-25</time>
+              <time title="创建时间：2020-02-25 21:45:30" itemprop="dateCreated datePublished" datetime="2020-02-25T21:45:30+08:00">2020-02-25</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-02 01:14:18" itemprop="dateModified" datetime="2020-03-02T01:14:18+08:00">2020-03-02</time>
+              </span>
             
           
 
@@ -247,7 +257,7 @@
 
       
         <h2 id="知识蒸馏"><a href="#知识蒸馏" class="headerlink" title="知识蒸馏"></a>知识蒸馏</h2><p>知识蒸馏的作用是使用小网络使得小网络的性能和大网络差不多，从而实现大网络的模型压缩。将大网络压缩成小网络有以下步骤：<br>(1) 训练大网络<br>(2) 将训练好的大网络的输出logit，使用一个温度值$T$放缩，得到$\frac{1}{T}$logit，将放缩后的logit经过softmax层，得到soft label<br>(3) 对小网络，使用两项目标函数：第一个目标函数要求小网络的输出logic使用同一个温度$T$放缩，放缩后经过softmax层，要求softmax层的输出结果和soft label的交叉熵最小；第二个目标函数要求小网络没有经过放缩的softmax层输出结果与正确标签的one-hot向量的交叉熵最小。</p>
-<p>知识蒸馏之所以能起作用，我的理解有两点：<br>(1) 通过温度$T$，使得输出logit更平缓，类间的差距缩小，但是类间的相对关系不变，平缓的输出更容易拟合<br>(2) 大模型参数多，能输出更极端的logit，而小模型参数小输出的logit无法兼顾那么多极端情况，使小模型的输出没那么极端且保持类间输出的相对关系，可以通过对大模型和小模型的logit同时放缩，在放缩中进行拟合，这么做会更容易。</p>
+<p>知识蒸馏之所以能起作用，我的理解有两点：<br>(1) 通过温度$T$，使得输出logit更平缓，类间的差距缩小，但是类间的相对关系不变，平缓的输出更容易拟合（类似于标签平滑的效果）。<br>(2) 大模型参数多，能输出更极端的logit，而小模型参数小输出的logit无法兼顾那么多极端情况，使小模型的输出没那么极端且保持类间输出的相对关系，可以通过对大模型和小模型的logit同时放缩，在放缩中进行拟合，这么做会更容易。</p>
 <h2 id="在线蒸馏"><a href="#在线蒸馏" class="headerlink" title="在线蒸馏"></a>在线蒸馏</h2><p>知识蒸馏除了可以压缩模型，还可以提升模型的学习效率。在使用分布式的学习场景时，通常需要用到分布式的梯度下降算法优化模型参数，而分布式的梯度下降算法需要有一个中心机器来同步不同机器的梯度更新情况，这种做法效率不高，且最终效果往往没有单机情况好。知识蒸馏可以应用于分布式的参数学习环境：<br>(1) 各个机器单独从同一份数据集中抽样数据学习，单独更新模型参数<br>(2) 特定时刻，统计所有机器对数据样本的输出logit期望，组成teacher model<br>(3) 各个机器单独学习，在原来的基础上加上teacher model的输出指导，单独更新模型参数<br>通过这样的方式，就可以利用知识蒸馏合并模型，实现模型的分布式学习，有实验结果表明，这种学习方式比分布式SGD更好。</p>
 <h2 id="模型压缩"><a href="#模型压缩" class="headerlink" title="模型压缩"></a>模型压缩</h2><p>模型压缩旨在减小模型占用的空间，可分为减小模型占用存储空间和减小模型占用运行空间。减小模型占用存储空间一般有剪枝和量化的方法，而减小模型占用运行空间则有量化、低秩分解和知识蒸馏的方法。</p>
 <h3 id="剪枝"><a href="#剪枝" class="headerlink" title="剪枝"></a>剪枝</h3><p>类似于L1正则化，将权重较小的值直接标记为0，此时权重矩阵是一个稀疏矩阵，可以使用稀疏矩阵的存储方法存储，减小存储空间。剪枝可以减小存储空间，但在运行时依然要将矩阵对应位置的值置零，所以没有减小运行空间。</p>
