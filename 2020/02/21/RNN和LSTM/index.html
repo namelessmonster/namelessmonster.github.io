@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="综述RNN和LSTM是一类神经网络，可以有效地处理序列输入，完成各种关于序列的预测任务。 RNN假设输入样本有形式$x_1,x_2,…,x_t$，其中$x_i$是序列位置$i$的输入，一般是向量形式。RNN有以下的计算形式： h_i=g(Ux_i+Wh_{i-1}+b)y_i=f(Vh_i+c)$g$和$f$是激活函数，一般$g$是$tanh$函数，$f$是$softmax$函数。RNN的参数在每">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-01T13:53:39.219Z">
+<meta property="og:updated_time" content="2020-03-01T13:57:10.206Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RNN和LSTM">
 <meta name="twitter:description" content="综述RNN和LSTM是一类神经网络，可以有效地处理序列输入，完成各种关于序列的预测任务。 RNN假设输入样本有形式$x_1,x_2,…,x_t$，其中$x_i$是序列位置$i$的输入，一般是向量形式。RNN有以下的计算形式： h_i=g(Ux_i+Wh_{i-1}+b)y_i=f(Vh_i+c)$g$和$f$是激活函数，一般$g$是$tanh$函数，$f$是$softmax$函数。RNN的参数在每">
@@ -240,7 +240,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-03-01 21:53:39" itemprop="dateModified" datetime="2020-03-01T21:53:39+08:00">2020-03-01</time>
+                <time title="修改时间：2020-03-01 21:57:10" itemprop="dateModified" datetime="2020-03-01T21:57:10+08:00">2020-03-01</time>
               </span>
             
           
@@ -267,7 +267,7 @@
 <script type="math/tex; mode=display">i_t=\sigma(W_i\cdot[h_{t-1},x_t]+b_i)</script><script type="math/tex; mode=display">\hat{c}_t=tanh(W_c\cdot[h_{t-1},x_t]+b_c)</script><script type="math/tex; mode=display">c_t=f_t\cdot c_{t-1}+i_t\cdot \hat{c}_t</script><p>通过输入门后就可以得到当前时刻的细胞状态$c_t$。</p>
 <h3 id="输出门"><a href="#输出门" class="headerlink" title="输出门"></a>输出门</h3><p>输出门的作用是通过细胞状态$c_t$得到$h_t$，有下面式子：</p>
 <script type="math/tex; mode=display">o_i=\sigma(W_o\cdot[h_{t-1},x_t]+b_o)</script><script type="math/tex; mode=display">h_t=o_t\cdot tanh(c_t)</script><p>得到$h_t$后就可以使用和RNN一样的式子得到输出$y_t$以及利用$h_t$和$c_t$迭代求下一个时刻。</p>
-<p>LSTM为什么比RNN好，有两个主要原因：<br>(1) LSTM模型参数更多，调整参数可以拟合更多情况<br>(2) LSTM比RNN可以处理的依赖长度更大</p>
+<h2 id="LSTM的优势及原因"><a href="#LSTM的优势及原因" class="headerlink" title="LSTM的优势及原因"></a>LSTM的优势及原因</h2><p>LSTM为什么比RNN好，有两个主要原因：<br>(1) LSTM模型参数更多，调整参数可以拟合更多情况<br>(2) LSTM比RNN可以处理的依赖长度更大</p>
 <p>LSTM在处理长期依赖时还是会存在问题，但比起RNN，LSTM可以处理的依赖长度会更长。RNN在反向传播时，主要通过$\frac{\partial h_{t}}{\partial h_{t-1}}…\frac{\partial h_{i+1}}{\partial h_i}$调整位置$i$对位置$t$的影响，在求导时，每一项都有$sigmoid$函数的导数。我们知道$sigmoid$函数的导数最大为$0.25$，这意味着梯度每往回传一层，都要乘上一个小于等于$0.25$的数，显然梯度是难以反向传播很多层。而LSTM在反向传播时，主要通过$\frac{\partial c_t}{\partial c_{t-1}}…\frac{\partial c_{i+1}}{\partial c_i}$调整位置$i$对位置$t$的影响，在求导时，每一项都有$sigmoid$函数输出。我们知道$sigmoid$函数的输出最大为1，比起最大为$0.25$，梯度每往回传一层，衰减会更小，所以LSTM的梯度可以往回传的层数会比RNN多。当RNN使用$tanh$函数作为激活函数，梯度最大值为1，和LSTM的$sigmoid$函数一样，但是$tanh$函数的梯度只有在靠近0点处才会有接近1的输出而在大部分时候值都接近0。而$sigmoid$函数则在正数处输出接近于1，在负数处输出接近于0。所以LSTM相比起RNN更不容易出现梯度消失，从而可以处理长期依赖。LSTM使用$sigmoid$函数控制遗忘门和输入门的输出，$sigmoid$函数在大多数时候输出要么接近1要么接近0，只有在少数情况才会介于两者之间，所以可以很好地起到开关的效果。在处理长期依赖时，只要调整$sigmoid$函数的输出使得输出接近于1就可以了，这是比较容易实现的，因为整个正数的饱和区的输出都接近于1，所以LSTM可以处理长期依赖。LSTM将激活函数应用于遗忘门和输入门作为开关的输出，将过去与现在通过加法结合得到当前状态，相比起RNN将过去与现在通过乘法以及激活函数结合得到当前状态，可以更好地适应梯度的长距离传播。</p>
 
     </div>
@@ -401,7 +401,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#综述"><span class="nav-number">1.</span> <span class="nav-text">综述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RNN"><span class="nav-number">2.</span> <span class="nav-text">RNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSTM"><span class="nav-number">3.</span> <span class="nav-text">LSTM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#遗忘门"><span class="nav-number">3.1.</span> <span class="nav-text">遗忘门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入门"><span class="nav-number">3.2.</span> <span class="nav-text">输入门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出门"><span class="nav-number">3.3.</span> <span class="nav-text">输出门</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#综述"><span class="nav-number">1.</span> <span class="nav-text">综述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RNN"><span class="nav-number">2.</span> <span class="nav-text">RNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSTM"><span class="nav-number">3.</span> <span class="nav-text">LSTM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#遗忘门"><span class="nav-number">3.1.</span> <span class="nav-text">遗忘门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入门"><span class="nav-number">3.2.</span> <span class="nav-text">输入门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出门"><span class="nav-number">3.3.</span> <span class="nav-text">输出门</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSTM的优势及原因"><span class="nav-number">4.</span> <span class="nav-text">LSTM的优势及原因</span></a></li></ol></div>
             
 
           </div>
