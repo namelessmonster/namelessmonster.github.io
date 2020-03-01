@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="综述RNN和LSTM是一类神经网络，可以有效地处理序列输入，完成各种关于序列的预测任务。 RNN假设输入样本有形式$x_1,x_2,…,x_t$，其中$x_i$是序列位置$i$的输入，一般是向量形式。RNN有以下的计算形式： h_i=g(Ux_i+Wh_{i-1}+b)y_i=f(Vh_i+c)$g$和$f$是激活函数，一般$g$是$tanh$函数，$f$是$softmax$函数。RNN的参数在每">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-21T10:45:54.986Z">
+<meta property="og:updated_time" content="2020-03-01T12:52:05.970Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RNN和LSTM">
 <meta name="twitter:description" content="综述RNN和LSTM是一类神经网络，可以有效地处理序列输入，完成各种关于序列的预测任务。 RNN假设输入样本有形式$x_1,x_2,…,x_t$，其中$x_i$是序列位置$i$的输入，一般是向量形式。RNN有以下的计算形式： h_i=g(Ux_i+Wh_{i-1}+b)y_i=f(Vh_i+c)$g$和$f$是激活函数，一般$g$是$tanh$函数，$f$是$softmax$函数。RNN的参数在每">
@@ -227,11 +227,21 @@
                 
               
 
-              <time title="创建时间：2020-02-21 17:19:57 / 修改时间：18:45:54" itemprop="dateCreated datePublished" datetime="2020-02-21T17:19:57+08:00">2020-02-21</time>
+              <time title="创建时间：2020-02-21 17:19:57" itemprop="dateCreated datePublished" datetime="2020-02-21T17:19:57+08:00">2020-02-21</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-01 20:52:05" itemprop="dateModified" datetime="2020-03-01T20:52:05+08:00">2020-03-01</time>
+              </span>
             
           
 
@@ -252,7 +262,7 @@
 <script type="math/tex; mode=display">\frac{\partial L}{\partial U}=\sum_{t}\frac{\partial L_t}{\partial U}=\sum_{t}\frac{\partial L_t}{\partial y_t}\frac{\partial y_t}{\partial h_t}(\frac{\partial h_t}{\partial U}+\frac{\partial h_t}{\partial h_{t-1}}\frac{\partial h_{t-1}}{U}+...+\frac{\partial h_t}{\partial h_{t-1}}...\frac{\partial h_2}{\partial h_1}\frac{\partial h_1}{\partial U})</script><p>对$W$求导形式和上式几乎一致，而对$V$求导形式则比较简单。RNN存在着梯度消失和梯度爆炸的问题，梯度爆炸比较容易理解，因为RNN的求导公式存在很长的连乘项，如果每一项都大于1，那么会存在指数爆炸的问题。而梯度消失则没那么好理解了，因为即使RNN的求导公式每一项都小于0，连乘后几乎等于0，但是每个时刻的损失函数值$L_{t}$都可以直接在时刻$t$作用于$U$和$W$，所以即使连乘项等于0，对所有求导链求和后的梯度也不至于会等于0。如果从全局来看，的确RNN不存在梯度消失的问题，但是如果我们关注一个特定位置的输出，即损失函数$L=L_t$，只对位置$L_t$求导，那么问题就存在了。在存在长期依赖的序列作为输入时，RNN无法将梯度传递回影响当前时刻输出的输入处，即我们无法调整长期输入对当前输出的影响，因为梯度在连乘后逐渐趋近于0，使得梯度只能反向传播到有限层，也就只能调整有限长度的输入对输出的影响。</p>
 <h2 id="LSTM"><a href="#LSTM" class="headerlink" title="LSTM"></a>LSTM</h2><p>LSTM能够有效延长RNN可以处理的依赖长度，LSTM在每个时刻有一个细胞状态$c_t$和一个隐状态$h_t$，有三个门：遗忘门，输入门和输出门。</p>
 <h3 id="遗忘门"><a href="#遗忘门" class="headerlink" title="遗忘门"></a>遗忘门</h3><p>遗忘门的作用从细胞状态$c_{t-1}$中选择一部分信息忘掉，有下面的式子：</p>
-<script type="math/tex; mode=display">f_t=\sigma(W_f\cdot[h_{t-1},x_t]+b_f)</script><p>$sigma$是$sigmoid$函数，$f_t$的每一位表示按照多少比例保留$c_{t-1}$对应位置的信息。</p>
+<script type="math/tex; mode=display">f_t=\sigma(W_f\cdot[h_{t-1},x_t]+b_f)</script><p>$\sigma$是$sigmoid$函数，$f_t$的每一位表示按照多少比例保留$c_{t-1}$对应位置的信息。</p>
 <h3 id="输入门"><a href="#输入门" class="headerlink" title="输入门"></a>输入门</h3><p>输入门的作用是从当前输入$x_t$中选择一部分信息加入到细胞状态$c_t$中，有下面式子：</p>
 <script type="math/tex; mode=display">i_t=\sigma(W_i\cdot[h_{t-1},x_t]+b_i)</script><script type="math/tex; mode=display">\hat{c}_t=tanh(W_c\cdot[h_{t-1},x_t]+b_c)</script><script type="math/tex; mode=display">c_t=f_t\cdot c_{t-1}+i_t\cdot \hat{c}_t</script><p>通过输入门后就可以得到当前时刻的细胞状态$c_t$。</p>
 <h3 id="输出门"><a href="#输出门" class="headerlink" title="输出门"></a>输出门</h3><p>输出门的作用是通过细胞状态$c_t$得到$h_t$，有下面式子：</p>
