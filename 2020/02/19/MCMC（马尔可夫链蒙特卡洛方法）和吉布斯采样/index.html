@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="综述采样方法有什么用？采样方法可以帮助我们从已知分布中采样样本，也可以帮助我们去近似未知分布。 均匀分布采样如果我们想从一个均匀分布采样样本，那么这很简单，可以使用下式采集样本： x_{t+1}=a(x_t+c)\ mod\ m这个式子表示从$[0,m-1]$中等概率采样。一般会要求$m$是一个质数，如果$m$不是质数，我们可以找一个最接近$m$的质数，然后通过组合或拒绝来达到均匀分布的效果 正态">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-19T15:09:41.993Z">
+<meta property="og:updated_time" content="2020-03-01T12:47:48.714Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MCMC（马尔可夫链蒙特卡洛方法）和吉布斯采样">
 <meta name="twitter:description" content="综述采样方法有什么用？采样方法可以帮助我们从已知分布中采样样本，也可以帮助我们去近似未知分布。 均匀分布采样如果我们想从一个均匀分布采样样本，那么这很简单，可以使用下式采集样本： x_{t+1}=a(x_t+c)\ mod\ m这个式子表示从$[0,m-1]$中等概率采样。一般会要求$m$是一个质数，如果$m$不是质数，我们可以找一个最接近$m$的质数，然后通过组合或拒绝来达到均匀分布的效果 正态">
@@ -227,11 +227,21 @@
                 
               
 
-              <time title="创建时间：2020-02-19 21:48:34 / 修改时间：23:09:41" itemprop="dateCreated datePublished" datetime="2020-02-19T21:48:34+08:00">2020-02-19</time>
+              <time title="创建时间：2020-02-19 21:48:34" itemprop="dateCreated datePublished" datetime="2020-02-19T21:48:34+08:00">2020-02-19</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-01 20:47:48" itemprop="dateModified" datetime="2020-03-01T20:47:48+08:00">2020-03-01</time>
+              </span>
             
           
 
@@ -256,7 +266,7 @@
 <script type="math/tex; mode=display">q(x)P(y|x)=q(y)P(x|y)</script><p>构造一个矩阵$P(y|x)$使得马尔可夫链能够收敛到平稳状态，则无论初始分布是什么，最终都会收敛到$q(x)$。我们假设初始时状态是$x_0$，可以认为初始分布是$p(x_0)=1$，则从$x_0$出发，从$P(x_1|x_0)$采样得到$x_1$，从$P(x_2|x_1)$采样得到$x_2$，直到初始分布收敛到平稳分布，这也意味着$x_t$的分布满足$q(x)$，此时$x_t$的每次转移都是从$q(x)$中进行采样。</p>
 <p>对于分布$q(x)$，我们构造一个矩阵$Q(y|x)$，因为有可能：</p>
 <script type="math/tex; mode=display">q(x)Q(y|x)\ne q(y)Q(x|y)</script><p>所以我们设：</p>
-<script type="math/tex; mode=display">q(x)Q(y|x)A(y|x)=q(y)Q(x|y)A(x|y)</script><script type="math/tex; mode=display">A(y|x)=q(x)Q(x|y)</script><script type="math/tex; mode=display">A(x|y)=q(y)Q(y|x)</script><p>可以看到，这样就使得$q(x)$是$Q(y|x)A(y|x)$的平稳分布了。我们可以将$Q(y|x)$看作是马尔可夫转移矩阵，$A(y|x)$看作是接受率，每次按照$Q(y|x)$采样状态转移，然后使用拒绝采样方法使用结束率$A(y|x)$判断是否接受状态转移，这样是等价于按照$Q(y|x)A(y|x)$采样状态转移的。如果$A(y|x)$很小，接受率很低时，可以通过对$A(y|x)$和$A(x|y)$放缩，使得较大值等于1，这样没有打破平稳状态的条件而且也增大了接受率。</p>
+<script type="math/tex; mode=display">q(x)Q(y|x)A(y|x)=q(y)Q(x|y)A(x|y)</script><script type="math/tex; mode=display">A(y|x)=q(y)Q(x|y)</script><script type="math/tex; mode=display">A(x|y)=q(x)Q(y|x)</script><p>可以看到，这样就使得$q(x)$是$Q(y|x)A(y|x)$的平稳分布了。我们可以将$Q(y|x)$看作是马尔可夫转移矩阵，$A(y|x)$看作是接受率，每次按照$Q(y|x)$采样状态转移，然后使用拒绝采样方法使用结束率$A(y|x)$判断是否接受状态转移，这样是等价于按照$Q(y|x)A(y|x)$采样状态转移的。如果$A(y|x)$很小，接受率很低时，可以通过对$A(y|x)$和$A(x|y)$放缩，使得较大值等于1，这样没有打破平稳状态的条件而且也增大了接受率。</p>
 <h2 id="吉布斯采样"><a href="#吉布斯采样" class="headerlink" title="吉布斯采样"></a>吉布斯采样</h2><p>对于联合概率$P(x_1,x_2,…,x_n)$，如果想要从这个联合概率中采样，首先我们注意到：</p>
 <script type="math/tex; mode=display">P(A)P(x_1=x_B|x_2,...,x_n)=P(x_1=x_A|x_2,...,x_n)P(x_1=x_B|x_2,...,x_n)P(x_2,...,x_n)</script><script type="math/tex; mode=display">P(B)P(x_1=x_A|x_2,...,x_n)=P(x_1=x_B|x_2,...,x_n)P(x_1=x_A|x_2,...,x_n)P(x_2,...,x_n)</script><p>如果$P(A)$和$P(B)$除了在$x_1$上取值不同以外其他都取值相同，那么有：</p>
 <script type="math/tex; mode=display">P(A)Q(B|A)=P(B)Q(A|B)</script><script type="math/tex; mode=display">Q(B|A)=P(x_1=x_B|x_2,...,x_n)</script><script type="math/tex; mode=display">Q(A|B)=P(x_1=x_A|x_2,...,x_n)</script><p>其他轴是同理的，这启示我们如果不知道联合分布$P(x_1,x_2,…,x_n)$，但知道每个轴的条件分布$P(x_k|x_1,x_2,…,x_{k-1},x_{k+1},…,x_n)$，我们就可以通过吉布斯采样得到联合分布$P(x_1,x_2,…,x_n)$的样本。吉布斯采样的过程如下：<br>(1) 选择初始状态$X_0=(x_1^0,x_2^0,…,x_n^0)$<br>(2) 选择轴$k=1,2,…,n$，依据分布$P(x_k|x_1^t,x_2^t,…,x_{k-1}^t,x_{k+1}^{t-1},…,x_n^{t-1})$采样$x_k^t$，转移到新状态$X_t=(x_1^t,x_2^t,…,x_k^t,x_{k+1}^{t-1},…,x_n^{t-1})$<br>(3) 重复步骤(2)直到收敛<br>上述过程就可以从未知的联合分布$P(x_1,x_2,…,x_n)$中采样到样本了。</p>
