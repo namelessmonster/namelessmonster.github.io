@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="综述受限玻尔兹曼机（RBM）在推荐系统中有广泛的应用。在介绍RBM之前需要介绍一下玻尔兹曼机 玻尔兹曼机玻尔兹曼机可以看作是一个有$N+M$个节点的全连通图，其中有$N$个节点作为显示状态$v$，而有$M$个节点作为隐藏状态$h$。玻尔兹曼机可以对特定的$v$和$h$定义一个能量函数，能量函数可以反映$v$和$h$的联合概率$P(v,h)$。玻尔兹曼机的学习问题是在已知$v$的情况下求最大似然$P">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-02T15:59:54.110Z">
+<meta property="og:updated_time" content="2020-03-02T16:03:10.818Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RBM-受限玻尔兹曼机">
 <meta name="twitter:description" content="综述受限玻尔兹曼机（RBM）在推荐系统中有广泛的应用。在介绍RBM之前需要介绍一下玻尔兹曼机 玻尔兹曼机玻尔兹曼机可以看作是一个有$N+M$个节点的全连通图，其中有$N$个节点作为显示状态$v$，而有$M$个节点作为隐藏状态$h$。玻尔兹曼机可以对特定的$v$和$h$定义一个能量函数，能量函数可以反映$v$和$h$的联合概率$P(v,h)$。玻尔兹曼机的学习问题是在已知$v$的情况下求最大似然$P">
@@ -227,11 +227,21 @@
                 
               
 
-              <time title="创建时间：2020-03-02 22:51:22 / 修改时间：23:59:54" itemprop="dateCreated datePublished" datetime="2020-03-02T22:51:22+08:00">2020-03-02</time>
+              <time title="创建时间：2020-03-02 22:51:22" itemprop="dateCreated datePublished" datetime="2020-03-02T22:51:22+08:00">2020-03-02</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-03 00:03:10" itemprop="dateModified" datetime="2020-03-03T00:03:10+08:00">2020-03-03</time>
+              </span>
             
           
 
@@ -255,6 +265,7 @@
 <script type="math/tex; mode=display">P(h_i=1|v)=\frac{P(h_i=1|v)}{P(h_i=0|v)+P(h_i=1|v)}=\frac{\exp(-E(v,h_i=1))}{\exp(-E(v,h_i=0))+\exp(-E(v,h_i=1))}\\=\frac{1}{1+\exp(E(v,h_i=1)-E(v,h_i=0))}=sigmoid(E(v,h_i=0)-E(v,h_i=1))</script><p>所以在已知$v$的情况下，每一位$h_i$的输出都可以通过$sigmoid$函数的值决定，大于0.5则$h_i$取1，小于0.5则$h_i$取0。同理可以得到解码问题的求解步骤，即求出$P(v_i=1|h)$。对于学习问题，可以列出最大似然损失函数：</p>
 <script type="math/tex; mode=display">L=-\ln P(v)=-\ln \sum_{h} P(v,h)=-\ln(\frac{1}{Z}\sum_{h}e^{-E(v,h)})=\ln \sum_{v,h}e^{-E(v,h)}-\ln\sum_{h}e^{-E(v,h)}</script><p>我们利用这个似然损失函数对参数$W$，$a$和$b$求梯度，可以得到：</p>
 <script type="math/tex; mode=display">\frac{\partial L}{\partial W_{i,j}}=\sum_vP(v)P(h_i=1|v)v_j-P(h_i=1|V)V_j</script><script type="math/tex; mode=display">\frac{\partial L}{\partial a_i}=\sum_{v}P(v)v_i-V_i</script><script type="math/tex; mode=display">\frac{\partial L}{\partial b_i}=\sum_vP(v)P(h_i=1|v)-P(h_i=1|V)</script><p>上面三个式子，$V$是训练样本的显示状态，可以看到三个梯度式子都有关于分布$P(v)$求某个期望，所以可以使用基于吉布斯采样的对比散度方法近似求得关于$P(v)$的某个期望，从而得到梯度的近似结果。不断迭代更新直到收敛，最终得到参数的解。</p>
+<p>受限玻尔兹曼机可以用于推荐系统。大多数情况，我们都能得到一些用户对物品的评价数据，这些数据是稀疏的，即存在很多物品用户没有对其评价，现在我们希望通过利用稀疏的已有的数据建模，预测用户对没有评价的物品的评价。可以将用户对物品的评价看作$V$训练RBM的参数，训练时只对有评价的部分求最大似然，训练完后再利用解码还原出$V$中缺失的部分。</p>
 <h2 id="深度受限玻尔兹曼机"><a href="#深度受限玻尔兹曼机" class="headerlink" title="深度受限玻尔兹曼机"></a>深度受限玻尔兹曼机</h2><p>深度受限玻尔兹曼机就是有多层的RBM，原先的RBM是二分图，只有两层，而深度RBM则有多层，每两层之间构成二分图。如果把奇数层和偶数层拆开看会发现，深度RBM依然可以转换成一个RBM，即奇数层与偶数层可以构成一个二分图。</p>
 
     </div>
