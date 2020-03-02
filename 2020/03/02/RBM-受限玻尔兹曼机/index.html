@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="综述GloVe模型和FastText模型和Word2Vec模型类似，都是为了得到词的向量。 GloVe模型GloVe模型首先定义一个窗口，然后对语料库窗口内的词统计出一个共现矩阵。对于这个共现矩阵，我们可以统计各个单词之间条件概率以及联合概率的信息。现在我们想要学习词的向量$v_i$和$v_j$使得这些向量可以更好地拟合条件概率和联合概率。假设我们使用下式拟合概率： \frac{e^{v_i^Tv">
-<meta name="keywords" content="机器学习,NLP">
+  <meta name="description" content="综述受限玻尔兹曼机（RBM）在推荐系统中有广泛的应用。在介绍RBM之前需要介绍一下玻尔兹曼机 玻尔兹曼机玻尔兹曼机可以看作是一个有$N+M$个节点的全连通图，其中有$N$个节点作为显示状态$v$，而有$M$个节点作为隐藏状态$h$。玻尔兹曼机可以对特定的$v$和$h$定义一个能量函数，能量函数可以反映$v$和$h$的联合概率$P(v,h)$。玻尔兹曼机的学习问题是在已知$v$的情况下求最大似然$P">
+<meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GloVe模型和FastText模型">
-<meta property="og:url" content="http://yoursite.com/2020/02/16/GloVe模型和FastText模型/index.html">
+<meta property="og:title" content="RBM-受限玻尔兹曼机">
+<meta property="og:url" content="http://yoursite.com/2020/03/02/RBM-受限玻尔兹曼机/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="综述GloVe模型和FastText模型和Word2Vec模型类似，都是为了得到词的向量。 GloVe模型GloVe模型首先定义一个窗口，然后对语料库窗口内的词统计出一个共现矩阵。对于这个共现矩阵，我们可以统计各个单词之间条件概率以及联合概率的信息。现在我们想要学习词的向量$v_i$和$v_j$使得这些向量可以更好地拟合条件概率和联合概率。假设我们使用下式拟合概率： \frac{e^{v_i^Tv">
+<meta property="og:description" content="综述受限玻尔兹曼机（RBM）在推荐系统中有广泛的应用。在介绍RBM之前需要介绍一下玻尔兹曼机 玻尔兹曼机玻尔兹曼机可以看作是一个有$N+M$个节点的全连通图，其中有$N$个节点作为显示状态$v$，而有$M$个节点作为隐藏状态$h$。玻尔兹曼机可以对特定的$v$和$h$定义一个能量函数，能量函数可以反映$v$和$h$的联合概率$P(v,h)$。玻尔兹曼机的学习问题是在已知$v$的情况下求最大似然$P">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-16T07:19:46.869Z">
+<meta property="og:updated_time" content="2020-03-02T15:59:54.110Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GloVe模型和FastText模型">
-<meta name="twitter:description" content="综述GloVe模型和FastText模型和Word2Vec模型类似，都是为了得到词的向量。 GloVe模型GloVe模型首先定义一个窗口，然后对语料库窗口内的词统计出一个共现矩阵。对于这个共现矩阵，我们可以统计各个单词之间条件概率以及联合概率的信息。现在我们想要学习词的向量$v_i$和$v_j$使得这些向量可以更好地拟合条件概率和联合概率。假设我们使用下式拟合概率： \frac{e^{v_i^Tv">
-  <link rel="canonical" href="http://yoursite.com/2020/02/16/GloVe模型和FastText模型/">
+<meta name="twitter:title" content="RBM-受限玻尔兹曼机">
+<meta name="twitter:description" content="综述受限玻尔兹曼机（RBM）在推荐系统中有广泛的应用。在介绍RBM之前需要介绍一下玻尔兹曼机 玻尔兹曼机玻尔兹曼机可以看作是一个有$N+M$个节点的全连通图，其中有$N$个节点作为显示状态$v$，而有$M$个节点作为隐藏状态$h$。玻尔兹曼机可以对特定的$v$和$h$定义一个能量函数，能量函数可以反映$v$和$h$的联合概率$P(v,h)$。玻尔兹曼机的学习问题是在已知$v$的情况下求最大似然$P">
+  <link rel="canonical" href="http://yoursite.com/2020/03/02/RBM-受限玻尔兹曼机/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>GloVe模型和FastText模型 | Hexo</title>
+  <title>RBM-受限玻尔兹曼机 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/16/GloVe模型和FastText模型/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/02/RBM-受限玻尔兹曼机/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">GloVe模型和FastText模型
+          <h1 class="post-title" itemprop="name headline">RBM-受限玻尔兹曼机
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-16 13:41:51 / 修改时间：15:19:46" itemprop="dateCreated datePublished" datetime="2020-02-16T13:41:51+08:00">2020-02-16</time>
+              <time title="创建时间：2020-03-02 22:51:22 / 修改时间：23:59:54" itemprop="dateCreated datePublished" datetime="2020-03-02T22:51:22+08:00">2020-03-02</time>
             </span>
           
             
@@ -246,16 +246,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>GloVe模型和FastText模型和Word2Vec模型类似，都是为了得到词的向量。</p>
-<h2 id="GloVe模型"><a href="#GloVe模型" class="headerlink" title="GloVe模型"></a>GloVe模型</h2><p>GloVe模型首先定义一个窗口，然后对语料库窗口内的词统计出一个共现矩阵。对于这个共现矩阵，我们可以统计各个单词之间条件概率以及联合概率的信息。现在我们想要学习词的向量$v_i$和$v_j$使得这些向量可以更好地拟合条件概率和联合概率。假设我们使用下式拟合概率：</p>
-<script type="math/tex; mode=display">\frac{e^{v_i^Tv_j}}{e^{a_i}}\approx \frac{X_{i,j}}{X_i}=P(j|i)</script><p>对式子两边取对数有：</p>
-<script type="math/tex; mode=display">v_i^Tv_j-a_i=\log X_{i,j}-\log X_i</script><p>令$a’_i=-a_i+\log X_i$，则有：</p>
-<script type="math/tex; mode=display">v_i^Tv_j+a'_i-\log X_{i,j}=0</script><p>求$P(i|j)+P(j|i)$，则有：</p>
-<script type="math/tex; mode=display">2v_i^Tv_j+a'_i+a'_j-2\log X_{i,j}=0</script><p>令$2*b_i=a’_i$，则有：</p>
-<script type="math/tex; mode=display">v_i^Tv_j+b_i+b_j-\log X_{i,j}=0</script><p>这就是GloVe模型的损失函数：</p>
-<script type="math/tex; mode=display">J=\sum_{i,j} f(i,j)(v_i^Tv_j+b_i+b_j-\log X_{i,j})^2</script><p>其中$f(i,j)$是每对$(i,j)$的权重，求$f(i,j)$的方法是根据语料库的统计信息，按照一个已知规则对每对$(i,j)$计算权重。$f(i,j)$可以控制没有出现过的$(i,j)$令其权重为0，也可以控制出现太过频繁的词对减小其权重。</p>
-<h2 id="FastText模型"><a href="#FastText模型" class="headerlink" title="FastText模型"></a>FastText模型</h2><p>FastText模型和Word2Vec的CBOW模型很相似，但CBOW使用单词作为单位，且任务是通过上下文词预测中心词，而FastText使用n-gram作为单位，且任务是通过文本所有n-gram预测文本类别。FastText的算法步骤如下：<br>(1) 以字符级别或单词级别的n-gram作为一个单位，映射到一个向量<br>(2) 对一段文本的所有n-gram向量求平均<br>(3) 将平均向量通过哈夫曼softmax过程，得到文档类别输出</p>
-<p>FastText在完成文本分类任务的同时，可以学到n-gram特征的向量形式。对于一段文本或一个单词，其向量是文本或单词的所有n-gram向量的平均向量。</p>
+        <h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>受限玻尔兹曼机（RBM）在推荐系统中有广泛的应用。在介绍RBM之前需要介绍一下玻尔兹曼机</p>
+<h2 id="玻尔兹曼机"><a href="#玻尔兹曼机" class="headerlink" title="玻尔兹曼机"></a>玻尔兹曼机</h2><p>玻尔兹曼机可以看作是一个有$N+M$个节点的全连通图，其中有$N$个节点作为显示状态$v$，而有$M$个节点作为隐藏状态$h$。玻尔兹曼机可以对特定的$v$和$h$定义一个能量函数，能量函数可以反映$v$和$h$的联合概率$P(v,h)$。玻尔兹曼机的学习问题是在已知$v$的情况下求最大似然$P(v|W,a,b)$或在已知$v$和$h$的情况下求最大似然$P(v,h|W,a,b)$；玻尔兹曼机的编码问题是在已知$v$和模型参数的情况下求$P(h|v,W,a,b)$的最大值点$h$；玻尔兹曼机的解码问题是在已知$h$和模型参数的情况下求$P(v|h,W,a,b)$的最大值点$v$。</p>
+<h2 id="受限玻尔兹曼机"><a href="#受限玻尔兹曼机" class="headerlink" title="受限玻尔兹曼机"></a>受限玻尔兹曼机</h2><p>受限玻尔兹曼机和玻尔兹曼机不同的地方是受限玻尔兹曼机将$v$和$h$看作是二分图，$v$在二分图的一侧，而$h$在二分图的另一侧。无论是$v$还是$h$，内部都不再有连接，即内部是相互独立的。定义能量函数</p>
+<script type="math/tex; mode=display">E(v,h)=-\sum_{i,j}W_{i,j}v_ih_j-\sum_{i}a_iv_i-\sum_{j}b_jh_j</script><p>则可以定义$P(v,h)$由下式决定：</p>
+<script type="math/tex; mode=display">P(v,h)=\frac{1}{Z}e^{-E(v,h)}</script><script type="math/tex; mode=display">Z=\sum_{v,h}e^{-E(v,h)}</script><p>对于编码问题，即求$P(h|v)$，我们有：</p>
+<script type="math/tex; mode=display">P(h|v)=\prod_iP(h_i|v)</script><script type="math/tex; mode=display">P(h_i|v)=\frac{P(v,h_i)}{P(v)}=\frac{1}{Z}\frac{1}{P(v)}e^{-E(v,h_i)}</script><script type="math/tex; mode=display">E(v,h_i)=-\sum_{j}W_{j,i}v_jh_i-\sum_{j}a_jv_j-b_ih_i</script><p>已知$v$，则$h_i=1$的概率为：</p>
+<script type="math/tex; mode=display">P(h_i=1|v)=\frac{P(h_i=1|v)}{P(h_i=0|v)+P(h_i=1|v)}=\frac{\exp(-E(v,h_i=1))}{\exp(-E(v,h_i=0))+\exp(-E(v,h_i=1))}\\=\frac{1}{1+\exp(E(v,h_i=1)-E(v,h_i=0))}=sigmoid(E(v,h_i=0)-E(v,h_i=1))</script><p>所以在已知$v$的情况下，每一位$h_i$的输出都可以通过$sigmoid$函数的值决定，大于0.5则$h_i$取1，小于0.5则$h_i$取0。同理可以得到解码问题的求解步骤，即求出$P(v_i=1|h)$。对于学习问题，可以列出最大似然损失函数：</p>
+<script type="math/tex; mode=display">L=-\ln P(v)=-\ln \sum_{h} P(v,h)=-\ln(\frac{1}{Z}\sum_{h}e^{-E(v,h)})=\ln \sum_{v,h}e^{-E(v,h)}-\ln\sum_{h}e^{-E(v,h)}</script><p>我们利用这个似然损失函数对参数$W$，$a$和$b$求梯度，可以得到：</p>
+<script type="math/tex; mode=display">\frac{\partial L}{\partial W_{i,j}}=\sum_vP(v)P(h_i=1|v)v_j-P(h_i=1|V)V_j</script><script type="math/tex; mode=display">\frac{\partial L}{\partial a_i}=\sum_{v}P(v)v_i-V_i</script><script type="math/tex; mode=display">\frac{\partial L}{\partial b_i}=\sum_vP(v)P(h_i=1|v)-P(h_i=1|V)</script><p>上面三个式子，$V$是训练样本的显示状态，可以看到三个梯度式子都有关于分布$P(v)$求某个期望，所以可以使用基于吉布斯采样的对比散度方法近似求得关于$P(v)$的某个期望，从而得到梯度的近似结果。不断迭代更新直到收敛，最终得到参数的解。</p>
+<h2 id="深度受限玻尔兹曼机"><a href="#深度受限玻尔兹曼机" class="headerlink" title="深度受限玻尔兹曼机"></a>深度受限玻尔兹曼机</h2><p>深度受限玻尔兹曼机就是有多层的RBM，原先的RBM是二分图，只有两层，而深度RBM则有多层，每两层之间构成二分图。如果把奇数层和偶数层拆开看会发现，深度RBM依然可以转换成一个RBM，即奇数层与偶数层可以构成一个二分图。</p>
 
     </div>
 
@@ -269,13 +269,11 @@
         <div class="post-tags">
             <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
-            <a href="/tags/NLP/" rel="tag"># NLP</a>
-          
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/15/EM算法/" rel="next" title="EM算法">
-                <i class="fa fa-chevron-left"></i> EM算法
+              <a href="/2020/03/01/独热编码和标签平滑/" rel="next" title="独热编码和标签平滑">
+                <i class="fa fa-chevron-left"></i> 独热编码和标签平滑
               </a>
             
           </div>
@@ -283,10 +281,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/16/ELMo，GPT和Bert/" rel="prev" title="ELMo，GPT和Bert">
-                ELMo，GPT和Bert <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -386,7 +380,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#综述"><span class="nav-number">1.</span> <span class="nav-text">综述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GloVe模型"><span class="nav-number">2.</span> <span class="nav-text">GloVe模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FastText模型"><span class="nav-number">3.</span> <span class="nav-text">FastText模型</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#综述"><span class="nav-number">1.</span> <span class="nav-text">综述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#玻尔兹曼机"><span class="nav-number">2.</span> <span class="nav-text">玻尔兹曼机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#受限玻尔兹曼机"><span class="nav-number">3.</span> <span class="nav-text">受限玻尔兹曼机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深度受限玻尔兹曼机"><span class="nav-number">4.</span> <span class="nav-text">深度受限玻尔兹曼机</span></a></li></ol></div>
             
 
           </div>
