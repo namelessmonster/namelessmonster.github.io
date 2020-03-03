@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="BN在使用神经网络训练数据，常常使用批梯度下降的优化方法。这种优化方法相比起全梯度下降方法有一个问题，就是收敛速度慢，因为每一批数据的分布与全部数据的分布存在着不一致，且每一批数据的分布是变化的，这使得神经网络需要不断根据输入分布的不同调整权重去适应不同的输入分布。然后，神经网络层与层之间的联系是复杂的，前面层输入分布的变化会影响输出分布，而输出分布又会影响后面层的输入分布进而影响后面层的输出分布">
-<meta name="keywords" content="机器学习,深度学习">
+  <meta name="description" content="综述在单机下统计文件内各个元素的出现次数是简单的，但是当文件占用空间很大或文件数量很多使得单机处理效率差时，如何拓展至多台机器共同解决问题，这是一个很值得研究很需要去解决的问题。在单机下很容易处理的问题，在集群下却不一定是容易的，主要包括这些问题：(1) 如何将一个大任务划分成小任务(2) 如何将小任务的结果整合成大任务的结果(3) 如何减少数据流动，提高工作效率(4) 如何将用户的逻辑代码发送给">
+<meta name="keywords" content="计算机基础,大数据">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BN和Dropout">
-<meta property="og:url" content="http://yoursite.com/2020/02/21/BN和Dropout/index.html">
+<meta property="og:title" content="Map-Reduce计算原理">
+<meta property="og:url" content="http://yoursite.com/2020/03/03/Map-Reduce计算原理/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="BN在使用神经网络训练数据，常常使用批梯度下降的优化方法。这种优化方法相比起全梯度下降方法有一个问题，就是收敛速度慢，因为每一批数据的分布与全部数据的分布存在着不一致，且每一批数据的分布是变化的，这使得神经网络需要不断根据输入分布的不同调整权重去适应不同的输入分布。然后，神经网络层与层之间的联系是复杂的，前面层输入分布的变化会影响输出分布，而输出分布又会影响后面层的输入分布进而影响后面层的输出分布">
+<meta property="og:description" content="综述在单机下统计文件内各个元素的出现次数是简单的，但是当文件占用空间很大或文件数量很多使得单机处理效率差时，如何拓展至多台机器共同解决问题，这是一个很值得研究很需要去解决的问题。在单机下很容易处理的问题，在集群下却不一定是容易的，主要包括这些问题：(1) 如何将一个大任务划分成小任务(2) 如何将小任务的结果整合成大任务的结果(3) 如何减少数据流动，提高工作效率(4) 如何将用户的逻辑代码发送给">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-01T16:42:47.977Z">
+<meta property="og:updated_time" content="2020-03-03T06:49:02.013Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BN和Dropout">
-<meta name="twitter:description" content="BN在使用神经网络训练数据，常常使用批梯度下降的优化方法。这种优化方法相比起全梯度下降方法有一个问题，就是收敛速度慢，因为每一批数据的分布与全部数据的分布存在着不一致，且每一批数据的分布是变化的，这使得神经网络需要不断根据输入分布的不同调整权重去适应不同的输入分布。然后，神经网络层与层之间的联系是复杂的，前面层输入分布的变化会影响输出分布，而输出分布又会影响后面层的输入分布进而影响后面层的输出分布">
-  <link rel="canonical" href="http://yoursite.com/2020/02/21/BN和Dropout/">
+<meta name="twitter:title" content="Map-Reduce计算原理">
+<meta name="twitter:description" content="综述在单机下统计文件内各个元素的出现次数是简单的，但是当文件占用空间很大或文件数量很多使得单机处理效率差时，如何拓展至多台机器共同解决问题，这是一个很值得研究很需要去解决的问题。在单机下很容易处理的问题，在集群下却不一定是容易的，主要包括这些问题：(1) 如何将一个大任务划分成小任务(2) 如何将小任务的结果整合成大任务的结果(3) 如何减少数据流动，提高工作效率(4) 如何将用户的逻辑代码发送给">
+  <link rel="canonical" href="http://yoursite.com/2020/03/03/Map-Reduce计算原理/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>BN和Dropout | Hexo</title>
+  <title>Map-Reduce计算原理 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/21/BN和Dropout/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/03/Map-Reduce计算原理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">BN和Dropout
+          <h1 class="post-title" itemprop="name headline">Map-Reduce计算原理
 
               
             
@@ -227,21 +227,11 @@
                 
               
 
-              <time title="创建时间：2020-02-21 22:44:00" itemprop="dateCreated datePublished" datetime="2020-02-21T22:44:00+08:00">2020-02-21</time>
+              <time title="创建时间：2020-03-03 14:09:02 / 修改时间：14:49:02" itemprop="dateCreated datePublished" datetime="2020-03-03T14:09:02+08:00">2020-03-03</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-03-02 00:42:47" itemprop="dateModified" datetime="2020-03-02T00:42:47+08:00">2020-03-02</time>
-              </span>
             
           
 
@@ -256,17 +246,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="BN"><a href="#BN" class="headerlink" title="BN"></a>BN</h2><p>在使用神经网络训练数据，常常使用批梯度下降的优化方法。这种优化方法相比起全梯度下降方法有一个问题，就是收敛速度慢，因为每一批数据的分布与全部数据的分布存在着不一致，且每一批数据的分布是变化的，这使得神经网络需要不断根据输入分布的不同调整权重去适应不同的输入分布。然后，神经网络层与层之间的联系是复杂的，前面层输入分布的变化会影响输出分布，而输出分布又会影响后面层的输入分布进而影响后面层的输出分布，最终作用到最后一层影响网络的输出。前面层的变动如同蝴蝶效应般对网络的输出影响巨大。在使用梯度下降调整网络参数时，可以理解成是通过调整网络参数来间接调整网络每一层的分布，这种间接调整需要不断适应网络每层分布的变化，使得网络参数训练效果不好，收敛速度慢。比如我们希望将第$i$层的分布调整成均值为$\mu_i$，方差为$\sigma_i$，这并不是由第$i$层的参数决定的，而是由第$1,2,…,i$层的参数决定的，这种需要调整众多参数拟合分布的训练方式导致训练速度慢。</p>
-<p>而网络训练速度慢还有一个原因就是梯度消失，以$sigmoid$激活函数为例，如果某一层的分布处于$sigmoid$函数的饱和区时，此时若梯度的趋势是将分布调整到$sigmoid$函数的非饱和区，显然速度是非常慢的，因为梯度值非常小。</p>
-<p>基于以上两个原因，深度神经网络往往会出现训练速度慢的问题，而BN的出现正是为了解决这个问题。这里先介绍BN的做法，首先对每个神经元，都有$N$个输入样本，计算这$N$个样本的均值和方差：</p>
-<script type="math/tex; mode=display">\mu=\frac{1}{N}\sum_{i=1}^Nx_i</script><script type="math/tex; mode=display">\sigma^2=\frac{1}{N}\sum_{i=1}^N(x_i-\mu)^2</script><p>然后对每个样本标准化，调整输入分布为均值等于0，方差等于1：</p>
-<script type="math/tex; mode=display">\hat{x}_i=\frac{x_i-\mu}{\sigma}</script><p>将输入分布调整为均值为$\beta$，方差为$\gamma^2$：</p>
-<script type="math/tex; mode=display">z=\gamma*\hat{x}_i+\beta</script><p>综上，这个神经元的输入样本为：</p>
-<script type="math/tex; mode=display">y=a(z)</script><p>其中$a$是激活函数。可以看到，BN是将每一层每一个神经元的分布都调整为均值等于$\beta$，方差等于$\gamma^2$，这里$\beta$和$\gamma$是参数，是可以通过数据样本学习调整的，每个神经元都有属于自己的$\gamma$和$\beta$。那么为什么BN可以加速网络的学习速度呢。前面提到，影响网络学习速度的有两个主要原因：第一是网络层与层之间联系紧密，通过调整网络参数间接调整分布，参数的紧密联系导致这个过程很慢；第二是梯度在非线性激活函数的饱和区值很小，调整速度慢。BN可以很好地应对这两个问题，首先BN使得网络每一个神经元可以直接通过参数调整分布不再通过参数间接调整分布。因为BN的每一个神经元都会学习两个参数$\gamma$和$\beta$，这两个参数直接决定神经元的输入分布，关于该神经元的输入分布不再受到前面若干层参数的影响，解除了这种复杂的联系。其次，BN层可以通过快速调整分布来快速将输入分布调整至激活函数的非饱和区，提高学习速度。没有BN层时，若要将调整参数使分布从饱和区移向非饱和区，因为梯度很小的缘故，需要调整很长时间才可以将分布移到非饱和区。现在有了BN层，就可以直接通过调整$\gamma$和$\beta$快速将分布从饱和区移向非饱和区。以上就是BN层的原理。BN层在训练时，每个神经元会记录每一批数据的输入分布，通过每一批的输入分布估计总体的输入分布，在预测时使用估计的整体分布对输入标准化。预测时的过程如下，首先通过每一批数据估计总体的均值和方差：</p>
-<script type="math/tex; mode=display">\hat{\mu} = E[\mu]</script><script type="math/tex; mode=display">\hat{\sigma}^2 = \frac{m}{m-1}E[\sigma^2]</script><p>其中$m$是训练时一批数据的大小，对输入进行标准化：</p>
-<script type="math/tex; mode=display">\hat{x}=\frac{x-\hat{\mu}}{\hat{\sigma}}</script><p>将输入移向该神经元的分布：</p>
-<script type="math/tex; mode=display">z=\gamma*\hat{x}+\beta</script><script type="math/tex; mode=display">y=a(z)</script><p>以上就是BN的预测过程，除了BN，其实还有LN，IN，GN，不过应用最广泛当属BN，LN也有一定的应用。</p>
-<h2 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h2><p>Dropout是根据一定的概率将神经网络某一层的神经元关闭，假设这个概率为0.5，这意味着该层的神经元有50%的概率处于关闭状态。更一般的，假设Dropout关闭神经元的概率为$p$，则打开神经元的概率为$q=1-p$。在训练时，Dropout会依据概率$p$关闭神经元，而在预测时，为了还原神经元的期望输出，会将权重乘上$q=1-p$。更常见的做法是在训练时将权重除以$q$，在预测时权重不用做改变。Dropout能起到正则化的作用，因为Dropout本质上可以看作是训练多个共享权重的模型，一些模型使用一部分权重，另一些模型使用另一部分权重，模型与模型之间有共用的权重也有不共用的权重，在预测时使用这些模型的期望作为预测结果，这类似于bagging，可以起到减小方差，防止过拟合的正则化效果。Dropout的另一种解释是运用了奥卡姆剃刀原理，通过关闭一些神经元，降低深度神经网络参数之间联系的复杂程度，找到更简单的特征联系，从而起到正则化的效果。</p>
+        <h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>在单机下统计文件内各个元素的出现次数是简单的，但是当文件占用空间很大或文件数量很多使得单机处理效率差时，如何拓展至多台机器共同解决问题，这是一个很值得研究很需要去解决的问题。在单机下很容易处理的问题，在集群下却不一定是容易的，主要包括这些问题：<br>(1) 如何将一个大任务划分成小任务<br>(2) 如何将小任务的结果整合成大任务的结果<br>(3) 如何减少数据流动，提高工作效率<br>(4) 如何将用户的逻辑代码发送给集群的工作机器，即识别需要这套逻辑的机器并将相应逻辑指令发送给该机器执行</p>
+<h2 id="提交任务"><a href="#提交任务" class="headerlink" title="提交任务"></a>提交任务</h2><p>客户端提交任务后，会将需要处理的文件存入HDFS。HDFS是一个分布式文件存储系统，可以看作是集群共同维护一个文件系统和存储数据，有一些机器负责存储元数据，即记录数据的基本信息，数据存储在哪台机器，有哪些备份，备份存储在哪里等等；有一些机器负责存储数据。集群中会有一些中心节点负责接收客户端提交的业务代码，这些中心节点会给集群其他节点分配任务，包括：<br>(1) 确定哪些机器拥有哪些数据<br>(2) 若机器A拥有数据片段A，则将操作数据片段A的代码指令发送给机器A，机器A开始使用业务代码处理数据片段A<br>(3) 确定某些机器的输出需要接着传递给哪些机器进一步处理得到最终输出<br>(4) 收集最终输出，反馈给客户端</p>
+<h2 id="输入分片"><a href="#输入分片" class="headerlink" title="输入分片"></a>输入分片</h2><p>输入分片就是将用户提交的大文件划分后存入HDFS。在处理任务时，为了减少数据在集群之间的流动，采用计算向数据靠拢的策略，将业务代码发送给拥有数据片段的机器，机器接收到业务代码就可以使用代码逻辑在本地处理数据了，处理后得到的计算结果，在中央节点调控下会接着做一些处理并发送给下一阶段需要进一步处理的机器</p>
+<h2 id="Map操作"><a href="#Map操作" class="headerlink" title="Map操作"></a>Map操作</h2><p>Map操作是对文件片段的第一步操作，下面以统计字符串出现次数的任务为例。首先大文件存入了HDFS被分成了许多小文件片段，拥有片段A的机器会对片段A执行Map操作，拥有片段B的机器会对片段执行Map操作。在统计字符串出现次数的任务中，Map操作可以被设计成对本地文件片段分词并生成键值对<string,1>，即对每个分词生成一个键值对，键是字符串，值是1表示出现一次。Map操作后续还可以接着做一些操作，比如将相同键值的统计值进行合并，比如apple出现了3次，将三个<apple,1>合并成<apple,3>。Map操作后需要确定每个键值对需要接着发送给哪些机器进行统计汇总，比如机器1得到键值对<apple,3>，机器2得到键值对<apple,5>，则需要有一台机器将这两个键值对合并成<apple,8>，所以可以根据键的哈希值将键值对分配到下一步的机器，这样拥有相同的键的元素就会发送到相同的机器进行汇总。</apple,8></apple,5></apple,3></apple,3></apple,1></string,1></p>
+<h2 id="Reduce操作"><a href="#Reduce操作" class="headerlink" title="Reduce操作"></a>Reduce操作</h2><p>Map操作是得到对小任务的处理结果，而Reduce操作则负责将小任务的处理结果整合成大任务的处理结果，继续以统计字符串出现次数的任务为例。从上一步的讲解中，我们已经可以知道，所有<apple,?>的键值对都被发送到了同一台机器，这样在这台机器只需要简单所有键值对值的和就可以得到每个键的最终统计结果了。</apple,?></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Map-Reduce操作是二阶段操作，当需要处理多阶段时可能需要一些精心设计，或者是将多阶段通过巧妙设计转成二阶段一次Map-Reduce操作解决，或者是分多次Map-Reduce操作解决。这是Map-Reduce计算框架的一个缺点，另一个缺点是Map-Reduce只能使用Map操作和Reduce操作解决问题，有一些问题不一定可以很好地转变成使用Map操作和Reduce操作可以解决的形式，所以后来又有了Spark的计算框架。</p>
 
     </div>
 
@@ -278,15 +263,15 @@
           
         
         <div class="post-tags">
-            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+            <a href="/tags/计算机基础/" rel="tag"># 计算机基础</a>
           
-            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+            <a href="/tags/大数据/" rel="tag"># 大数据</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/21/RNN和LSTM/" rel="next" title="RNN和LSTM">
-                <i class="fa fa-chevron-left"></i> RNN和LSTM
+              <a href="/2020/03/02/RBM-受限玻尔兹曼机/" rel="next" title="RBM-受限玻尔兹曼机">
+                <i class="fa fa-chevron-left"></i> RBM-受限玻尔兹曼机
               </a>
             
           </div>
@@ -294,10 +279,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/22/变分推断/" rel="prev" title="变分推断">
-                变分推断 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -399,7 +380,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BN"><span class="nav-number">1.</span> <span class="nav-text">BN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dropout"><span class="nav-number">2.</span> <span class="nav-text">Dropout</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#综述"><span class="nav-number">1.</span> <span class="nav-text">综述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提交任务"><span class="nav-number">2.</span> <span class="nav-text">提交任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入分片"><span class="nav-number">3.</span> <span class="nav-text">输入分片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map操作"><span class="nav-number">4.</span> <span class="nav-text">Map操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reduce操作"><span class="nav-number">5.</span> <span class="nav-text">Reduce操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
