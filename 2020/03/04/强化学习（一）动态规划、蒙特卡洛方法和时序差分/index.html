@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    search: {
+      root: '/',
+      path: ''
+    },
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="综述强化学习是除监督学习、非监督学习的第三种学习方式，通过使代理执行动作去影响环境，从环境得到奖励，进而不断改善自己的动作选择，使得代理可以在完成任务的同时得到最大的奖励。强化学习有以下几个基本元素：(1) 状态集合S，状态集合的每个状态是指环境的状态(2) 动作集合A，动作集合指代理可以执行的动作(3) 策略$\pi$，策略是指代理争对不同的环境状态选择各个动作的概率分布。策略满足马尔可夫性，即">
+<meta name="keywords" content="机器学习,深度学习,强化学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="强化学习（一）动态规划、蒙特卡洛方法和时序差分">
+<meta property="og:url" content="http://yoursite.com/2020/03/04/强化学习（一）动态规划、蒙特卡洛方法和时序差分/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="综述强化学习是除监督学习、非监督学习的第三种学习方式，通过使代理执行动作去影响环境，从环境得到奖励，进而不断改善自己的动作选择，使得代理可以在完成任务的同时得到最大的奖励。强化学习有以下几个基本元素：(1) 状态集合S，状态集合的每个状态是指环境的状态(2) 动作集合A，动作集合指代理可以执行的动作(3) 策略$\pi$，策略是指代理争对不同的环境状态选择各个动作的概率分布。策略满足马尔可夫性，即">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-03-04T09:45:51.363Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="强化学习（一）动态规划、蒙特卡洛方法和时序差分">
+<meta name="twitter:description" content="综述强化学习是除监督学习、非监督学习的第三种学习方式，通过使代理执行动作去影响环境，从环境得到奖励，进而不断改善自己的动作选择，使得代理可以在完成任务的同时得到最大的奖励。强化学习有以下几个基本元素：(1) 状态集合S，状态集合的每个状态是指环境的状态(2) 动作集合A，动作集合指代理可以执行的动作(3) 策略$\pi$，策略是指代理争对不同的环境状态选择各个动作的概率分布。策略满足马尔可夫性，即">
+  <link rel="canonical" href="http://yoursite.com/2020/03/04/强化学习（一）动态规划、蒙特卡洛方法和时序差分/">
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>强化学习（一）动态规划、蒙特卡洛方法和时序差分 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+    </ul>
+</nav>
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/04/强化学习（一）动态规划、蒙特卡洛方法和时序差分/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="huangshh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">强化学习（一）动态规划、蒙特卡洛方法和时序差分
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-04 15:26:27 / 修改时间：17:45:51" itemprop="dateCreated datePublished" datetime="2020-03-04T15:26:27+08:00">2020-03-04</time>
+            </span>
+          
+            
+
+            
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>强化学习是除监督学习、非监督学习的第三种学习方式，通过使代理执行动作去影响环境，从环境得到奖励，进而不断改善自己的动作选择，使得代理可以在完成任务的同时得到最大的奖励。强化学习有以下几个基本元素：<br>(1) 状态集合S，状态集合的每个状态是指环境的状态<br>(2) 动作集合A，动作集合指代理可以执行的动作<br>(3) 策略$\pi$，策略是指代理争对不同的环境状态选择各个动作的概率分布。策略满足马尔可夫性，即策略的概率分布$\pi(a|s)$只与当前状态有关<br>(4) 衰减率$\gamma$，在选择动作时，考虑的往往不只是当前的奖励，还会考虑后续可能得到的奖励，普遍认为当前的奖励会比后面的奖励重要些，所以后面第$t$步的奖励需要乘上衰减系数$\gamma^t$<br>(5) 动作状态转移分布$P_{s,a}^{s’}$，表示在环境状态为$s$时，代理执行动作$a$，环境状态变为$s’$的概率<br>(6) 环境奖励$R_t$，表示代理在第$t$步从环境中得到的奖励<br>(7) 探索率$\epsilon$，表示代理有可能会探索执行其他动作而不执行当前期望收益最大的动作，从而有一定概率跳出局部最优</p>
+<p>除了上面七个要素，还有：<br>(8) 值函数$v_{\pi}(s)$，表示在策略$\pi$下，代理在环境状态为$s$的期望收益<br>(9) 动作状态值函数$q_{\pi}(s,a)$，表示在策略$\pi$下，代理在环境状态为$s$下执行动作$a$的期望收益</p>
+<p>强化学习需要解决两个问题：<br>(1) 预测问题，需要根据已有策略计算出值函数<br>(2) 控制问题，在未知策略的情况下计算出最佳策略和最佳策略下的值函数</p>
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><p>动态规划解决强化学习，有以下几个前提：<br>(1) 环境奖励的形式是$R(s,a)$，即代理在环境状态$s$下执行动作$a$得到奖励<br>(2) 策略$\pi(a|s)$和动作状态转移分布$P_{s,a}^{s’}$满足马尔可夫性，即选取什么动作只与当前环境状态有关，得到什么状态只与当前环境状态和当前执行动作有关<br>(3) 已知动作状态转移分布$P_{s,a}^{s’}$</p>
+<h3 id="预测问题"><a href="#预测问题" class="headerlink" title="预测问题"></a>预测问题</h3><p>在已知策略$\pi(a|s)$的情况下，值函数$v_{\pi}(s)$可列出方程：</p>
+<script type="math/tex; mode=display">v_{\pi}(s)=\sum_{a}\{\pi(a|s)[R(s,a)+\gamma\sum_{s'}P_{s,a}^{s'}v_{\pi}(s')]\}</script><p>可以通过解方程的方式得到值函数的解，但一般而言这个方程比较复杂，采用迭代法求解。首先随机设定一个值函数的初始状态，然后不断调用上面的方程迭代更新，直到收敛，收敛后就是值函数的解。</p>
+<h3 id="控制问题"><a href="#控制问题" class="headerlink" title="控制问题"></a>控制问题</h3><p>首先定义动作状态值函数：</p>
+<script type="math/tex; mode=display">q_{\pi}(s,a)=R(s,a)+\gamma\sum_{s'}P_{s,a}^{s'}v_{\pi}(s')</script><p>在未知策略$\pi(a|s)$的情况下，首先随机设置一个策略，然后基于这个策略计算值函数，利用值函数采用贪心法更新策略：</p>
+<script type="math/tex; mode=display">\pi(a|s)=\begin{cases} 1,a=arg\max_a q_{\pi}(s,a)\\0,else
+\end{cases}</script><p>更新策略，继续利用策略计算值函数，利用值函数更新策略，直到收敛。此时就可以得到策略的解与值函数的解。</p>
+<h2 id="蒙特卡洛方法"><a href="#蒙特卡洛方法" class="headerlink" title="蒙特卡洛方法"></a>蒙特卡洛方法</h2><p>动态规划的方法需要知道动作状态转移分布$P_{s,a}^{s’}$，但很多时候这个概率分布我们是不知道的，我们称已知这个分布的强化学习为基于模型的强化学习(model-base)，而不知道这个分布的强化学习为不基于模型的强化学习(model-free)。从动态规划求解强化学习问题中我们知道：</p>
+<script type="math/tex; mode=display">v_{\pi}(s)=\sum_{a}\pi(a|s)q_{\pi}(s,a)</script><script type="math/tex; mode=display">q_{\pi}(s)=R(s,a)+\gamma\sum_{s'}P_{s,a}^{s'}v_{\pi}(s')=R(s,a)+\gamma E_{P_{s,a}^{s'}}[v_{\pi}(s')]</script><p>蒙特卡洛方法的思想就是通过从分布$P_{s,a}^{s’}$中采样$s’$，然后计算这些$v_{\pi}(s’)$的均值来近似期望$E_{P_{s,a}^{s’}}[v_{\pi}(s’)]$。虽然我们不知道$P_{s,a}^{s’}$的具体形式，但是我们在状态$s$下执行了动作$a$后环境总会到达一个状态$s’$，所以我们可以让代理根据当前策略不断采样动作直到到达目标状态，采样多次可以得到多条从起点到重点的链，从这些链中我们就可以近似$E_{P_{s,a}^{s’}}[v_{\pi}(s’)]$了。假设对于状态$s_t$，执行动作$a_t$，其出现的次数为$N(s_t,a_t)$，得到的$v_{\pi}(s’)$的和为$G(s_t,a_t)$，则可以更新$q_{\pi}(s_t,a_t)$为：</p>
+<script type="math/tex; mode=display">q_{\pi}(s_t,a_t)=R(s,a)+\gamma\frac{G(s_t,a_t)}{N(s_t,a_t)}</script><p>假设现在我们又得到一个$s’$，则更新公式为：</p>
+<script type="math/tex; mode=display">q_{\pi}^{new}(s_t,a_t)=R(s,a)+\gamma\frac{G(s_t,a_t)+v_{\pi}(s')}{N(s_t,a_t)+1} 
+=q_{\pi}^{old}(s_t,a_t)+\frac{1}{N(s_t,a_t)+1}(R(s,a)+\gamma v_{\pi}(s')-q_{\pi}^{old}(s_t,a_t))</script><p>所以可以改用在线更新形式，即来一个数据就统计更新一个数据：</p>
+<script type="math/tex; mode=display">q_{\pi}(s,a)=q_{\pi}(s,a)+\frac{1}{N(s,a)+1}(R(s,a)+\gamma v_{\pi}(s')-q_{\pi}(s,a))</script><p>现在我们就可以使用上式很好地近似$q_{\pi}(s,a)$了，当我们有无穷多的数据，可以假设$N(s,a)$的作用近似为系数$\alpha$，这个系数$\alpha$表示平均下来每一项加法的作用，所以有：</p>
+<script type="math/tex; mode=display">q_{\pi}(s,a)=q_{\pi}(s,a)+\alpha(R(s,a)+\gamma v_{\pi}(s')-q_{\pi}(s,a))</script><p>现在我们就得到了蒙特卡洛方法的近似公式了，对于预测和控制问题，蒙特卡洛方法和动态规划方法的求解思路是一样的，只是蒙特卡洛方法使用统计的近似结果得到$q_{\pi}(s,a)$。在求解控制问题时，蒙特卡洛方法使用一个探索率$\epsilon$调整策略的更新，策略的更新公式为：</p>
+<script type="math/tex; mode=display">\pi(a|s)=\begin{cases} 1-\epsilon+\frac{\epsilon}{m},a=arg\max_a q(s,a)\\ \frac{\epsilon}{m},else
+\end{cases}</script><p>当$\epsilon$比较大时，鼓励去探索执行当前期望收益不是最大的动作；当$\epsilon$比较小时，则会逐渐收敛到执行当前期望收益最大的动作。为了最终结果可以达到收敛状态，随着迭代次数加深，探索率$\epsilon$会不断缩小。</p>
+<h2 id="时序差分"><a href="#时序差分" class="headerlink" title="时序差分"></a>时序差分</h2><p>时序差分方法其实就是上面提到的蒙特卡洛方法，在上面的蒙特卡洛方法中，我们只使用了一步去求期望，即：</p>
+<script type="math/tex; mode=display">q_{\pi}(s,a)=q_{\pi}(s,a)+\alpha(R(s,a)+\gamma v_{\pi}(s')-q_{\pi}(s,a))</script><p>事实上，我们还可以用两步求期望：</p>
+<script type="math/tex; mode=display">q_{\pi}(s,a)=q_{\pi}(s,a)+\alpha(R(s,a)+\gamma R(s',a')+\gamma^2v_{\pi}(s'')-q_{\pi}(s,a))</script><p>还可以三步，四步直到无穷步求期望。有一种时序差分方法TD($\lambda$)，考虑到所有的步长，为每个步长设置一个权重$(1-\lambda)\lambda^{t-1}$表示步长为$t$的权重，对这些步长加权求和得到$G_{\lambda}(s,a)$，则更新公式变为：</p>
+<script type="math/tex; mode=display">q_{\pi}(s,a)=q_{\pi}(s,a)+\alpha(G_{\lambda}(s,a)-q_{\pi}(s,a))</script><p>更详细的求解过程可以参考这篇文章：<a href="https://www.cnblogs.com/pinard/p/9529828.html" target="_blank" rel="noopener">https://www.cnblogs.com/pinard/p/9529828.html</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+        
+        <div class="post-tags">
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+          
+            <a href="/tags/强化学习/" rel="tag"># 强化学习</a>
+          
+        </div>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+              <a href="/2020/03/03/Map-Reduce计算原理/" rel="next" title="Map-Reduce计算原理">
+                <i class="fa fa-chevron-left"></i> Map-Reduce计算原理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+          </div>
+        </div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">huangshh</p>
+  <div class="site-description motion-element" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#综述"><span class="nav-number">1.</span> <span class="nav-text">综述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态规划"><span class="nav-number">2.</span> <span class="nav-text">动态规划</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#预测问题"><span class="nav-number">2.1.</span> <span class="nav-text">预测问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制问题"><span class="nav-number">2.2.</span> <span class="nav-text">控制问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#蒙特卡洛方法"><span class="nav-number">3.</span> <span class="nav-text">蒙特卡洛方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时序差分"><span class="nav-number">4.</span> <span class="nav-text">时序差分</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">huangshh</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.3.0</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+      </div>
+
+    
+
+  </div>
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  <script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+  
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.3.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+  
+    
+      <script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
