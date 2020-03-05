@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="综述GloVe模型和FastText模型和Word2Vec模型类似，都是为了得到词的向量。 GloVe模型GloVe模型首先定义一个窗口，然后对语料库窗口内的词统计出一个共现矩阵。对于这个共现矩阵，我们可以统计各个单词之间条件概率以及联合概率的信息。现在我们想要学习词的向量$v_i$和$v_j$使得这些向量可以更好地拟合条件概率和联合概率。假设我们使用下式拟合概率： \frac{e^{v_i^Tv">
-<meta name="keywords" content="机器学习,NLP">
+  <meta name="description" content="综述进程的正常工作离不开与IO打交道，当我们需要读写文件时，需要通过IO与磁盘打交道；当我们需要与远程进程打交道时，需要通过IO与socket打交道，可以将socket看作是一个文件。在Linux中，一切皆文件，所以IO的作用非常重要。一般而言，如果一个进程需要读某个文件时，首先会系统调用询问某个文件描述符是否读就绪，如果文件描述符读就绪了，内核首先会将要读的数据从外部设备拷贝到内核空间，然后从内">
+<meta name="keywords" content="计算机基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GloVe模型和FastText模型">
-<meta property="og:url" content="http://yoursite.com/2020/02/16/GloVe模型和FastText模型/index.html">
+<meta property="og:title" content="IO模型">
+<meta property="og:url" content="http://yoursite.com/2020/03/05/IO模型/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="综述GloVe模型和FastText模型和Word2Vec模型类似，都是为了得到词的向量。 GloVe模型GloVe模型首先定义一个窗口，然后对语料库窗口内的词统计出一个共现矩阵。对于这个共现矩阵，我们可以统计各个单词之间条件概率以及联合概率的信息。现在我们想要学习词的向量$v_i$和$v_j$使得这些向量可以更好地拟合条件概率和联合概率。假设我们使用下式拟合概率： \frac{e^{v_i^Tv">
+<meta property="og:description" content="综述进程的正常工作离不开与IO打交道，当我们需要读写文件时，需要通过IO与磁盘打交道；当我们需要与远程进程打交道时，需要通过IO与socket打交道，可以将socket看作是一个文件。在Linux中，一切皆文件，所以IO的作用非常重要。一般而言，如果一个进程需要读某个文件时，首先会系统调用询问某个文件描述符是否读就绪，如果文件描述符读就绪了，内核首先会将要读的数据从外部设备拷贝到内核空间，然后从内">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-16T07:19:46.869Z">
+<meta property="og:updated_time" content="2020-03-05T07:06:32.407Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GloVe模型和FastText模型">
-<meta name="twitter:description" content="综述GloVe模型和FastText模型和Word2Vec模型类似，都是为了得到词的向量。 GloVe模型GloVe模型首先定义一个窗口，然后对语料库窗口内的词统计出一个共现矩阵。对于这个共现矩阵，我们可以统计各个单词之间条件概率以及联合概率的信息。现在我们想要学习词的向量$v_i$和$v_j$使得这些向量可以更好地拟合条件概率和联合概率。假设我们使用下式拟合概率： \frac{e^{v_i^Tv">
-  <link rel="canonical" href="http://yoursite.com/2020/02/16/GloVe模型和FastText模型/">
+<meta name="twitter:title" content="IO模型">
+<meta name="twitter:description" content="综述进程的正常工作离不开与IO打交道，当我们需要读写文件时，需要通过IO与磁盘打交道；当我们需要与远程进程打交道时，需要通过IO与socket打交道，可以将socket看作是一个文件。在Linux中，一切皆文件，所以IO的作用非常重要。一般而言，如果一个进程需要读某个文件时，首先会系统调用询问某个文件描述符是否读就绪，如果文件描述符读就绪了，内核首先会将要读的数据从外部设备拷贝到内核空间，然后从内">
+  <link rel="canonical" href="http://yoursite.com/2020/03/05/IO模型/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>GloVe模型和FastText模型 | Hexo</title>
+  <title>IO模型 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/16/GloVe模型和FastText模型/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/05/IO模型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">GloVe模型和FastText模型
+          <h1 class="post-title" itemprop="name headline">IO模型
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-16 13:41:51 / 修改时间：15:19:46" itemprop="dateCreated datePublished" datetime="2020-02-16T13:41:51+08:00">2020-02-16</time>
+              <time title="创建时间：2020-03-05 14:02:06 / 修改时间：15:06:32" itemprop="dateCreated datePublished" datetime="2020-03-05T14:02:06+08:00">2020-03-05</time>
             </span>
           
             
@@ -246,16 +246,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>GloVe模型和FastText模型和Word2Vec模型类似，都是为了得到词的向量。</p>
-<h2 id="GloVe模型"><a href="#GloVe模型" class="headerlink" title="GloVe模型"></a>GloVe模型</h2><p>GloVe模型首先定义一个窗口，然后对语料库窗口内的词统计出一个共现矩阵。对于这个共现矩阵，我们可以统计各个单词之间条件概率以及联合概率的信息。现在我们想要学习词的向量$v_i$和$v_j$使得这些向量可以更好地拟合条件概率和联合概率。假设我们使用下式拟合概率：</p>
-<script type="math/tex; mode=display">\frac{e^{v_i^Tv_j}}{e^{a_i}}\approx \frac{X_{i,j}}{X_i}=P(j|i)</script><p>对式子两边取对数有：</p>
-<script type="math/tex; mode=display">v_i^Tv_j-a_i=\log X_{i,j}-\log X_i</script><p>令$a’_i=-a_i+\log X_i$，则有：</p>
-<script type="math/tex; mode=display">v_i^Tv_j+a'_i-\log X_{i,j}=0</script><p>求$P(i|j)+P(j|i)$，则有：</p>
-<script type="math/tex; mode=display">2v_i^Tv_j+a'_i+a'_j-2\log X_{i,j}=0</script><p>令$2*b_i=a’_i$，则有：</p>
-<script type="math/tex; mode=display">v_i^Tv_j+b_i+b_j-\log X_{i,j}=0</script><p>这就是GloVe模型的损失函数：</p>
-<script type="math/tex; mode=display">J=\sum_{i,j} f(i,j)(v_i^Tv_j+b_i+b_j-\log X_{i,j})^2</script><p>其中$f(i,j)$是每对$(i,j)$的权重，求$f(i,j)$的方法是根据语料库的统计信息，按照一个已知规则对每对$(i,j)$计算权重。$f(i,j)$可以控制没有出现过的$(i,j)$令其权重为0，也可以控制出现太过频繁的词对减小其权重。</p>
-<h2 id="FastText模型"><a href="#FastText模型" class="headerlink" title="FastText模型"></a>FastText模型</h2><p>FastText模型和Word2Vec的CBOW模型很相似，但CBOW使用单词作为单位，且任务是通过上下文词预测中心词，而FastText使用n-gram作为单位，且任务是通过文本所有n-gram预测文本类别。FastText的算法步骤如下：<br>(1) 以字符级别或单词级别的n-gram作为一个单位，映射到一个向量<br>(2) 对一段文本的所有n-gram向量求平均<br>(3) 将平均向量通过哈夫曼softmax过程，得到文档类别输出</p>
-<p>FastText在完成文本分类任务的同时，可以学到n-gram特征的向量形式。对于一段文本或一个单词，其向量是文本或单词的所有n-gram向量的平均向量。</p>
+        <h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>进程的正常工作离不开与IO打交道，当我们需要读写文件时，需要通过IO与磁盘打交道；当我们需要与远程进程打交道时，需要通过IO与socket打交道，可以将socket看作是一个文件。在Linux中，一切皆文件，所以IO的作用非常重要。一般而言，如果一个进程需要读某个文件时，首先会系统调用询问某个文件描述符是否读就绪，如果文件描述符读就绪了，内核首先会将要读的数据从外部设备拷贝到内核空间，然后从内核空间拷贝到用户空间，完成文件的数据读到进程的过程。写文件的过程是类似的，首先系统调用询问某个文件描述符时候写就绪，如果文件描述符写就绪了，内核首先会将要写的数据从用户空间拷贝到内核空间，然后从内核空间拷贝到外部设备，完成文件的数据写到外部设备的过程。</p>
+<h2 id="阻塞IO"><a href="#阻塞IO" class="headerlink" title="阻塞IO"></a>阻塞IO</h2><p>阻塞IO是处理IO的默认方式。当进程需要处理文件时，会系统调用进入内核态，内核态会检查文件描述符是否就绪，如果未就绪，进程会阻塞，直到文件描述符就绪了。</p>
+<h2 id="非阻塞IO"><a href="#非阻塞IO" class="headerlink" title="非阻塞IO"></a>非阻塞IO</h2><p>当进程需要处理文件时，会系统调用进入内核态，内核态会检查文件描述符是否就绪，如果未就绪，进程不会阻塞。在这种情况下，进程需要不断询问文件是否就绪，如果就绪了才会开始文件处理。</p>
+<h2 id="多路复用IO"><a href="#多路复用IO" class="headerlink" title="多路复用IO"></a>多路复用IO</h2><p>多路复用IO是指使用一个进程或一个线程处理多个IO，常用的有select，poll和epoll。</p>
+<h3 id="select"><a href="#select" class="headerlink" title="select"></a>select</h3><p>进程会将多个文件描述符组成一个数组，然后系统调用检查这些文件描述符是否有就绪的，如果没有就绪，进程会进入阻塞状态，直到有文件描述符就绪了或等待到规定时间。在调用select时，进程会把文件描述符数组拷贝到内核空间，由内核负责监控这些文件描述符是否存在就绪。select返回时，内核将文件描述符的状态拷贝到进程空间，进程可以知道文件描述符数组中有多少个就绪，但并不知道具体是哪个就绪，所以还需要遍历一遍数组寻找就绪的文件描述符。select有文件描述符监控上限，一般为1024。</p>
+<h3 id="poll"><a href="#poll" class="headerlink" title="poll"></a>poll</h3><p>poll的原理和select几乎一致，不同的是poll将文件描述符组成一个链表，所以poll没有文件描述符监控的数量上限。</p>
+<h3 id="epoll"><a href="#epoll" class="headerlink" title="epoll"></a>epoll</h3><p>epoll也需要将文件描述符从用户空间拷贝到内核空间，但不同的是，select和poll每次调用都会重新将用户空间的文件描述符打包拷贝到内核空间，而epoll中每个文件描述符只会拷贝到内核空间一次。epoll在内核使用红黑树组织文件描述符，每当新增或减少或更新某个文件描述符的监控时会在红黑树上执行插入，删除，查找更新操作。当某个文件描述符就绪了，会触发回调函数，epoll会将文件描述符添加到就绪表。当进程调用epoll_wait函数时，epoll会直接返回就绪表的内容，所以进程可以直接操作epoll_wait的返回结果而无需再遍历一遍所有监控的文件描述符。</p>
+<p>epoll有两种触发模式，一种是水平触发，另一种是边缘触发。select和poll都是水平触发。水平触发是指当文件描述符就绪了，如果这次不操作或没有完全操作，下次依然会返回就绪，就像高电平触发模型。边缘触发是指当文件描述符就绪了，无论这次是否操作或是否完全操作，都会重新将文件描述符置为未就绪，下次是否就绪取决于下次文件描述符是否从未就绪状态变为就绪状态，就像电平边缘触发模式。</p>
+<h2 id="信号IO"><a href="#信号IO" class="headerlink" title="信号IO"></a>信号IO</h2><p>在非阻塞IO中，进程需要不断询问文件描述符是否就绪，当文件描述符已经就绪时，内核不会主动告诉进程文件描述符已经就绪。信号IO是指当文件描述符就绪了，内核会发送一个信号通知进程，进程无需再反复询问内核了。得到就绪信号后，进程通过系统调用完成IO操作。</p>
+<h2 id="异步IO"><a href="#异步IO" class="headerlink" title="异步IO"></a>异步IO</h2><p>异步IO是指进程系统调用后，后续所有操作都不需要管了，内核会帮进程检查文件描述符是否就绪，就绪后也会直接将内容拷贝到进程的用户空间。进程除了发起IO请求，没有再参与完成IO操作的整个过程，内核完成IO操作后会通知进程，整个IO处理过程已完成。</p>
 
     </div>
 
@@ -267,15 +267,13 @@
           
         
         <div class="post-tags">
-            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
-          
-            <a href="/tags/NLP/" rel="tag"># NLP</a>
+            <a href="/tags/计算机基础/" rel="tag"># 计算机基础</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/15/EM算法/" rel="next" title="EM算法">
-                <i class="fa fa-chevron-left"></i> EM算法
+              <a href="/2020/03/04/强化学习（一）动态规划、蒙特卡洛方法和时序差分/" rel="next" title="强化学习（一）动态规划、蒙特卡洛方法和时序差分">
+                <i class="fa fa-chevron-left"></i> 强化学习（一）动态规划、蒙特卡洛方法和时序差分
               </a>
             
           </div>
@@ -283,10 +281,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/16/ELMo，GPT和Bert/" rel="prev" title="ELMo，GPT和Bert">
-                ELMo，GPT和Bert <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -390,7 +384,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#综述"><span class="nav-number">1.</span> <span class="nav-text">综述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GloVe模型"><span class="nav-number">2.</span> <span class="nav-text">GloVe模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FastText模型"><span class="nav-number">3.</span> <span class="nav-text">FastText模型</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#综述"><span class="nav-number">1.</span> <span class="nav-text">综述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#阻塞IO"><span class="nav-number">2.</span> <span class="nav-text">阻塞IO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非阻塞IO"><span class="nav-number">3.</span> <span class="nav-text">非阻塞IO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多路复用IO"><span class="nav-number">4.</span> <span class="nav-text">多路复用IO</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#select"><span class="nav-number">4.1.</span> <span class="nav-text">select</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#poll"><span class="nav-number">4.2.</span> <span class="nav-text">poll</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#epoll"><span class="nav-number">4.3.</span> <span class="nav-text">epoll</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信号IO"><span class="nav-number">5.</span> <span class="nav-text">信号IO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异步IO"><span class="nav-number">6.</span> <span class="nav-text">异步IO</span></a></li></ol></div>
             
 
           </div>
