@@ -57,18 +57,18 @@
   };
 </script>
 
-  <meta name="description" content="综述Transformer是一种勇于序列的神经网络模型，相比起RNN和LSTM，Transformer可以解决RNN和LSTM无法完全解决的长期依赖问题。 输入层Transformer的输入层由两个向量组成，分别是词向量和位置向量 词向量词向量由独热编码乘上系数矩阵获得，使用Embedding层 位置向量位置向量有两种实现方式，一种是利用确定性的位置编码，即位置编码一经决定不再改变；另一种是使用位">
+  <meta name="description" content="综述Transformer是一种用于序列的神经网络模型，相比起RNN和LSTM，Transformer可以解决RNN和LSTM无法完全解决的长期依赖问题。Transformer首先会将输入序列通过编码器转成高阶特征的形式，然后编码器的输出作为解码器的输入，通过解码器的解码操作得到输出序列。 输入层Transformer的输入层由两个向量组成，分别是词向量和位置向量 词向量词向量由独热编码乘上系数矩">
 <meta name="keywords" content="机器学习,NLP,深度学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Transformer原理">
 <meta property="og:url" content="http://yoursite.com/2020/02/29/Transformer原理/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="综述Transformer是一种勇于序列的神经网络模型，相比起RNN和LSTM，Transformer可以解决RNN和LSTM无法完全解决的长期依赖问题。 输入层Transformer的输入层由两个向量组成，分别是词向量和位置向量 词向量词向量由独热编码乘上系数矩阵获得，使用Embedding层 位置向量位置向量有两种实现方式，一种是利用确定性的位置编码，即位置编码一经决定不再改变；另一种是使用位">
+<meta property="og:description" content="综述Transformer是一种用于序列的神经网络模型，相比起RNN和LSTM，Transformer可以解决RNN和LSTM无法完全解决的长期依赖问题。Transformer首先会将输入序列通过编码器转成高阶特征的形式，然后编码器的输出作为解码器的输入，通过解码器的解码操作得到输出序列。 输入层Transformer的输入层由两个向量组成，分别是词向量和位置向量 词向量词向量由独热编码乘上系数矩">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-29T06:00:06.088Z">
+<meta property="og:updated_time" content="2020-03-05T07:13:14.001Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Transformer原理">
-<meta name="twitter:description" content="综述Transformer是一种勇于序列的神经网络模型，相比起RNN和LSTM，Transformer可以解决RNN和LSTM无法完全解决的长期依赖问题。 输入层Transformer的输入层由两个向量组成，分别是词向量和位置向量 词向量词向量由独热编码乘上系数矩阵获得，使用Embedding层 位置向量位置向量有两种实现方式，一种是利用确定性的位置编码，即位置编码一经决定不再改变；另一种是使用位">
+<meta name="twitter:description" content="综述Transformer是一种用于序列的神经网络模型，相比起RNN和LSTM，Transformer可以解决RNN和LSTM无法完全解决的长期依赖问题。Transformer首先会将输入序列通过编码器转成高阶特征的形式，然后编码器的输出作为解码器的输入，通过解码器的解码操作得到输出序列。 输入层Transformer的输入层由两个向量组成，分别是词向量和位置向量 词向量词向量由独热编码乘上系数矩">
   <link rel="canonical" href="http://yoursite.com/2020/02/29/Transformer原理/">
 
 
@@ -227,11 +227,21 @@
                 
               
 
-              <time title="创建时间：2020-02-29 12:54:40 / 修改时间：14:00:06" itemprop="dateCreated datePublished" datetime="2020-02-29T12:54:40+08:00">2020-02-29</time>
+              <time title="创建时间：2020-02-29 12:54:40" itemprop="dateCreated datePublished" datetime="2020-02-29T12:54:40+08:00">2020-02-29</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-05 15:13:14" itemprop="dateModified" datetime="2020-03-05T15:13:14+08:00">2020-03-05</time>
+              </span>
             
           
 
@@ -246,7 +256,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>Transformer是一种勇于序列的神经网络模型，相比起RNN和LSTM，Transformer可以解决RNN和LSTM无法完全解决的长期依赖问题。</p>
+        <h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>Transformer是一种用于序列的神经网络模型，相比起RNN和LSTM，Transformer可以解决RNN和LSTM无法完全解决的长期依赖问题。Transformer首先会将输入序列通过编码器转成高阶特征的形式，然后编码器的输出作为解码器的输入，通过解码器的解码操作得到输出序列。</p>
 <h2 id="输入层"><a href="#输入层" class="headerlink" title="输入层"></a>输入层</h2><p>Transformer的输入层由两个向量组成，分别是词向量和位置向量</p>
 <h3 id="词向量"><a href="#词向量" class="headerlink" title="词向量"></a>词向量</h3><p>词向量由独热编码乘上系数矩阵获得，使用Embedding层</p>
 <h3 id="位置向量"><a href="#位置向量" class="headerlink" title="位置向量"></a>位置向量</h3><p>位置向量有两种实现方式，一种是利用确定性的位置编码，即位置编码一经决定不再改变；另一种是使用位置的独热编码乘上一个可学习的参数矩阵获得，这种方法的位置编码是可以根据任务自动调整。第一种方法可以很好地应对测试集的序列长度大于训练集的序列的情况，而第二种方法可以很好地根据任务调整合适的位置编码</p>
