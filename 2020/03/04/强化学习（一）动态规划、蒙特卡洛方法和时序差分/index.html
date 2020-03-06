@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="综述强化学习是除监督学习、非监督学习的第三种学习方式，通过使代理执行动作去影响环境，从环境得到奖励，进而不断改善自己的动作选择，使得代理可以在完成任务的同时得到最大的奖励。强化学习有以下几个基本元素：(1) 状态集合S，状态集合的每个状态是指环境的状态(2) 动作集合A，动作集合指代理可以执行的动作(3) 策略$\pi$，策略是指代理争对不同的环境状态选择各个动作的概率分布。策略满足马尔可夫性，即">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-04T09:45:51.363Z">
+<meta property="og:updated_time" content="2020-03-06T13:38:25.754Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="强化学习（一）动态规划、蒙特卡洛方法和时序差分">
 <meta name="twitter:description" content="综述强化学习是除监督学习、非监督学习的第三种学习方式，通过使代理执行动作去影响环境，从环境得到奖励，进而不断改善自己的动作选择，使得代理可以在完成任务的同时得到最大的奖励。强化学习有以下几个基本元素：(1) 状态集合S，状态集合的每个状态是指环境的状态(2) 动作集合A，动作集合指代理可以执行的动作(3) 策略$\pi$，策略是指代理争对不同的环境状态选择各个动作的概率分布。策略满足马尔可夫性，即">
@@ -227,11 +227,21 @@
                 
               
 
-              <time title="创建时间：2020-03-04 15:26:27 / 修改时间：17:45:51" itemprop="dateCreated datePublished" datetime="2020-03-04T15:26:27+08:00">2020-03-04</time>
+              <time title="创建时间：2020-03-04 15:26:27" itemprop="dateCreated datePublished" datetime="2020-03-04T15:26:27+08:00">2020-03-04</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-06 21:38:25" itemprop="dateModified" datetime="2020-03-06T21:38:25+08:00">2020-03-06</time>
+              </span>
             
           
 
@@ -262,12 +272,13 @@
 <script type="math/tex; mode=display">q_{\pi}^{new}(s_t,a_t)=R(s,a)+\gamma\frac{G(s_t,a_t)+v_{\pi}(s')}{N(s_t,a_t)+1} 
 =q_{\pi}^{old}(s_t,a_t)+\frac{1}{N(s_t,a_t)+1}(R(s,a)+\gamma v_{\pi}(s')-q_{\pi}^{old}(s_t,a_t))</script><p>所以可以改用在线更新形式，即来一个数据就统计更新一个数据：</p>
 <script type="math/tex; mode=display">q_{\pi}(s,a)=q_{\pi}(s,a)+\frac{1}{N(s,a)+1}(R(s,a)+\gamma v_{\pi}(s')-q_{\pi}(s,a))</script><p>现在我们就可以使用上式很好地近似$q_{\pi}(s,a)$了，当我们有无穷多的数据，可以假设$N(s,a)$的作用近似为系数$\alpha$，这个系数$\alpha$表示平均下来每一项加法的作用，所以有：</p>
-<script type="math/tex; mode=display">q_{\pi}(s,a)=q_{\pi}(s,a)+\alpha(R(s,a)+\gamma v_{\pi}(s')-q_{\pi}(s,a))</script><p>现在我们就得到了蒙特卡洛方法的近似公式了，对于预测和控制问题，蒙特卡洛方法和动态规划方法的求解思路是一样的，只是蒙特卡洛方法使用统计的近似结果得到$q_{\pi}(s,a)$。在求解控制问题时，蒙特卡洛方法使用一个探索率$\epsilon$调整策略的更新，策略的更新公式为：</p>
+<script type="math/tex; mode=display">q_{\pi}(s,a)=q_{\pi}(s,a)+\alpha(R(s,a)+\gamma v_{\pi}(s')-q_{\pi}(s,a))</script><p>上面的式子求$q_{\pi}(s,a)$需要用到$v_{\pi}(s)$，求$v_{\pi}(s)$需要用到$q_{\pi}(s,a)$。我们发现策略也是一个概率分布，当可选动作很多时，我们是不可能全部遍历一遍求期望的，所以也可以使用蒙特卡洛的方法去近似，即在求$v_{\pi}(s)$时采样$q_{\pi}(s,a)$求期望得到近似结果，得到下面两个式子：</p>
+<script type="math/tex; mode=display">v_{\pi}(s)=v_{\pi}(s)+\alpha(R(s,a)+\gamma v_{\pi}(s')-v_{\pi}(s))</script><script type="math/tex; mode=display">q_{\pi}(s,a)=q_{\pi}(s,a)+\alpha(R(s,a)+\gamma q_{\pi}(s',a')-q_{\pi}(s,a))</script><p>现在我们就得到了蒙特卡洛方法的近似公式了，对于预测和控制问题，蒙特卡洛方法和动态规划方法的求解思路是一样的，只是蒙特卡洛方法使用统计的近似结果得到$q_{\pi}(s,a)$。在求解控制问题时，蒙特卡洛方法使用一个探索率$\epsilon$调整策略的更新，策略的更新公式为：</p>
 <script type="math/tex; mode=display">\pi(a|s)=\begin{cases} 1-\epsilon+\frac{\epsilon}{m},a=arg\max_a q(s,a)\\ \frac{\epsilon}{m},else
 \end{cases}</script><p>当$\epsilon$比较大时，鼓励去探索执行当前期望收益不是最大的动作；当$\epsilon$比较小时，则会逐渐收敛到执行当前期望收益最大的动作。为了最终结果可以达到收敛状态，随着迭代次数加深，探索率$\epsilon$会不断缩小。</p>
 <h2 id="时序差分"><a href="#时序差分" class="headerlink" title="时序差分"></a>时序差分</h2><p>时序差分方法其实就是上面提到的蒙特卡洛方法，在上面的蒙特卡洛方法中，我们只使用了一步去求期望，即：</p>
-<script type="math/tex; mode=display">q_{\pi}(s,a)=q_{\pi}(s,a)+\alpha(R(s,a)+\gamma v_{\pi}(s')-q_{\pi}(s,a))</script><p>事实上，我们还可以用两步求期望：</p>
-<script type="math/tex; mode=display">q_{\pi}(s,a)=q_{\pi}(s,a)+\alpha(R(s,a)+\gamma R(s',a')+\gamma^2v_{\pi}(s'')-q_{\pi}(s,a))</script><p>还可以三步，四步直到无穷步求期望。有一种时序差分方法TD($\lambda$)，考虑到所有的步长，为每个步长设置一个权重$(1-\lambda)\lambda^{t-1}$表示步长为$t$的权重，对这些步长加权求和得到$G_{\lambda}(s,a)$，则更新公式变为：</p>
+<script type="math/tex; mode=display">q_{\pi}(s,a)=q_{\pi}(s,a)+\alpha(R(s,a)+\gamma q_{\pi}(s',a')-q_{\pi}(s,a))</script><p>事实上，我们还可以用两步求期望：</p>
+<script type="math/tex; mode=display">q_{\pi}(s,a)=q_{\pi}(s,a)+\alpha(R(s,a)+\gamma R(s',a')+\gamma^2q_{\pi}(s'',a'')-q_{\pi}(s,a))</script><p>还可以三步，四步直到无穷步求期望。有一种时序差分方法TD($\lambda$)，考虑到所有的步长，为每个步长设置一个权重$(1-\lambda)\lambda^{t-1}$表示步长为$t$的权重，对这些步长加权求和得到$G_{\lambda}(s,a)$，则更新公式变为：</p>
 <script type="math/tex; mode=display">q_{\pi}(s,a)=q_{\pi}(s,a)+\alpha(G_{\lambda}(s,a)-q_{\pi}(s,a))</script><p>更详细的求解过程可以参考这篇文章：<a href="https://www.cnblogs.com/pinard/p/9529828.html" target="_blank" rel="noopener">https://www.cnblogs.com/pinard/p/9529828.html</a></p>
 
     </div>
@@ -353,7 +364,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">42</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

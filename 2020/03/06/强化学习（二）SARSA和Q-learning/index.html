@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="1. 什么是KmeansKmeans是一个聚类算法，设定一个K，Kmeans算法可以将数据样本划分为K类。 2. Kmeans算法流程(1) 每个样本对应一个坐标，按照某种初始化方法初始化K个中心点。(2) 每个样本计算到K个中心点的距离，选择距离最小的点，假设是第$i$号中心点，将该样本归类到$i$。(3) 计算每类样本的中心点，更新中心点的坐标(4) 重复(2)(3)步，直到每一类的中心点收敛">
-<meta name="keywords" content="机器学习">
+  <meta name="description" content="综述在使用时序差分方法求强化学习的控制问题时，我们得到了下式： q_{\pi}(s,a)=q_{\pi}(s,a)+\alpha(R(s,a)+\gamma q_{\pi}(s&apos;,a&apos;)-q_{\pi}(s,a))同时我们得到一个$\epsilon$策略： \pi(a|s)=\begin{cases} 1-\epsilon+\frac{\epsilon}{m},a=arg\max_a q(s,a)">
+<meta name="keywords" content="机器学习,深度学习,强化学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kmeans数学原理">
-<meta property="og:url" content="http://yoursite.com/2020/02/12/Kmeans数学原理/index.html">
+<meta property="og:title" content="强化学习（二）SARSA和Q-learning">
+<meta property="og:url" content="http://yoursite.com/2020/03/06/强化学习（二）SARSA和Q-learning/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 什么是KmeansKmeans是一个聚类算法，设定一个K，Kmeans算法可以将数据样本划分为K类。 2. Kmeans算法流程(1) 每个样本对应一个坐标，按照某种初始化方法初始化K个中心点。(2) 每个样本计算到K个中心点的距离，选择距离最小的点，假设是第$i$号中心点，将该样本归类到$i$。(3) 计算每类样本的中心点，更新中心点的坐标(4) 重复(2)(3)步，直到每一类的中心点收敛">
+<meta property="og:description" content="综述在使用时序差分方法求强化学习的控制问题时，我们得到了下式： q_{\pi}(s,a)=q_{\pi}(s,a)+\alpha(R(s,a)+\gamma q_{\pi}(s&apos;,a&apos;)-q_{\pi}(s,a))同时我们得到一个$\epsilon$策略： \pi(a|s)=\begin{cases} 1-\epsilon+\frac{\epsilon}{m},a=arg\max_a q(s,a)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-12T15:20:00.711Z">
+<meta property="og:updated_time" content="2020-03-06T15:54:48.916Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kmeans数学原理">
-<meta name="twitter:description" content="1. 什么是KmeansKmeans是一个聚类算法，设定一个K，Kmeans算法可以将数据样本划分为K类。 2. Kmeans算法流程(1) 每个样本对应一个坐标，按照某种初始化方法初始化K个中心点。(2) 每个样本计算到K个中心点的距离，选择距离最小的点，假设是第$i$号中心点，将该样本归类到$i$。(3) 计算每类样本的中心点，更新中心点的坐标(4) 重复(2)(3)步，直到每一类的中心点收敛">
-  <link rel="canonical" href="http://yoursite.com/2020/02/12/Kmeans数学原理/">
+<meta name="twitter:title" content="强化学习（二）SARSA和Q-learning">
+<meta name="twitter:description" content="综述在使用时序差分方法求强化学习的控制问题时，我们得到了下式： q_{\pi}(s,a)=q_{\pi}(s,a)+\alpha(R(s,a)+\gamma q_{\pi}(s&apos;,a&apos;)-q_{\pi}(s,a))同时我们得到一个$\epsilon$策略： \pi(a|s)=\begin{cases} 1-\epsilon+\frac{\epsilon}{m},a=arg\max_a q(s,a)">
+  <link rel="canonical" href="http://yoursite.com/2020/03/06/强化学习（二）SARSA和Q-learning/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>Kmeans数学原理 | Hexo</title>
+  <title>强化学习（二）SARSA和Q-learning | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/12/Kmeans数学原理/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/06/强化学习（二）SARSA和Q-learning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">Kmeans数学原理
+          <h1 class="post-title" itemprop="name headline">强化学习（二）SARSA和Q-learning
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-12 22:19:59 / 修改时间：23:20:00" itemprop="dateCreated datePublished" datetime="2020-02-12T22:19:59+08:00">2020-02-12</time>
+              <time title="创建时间：2020-03-06 21:15:35 / 修改时间：23:54:48" itemprop="dateCreated datePublished" datetime="2020-03-06T21:15:35+08:00">2020-03-06</time>
             </span>
           
             
@@ -246,14 +246,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-什么是Kmeans"><a href="#1-什么是Kmeans" class="headerlink" title="1. 什么是Kmeans"></a>1. 什么是Kmeans</h2><p>Kmeans是一个聚类算法，设定一个K，Kmeans算法可以将数据样本划分为K类。</p>
-<h2 id="2-Kmeans算法流程"><a href="#2-Kmeans算法流程" class="headerlink" title="2. Kmeans算法流程"></a>2. Kmeans算法流程</h2><p>(1) 每个样本对应一个坐标，按照某种初始化方法初始化K个中心点。<br>(2) 每个样本计算到K个中心点的距离，选择距离最小的点，假设是第$i$号中心点，将该样本归类到$i$。<br>(3) 计算每类样本的中心点，更新中心点的坐标<br>(4) 重复(2)(3)步，直到每一类的中心点收敛<br>(5) 每个样本的类别取决于和该样本距离最近的类别中心点</p>
-<h2 id="3-Kmeans算法原理"><a href="#3-Kmeans算法原理" class="headerlink" title="3. Kmeans算法原理"></a>3. Kmeans算法原理</h2><p>Kmeans算法很多人都觉得容易，但是鲜有人思考为什么可以这么做，为什么这么做最后收敛的结果就是好的。本质上Kmeans算法可以看作是EM算法。我们现在从EM算法的角度求解聚类问题。首先我们有一个数据集，数据集有一些样本。然后我们假设有$K$个高斯分布$P(x|\mu_k,\sigma_k)$，第$k$个高斯分布的先验为$P(k)$。我们现在想要求出这$K$个高斯分布的参数使得数据集的似然函数达到最大。我们先列出似然函数：</p>
-<script type="math/tex; mode=display">L(X,\theta)=\prod_iP(x_i|\theta)=\prod_i\sum_kP(x_i,k|\theta)</script><p>这个式子中$\theta$代表$K$个高斯分布的参数，$P(x_i,k|\theta)$表示样本$x_i$是从第$k$个高斯分布抽样出来的联合概率。我们对这个式子取对数并套用Jensen不等式，可以得到：</p>
-<script type="math/tex; mode=display">\ln L(X,\theta)=\sum_{i}\ln\sum_kP(x_i,k|\theta)=\sum_i\ln\sum_kQ_i(k)\frac{P(x_i,k|\theta)}{Q_i(k)}\ge\sum_i\sum_kQ_i(k)\ln\frac{P(x_i,k|\theta)}{Q_i(k)}</script><p>EM算法的E步是固定一个$\theta$，求出$Q_i(k)$使得不等式变成等式，可以求得：</p>
-<script type="math/tex; mode=display">Q_i(k)=P(k|x_i,\theta)\propto P(x_i,k|\theta)</script><p>EM算法的M步，就是固定$Q_i(k)$，选择一个$\theta$使$\ln L(X,\theta)$达到最大。迭代E步和M步直到收敛。看到这里有人也许能发现这其实是一个混合高斯模型，没错，这就是混合高斯模型。那么Kmeans算法和混合高斯模型有什么地方不同呢？在求解过程中，Kmeans算法求出$Q_i(k)$后并不是直接将$Q_i(k)$代入似然函数求最大值，而是从$Q_i(k)$选择值最大的类别$k$作为自己的类别重新求似然函数。本质上Kmeans算法的似然函数是：</p>
-<script type="math/tex; mode=display">\ln L(x,\theta)=\sum_{i}\ln P(x_i|\mu_k,\sigma_k)</script><p>其中上式的$k$是样本的类别，这个类别是从样本类别的后验分布$Q_i(k)$中选择最大的$k$。这样我们就可以直接对求$\mu_k$和$\sigma_k$了。通过求极值点得到$\mu_k$是所有类别是$k$的样本的中心。综上，Kmeans算法本质上就是使用EM算法，在E步求样本类别的后验分布，在M步使用后验概率最大的类别代入似然函数求最大似然，迭代这个过程直到收敛。</p>
-<h2 id="4-杂谈"><a href="#4-杂谈" class="headerlink" title="4. 杂谈"></a>4. 杂谈</h2><p>感觉这篇文章写得逻辑有点乱，不过一路梳理下来感觉对Kmeans算法，EM算法，混合高斯模型都有了更深刻的理解，也算是一种收获了。然后还有一点要说的，就是EM算法和Kmeans算法对于初值的设置都非常重要，初始参数的设置会影响最终的收敛结果。</p>
+        <h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>在使用时序差分方法求强化学习的控制问题时，我们得到了下式：</p>
+<script type="math/tex; mode=display">q_{\pi}(s,a)=q_{\pi}(s,a)+\alpha(R(s,a)+\gamma q_{\pi}(s',a')-q_{\pi}(s,a))</script><p>同时我们得到一个$\epsilon$策略：</p>
+<script type="math/tex; mode=display">\pi(a|s)=\begin{cases} 1-\epsilon+\frac{\epsilon}{m},a=arg\max_a q(s,a)\\ \frac{\epsilon}{m},else
+\end{cases}</script><p>SARAR和Q-learning两种强化学习方法都是基于这个式子和这个策略的，但是这两个算法在状态$s’$采用动作$a’$时所使用的策略不同。</p>
+<h2 id="SARAR"><a href="#SARAR" class="headerlink" title="SARAR"></a>SARAR</h2><p>SARSA是一种在线的学习方法。什么是在线学习呢，以下棋为例，就是一边和人下棋一边学习。我们在学习的时候可以控制自己选择什么动作，但是无法控制对手选择什么动作。SARAR的学习过程是这样的：<br>(1) 已知一个状态$s$和动作$a$，得到一个状态$s’$<br>(2) 使用$\epsilon$策略分布采样一个动作$a’$<br>(3) 利用$q_{\pi}(s’,a’)$更新$q_{\pi}(s,a)$<br>(4) $s \leftarrow s’$，$a\leftarrow a’$<br>在对弈游戏中，SARAR可以看作是代理使用$\epsilon$策略而无法控制对方的策略。在非对弈游戏中，SARAR可以看作是时序差分方法。</p>
+<h2 id="Q-learning"><a href="#Q-learning" class="headerlink" title="Q-learning"></a>Q-learning</h2><p>Q-learning是一种离线的学习方法。什么是离线学习呢，依然以下棋为例，就是AI自己与自己对弈，一边自对弈一边学习。在学习的时候我们不仅可以控制自己选择什么动作，也可以模拟对手选择什么动作。Q-learning的学习过程是这样的：<br>(1) 已知一个状态$s$<br>(2) 从$\epsilon$策略中采样一个动作$a$<br>(3) 从$s$和$a$，得到$s’$<br>(4) 从另一个策略采样$a’$，这个策略可以是$\epsilon$策略也可以是最大策略也可以是其他策略，Q-learning一般是最大策略<br>(5) 利用$q_{\pi}(s’,a’)$更新$q_{\pi}(s,a)$<br>(6) $s\leftarrow s’$<br>在对弈游戏中，Q-learning可以看作是代理使用$\epsilon$策略，同时模拟对手使用另一个策略。在非对弈游戏中，将选择$a’$的策略也使用$\epsilon$策略，使得Q-learning可以看作是时序差分方法。</p>
 
     </div>
 
@@ -267,11 +265,15 @@
         <div class="post-tags">
             <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+          
+            <a href="/tags/强化学习/" rel="tag"># 强化学习</a>
+          
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/12/进程与线程/" rel="next" title="进程与线程">
-                <i class="fa fa-chevron-left"></i> 进程与线程
+              <a href="/2020/03/05/IO模型/" rel="next" title="IO模型">
+                <i class="fa fa-chevron-left"></i> IO模型
               </a>
             
           </div>
@@ -279,10 +281,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/13/word2vec原理/" rel="prev" title="word2vec原理">
-                word2vec原理 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -386,7 +384,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是Kmeans"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是Kmeans</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Kmeans算法流程"><span class="nav-number">2.</span> <span class="nav-text">2. Kmeans算法流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Kmeans算法原理"><span class="nav-number">3.</span> <span class="nav-text">3. Kmeans算法原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-杂谈"><span class="nav-number">4.</span> <span class="nav-text">4. 杂谈</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#综述"><span class="nav-number">1.</span> <span class="nav-text">综述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SARAR"><span class="nav-number">2.</span> <span class="nav-text">SARAR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Q-learning"><span class="nav-number">3.</span> <span class="nav-text">Q-learning</span></a></li></ol></div>
             
 
           </div>
