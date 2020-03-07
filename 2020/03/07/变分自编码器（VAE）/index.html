@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="1. 红黑树红黑树是一种平衡二叉树，相比起AVL树，红黑树在树的平衡上放松了一些约束，实际上也没有必要达到AVL树这么严格的平衡度，这会导致每次插入或删除都需要旋转一些次数才能维护。红黑树主要有以下五个性质：(1) 每个节点要么是红色，要么是黑色(2) 根节点是黑色(3) 叶节点是黑色(4) 红色节点的子节点是黑色(5) 任意一节点到叶节点每条路径的黑色节点数一样维护这五个性质，可以证明对红黑树的">
-<meta name="keywords" content="计算机基础,数据结构">
+  <meta name="description" content="自编码器自编码器，可以看作是一个图压缩器，输入是一张图片，将这张图片通过编码器得到这张图片的中间向量，然后再通过解码器还原出原来的图片，这个中间向量就可以看作是对图片的一个压缩。自编码器可以起到去噪的效果，将输入图片加上一定的噪声，然后输出图片还原出原图片，这样训练出来的自编码器可以起到去噪效果。自编码器还可以起到超分辨率重建的效果，输入是一张低分辨率的图片，输出是高分辨率的图片，这样训练出来的自">
+<meta name="keywords" content="机器学习,深度学习,CV">
 <meta property="og:type" content="article">
-<meta property="og:title" content="红黑树，B树，B+树">
-<meta property="og:url" content="http://yoursite.com/2020/02/13/红黑树，B树，B-树/index.html">
+<meta property="og:title" content="变分自编码器（VAE）">
+<meta property="og:url" content="http://yoursite.com/2020/03/07/变分自编码器（VAE）/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 红黑树红黑树是一种平衡二叉树，相比起AVL树，红黑树在树的平衡上放松了一些约束，实际上也没有必要达到AVL树这么严格的平衡度，这会导致每次插入或删除都需要旋转一些次数才能维护。红黑树主要有以下五个性质：(1) 每个节点要么是红色，要么是黑色(2) 根节点是黑色(3) 叶节点是黑色(4) 红色节点的子节点是黑色(5) 任意一节点到叶节点每条路径的黑色节点数一样维护这五个性质，可以证明对红黑树的">
+<meta property="og:description" content="自编码器自编码器，可以看作是一个图压缩器，输入是一张图片，将这张图片通过编码器得到这张图片的中间向量，然后再通过解码器还原出原来的图片，这个中间向量就可以看作是对图片的一个压缩。自编码器可以起到去噪的效果，将输入图片加上一定的噪声，然后输出图片还原出原图片，这样训练出来的自编码器可以起到去噪效果。自编码器还可以起到超分辨率重建的效果，输入是一张低分辨率的图片，输出是高分辨率的图片，这样训练出来的自">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-01T12:16:27.088Z">
+<meta property="og:updated_time" content="2020-03-07T15:47:22.837Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="红黑树，B树，B+树">
-<meta name="twitter:description" content="1. 红黑树红黑树是一种平衡二叉树，相比起AVL树，红黑树在树的平衡上放松了一些约束，实际上也没有必要达到AVL树这么严格的平衡度，这会导致每次插入或删除都需要旋转一些次数才能维护。红黑树主要有以下五个性质：(1) 每个节点要么是红色，要么是黑色(2) 根节点是黑色(3) 叶节点是黑色(4) 红色节点的子节点是黑色(5) 任意一节点到叶节点每条路径的黑色节点数一样维护这五个性质，可以证明对红黑树的">
-  <link rel="canonical" href="http://yoursite.com/2020/02/13/红黑树，B树，B-树/">
+<meta name="twitter:title" content="变分自编码器（VAE）">
+<meta name="twitter:description" content="自编码器自编码器，可以看作是一个图压缩器，输入是一张图片，将这张图片通过编码器得到这张图片的中间向量，然后再通过解码器还原出原来的图片，这个中间向量就可以看作是对图片的一个压缩。自编码器可以起到去噪的效果，将输入图片加上一定的噪声，然后输出图片还原出原图片，这样训练出来的自编码器可以起到去噪效果。自编码器还可以起到超分辨率重建的效果，输入是一张低分辨率的图片，输出是高分辨率的图片，这样训练出来的自">
+  <link rel="canonical" href="http://yoursite.com/2020/03/07/变分自编码器（VAE）/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>红黑树，B树，B+树 | Hexo</title>
+  <title>变分自编码器（VAE） | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/13/红黑树，B树，B-树/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/07/变分自编码器（VAE）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">红黑树，B树，B+树
+          <h1 class="post-title" itemprop="name headline">变分自编码器（VAE）
 
               
             
@@ -227,21 +227,11 @@
                 
               
 
-              <time title="创建时间：2020-02-13 17:41:33" itemprop="dateCreated datePublished" datetime="2020-02-13T17:41:33+08:00">2020-02-13</time>
+              <time title="创建时间：2020-03-07 21:50:24 / 修改时间：23:47:22" itemprop="dateCreated datePublished" datetime="2020-03-07T21:50:24+08:00">2020-03-07</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-03-01 20:16:27" itemprop="dateModified" datetime="2020-03-01T20:16:27+08:00">2020-03-01</time>
-              </span>
             
           
 
@@ -256,9 +246,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-红黑树"><a href="#1-红黑树" class="headerlink" title="1. 红黑树"></a>1. 红黑树</h2><p>红黑树是一种平衡二叉树，相比起AVL树，红黑树在树的平衡上放松了一些约束，实际上也没有必要达到AVL树这么严格的平衡度，这会导致每次插入或删除都需要旋转一些次数才能维护。红黑树主要有以下五个性质：<br>(1) 每个节点要么是红色，要么是黑色<br>(2) 根节点是黑色<br>(3) 叶节点是黑色<br>(4) 红色节点的子节点是黑色<br>(5) 任意一节点到叶节点每条路径的黑色节点数一样<br>维护这五个性质，可以证明对红黑树的插入，删除，查询等操作的期望时间复杂度是$O(\log n)$的。红黑树在维护性质上主要依靠三种基本操作，分别是左旋，右旋和变色。</p>
-<h2 id="2-B-树（B树）"><a href="#2-B-树（B树）" class="headerlink" title="2. B-树（B树）"></a>2. B-树（B树）</h2><p>B-树是B树不是B减树，B-树和B树是同一个东西。与平衡二叉树不同，B-树可以看作是平衡多叉树。B-树有这些性质：<br>(1) 根节点的子节点数为$[2,m]$<br>(2) 非根非叶节点的子节点数为$[m/2,m]$<br>(3) 每个叶节点的高度一致<br>(4) 每个节点键的个数等于其子节点数减一<br>B-树使用键来划分数据，大于第1个键的数据划分到第一棵子树，在第1个键和第2个键之间的数据划分到第二棵子树，大于最后一个键的数据划分到最后一棵子树。B-树和B+树的一个不同，就是B-树的键上是有数据的，在查询时，当直接命中键就可以直接返回。B-树在插入时，如果遇到子节点数大于等于$m$时，则将该节点分裂成两个节点，每个节点取一半的子树，并利用这些子树确定键。在删除时，如果遇到子节点数小于$m/2$时，可以从兄弟节点借一棵子树；如果不存在可以借的子树，则和兄弟节点合并。通过上述步骤不断往根节点递归调整，就可以在每次插入或删除后维护B-树的性质了。</p>
-<h2 id="3-B-树"><a href="#3-B-树" class="headerlink" title="3. B+树"></a>3. B+树</h2><p>B+树在B-树的基础上做了一些修改，主要有这些性质：<br>(1) 根节点的子节点数为$[2,m]$<br>(2) 非根非叶节点的子节点数为$[m/2,m]$<br>(3) 每个叶节点的高度一致<br>(4) 每个节点键的格式等于其子节点数<br>(5) 叶节点有一条链连接<br>B+树比起B树最大的区别就是B+树所有的数据都存储在叶节点，非叶节点全部看作索引，即使非叶节点的值等于查找值，也要到叶节点才能取得数据。这么做的好处首先是B+树的非叶节点只需要存储索引值而不需要存储整个数据，其次查找效率稳定。非叶节点只需要存储索引值，大大节省了B+树的存储空间；查找效率稳定是指无论查找哪个数所需要的时间都是差不多的。B+树的性质(4)使得在合并或分裂节点时更简单，直接进行合并或分裂就可以了，无需再维护键值，这说明B+树在处理性质时比B-树更简单，效率也更高。性质(5)使得B+树可以在命中区域周围继续搜索，完成区域查找。</p>
+        <h2 id="自编码器"><a href="#自编码器" class="headerlink" title="自编码器"></a>自编码器</h2><p>自编码器，可以看作是一个图压缩器，输入是一张图片，将这张图片通过编码器得到这张图片的中间向量，然后再通过解码器还原出原来的图片，这个中间向量就可以看作是对图片的一个压缩。自编码器可以起到去噪的效果，将输入图片加上一定的噪声，然后输出图片还原出原图片，这样训练出来的自编码器可以起到去噪效果。自编码器还可以起到超分辨率重建的效果，输入是一张低分辨率的图片，输出是高分辨率的图片，这样训练出来的自编码器可以起到超分辨率重建的效果。自编码器的计算过程一般是这样的：</p>
+<script type="math/tex; mode=display">h_i=Encode(x_i)</script><script type="math/tex; mode=display">y_i=Decode(h_i)</script><script type="math/tex; mode=display">Obj=\sum_{i}L(y_i,x_i)</script><h2 id="变分自编码器"><a href="#变分自编码器" class="headerlink" title="变分自编码器"></a>变分自编码器</h2><p>变分自编码器的目的和自编码器是完全不同的。变分自编码器想要得到这样一个结果：随机生成一个隐向量，将这个隐向量送入解码器，可以得到一张有效图片。在使用自编码器时，我们可以根据图片编码得到图片的有效隐向量，但是当我们不从图片编码而是随机得到一个隐向量时，解码器往往会生成一张无意义的图片。分析原因我们会发现这是因为在使用自编码器时，我们认为图片与隐向量是一一对应的关系，这种一一对应关系造成了过拟合的现象，导致只要隐变量发生一点点变化，通过解码器得到的图像会发生较大变化。我们可以认为在隐向量的邻域范围内其对应的图片也应该是“相邻”的。如果我们从生成图片的角度，我们可以认为图片的生成过程的抽象是这样的：<br>(1) 从输入数据分布中随机选择一类数据$x$<br>(2) 从这类数据对应的隐向量分布$p(z|x)$中随机选择一个隐向量$z$<br>(3) 使用这个隐向量通过解码器$E[y\cdot p(y|z)]$得到这类数据的期望样本$\hat{y}$<br>第一步可以看作是从数据集中采样一张图片；第二步可以看作是每一张图片对应一个隐向量分布，即每一张图片的隐向量不是固定的而是一个分布，从这个分布中采样一个隐向量；第三步可以看作是从隐向量通过解码器还原出这张图片的期望形式。变分自编码器的目标有两个：<br>(1) 学习到的编码器可以计算出每张图片的隐向量分布$p(z|x)$<br>(2) 学习到的解码器可以求出每个隐向量对应的期望输出图片$E[y\cdot p(y|z)]$<br>因为我们将图片与隐向量的关系不再看作是一一对应，而是看作图片的隐向量满足一个分布，每一处隐向量都或多或少会受到一些样本的影响，所以解码器的输出图片有意义的概率也会相应增大。前面提到，编码器的目的是输出图片对应隐向量分布中的一个隐向量，所以同一张图片两次输入编码器应该可以得到不一样的结果，所以编码器需要引入一些不确定性。在变分自编码器的模型中，编码器会得到两个输出，一个是隐向量的均值$m$，另一个是隐向量的标准差$e^{\sigma}$，之所以使用$e^{\sigma}$表示标准差是为了保证标准差大于等于0。我们假设隐向量是满足均值为$m$标准差为$e^{\sigma}$的高斯分布，则可以这样采样得到一个隐向量：</p>
+<script type="math/tex; mode=display">h=m+e^{\sigma}\cdot r</script><p>其中$r$是从标准正态分布中采样得到的向量。注意到如果每一张图片隐向量分布的方差都很大，则解码器的输出会受到非常大的影响；而每一张图片隐向量分布的方差都很小，则解码器的输出又会容易过拟合，退化成自编码器。变分自编码器认为每一张图片隐向量分布的标准差都应该接近于1，最终的目标函数如下：</p>
+<script type="math/tex; mode=display">Obj=\sum_{i}L(y_i,x_i)+\sum_{i}\{e^{\sigma_i}-(1+\sigma_i)\}+\sum_{i}m_i^2</script><p>上面目标函数右边的第二项是要求每个样本的隐向量分布的标准差接近于1，第三项是正则项。为什么不直接要求$\sigma$接近0而是要求$e^{\sigma}-(1+\sigma)$接近0，首先这两者有着相同的极小值，其次后者有着更大的梯度学习起来更快，再者后者对非0值有着更大的惩罚，所用后者可以有更大概率使得$\sigma$等于0。</p>
+<p>现在总结一下变分自编码器的前向过程：<br>(1) 输入x，通过编码器得到$m$，$\sigma$<br>(2) 从标准正态分布中采样$r$，得到隐向量$h=m+e^{\sigma}\cdot r$<br>(3) 将$h$输入解码器，得到输出$y$</p>
 
     </div>
 
@@ -270,15 +262,17 @@
           
         
         <div class="post-tags">
-            <a href="/tags/计算机基础/" rel="tag"># 计算机基础</a>
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
-            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+          
+            <a href="/tags/CV/" rel="tag"># CV</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/13/PCA-主成分分析/" rel="next" title="PCA-主成分分析">
-                <i class="fa fa-chevron-left"></i> PCA-主成分分析
+              <a href="/2020/03/06/强化学习（二）SARSA和Q-learning/" rel="next" title="强化学习（二）SARSA和Q-learning">
+                <i class="fa fa-chevron-left"></i> 强化学习（二）SARSA和Q-learning
               </a>
             
           </div>
@@ -286,10 +280,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/14/机器学习之特征选择/" rel="prev" title="机器学习之特征选择">
-                机器学习之特征选择 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -395,7 +385,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-红黑树"><span class="nav-number">1.</span> <span class="nav-text">1. 红黑树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-B-树（B树）"><span class="nav-number">2.</span> <span class="nav-text">2. B-树（B树）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-B-树"><span class="nav-number">3.</span> <span class="nav-text">3. B+树</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#自编码器"><span class="nav-number">1.</span> <span class="nav-text">自编码器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变分自编码器"><span class="nav-number">2.</span> <span class="nav-text">变分自编码器</span></a></li></ol></div>
             
 
           </div>
