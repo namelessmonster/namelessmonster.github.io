@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="1. 什么是word2vecword2vec用于将词在高维稀疏空间的one-hot向量映射到低维稠密空间的向量，且要求这个向量保留尽量多的语义信息。word2vec在语料库中从词的上下文词中提取出语义信息，并作用到对该词的低维向量求解。word2vec会设置一个窗口大小，并认为窗口内的词组成窗口中心词的上下文。 2. CBOW现在有一句话“A B C D E”，我们需要提取词“C”的语义特征，CB">
-<meta name="keywords" content="机器学习,NLP">
+  <meta name="description" content="什么是FM算法FM算法也叫因子分解机，是基于线性回归模型得来的，在线性回归模型中，我们有： y=w_0+\sum_iw_ix_i而FM算法的式子是这样的： y=w_0+\sum_iw_ix_i+\sum_i\sum_{j&amp;gt;i}w_{ij}x_ix_j可以看到FM算法是在线性回归的基础上，加上了对特征两两组合的项。 为什么有FM算法在使用线性回归或逻辑回归处理实际问题时，预测结果与特征之间往往不是线">
+<meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="word2vec原理">
-<meta property="og:url" content="http://yoursite.com/2020/02/13/word2vec原理/index.html">
+<meta property="og:title" content="FM算法">
+<meta property="og:url" content="http://yoursite.com/2020/03/14/FM算法/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 什么是word2vecword2vec用于将词在高维稀疏空间的one-hot向量映射到低维稠密空间的向量，且要求这个向量保留尽量多的语义信息。word2vec在语料库中从词的上下文词中提取出语义信息，并作用到对该词的低维向量求解。word2vec会设置一个窗口大小，并认为窗口内的词组成窗口中心词的上下文。 2. CBOW现在有一句话“A B C D E”，我们需要提取词“C”的语义特征，CB">
+<meta property="og:description" content="什么是FM算法FM算法也叫因子分解机，是基于线性回归模型得来的，在线性回归模型中，我们有： y=w_0+\sum_iw_ix_i而FM算法的式子是这样的： y=w_0+\sum_iw_ix_i+\sum_i\sum_{j&amp;gt;i}w_{ij}x_ix_j可以看到FM算法是在线性回归的基础上，加上了对特征两两组合的项。 为什么有FM算法在使用线性回归或逻辑回归处理实际问题时，预测结果与特征之间往往不是线">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-01T10:49:53.404Z">
+<meta property="og:updated_time" content="2020-03-14T06:56:41.329Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="word2vec原理">
-<meta name="twitter:description" content="1. 什么是word2vecword2vec用于将词在高维稀疏空间的one-hot向量映射到低维稠密空间的向量，且要求这个向量保留尽量多的语义信息。word2vec在语料库中从词的上下文词中提取出语义信息，并作用到对该词的低维向量求解。word2vec会设置一个窗口大小，并认为窗口内的词组成窗口中心词的上下文。 2. CBOW现在有一句话“A B C D E”，我们需要提取词“C”的语义特征，CB">
-  <link rel="canonical" href="http://yoursite.com/2020/02/13/word2vec原理/">
+<meta name="twitter:title" content="FM算法">
+<meta name="twitter:description" content="什么是FM算法FM算法也叫因子分解机，是基于线性回归模型得来的，在线性回归模型中，我们有： y=w_0+\sum_iw_ix_i而FM算法的式子是这样的： y=w_0+\sum_iw_ix_i+\sum_i\sum_{j&amp;gt;i}w_{ij}x_ix_j可以看到FM算法是在线性回归的基础上，加上了对特征两两组合的项。 为什么有FM算法在使用线性回归或逻辑回归处理实际问题时，预测结果与特征之间往往不是线">
+  <link rel="canonical" href="http://yoursite.com/2020/03/14/FM算法/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>word2vec原理 | Hexo</title>
+  <title>FM算法 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/13/word2vec原理/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/14/FM算法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">word2vec原理
+          <h1 class="post-title" itemprop="name headline">FM算法
 
               
             
@@ -227,21 +227,11 @@
                 
               
 
-              <time title="创建时间：2020-02-13 14:18:07" itemprop="dateCreated datePublished" datetime="2020-02-13T14:18:07+08:00">2020-02-13</time>
+              <time title="创建时间：2020-03-14 14:12:12 / 修改时间：14:56:41" itemprop="dateCreated datePublished" datetime="2020-03-14T14:12:12+08:00">2020-03-14</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-03-01 18:49:53" itemprop="dateModified" datetime="2020-03-01T18:49:53+08:00">2020-03-01</time>
-              </span>
             
           
 
@@ -256,14 +246,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-什么是word2vec"><a href="#1-什么是word2vec" class="headerlink" title="1. 什么是word2vec"></a>1. 什么是word2vec</h2><p>word2vec用于将词在高维稀疏空间的one-hot向量映射到低维稠密空间的向量，且要求这个向量保留尽量多的语义信息。word2vec在语料库中从词的上下文词中提取出语义信息，并作用到对该词的低维向量求解。word2vec会设置一个窗口大小，并认为窗口内的词组成窗口中心词的上下文。</p>
-<h2 id="2-CBOW"><a href="#2-CBOW" class="headerlink" title="2. CBOW"></a>2. CBOW</h2><p>现在有一句话“A B C D E”，我们需要提取词“C”的语义特征，CBOW将“A”，“B”，“D”，“E”作为“C”的语义特征，首先将“A”，“B”，“D”，“E”的one-hot向量映射到低维空间，对这4个低维向量求和或取平均，然后再利用这个低维向量去预测最有可能的词，具体做法可以是将低维向量映射回高维空间，对映射结果进行softmax，值最大的词就是最有可能的词。这个最有可能的词的期望输出应该是“C”。CBOW在组合“A”，“B”，“D”，“E”的低维特征时，只是简单求和或取平均，没有考虑到词的位置顺序。</p>
-<h2 id="3-Skip-gram"><a href="#3-Skip-gram" class="headerlink" title="3. Skip-gram"></a>3. Skip-gram</h2><p>同样有一句话“A B C D E”，同样需要提取“C”的语义特征，Skip-gram首先将“C”的one-hot向量映射到低维空间，然后将这个低维向量去预测最有可能的上下文，这个最有可能的上下文应该是“A”，“B”，“D”和“E”。Skip-gram在输出上下文时，只是简单认为“A”，“B”，“D”，“E”的输出概率应该尽量大，没有考虑它们的位置顺序，所以可以将数据样本(“C”，“A B D E”)分解成(“C”，“A”)，(“C”，“B”)，(“C”，“D”)和(“C”，“E”)。</p>
-<h2 id="4-哈夫曼softmax过程"><a href="#4-哈夫曼softmax过程" class="headerlink" title="4. 哈夫曼softmax过程"></a>4. 哈夫曼softmax过程</h2><p>前面介绍CBOW和Skip-gram，在得到低维特征后，需要通过映射回高维空间，从高维的分布中去确定最有可能的输出。我们可以把这个过程看作是一个有一个隐藏层没有激活函数的神经网络，输入是one-hot，输出是一个分布，中间隐藏层是低维特征表示。我们现在想要学习输入映射到隐藏层的矩阵，这个矩阵决定了词的低维表示。这个神经网络模型的损失函数是输出分布与预期输出分布的交叉熵，优化方法是梯度下降法。如果词的种类很多，则高维空间的维度数很大，那么这个神经网络的训练过程需要消耗较多资源，所以这里提出了哈夫曼softmax过程。哈夫曼softmax有以下步骤：<br>(1) 对词构建哈夫曼树。<br>(2) 哈夫曼树每个节点构建一个逻辑回归二分类器。<br>(3) 低维特征输入到哈夫曼树的根节点。<br>(4) 对当前节点，其逻辑回归分类器的输出$out$表示往右子树走的概率，如果输出词在左子树，使用$1-out$作为概率输出，否则直接使用$out$作为输出。<br>(5) 对于输出词所在的路径，记录沿着这条路径走的概率，反向传播梯度更新路径上经过的逻辑回归分类器的参数。</p>
-<p>假设低维空间维度等于$H$，高维空间维度等于$N$，则原来的方法在更新梯度时总共需要更新的参数量为$H \cdot N$，而使用哈夫曼softmax方法需要更新的参数量为$H\log N$，大大提高了参数学习效率。</p>
-<h2 id="5-负采样"><a href="#5-负采样" class="headerlink" title="5. 负采样"></a>5. 负采样</h2><p>负采样是另一种提高参数学习效率的方法。负采样有以下过程：<br>(1) 选择目标输出的词，并随机选择$k$个不是目标输出的词。<br>(2) 对输出的高维分布，只关注这$k+1$个位置的表现，使用这$k+1$个位置的输出计算损失函数，计算梯度并反向传播梯度更新参数。</p>
-<p>使用负采样的方法，需要更新的参数量为$(k+1)*H$，一般负采样的$k$设置为2~20之间的一个数。</p>
-<h2 id="6-优缺点"><a href="#6-优缺点" class="headerlink" title="6. 优缺点"></a>6. 优缺点</h2><p>word2vec模型的优点有：<br>(1) 实现简单<br>(2) 速度快<br>缺点有：<br>(1) 词的上下文提取使用词袋模型，没有考虑上下文词的位置与顺序，使得词的语义信息不够准。<br>(2) 不能很好的区分词的多义问题，比如“bank”可以是银行，也可以是“河岸”，然而一旦词向量确定，无法根据词的不同意义加以区分。<br>(3) 对于一个词只能提供一个确定的结果，无法根据词所处的实际上下文情况加以调整，在泛化能力上有待提高。</p>
+        <h2 id="什么是FM算法"><a href="#什么是FM算法" class="headerlink" title="什么是FM算法"></a>什么是FM算法</h2><p>FM算法也叫因子分解机，是基于线性回归模型得来的，在线性回归模型中，我们有：</p>
+<script type="math/tex; mode=display">y=w_0+\sum_iw_ix_i</script><p>而FM算法的式子是这样的：</p>
+<script type="math/tex; mode=display">y=w_0+\sum_iw_ix_i+\sum_i\sum_{j>i}w_{ij}x_ix_j</script><p>可以看到FM算法是在线性回归的基础上，加上了对特征两两组合的项。</p>
+<h2 id="为什么有FM算法"><a href="#为什么有FM算法" class="headerlink" title="为什么有FM算法"></a>为什么有FM算法</h2><p>在使用线性回归或逻辑回归处理实际问题时，预测结果与特征之间往往不是线性的，这需要我们引入一些非线性的机制。SVM可以通过核函数来处理非线性问题，使用核函数处理非线性问题的本质是引入特征组合，将特征维度从低维空间转向高维空间。所以可以使用特征组合升维的思想，对两两特征进行组合，得到FM算法。</p>
+<h2 id="如何求解"><a href="#如何求解" class="headerlink" title="如何求解"></a>如何求解</h2><p>在FM算法中，$w_{ij}$是由两个向量得到的，即$v_i$和$v_j$，由这两个向量的内积得到，所以FM算法的式子可以表示为：</p>
+<script type="math/tex; mode=display">y=w_0+\sum_iw_ix_i+\sum_i\sum_{j>i}\{x_ix_j\sum_kv_{ik}v_{jk}\}\\=w_0+\sum_iw_ix_i+\frac{1}{2}(\sum_k\sum_iv_{ik}x_i\sum_jv_{jk}x_j-\sum_k\sum_iv_{ik}^2x_i^2)\\=w_0+\sum_iw_ix_i+\frac{1}{2}\{(\sum_k\sum_iv_{ik}x_i)^2-\sum_k\sum_i(v_{ik}x_i)^2\}\\=w_0+\sum_iw_ix_i+\frac{1}{2}\sum_k\{(\sum_iv_{ik}x_i)^2-\sum_iv_{ik}^2x_i^2\}</script><p>将公示化简到这种形式，可以将得到$y$的计算复杂度从$O(kn^2)$下降到$O(kn)$，这也意味着求$y$关于$w_i$和$v_{ik}$的导数的计算复杂度也会得到优化。在求解FM算法的参数时，使用梯度下降法求目标函数关于$w_i$和$v_{ik}$的导数，根据导数去更新$w_i$和$v_{ik}$的值，直到收敛达到极值。</p>
+<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><p>FM算法只是对特征进行简单的两两组合，对于更多特征的组合则无能为力，这是一个缺点。但FM算法比起普通的线性回归或逻辑回归，在处理非线性问题时效果更好。</p>
 
     </div>
 
@@ -277,13 +266,11 @@
         <div class="post-tags">
             <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
-            <a href="/tags/NLP/" rel="tag"># NLP</a>
-          
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/12/Kmeans数学原理/" rel="next" title="Kmeans数学原理">
-                <i class="fa fa-chevron-left"></i> Kmeans数学原理
+              <a href="/2020/03/13/数据归一化和标准化/" rel="next" title="数据归一化和标准化">
+                <i class="fa fa-chevron-left"></i> 数据归一化和标准化
               </a>
             
           </div>
@@ -291,10 +278,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/13/PCA-主成分分析/" rel="prev" title="PCA-主成分分析">
-                PCA-主成分分析 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -400,7 +383,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是word2vec"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是word2vec</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-CBOW"><span class="nav-number">2.</span> <span class="nav-text">2. CBOW</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Skip-gram"><span class="nav-number">3.</span> <span class="nav-text">3. Skip-gram</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-哈夫曼softmax过程"><span class="nav-number">4.</span> <span class="nav-text">4. 哈夫曼softmax过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-负采样"><span class="nav-number">5.</span> <span class="nav-text">5. 负采样</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-优缺点"><span class="nav-number">6.</span> <span class="nav-text">6. 优缺点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是FM算法"><span class="nav-number">1.</span> <span class="nav-text">什么是FM算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么有FM算法"><span class="nav-number">2.</span> <span class="nav-text">为什么有FM算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何求解"><span class="nav-number">3.</span> <span class="nav-text">如何求解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优缺点"><span class="nav-number">4.</span> <span class="nav-text">优缺点</span></a></li></ol></div>
             
 
           </div>
