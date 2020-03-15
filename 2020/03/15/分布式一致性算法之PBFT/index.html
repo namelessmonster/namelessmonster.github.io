@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="自编码器自编码器，可以看作是一个图压缩器，输入是一张图片，将这张图片通过编码器得到这张图片的中间向量，然后再通过解码器还原出原来的图片，这个中间向量就可以看作是对图片的一个压缩。自编码器可以起到去噪的效果，将输入图片加上一定的噪声，然后输出图片还原出原图片，这样训练出来的自编码器可以起到去噪效果。自编码器还可以起到超分辨率重建的效果，输入是一张低分辨率的图片，输出是高分辨率的图片，这样训练出来的自">
-<meta name="keywords" content="机器学习,深度学习,CV">
+  <meta name="description" content="CAP原则CAP是三个字母的缩小，分别表示可用性、一致性和分区容错性。可用性是说这个分布式系统能够以正常速度响应用户的请求，就像单机环境一样；一致性是说这个分布式系统对数据所有的备份时刻保持一致；分区容错性表示由于通信的一些实际因素，系统无法达到强一致性，即无法保证所有数据备份时刻保持一致。CAP原则是说在分区容错性的约束下，一致性和可用性只能二选一，无法同时实现。对一致性和可用性的一个权衡可以得">
+<meta name="keywords" content="分布式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="变分自编码器（VAE）">
-<meta property="og:url" content="http://yoursite.com/2020/03/07/变分自编码器（VAE）/index.html">
+<meta property="og:title" content="分布式一致性算法之PBFT">
+<meta property="og:url" content="http://yoursite.com/2020/03/15/分布式一致性算法之PBFT/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="自编码器自编码器，可以看作是一个图压缩器，输入是一张图片，将这张图片通过编码器得到这张图片的中间向量，然后再通过解码器还原出原来的图片，这个中间向量就可以看作是对图片的一个压缩。自编码器可以起到去噪的效果，将输入图片加上一定的噪声，然后输出图片还原出原图片，这样训练出来的自编码器可以起到去噪效果。自编码器还可以起到超分辨率重建的效果，输入是一张低分辨率的图片，输出是高分辨率的图片，这样训练出来的自">
+<meta property="og:description" content="CAP原则CAP是三个字母的缩小，分别表示可用性、一致性和分区容错性。可用性是说这个分布式系统能够以正常速度响应用户的请求，就像单机环境一样；一致性是说这个分布式系统对数据所有的备份时刻保持一致；分区容错性表示由于通信的一些实际因素，系统无法达到强一致性，即无法保证所有数据备份时刻保持一致。CAP原则是说在分区容错性的约束下，一致性和可用性只能二选一，无法同时实现。对一致性和可用性的一个权衡可以得">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-07T15:47:22.837Z">
+<meta property="og:updated_time" content="2020-03-15T12:52:49.613Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="变分自编码器（VAE）">
-<meta name="twitter:description" content="自编码器自编码器，可以看作是一个图压缩器，输入是一张图片，将这张图片通过编码器得到这张图片的中间向量，然后再通过解码器还原出原来的图片，这个中间向量就可以看作是对图片的一个压缩。自编码器可以起到去噪的效果，将输入图片加上一定的噪声，然后输出图片还原出原图片，这样训练出来的自编码器可以起到去噪效果。自编码器还可以起到超分辨率重建的效果，输入是一张低分辨率的图片，输出是高分辨率的图片，这样训练出来的自">
-  <link rel="canonical" href="http://yoursite.com/2020/03/07/变分自编码器（VAE）/">
+<meta name="twitter:title" content="分布式一致性算法之PBFT">
+<meta name="twitter:description" content="CAP原则CAP是三个字母的缩小，分别表示可用性、一致性和分区容错性。可用性是说这个分布式系统能够以正常速度响应用户的请求，就像单机环境一样；一致性是说这个分布式系统对数据所有的备份时刻保持一致；分区容错性表示由于通信的一些实际因素，系统无法达到强一致性，即无法保证所有数据备份时刻保持一致。CAP原则是说在分区容错性的约束下，一致性和可用性只能二选一，无法同时实现。对一致性和可用性的一个权衡可以得">
+  <link rel="canonical" href="http://yoursite.com/2020/03/15/分布式一致性算法之PBFT/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>变分自编码器（VAE） | Hexo</title>
+  <title>分布式一致性算法之PBFT | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/07/变分自编码器（VAE）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/15/分布式一致性算法之PBFT/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">变分自编码器（VAE）
+          <h1 class="post-title" itemprop="name headline">分布式一致性算法之PBFT
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-03-07 21:50:24 / 修改时间：23:47:22" itemprop="dateCreated datePublished" datetime="2020-03-07T21:50:24+08:00">2020-03-07</time>
+              <time title="创建时间：2020-03-15 20:04:54 / 修改时间：20:52:49" itemprop="dateCreated datePublished" datetime="2020-03-15T20:04:54+08:00">2020-03-15</time>
             </span>
           
             
@@ -246,11 +246,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="自编码器"><a href="#自编码器" class="headerlink" title="自编码器"></a>自编码器</h2><p>自编码器，可以看作是一个图压缩器，输入是一张图片，将这张图片通过编码器得到这张图片的中间向量，然后再通过解码器还原出原来的图片，这个中间向量就可以看作是对图片的一个压缩。自编码器可以起到去噪的效果，将输入图片加上一定的噪声，然后输出图片还原出原图片，这样训练出来的自编码器可以起到去噪效果。自编码器还可以起到超分辨率重建的效果，输入是一张低分辨率的图片，输出是高分辨率的图片，这样训练出来的自编码器可以起到超分辨率重建的效果。自编码器的计算过程一般是这样的：</p>
-<script type="math/tex; mode=display">h_i=Encode(x_i)</script><script type="math/tex; mode=display">y_i=Decode(h_i)</script><script type="math/tex; mode=display">Obj=\sum_{i}L(y_i,x_i)</script><h2 id="变分自编码器"><a href="#变分自编码器" class="headerlink" title="变分自编码器"></a>变分自编码器</h2><p>变分自编码器的目的和自编码器是完全不同的。变分自编码器想要得到这样一个结果：随机生成一个隐向量，将这个隐向量送入解码器，可以得到一张有效图片。在使用自编码器时，我们可以根据图片编码得到图片的有效隐向量，但是当我们不从图片编码而是随机得到一个隐向量时，解码器往往会生成一张无意义的图片。分析原因我们会发现这是因为在使用自编码器时，我们认为图片与隐向量是一一对应的关系，这种一一对应关系造成了过拟合的现象，导致只要隐变量发生一点点变化，通过解码器得到的图像会发生较大变化。我们可以认为在隐向量的邻域范围内其对应的图片也应该是“相邻”的。如果我们从生成图片的角度，我们可以认为图片的生成过程的抽象是这样的：<br>(1) 从输入数据分布中随机选择一类数据$x$<br>(2) 从这类数据对应的隐向量分布$p(z|x)$中随机选择一个隐向量$z$<br>(3) 使用这个隐向量通过解码器$E[y\cdot p(y|z)]$得到这类数据的期望样本$\hat{y}$<br>第一步可以看作是从数据集中采样一张图片；第二步可以看作是每一张图片对应一个隐向量分布，即每一张图片的隐向量不是固定的而是一个分布，从这个分布中采样一个隐向量；第三步可以看作是从隐向量通过解码器还原出这张图片的期望形式。变分自编码器的目标有两个：<br>(1) 学习到的编码器可以计算出每张图片的隐向量分布$p(z|x)$<br>(2) 学习到的解码器可以求出每个隐向量对应的期望输出图片$E[y\cdot p(y|z)]$<br>因为我们将图片与隐向量的关系不再看作是一一对应，而是看作图片的隐向量满足一个分布，每一处隐向量都或多或少会受到一些样本的影响，所以解码器的输出图片有意义的概率也会相应增大。前面提到，编码器的目的是输出图片对应隐向量分布中的一个隐向量，所以同一张图片两次输入编码器应该可以得到不一样的结果，所以编码器需要引入一些不确定性。在变分自编码器的模型中，编码器会得到两个输出，一个是隐向量的均值$m$，另一个是隐向量的标准差$e^{\sigma}$，之所以使用$e^{\sigma}$表示标准差是为了保证标准差大于等于0。我们假设隐向量是满足均值为$m$标准差为$e^{\sigma}$的高斯分布，则可以这样采样得到一个隐向量：</p>
-<script type="math/tex; mode=display">h=m+e^{\sigma}\cdot r</script><p>其中$r$是从标准正态分布中采样得到的向量。注意到如果每一张图片隐向量分布的方差都很大，则解码器的输出会受到非常大的影响；而每一张图片隐向量分布的方差都很小，则解码器的输出又会容易过拟合，退化成自编码器。变分自编码器认为每一张图片隐向量分布的标准差都应该接近于1，最终的目标函数如下：</p>
-<script type="math/tex; mode=display">Obj=\sum_{i}L(y_i,x_i)+\sum_{i}\{e^{\sigma_i}-(1+\sigma_i)\}+\sum_{i}m_i^2</script><p>上面目标函数右边的第二项是要求每个样本的隐向量分布的标准差接近于1，第三项是正则项。为什么不直接要求$\sigma$接近0而是要求$e^{\sigma}-(1+\sigma)$接近0，首先这两者有着相同的极小值，其次后者有着更大的梯度学习起来更快，再者后者对非0值有着更大的惩罚，所用后者可以有更大概率使得$\sigma$等于0。</p>
-<p>现在总结一下变分自编码器的前向过程：<br>(1) 输入x，通过编码器得到$m$，$\sigma$<br>(2) 从标准正态分布中采样$r$，得到隐向量$h=m+e^{\sigma}\cdot r$<br>(3) 将$h$输入解码器，得到输出$y$</p>
+        <h2 id="CAP原则"><a href="#CAP原则" class="headerlink" title="CAP原则"></a>CAP原则</h2><p>CAP是三个字母的缩小，分别表示可用性、一致性和分区容错性。可用性是说这个分布式系统能够以正常速度响应用户的请求，就像单机环境一样；一致性是说这个分布式系统对数据所有的备份时刻保持一致；分区容错性表示由于通信的一些实际因素，系统无法达到强一致性，即无法保证所有数据备份时刻保持一致。CAP原则是说在分区容错性的约束下，一致性和可用性只能二选一，无法同时实现。对一致性和可用性的一个权衡可以得到BASE，分别表示基本可用、软状态和最终一致性。基本可用是对可用性的要求，软状态表示分布式系统可以有中间状态即可以在某个时刻数据备份并不是完全同步的，最终一致性要求在经过一段时间的同步后所有数据备份是可以达到一致性的。</p>
+<h2 id="PBFT算法"><a href="#PBFT算法" class="headerlink" title="PBFT算法"></a>PBFT算法</h2><p>PBFT算法是一种分布式一致性算法，更强调一致性。PBFT要求分布式系统中至少有$3f+1$台独立机器，其中$f$是PBFT的最大容错机器数量，这里的容错包括故障节点和恶意节点。</p>
+<h3 id="主机接收客户端请求"><a href="#主机接收客户端请求" class="headerlink" title="主机接收客户端请求"></a>主机接收客户端请求</h3><p>客户端会向分布式系统的入口主机发送请求，入口主机是通过选举得到的，在分布式系统中是交替担任的。</p>
+<h3 id="主机发送Pre-Prepare"><a href="#主机发送Pre-Prepare" class="headerlink" title="主机发送Pre-Prepare"></a>主机发送Pre-Prepare</h3><p>主机接收到客户端的请求后，如果确认无误，会向分布式系统的其他机器广播Pre-Prepare消息。</p>
+<h3 id="广播Prepare"><a href="#广播Prepare" class="headerlink" title="广播Prepare"></a>广播Prepare</h3><p>其他机器接收到主机的Pre-Prepare消息后，如果确认无误，就广播Prepare消息。</p>
+<h3 id="广播Commit"><a href="#广播Commit" class="headerlink" title="广播Commit"></a>广播Commit</h3><p>分布式系统中所有机器都会接收到若干Prepare消息，如果确认至少有$2f+1$条消息无误，就执行客户端请求，并广播Commit消息。</p>
+<h3 id="Reply"><a href="#Reply" class="headerlink" title="Reply"></a>Reply</h3><p>分布式系统中所有机器都会接收到若干Commit消息，如果确认至少有$2f+1$条消息无误，就返回ack给客户端，否则执行回滚。</p>
+<h3 id="确认执行"><a href="#确认执行" class="headerlink" title="确认执行"></a>确认执行</h3><p>客户端如果收到至少$f+1$条ack消息，则说明分布式系统完成响应，否则分布式系统没有完成响应。</p>
+<h2 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h2><p>PBFT算法要求任意时刻都需要有至少$2f+1$个节点是参与上述整个过程的，且恶意节点不能超过$f$。如果中间某个过程出现少于$2f+1$个节点参与，那么客户端的请求会卡在广播Prepare的过程无法顺利继续执行；如果出现超过$f$个恶意节点，则PBFT不能保证正确有效执行。所以，使用PBFT的前提条件是故障节点和恶意节点加起来不能超过$f$，且分布式系统的节点数至少为$3f+1$。</p>
 
     </div>
 
@@ -262,17 +266,13 @@
           
         
         <div class="post-tags">
-            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
-          
-            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
-          
-            <a href="/tags/CV/" rel="tag"># CV</a>
+            <a href="/tags/分布式/" rel="tag"># 分布式</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/03/06/强化学习（二）SARSA和Q-learning/" rel="next" title="强化学习（二）SARSA和Q-learning">
-                <i class="fa fa-chevron-left"></i> 强化学习（二）SARSA和Q-learning
+              <a href="/2020/03/14/FM算法/" rel="next" title="FM算法">
+                <i class="fa fa-chevron-left"></i> FM算法
               </a>
             
           </div>
@@ -280,10 +280,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/03/13/数据归一化和标准化/" rel="prev" title="数据归一化和标准化">
-                数据归一化和标准化 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -391,7 +387,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#自编码器"><span class="nav-number">1.</span> <span class="nav-text">自编码器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变分自编码器"><span class="nav-number">2.</span> <span class="nav-text">变分自编码器</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CAP原则"><span class="nav-number">1.</span> <span class="nav-text">CAP原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PBFT算法"><span class="nav-number">2.</span> <span class="nav-text">PBFT算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主机接收客户端请求"><span class="nav-number">2.1.</span> <span class="nav-text">主机接收客户端请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主机发送Pre-Prepare"><span class="nav-number">2.2.</span> <span class="nav-text">主机发送Pre-Prepare</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#广播Prepare"><span class="nav-number">2.3.</span> <span class="nav-text">广播Prepare</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#广播Commit"><span class="nav-number">2.4.</span> <span class="nav-text">广播Commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reply"><span class="nav-number">2.5.</span> <span class="nav-text">Reply</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#确认执行"><span class="nav-number">2.6.</span> <span class="nav-text">确认执行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法分析"><span class="nav-number">3.</span> <span class="nav-text">算法分析</span></a></li></ol></div>
             
 
           </div>
