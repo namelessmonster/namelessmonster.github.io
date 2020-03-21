@@ -57,18 +57,18 @@
   };
 </script>
 
-  <meta name="description" content="模型结构输入层-嵌入层深度兴趣网络是阿里巴巴提出的一个深度推荐模型，旨在利用用户画像与用户历史行为去预测待测物品的匹配率。模型的输入有四个部分，分别是用户基本特征，用户历史行为特征，物品基本特征，其他特征。对于离散特征，一般做法是使用one-hot向量表示，one-hot向量根据一定顺序排列得到整体特征，one-hot向量在整体特征中占据的位置称为这个特征的field，可以保证在每个field都是">
+  <meta name="description" content="综述深度兴趣网络是阿里巴巴提出的一个深度推荐模型，旨在利用用户画像与用户历史行为去预测待测物品的匹配率。 模型结构输入层-嵌入层模型的输入有四个部分，分别是用户基本特征，用户历史行为特征，物品基本特征，其他特征。对于离散特征，一般做法是使用one-hot向量表示，one-hot向量根据一定顺序排列得到整体特征，one-hot向量在整体特征中占据的位置称为这个特征的field，可以保证在每个fiel">
 <meta name="keywords" content="机器学习,深度学习,推荐系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深度兴趣网络（DIN）">
 <meta property="og:url" content="http://yoursite.com/2020/03/21/深度兴趣网络（DIN）/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="模型结构输入层-嵌入层深度兴趣网络是阿里巴巴提出的一个深度推荐模型，旨在利用用户画像与用户历史行为去预测待测物品的匹配率。模型的输入有四个部分，分别是用户基本特征，用户历史行为特征，物品基本特征，其他特征。对于离散特征，一般做法是使用one-hot向量表示，one-hot向量根据一定顺序排列得到整体特征，one-hot向量在整体特征中占据的位置称为这个特征的field，可以保证在每个field都是">
+<meta property="og:description" content="综述深度兴趣网络是阿里巴巴提出的一个深度推荐模型，旨在利用用户画像与用户历史行为去预测待测物品的匹配率。 模型结构输入层-嵌入层模型的输入有四个部分，分别是用户基本特征，用户历史行为特征，物品基本特征，其他特征。对于离散特征，一般做法是使用one-hot向量表示，one-hot向量根据一定顺序排列得到整体特征，one-hot向量在整体特征中占据的位置称为这个特征的field，可以保证在每个fiel">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-21T14:12:29.248Z">
+<meta property="og:updated_time" content="2020-03-21T14:15:56.731Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深度兴趣网络（DIN）">
-<meta name="twitter:description" content="模型结构输入层-嵌入层深度兴趣网络是阿里巴巴提出的一个深度推荐模型，旨在利用用户画像与用户历史行为去预测待测物品的匹配率。模型的输入有四个部分，分别是用户基本特征，用户历史行为特征，物品基本特征，其他特征。对于离散特征，一般做法是使用one-hot向量表示，one-hot向量根据一定顺序排列得到整体特征，one-hot向量在整体特征中占据的位置称为这个特征的field，可以保证在每个field都是">
+<meta name="twitter:description" content="综述深度兴趣网络是阿里巴巴提出的一个深度推荐模型，旨在利用用户画像与用户历史行为去预测待测物品的匹配率。 模型结构输入层-嵌入层模型的输入有四个部分，分别是用户基本特征，用户历史行为特征，物品基本特征，其他特征。对于离散特征，一般做法是使用one-hot向量表示，one-hot向量根据一定顺序排列得到整体特征，one-hot向量在整体特征中占据的位置称为这个特征的field，可以保证在每个fiel">
   <link rel="canonical" href="http://yoursite.com/2020/03/21/深度兴趣网络（DIN）/">
 
 
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-03-21 21:23:22 / 修改时间：22:12:29" itemprop="dateCreated datePublished" datetime="2020-03-21T21:23:22+08:00">2020-03-21</time>
+              <time title="创建时间：2020-03-21 21:23:22 / 修改时间：22:15:56" itemprop="dateCreated datePublished" datetime="2020-03-21T21:23:22+08:00">2020-03-21</time>
             </span>
           
             
@@ -246,7 +246,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h2><h3 id="输入层-嵌入层"><a href="#输入层-嵌入层" class="headerlink" title="输入层-嵌入层"></a>输入层-嵌入层</h3><p>深度兴趣网络是阿里巴巴提出的一个深度推荐模型，旨在利用用户画像与用户历史行为去预测待测物品的匹配率。模型的输入有四个部分，分别是用户基本特征，用户历史行为特征，物品基本特征，其他特征。对于离散特征，一般做法是使用one-hot向量表示，one-hot向量根据一定顺序排列得到整体特征，one-hot向量在整体特征中占据的位置称为这个特征的field，可以保证在每个field都是一个one-hot向量。大量的one-hot向量会导致整体特征向量非常稀疏，在嵌入层需要大量参数才能将整体特征向量压缩到固定维度。一个可行的技巧是对每个field单独设置一个嵌入矩阵，每个field单独得到嵌入向量，然后再将嵌入向量进行拼接或池化。这么做的一个原因是field的数量通常是不高的，从而可以大大压缩参数数量。</p>
+        <h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>深度兴趣网络是阿里巴巴提出的一个深度推荐模型，旨在利用用户画像与用户历史行为去预测待测物品的匹配率。</p>
+<h2 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h2><h3 id="输入层-嵌入层"><a href="#输入层-嵌入层" class="headerlink" title="输入层-嵌入层"></a>输入层-嵌入层</h3><p>模型的输入有四个部分，分别是用户基本特征，用户历史行为特征，物品基本特征，其他特征。对于离散特征，一般做法是使用one-hot向量表示，one-hot向量根据一定顺序排列得到整体特征，one-hot向量在整体特征中占据的位置称为这个特征的field，可以保证在每个field都是一个one-hot向量。大量的one-hot向量会导致整体特征向量非常稀疏，在嵌入层需要大量参数才能将整体特征向量压缩到固定维度。一个可行的技巧是对每个field单独设置一个嵌入矩阵，每个field单独得到嵌入向量，然后再将嵌入向量进行拼接或池化。这么做的一个原因是field的数量通常是不高的，从而可以大大压缩参数数量。</p>
 <h3 id="嵌入层-attention层"><a href="#嵌入层-attention层" class="headerlink" title="嵌入层-attention层"></a>嵌入层-attention层</h3><p>通过嵌入层，现在可以得到四部分特征向量，分别是用户画像向量，用户历史行为向量序列，物品特征向量，其他特征向量。大多数深度网络是将用户历史行为向量序列通过简单的池化组合成一个用户历史行为特征向量，而深度兴趣网络的核心就是运用用户历史行为向量序列与物品特征向量计算attention，对不同的历史行为赋予不同的权重，加权求和合成用户历史行为特征向量。</p>
 <h3 id="DNN层"><a href="#DNN层" class="headerlink" title="DNN层"></a>DNN层</h3><p>通过上述两层，得到四个特征向量，对这四个特征向量进行拼接得到一个向量，输入到多层的深度全连接网络，最终经过softmax层得到输出。</p>
 <h2 id="创新点"><a href="#创新点" class="headerlink" title="创新点"></a>创新点</h2><h3 id="attention层"><a href="#attention层" class="headerlink" title="attention层"></a>attention层</h3><p>通过计算attention，使得用户历史行为特征向量不是固定不变的，而是根据具体物品生成具体特征向量，这种动态生成特征向量，符合历史行为对不同场景有不同表现的现实情况。</p>
@@ -396,7 +397,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型结构"><span class="nav-number">1.</span> <span class="nav-text">模型结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入层-嵌入层"><span class="nav-number">1.1.</span> <span class="nav-text">输入层-嵌入层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌入层-attention层"><span class="nav-number">1.2.</span> <span class="nav-text">嵌入层-attention层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNN层"><span class="nav-number">1.3.</span> <span class="nav-text">DNN层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创新点"><span class="nav-number">2.</span> <span class="nav-text">创新点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#attention层"><span class="nav-number">2.1.</span> <span class="nav-text">attention层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自适应正则化"><span class="nav-number">2.2.</span> <span class="nav-text">自适应正则化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评估标准"><span class="nav-number">2.3.</span> <span class="nav-text">评估标准</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#激活函数"><span class="nav-number">2.4.</span> <span class="nav-text">激活函数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#综述"><span class="nav-number">1.</span> <span class="nav-text">综述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型结构"><span class="nav-number">2.</span> <span class="nav-text">模型结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入层-嵌入层"><span class="nav-number">2.1.</span> <span class="nav-text">输入层-嵌入层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌入层-attention层"><span class="nav-number">2.2.</span> <span class="nav-text">嵌入层-attention层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNN层"><span class="nav-number">2.3.</span> <span class="nav-text">DNN层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创新点"><span class="nav-number">3.</span> <span class="nav-text">创新点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#attention层"><span class="nav-number">3.1.</span> <span class="nav-text">attention层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自适应正则化"><span class="nav-number">3.2.</span> <span class="nav-text">自适应正则化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评估标准"><span class="nav-number">3.3.</span> <span class="nav-text">评估标准</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#激活函数"><span class="nav-number">3.4.</span> <span class="nav-text">激活函数</span></a></li></ol></li></ol></div>
             
 
           </div>
