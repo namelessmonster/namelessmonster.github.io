@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="综述Transformer是一种用于序列的神经网络模型，相比起RNN和LSTM，Transformer可以解决RNN和LSTM无法完全解决的长期依赖问题。Transformer首先会将输入序列通过编码器转成高阶特征的形式，然后编码器的输出作为解码器的输入，通过解码器的解码操作得到输出序列。 输入层Transformer的输入层由两个向量组成，分别是词向量和位置向量 词向量词向量由独热编码乘上系数矩">
-<meta name="keywords" content="机器学习,深度学习,NLP">
+  <meta name="description" content="综述无论是SARAR，Q-learning还是DQN，都是基于值函数的模型，即模型通过数据集训练参数去近似得到值函数。基于值函数的模型在处理控制问题时，需要由值函数更新策略再由策略更新值函数。这种做法难以收敛，而且学习到的策略过于简单（根据值函数取最大值）。虽然策略最终会收敛，但是在学习过程中，并不一定选择值函数最大的动作就是最优的，所以基于值函数的模型存在很大的改进空间，一个改进点就是将学习过程">
+<meta name="keywords" content="机器学习,深度学习,强化学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Transformer原理">
-<meta property="og:url" content="http://yoursite.com/2020/02/29/Transformer原理/index.html">
+<meta property="og:title" content="强化学习（四）策略梯度">
+<meta property="og:url" content="http://yoursite.com/2020/03/22/强化学习（四）策略梯度/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="综述Transformer是一种用于序列的神经网络模型，相比起RNN和LSTM，Transformer可以解决RNN和LSTM无法完全解决的长期依赖问题。Transformer首先会将输入序列通过编码器转成高阶特征的形式，然后编码器的输出作为解码器的输入，通过解码器的解码操作得到输出序列。 输入层Transformer的输入层由两个向量组成，分别是词向量和位置向量 词向量词向量由独热编码乘上系数矩">
+<meta property="og:description" content="综述无论是SARAR，Q-learning还是DQN，都是基于值函数的模型，即模型通过数据集训练参数去近似得到值函数。基于值函数的模型在处理控制问题时，需要由值函数更新策略再由策略更新值函数。这种做法难以收敛，而且学习到的策略过于简单（根据值函数取最大值）。虽然策略最终会收敛，但是在学习过程中，并不一定选择值函数最大的动作就是最优的，所以基于值函数的模型存在很大的改进空间，一个改进点就是将学习过程">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-05T07:13:14.001Z">
+<meta property="og:updated_time" content="2020-03-22T07:05:00.416Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Transformer原理">
-<meta name="twitter:description" content="综述Transformer是一种用于序列的神经网络模型，相比起RNN和LSTM，Transformer可以解决RNN和LSTM无法完全解决的长期依赖问题。Transformer首先会将输入序列通过编码器转成高阶特征的形式，然后编码器的输出作为解码器的输入，通过解码器的解码操作得到输出序列。 输入层Transformer的输入层由两个向量组成，分别是词向量和位置向量 词向量词向量由独热编码乘上系数矩">
-  <link rel="canonical" href="http://yoursite.com/2020/02/29/Transformer原理/">
+<meta name="twitter:title" content="强化学习（四）策略梯度">
+<meta name="twitter:description" content="综述无论是SARAR，Q-learning还是DQN，都是基于值函数的模型，即模型通过数据集训练参数去近似得到值函数。基于值函数的模型在处理控制问题时，需要由值函数更新策略再由策略更新值函数。这种做法难以收敛，而且学习到的策略过于简单（根据值函数取最大值）。虽然策略最终会收敛，但是在学习过程中，并不一定选择值函数最大的动作就是最优的，所以基于值函数的模型存在很大的改进空间，一个改进点就是将学习过程">
+  <link rel="canonical" href="http://yoursite.com/2020/03/22/强化学习（四）策略梯度/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>Transformer原理 | Hexo</title>
+  <title>强化学习（四）策略梯度 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/29/Transformer原理/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/22/强化学习（四）策略梯度/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">Transformer原理
+          <h1 class="post-title" itemprop="name headline">强化学习（四）策略梯度
 
               
             
@@ -227,21 +227,11 @@
                 
               
 
-              <time title="创建时间：2020-02-29 12:54:40" itemprop="dateCreated datePublished" datetime="2020-02-29T12:54:40+08:00">2020-02-29</time>
+              <time title="创建时间：2020-03-22 13:51:27 / 修改时间：15:05:00" itemprop="dateCreated datePublished" datetime="2020-03-22T13:51:27+08:00">2020-03-22</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-03-05 15:13:14" itemprop="dateModified" datetime="2020-03-05T15:13:14+08:00">2020-03-05</time>
-              </span>
             
           
 
@@ -256,17 +246,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>Transformer是一种用于序列的神经网络模型，相比起RNN和LSTM，Transformer可以解决RNN和LSTM无法完全解决的长期依赖问题。Transformer首先会将输入序列通过编码器转成高阶特征的形式，然后编码器的输出作为解码器的输入，通过解码器的解码操作得到输出序列。</p>
-<h2 id="输入层"><a href="#输入层" class="headerlink" title="输入层"></a>输入层</h2><p>Transformer的输入层由两个向量组成，分别是词向量和位置向量</p>
-<h3 id="词向量"><a href="#词向量" class="headerlink" title="词向量"></a>词向量</h3><p>词向量由独热编码乘上系数矩阵获得，使用Embedding层</p>
-<h3 id="位置向量"><a href="#位置向量" class="headerlink" title="位置向量"></a>位置向量</h3><p>位置向量有两种实现方式，一种是利用确定性的位置编码，即位置编码一经决定不再改变；另一种是使用位置的独热编码乘上一个可学习的参数矩阵获得，这种方法的位置编码是可以根据任务自动调整。第一种方法可以很好地应对测试集的序列长度大于训练集的序列的情况，而第二种方法可以很好地根据任务调整合适的位置编码</p>
-<h2 id="编码器-x6"><a href="#编码器-x6" class="headerlink" title="编码器(x6)"></a>编码器(x6)</h2><p>编码器由6个编码层组成，每个编码层由两个子层构成：自注意力层和前向传播层。每一层的计算都使用到layer normalization和skip-connection，即输入为$X$，中间经过的作用为函数$f$，则真正的输出$Y$为：</p>
-<script type="math/tex; mode=display">Y=LayerNorm(X+f(X))</script><h3 id="自注意力-x8"><a href="#自注意力-x8" class="headerlink" title="自注意力(x8)"></a>自注意力(x8)</h3><p>自注意力层的作用是计算输入序列自己对自己的注意力，作用是分析获得输入序列内部的依赖关系，由于输入序列自己对自己的全连通的，所以无论多长的依赖都可以计算获得。自注意力层使用了多头注意力机制，即对输入序列独立计算8次注意力，每次注意力都会关注到序列不同的依赖关系，过程如下：<br>(1) 输入序列为X，三个参数矩阵为$Q_w$，$K_w$，$V_w$<br>(2) 计算得到$Q=X\cdot Q_W$，$K=X\cdot K_W$，$V=X\cdot V_w$<br>(3) 计算注意力：$ attn=softmax(\frac{QK^T}{\sqrt{d_k}}) $<br>(4) 计算加权和得到输出：$A=attn\cdot V$<br>(5) 8次独立计算上述过程，将8次输出拼接在一起并左乘矩阵$W_0$加上偏置项$b_0$使得维度等于输入序列$X$的维度，得到总输出$f(X)$</p>
-<h3 id="前向传播"><a href="#前向传播" class="headerlink" title="前向传播"></a>前向传播</h3><p>(1) 自注意力层的输出为$X$，作为这一层的输入<br>(2) 得到输出：$FFN=max(0,XW_1+b_1)W_2+b_2$</p>
-<h2 id="解码器-x6"><a href="#解码器-x6" class="headerlink" title="解码器(x6)"></a>解码器(x6)</h2><p>解码器和编码器很多地方是一样，有几处细节不同</p>
-<h3 id="带掩码的自注意力-x8"><a href="#带掩码的自注意力-x8" class="headerlink" title="带掩码的自注意力(x8)"></a>带掩码的自注意力(x8)</h3><p>自注意力层比起编码器的自注意力层，加上了一个掩码层，使得过去的输入不会受到未来的输入的影响。因为解码器是按顺序生成序列的，所以未来是不会影响过去的，只能由过去单向影响未来，即计算注意力时，只能计算过去对未来的注意力。</p>
-<h3 id="编码-解码注意力-x8"><a href="#编码-解码注意力-x8" class="headerlink" title="编码-解码注意力(x8)"></a>编码-解码注意力(x8)</h3><p>计算完输出序列的自注意力后，还需要计算编码器的输出序列对解码器的输入序列的注意力，注意力的计算方式和自注意力相同，这一层的注意力计算不需要掩码层。</p>
-<h3 id="前向传播-1"><a href="#前向传播-1" class="headerlink" title="前向传播"></a>前向传播</h3><p>与编码器相同</p>
+        <h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>无论是SARAR，Q-learning还是DQN，都是基于值函数的模型，即模型通过数据集训练参数去近似得到值函数。基于值函数的模型在处理控制问题时，需要由值函数更新策略再由策略更新值函数。这种做法难以收敛，而且学习到的策略过于简单（根据值函数取最大值）。虽然策略最终会收敛，但是在学习过程中，并不一定选择值函数最大的动作就是最优的，所以基于值函数的模型存在很大的改进空间，一个改进点就是将学习过程中简单的策略转化成更合理的策略。我们可以将策略参数化，使用参数去控制策略的选择，这样可以使得模型在学习中不断修正策略，从而达到更好的效果。</p>
+<h2 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h2><p>基于策略的模型，使用参数控制策略的选择，输入是一个状态向量，中间是神经网络参数，输出是各个动作的选择概率。</p>
+<h2 id="学习过程"><a href="#学习过程" class="headerlink" title="学习过程"></a>学习过程</h2><p>在学习过程中，目标是最大化策略的期望收益。策略的期望收益计算如下：</p>
+<script type="math/tex; mode=display">U_{\theta}=\sum P_{\theta}(\tau)R(\tau)=E_{\pi_{\theta}}[R(\tau)]</script><p>其中，$\tau$是代理的一次执行过程，$R(\tau)$是这次执行的总收益，$P_{\theta}(\tau)$是当前策略下有$\tau$这个执行过程的概率。对于这个期望，我们不可能穷举所有的$\tau$，所以采用蒙特卡洛的方法去近似，即：</p>
+<script type="math/tex; mode=display">U_{\theta}\approx \frac{1}{n}\sum_{i=1}^nP_{\theta}(\tau_i)R(\tau_i)</script><p>我们希望最大化收益，即最大化上式，所以对这个式子关于参数$\theta$求导，得到：</p>
+<script type="math/tex; mode=display">\nabla_{\theta}U_{\theta}\approx \frac{1}{n}\sum_{i=1}^n\nabla_{\theta}P_{\theta}(\tau_i)R(\tau_i)=\frac{1}{n}\sum_{i=1}^nP_{\theta}(\tau_i)\frac{\nabla_{\theta} P_{\theta}(\tau_i)}{P_{\theta}(\tau_i)}R(\tau_i)\\=\frac{1}{n}\sum_{i=1}^nP_{\theta}(\tau_i)\nabla_{\theta}\log{P_{\theta}(\tau_i)}R(\tau_i)=E_{\tau \sim p_{\theta}(\tau)}[\nabla_{\theta}\log{P_{\theta}(\tau)}R(\tau)]</script><p>上式就是求得梯度的式子，然后根据最大梯度上升不断更新策略，使得策略的收益期望最大即可。</p>
+<h2 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h2><p>上面的学习过程中，如果所有的$\tau$的收益$R(\tau)$都是正的，那么每次采样得到的$\tau$在参数更新后的出现概率都会增大，但是我们是希望正的较大的出现概率增大，而正的较小的出现概率减小。所以一个改进的方法是使用采样的$R(\tau)$的期望作为基准线，收益小于基准线的$\tau$的出现概率减小，收益大于基准线的$\tau$的出现概率增大。另外在计算梯度时，我们可以展开式子：</p>
+<script type="math/tex; mode=display">\nabla_{\theta}U_{\theta}=\sum \nabla_{\theta}P_{\theta}(\tau)R(\tau)=\sum_{\tau}\sum_{t=1}^T\nabla_{\theta}P_{\theta}(a_t|s_t)(\sum_{k=1}^{t-1}\gamma^{k-1}R(s_k,a_k)+\sum_{k=t}^T\gamma^{k-1}R(s_k,a_k)-b)</script><p>其中$b$是前面提到的基准线，可以看到，无论是在哪个$t$，更新时都使用全部的$R(\tau)$，这是不合理的，所以修改一下更新公示。我们一般认为，更新第$t$个时刻，只与这个时刻后面的收益有关，所以有：</p>
+<script type="math/tex; mode=display">\nabla_{\theta}U_{\theta}=\sum_{\tau}\sum_{t=1}^T\nabla_{\theta}P_{\theta}(a_t|s_t)(\sum_{k=t}^T\gamma^{k-t}R(s_k,a_k)-b)</script><p>本质上这种做法是将一条执行路径$\tau$分解成$T$条后缀路径去更新参数，每条后缀路径的出现概率只与对应时刻第一步的策略选择有关，可以看作是这条后缀路径的收益约等于对应时刻第一步选择的期望收益，类似随机梯度的思想。</p>
 
     </div>
 
@@ -282,13 +270,13 @@
           
             <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
           
-            <a href="/tags/NLP/" rel="tag"># NLP</a>
+            <a href="/tags/强化学习/" rel="tag"># 强化学习</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/28/TCP和UDP/" rel="next" title="TCP和UDP">
-                <i class="fa fa-chevron-left"></i> TCP和UDP
+              <a href="/2020/03/22/强化学习（三）DQN/" rel="next" title="强化学习（三）DQN">
+                <i class="fa fa-chevron-left"></i> 强化学习（三）DQN
               </a>
             
           </div>
@@ -296,10 +284,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/03/01/独热编码和标签平滑/" rel="prev" title="独热编码和标签平滑">
-                独热编码和标签平滑 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -413,7 +397,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#综述"><span class="nav-number">1.</span> <span class="nav-text">综述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入层"><span class="nav-number">2.</span> <span class="nav-text">输入层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#词向量"><span class="nav-number">2.1.</span> <span class="nav-text">词向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#位置向量"><span class="nav-number">2.2.</span> <span class="nav-text">位置向量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编码器-x6"><span class="nav-number">3.</span> <span class="nav-text">编码器(x6)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自注意力-x8"><span class="nav-number">3.1.</span> <span class="nav-text">自注意力(x8)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前向传播"><span class="nav-number">3.2.</span> <span class="nav-text">前向传播</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解码器-x6"><span class="nav-number">4.</span> <span class="nav-text">解码器(x6)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#带掩码的自注意力-x8"><span class="nav-number">4.1.</span> <span class="nav-text">带掩码的自注意力(x8)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编码-解码注意力-x8"><span class="nav-number">4.2.</span> <span class="nav-text">编码-解码注意力(x8)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前向传播-1"><span class="nav-number">4.3.</span> <span class="nav-text">前向传播</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#综述"><span class="nav-number">1.</span> <span class="nav-text">综述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型结构"><span class="nav-number">2.</span> <span class="nav-text">模型结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#学习过程"><span class="nav-number">3.</span> <span class="nav-text">学习过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改进"><span class="nav-number">4.</span> <span class="nav-text">改进</span></a></li></ol></div>
             
 
           </div>
