@@ -57,19 +57,14 @@
   };
 </script>
 
-  <meta name="description" content="1. 什么是主成分分析主成分分析是一种数据降维技术，可以将特征从高维空间降维到低维空间，从而提高数据特征的处理效率。主成分分析的目的是找到$K$个特征，这$K$个特征是互不相关，而且要求这$K$个特征的方差尽量大。特征之间不相关保证特征之间的独立性，减少冗余信息；特征的方差尽量大则保证数据在特征上取值尽量分散，有利于利用特征区分样本。 2. 主成分分析的步骤已知数据样本的特征用矩阵$A_{nm}$">
-<meta name="keywords" content="机器学习">
-<meta property="og:type" content="article">
-<meta property="og:title" content="PCA-主成分分析">
-<meta property="og:url" content="http://yoursite.com/2020/02/13/PCA-主成分分析/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/6/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 什么是主成分分析主成分分析是一种数据降维技术，可以将特征从高维空间降维到低维空间，从而提高数据特征的处理效率。主成分分析的目的是找到$K$个特征，这$K$个特征是互不相关，而且要求这$K$个特征的方差尽量大。特征之间不相关保证特征之间的独立性，减少冗余信息；特征的方差尽量大则保证数据在特征上取值尽量分散，有利于利用特征区分样本。 2. 主成分分析的步骤已知数据样本的特征用矩阵$A_{nm}$">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-01T11:54:59.073Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PCA-主成分分析">
-<meta name="twitter:description" content="1. 什么是主成分分析主成分分析是一种数据降维技术，可以将特征从高维空间降维到低维空间，从而提高数据特征的处理效率。主成分分析的目的是找到$K$个特征，这$K$个特征是互不相关，而且要求这$K$个特征的方差尽量大。特征之间不相关保证特征之间的独立性，减少冗余信息；特征的方差尽量大则保证数据在特征上取值尽量分散，有利于利用特征区分样本。 2. 主成分分析的步骤已知数据样本的特征用矩阵$A_{nm}$">
-  <link rel="canonical" href="http://yoursite.com/2020/02/13/PCA-主成分分析/">
+<meta name="twitter:title" content="Hexo">
+  <link rel="canonical" href="http://yoursite.com/page/6/">
 
 
 <script id="page.configurations">
@@ -78,7 +73,7 @@
   };
 </script>
 
-  <title>PCA-主成分分析 | Hexo</title>
+  <title>Hexo</title>
   
 
 
@@ -117,7 +112,7 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -184,16 +179,15 @@
 
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
-    
+  <section id="posts" class="posts-expand">
+      
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/13/PCA-主成分分析/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/06/逻辑回归和朴素贝叶斯/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,8 +201,10 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">PCA-主成分分析
-
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/02/06/逻辑回归和朴素贝叶斯/" class="post-title-link" itemprop="url">朴素贝叶斯和逻辑回归</a>
               
             
           </h1>
@@ -227,7 +223,7 @@
                 
               
 
-              <time title="创建时间：2020-02-13 15:36:14" itemprop="dateCreated datePublished" datetime="2020-02-13T15:36:14+08:00">2020-02-13</time>
+              <time title="创建时间：2020-02-06 15:22:42" itemprop="dateCreated datePublished" datetime="2020-02-06T15:22:42+08:00">2020-02-06</time>
             </span>
           
             
@@ -240,7 +236,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-03-01 19:54:59" itemprop="dateModified" datetime="2020-03-01T19:54:59+08:00">2020-03-01</time>
+                <time title="修改时间：2020-03-11 17:28:42" itemprop="dateModified" datetime="2020-03-11T17:28:42+08:00">2020-03-11</time>
               </span>
             
           
@@ -256,17 +252,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-什么是主成分分析"><a href="#1-什么是主成分分析" class="headerlink" title="1. 什么是主成分分析"></a>1. 什么是主成分分析</h2><p>主成分分析是一种数据降维技术，可以将特征从高维空间降维到低维空间，从而提高数据特征的处理效率。主成分分析的目的是找到$K$个特征，这$K$个特征是互不相关，而且要求这$K$个特征的方差尽量大。特征之间不相关保证特征之间的独立性，减少冗余信息；特征的方差尽量大则保证数据在特征上取值尽量分散，有利于利用特征区分样本。</p>
-<h2 id="2-主成分分析的步骤"><a href="#2-主成分分析的步骤" class="headerlink" title="2. 主成分分析的步骤"></a>2. 主成分分析的步骤</h2><p>已知数据样本的特征用矩阵$A_{nm}$表示，则PCA的步骤有：<br>(1) 计算特征的协方差矩阵$B_{mm}=\frac{1}{n}A^TA$。<br>(2) 计算协方差矩阵的特征值和特征向量。<br>(3) 选择前$k$大的特征值对应的特征向量组成矩阵$C_{mk}$。<br>(4) 得到矩阵$D_{nk}=AC$，矩阵$D$就是降维后的特征。</p>
-<h2 id="3-主成分分析的原理"><a href="#3-主成分分析的原理" class="headerlink" title="3. 主成分分析的原理"></a>3. 主成分分析的原理</h2><p>假设我们现在将每个样本映射到一维，映射矩阵只有一列，设该列为$w$，则有：</p>
-<script type="math/tex; mode=display">y=Aw</script><p>根据PCA的要求，$y$的方差要最大，已知$y$的方差为：</p>
-<script type="math/tex; mode=display">\frac{1}{n}y^Ty=\frac{1}{n}w^TA^TAw=w^T\{\frac{1}{n}A^TA\}w</script><p>我们知道$w$是一个权重向量，表示各个特征的权重，新特征是原特征的加权和，所以有约束：</p>
-<script type="math/tex; mode=display">\lVert w \rVert=1</script><p>所以现在是要求：</p>
-<script type="math/tex; mode=display">arg\max_{w}w^T\{\frac{1}{n}A^TA\}w</script><script type="math/tex; mode=display">st. \lVert w \rVert=1</script><p>使用拉格朗日乘子法求上述带约束的最优化问题，可以得到：</p>
-<script type="math/tex; mode=display">\frac{1}{n}A^TAw=\lambda w</script><p>所以新特征的方差为：</p>
-<script type="math/tex; mode=display">w^T\{\frac{1}{n}A^TA\}w=\lambda\lVert w \rVert^2=\lambda</script><p>已知$\frac{1}{n}A^TA$是矩阵$A$的协方差矩阵，所以$w$是矩阵$A$协方差矩阵的特征向量，而且方差等于特征向量的特征值。因为要求方差最大，所以选最大的特征值和对应的特征向量，即解得$w$为最大特征值对应的特征向量。</p>
-<p>上面的过程是求解只有一个新特征时的降维矩阵，当需要$k$个新特征时，首先需要协方差矩阵是单位矩阵，即各个特征之间是不相关的，其次需要各个特征的方差都尽量大。已知各个特征向量之间是正交的，所以可以取前$k$大的特征值对应的特征向量组成降维矩阵。</p>
-
+          
+            <p>
+              朴素贝叶斯1. 什么是朴素贝叶斯朴素贝叶斯是一个生成模型，用于分类任务。什么是生成模型？假设数据集$\{X,Y\}$是从一个概率分布$P(X,Y)$中抽取得到的，那么只要我们知道这个分布，就可以掌握这个数据集的规律。所以生成模型的任务就是要求出这个分布，知道这个数据集是怎么生成的。一句话概括就是生成
+              ...
+            </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/02/06/逻辑回归和朴素贝叶斯/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
     </div>
 
     
@@ -274,29 +275,7 @@
     
 
     <footer class="post-footer">
-          
-        
-        <div class="post-tags">
-            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
-          
-        </div>
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/13/word2vec原理/" rel="next" title="word2vec原理">
-                <i class="fa fa-chevron-left"></i> word2vec原理
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/13/红黑树，B树，B-树/" rel="prev" title="红黑树，B树，B+树">
-                红黑树，B树，B+树 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
+        <div class="post-eof"></div>
     </footer>
   </div>
   
@@ -304,12 +283,17 @@
   
   </article>
 
-  </div>
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+  </nav>
 
 
           </div>
           
-
 
         </div>
           
@@ -324,17 +308,8 @@
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -398,23 +373,6 @@
 
         </div>
       </div>
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是主成分分析"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是主成分分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-主成分分析的步骤"><span class="nav-number">2.</span> <span class="nav-text">2. 主成分分析的步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-主成分分析的原理"><span class="nav-number">3.</span> <span class="nav-text">3. 主成分分析的原理</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
 
     </div>
   </aside>
@@ -471,10 +429,6 @@
 
 
   
-  <script src="/js/scrollspy.js?v=7.3.0"></script>
-<script src="/js/post-details.js?v=7.3.0"></script>
-
-
 
   <script src="/js/next-boot.js?v=7.3.0"></script>
 
@@ -489,6 +443,12 @@
 
 
 
+  
+    
+      
+        
+      
+    
   
     
       <script type="text/x-mathjax-config">
