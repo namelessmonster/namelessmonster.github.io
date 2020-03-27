@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="sigmoidsigmoid函数的公式如下： \sigma(z)=\frac{1}{1+e^{-z}}这个函数有以下两个问题：(1) 非零均值(2) 梯度消失对于第(2)个问题比较好理解，因为sigmoid函数的梯度的最大值是0.25，随着网络层数的增多，sigmoid函数的梯度连乘容易使得梯度值非常小导致梯度消失。对于第(1)个问题，为什么零均值会更好？对于非零均值的激活函数，以sigmoid函">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-27T15:31:47.454Z">
+<meta property="og:updated_time" content="2020-03-27T15:33:30.669Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常见激活函数">
 <meta name="twitter:description" content="sigmoidsigmoid函数的公式如下： \sigma(z)=\frac{1}{1+e^{-z}}这个函数有以下两个问题：(1) 非零均值(2) 梯度消失对于第(2)个问题比较好理解，因为sigmoid函数的梯度的最大值是0.25，随着网络层数的增多，sigmoid函数的梯度连乘容易使得梯度值非常小导致梯度消失。对于第(1)个问题，为什么零均值会更好？对于非零均值的激活函数，以sigmoid函">
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-03-27 23:04:27 / 修改时间：23:31:47" itemprop="dateCreated datePublished" datetime="2020-03-27T23:04:27+08:00">2020-03-27</time>
+              <time title="创建时间：2020-03-27 23:04:27 / 修改时间：23:33:30" itemprop="dateCreated datePublished" datetime="2020-03-27T23:04:27+08:00">2020-03-27</time>
             </span>
           
             
@@ -253,7 +253,7 @@
 <h2 id="ReLU"><a href="#ReLU" class="headerlink" title="ReLU"></a>ReLU</h2><p>ReLU函数的公式如下：</p>
 <script type="math/tex; mode=display">ReLu(x)=\max(0,x)</script><p>ReLU函数有三个优点：<br>(1) 解决了梯度消失的问题<br>(2) 计算速度非常快，只需要比较取最大值，无需进行幂运算<br>(3) 收敛速度快，因为在正数区域的梯度恒等于1<br>Relu函数存在的问题如下：<br>(1) 梯度爆炸<br>(2) 非零均值<br>(3) 神经元“死亡”，一旦一个神经元的输出小于等于0，则关于这个神经元的输出对参数的梯度都会等于0，关于这个神经元的参数得不到更新<br>对于问题(3)，只要这个神经元不是在第一层，则关于这个神经元的参数在后续还是有机会得到更新的，因为其他神经元的参数更新后，关于这个神经元的输入会发生变化，对应的输出也会发生变化，但输出大于0时，就可以继续更新关于这个神经元的参数了。但是这种约束可能会降低神经元的学习效率。</p>
 <h2 id="PReLU"><a href="#PReLU" class="headerlink" title="PReLU"></a>PReLU</h2><p>PReLU针对ReLU可能造成的神经元“死亡”问题提出了改进，计算公式如下：</p>
-<script type="math/tex; mode=display">f(x)=\max(\alpha x,x)</script><p>其中$\alpha$是一个$[0,1)$范围的数，当$\alpha$等于0时，PReLU就是ReLU。PReLU中的$\alpha$是通过学习调整参数得到的，即$\alpha$是模型参数的一部分。</p>
+<script type="math/tex; mode=display">f(x)=\max(\alpha x,x)</script><p>当$\alpha$等于0时，PReLU就是ReLU。PReLU中的$\alpha$是通过学习调整参数得到的，即$\alpha$是模型参数的一部分。</p>
 
     </div>
 
