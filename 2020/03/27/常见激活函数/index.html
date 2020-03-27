@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="BN在使用神经网络训练数据，常常使用批梯度下降的优化方法。这种优化方法相比起全梯度下降方法有一个问题，就是收敛速度慢，因为每一批数据的分布与全部数据的分布存在着不一致，且每一批数据的分布是变化的，这使得神经网络需要不断根据输入分布的不同调整权重去适应不同的输入分布。然后，神经网络层与层之间的联系是复杂的，前面层输入分布的变化会影响输出分布，而输出分布又会影响后面层的输入分布进而影响后面层的输出分布">
+  <meta name="description" content="sigmoidsigmoid函数的公式如下： \sigma(z)=\frac{1}{1+e^{-z}}这个函数有以下两个问题：(1) 非零均值(2) 梯度消失对于第(2)个问题比较好理解，因为sigmoid函数的梯度的最大值是0.25，随着网络层数的增多，sigmoid函数的梯度连乘容易使得梯度值非常小导致梯度消失。对于第(1)个问题，为什么零均值会更好？对于非零均值的激活函数，以sigmoid函">
 <meta name="keywords" content="机器学习,深度学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BN和Dropout">
-<meta property="og:url" content="http://yoursite.com/2020/02/21/BN和Dropout/index.html">
+<meta property="og:title" content="常见激活函数">
+<meta property="og:url" content="http://yoursite.com/2020/03/27/常见激活函数/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="BN在使用神经网络训练数据，常常使用批梯度下降的优化方法。这种优化方法相比起全梯度下降方法有一个问题，就是收敛速度慢，因为每一批数据的分布与全部数据的分布存在着不一致，且每一批数据的分布是变化的，这使得神经网络需要不断根据输入分布的不同调整权重去适应不同的输入分布。然后，神经网络层与层之间的联系是复杂的，前面层输入分布的变化会影响输出分布，而输出分布又会影响后面层的输入分布进而影响后面层的输出分布">
+<meta property="og:description" content="sigmoidsigmoid函数的公式如下： \sigma(z)=\frac{1}{1+e^{-z}}这个函数有以下两个问题：(1) 非零均值(2) 梯度消失对于第(2)个问题比较好理解，因为sigmoid函数的梯度的最大值是0.25，随着网络层数的增多，sigmoid函数的梯度连乘容易使得梯度值非常小导致梯度消失。对于第(1)个问题，为什么零均值会更好？对于非零均值的激活函数，以sigmoid函">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-01T16:42:47.977Z">
+<meta property="og:updated_time" content="2020-03-27T15:31:47.454Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BN和Dropout">
-<meta name="twitter:description" content="BN在使用神经网络训练数据，常常使用批梯度下降的优化方法。这种优化方法相比起全梯度下降方法有一个问题，就是收敛速度慢，因为每一批数据的分布与全部数据的分布存在着不一致，且每一批数据的分布是变化的，这使得神经网络需要不断根据输入分布的不同调整权重去适应不同的输入分布。然后，神经网络层与层之间的联系是复杂的，前面层输入分布的变化会影响输出分布，而输出分布又会影响后面层的输入分布进而影响后面层的输出分布">
-  <link rel="canonical" href="http://yoursite.com/2020/02/21/BN和Dropout/">
+<meta name="twitter:title" content="常见激活函数">
+<meta name="twitter:description" content="sigmoidsigmoid函数的公式如下： \sigma(z)=\frac{1}{1+e^{-z}}这个函数有以下两个问题：(1) 非零均值(2) 梯度消失对于第(2)个问题比较好理解，因为sigmoid函数的梯度的最大值是0.25，随着网络层数的增多，sigmoid函数的梯度连乘容易使得梯度值非常小导致梯度消失。对于第(1)个问题，为什么零均值会更好？对于非零均值的激活函数，以sigmoid函">
+  <link rel="canonical" href="http://yoursite.com/2020/03/27/常见激活函数/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>BN和Dropout | Hexo</title>
+  <title>常见激活函数 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/21/BN和Dropout/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/27/常见激活函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">BN和Dropout
+          <h1 class="post-title" itemprop="name headline">常见激活函数
 
               
             
@@ -227,21 +227,11 @@
                 
               
 
-              <time title="创建时间：2020-02-21 22:44:00" itemprop="dateCreated datePublished" datetime="2020-02-21T22:44:00+08:00">2020-02-21</time>
+              <time title="创建时间：2020-03-27 23:04:27 / 修改时间：23:31:47" itemprop="dateCreated datePublished" datetime="2020-03-27T23:04:27+08:00">2020-03-27</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-03-02 00:42:47" itemprop="dateModified" datetime="2020-03-02T00:42:47+08:00">2020-03-02</time>
-              </span>
             
           
 
@@ -256,17 +246,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="BN"><a href="#BN" class="headerlink" title="BN"></a>BN</h2><p>在使用神经网络训练数据，常常使用批梯度下降的优化方法。这种优化方法相比起全梯度下降方法有一个问题，就是收敛速度慢，因为每一批数据的分布与全部数据的分布存在着不一致，且每一批数据的分布是变化的，这使得神经网络需要不断根据输入分布的不同调整权重去适应不同的输入分布。然后，神经网络层与层之间的联系是复杂的，前面层输入分布的变化会影响输出分布，而输出分布又会影响后面层的输入分布进而影响后面层的输出分布，最终作用到最后一层影响网络的输出。前面层的变动如同蝴蝶效应般对网络的输出影响巨大。在使用梯度下降调整网络参数时，可以理解成是通过调整网络参数来间接调整网络每一层的分布，这种间接调整需要不断适应网络每层分布的变化，使得网络参数训练效果不好，收敛速度慢。比如我们希望将第$i$层的分布调整成均值为$\mu_i$，方差为$\sigma_i$，这并不是由第$i$层的参数决定的，而是由第$1,2,…,i$层的参数决定的，这种需要调整众多参数拟合分布的训练方式导致训练速度慢。</p>
-<p>而网络训练速度慢还有一个原因就是梯度消失，以$sigmoid$激活函数为例，如果某一层的分布处于$sigmoid$函数的饱和区时，此时若梯度的趋势是将分布调整到$sigmoid$函数的非饱和区，显然速度是非常慢的，因为梯度值非常小。</p>
-<p>基于以上两个原因，深度神经网络往往会出现训练速度慢的问题，而BN的出现正是为了解决这个问题。这里先介绍BN的做法，首先对每个神经元，都有$N$个输入样本，计算这$N$个样本的均值和方差：</p>
-<script type="math/tex; mode=display">\mu=\frac{1}{N}\sum_{i=1}^Nx_i</script><script type="math/tex; mode=display">\sigma^2=\frac{1}{N}\sum_{i=1}^N(x_i-\mu)^2</script><p>然后对每个样本标准化，调整输入分布为均值等于0，方差等于1：</p>
-<script type="math/tex; mode=display">\hat{x}_i=\frac{x_i-\mu}{\sigma}</script><p>将输入分布调整为均值为$\beta$，方差为$\gamma^2$：</p>
-<script type="math/tex; mode=display">z=\gamma*\hat{x}_i+\beta</script><p>综上，这个神经元的输入样本为：</p>
-<script type="math/tex; mode=display">y=a(z)</script><p>其中$a$是激活函数。可以看到，BN是将每一层每一个神经元的分布都调整为均值等于$\beta$，方差等于$\gamma^2$，这里$\beta$和$\gamma$是参数，是可以通过数据样本学习调整的，每个神经元都有属于自己的$\gamma$和$\beta$。那么为什么BN可以加速网络的学习速度呢。前面提到，影响网络学习速度的有两个主要原因：第一是网络层与层之间联系紧密，通过调整网络参数间接调整分布，参数的紧密联系导致这个过程很慢；第二是梯度在非线性激活函数的饱和区值很小，调整速度慢。BN可以很好地应对这两个问题，首先BN使得网络每一个神经元可以直接通过参数调整分布不再通过参数间接调整分布。因为BN的每一个神经元都会学习两个参数$\gamma$和$\beta$，这两个参数直接决定神经元的输入分布，关于该神经元的输入分布不再受到前面若干层参数的影响，解除了这种复杂的联系。其次，BN层可以通过快速调整分布来快速将输入分布调整至激活函数的非饱和区，提高学习速度。没有BN层时，若要将调整参数使分布从饱和区移向非饱和区，因为梯度很小的缘故，需要调整很长时间才可以将分布移到非饱和区。现在有了BN层，就可以直接通过调整$\gamma$和$\beta$快速将分布从饱和区移向非饱和区。以上就是BN层的原理。BN层在训练时，每个神经元会记录每一批数据的输入分布，通过每一批的输入分布估计总体的输入分布，在预测时使用估计的整体分布对输入标准化。预测时的过程如下，首先通过每一批数据估计总体的均值和方差：</p>
-<script type="math/tex; mode=display">\hat{\mu} = E[\mu]</script><script type="math/tex; mode=display">\hat{\sigma}^2 = \frac{m}{m-1}E[\sigma^2]</script><p>其中$m$是训练时一批数据的大小，对输入进行标准化：</p>
-<script type="math/tex; mode=display">\hat{x}=\frac{x-\hat{\mu}}{\hat{\sigma}}</script><p>将输入移向该神经元的分布：</p>
-<script type="math/tex; mode=display">z=\gamma*\hat{x}+\beta</script><script type="math/tex; mode=display">y=a(z)</script><p>以上就是BN的预测过程，除了BN，其实还有LN，IN，GN，不过应用最广泛当属BN，LN也有一定的应用。</p>
-<h2 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h2><p>Dropout是根据一定的概率将神经网络某一层的神经元关闭，假设这个概率为0.5，这意味着该层的神经元有50%的概率处于关闭状态。更一般的，假设Dropout关闭神经元的概率为$p$，则打开神经元的概率为$q=1-p$。在训练时，Dropout会依据概率$p$关闭神经元，而在预测时，为了还原神经元的期望输出，会将权重乘上$q=1-p$。更常见的做法是在训练时将权重除以$q$，在预测时权重不用做改变。Dropout能起到正则化的作用，因为Dropout本质上可以看作是训练多个共享权重的模型，一些模型使用一部分权重，另一些模型使用另一部分权重，模型与模型之间有共用的权重也有不共用的权重，在预测时使用这些模型的期望作为预测结果，这类似于bagging，可以起到减小方差，防止过拟合的正则化效果。Dropout的另一种解释是运用了奥卡姆剃刀原理，通过关闭一些神经元，降低深度神经网络参数之间联系的复杂程度，找到更简单的特征联系，从而起到正则化的效果。</p>
+        <h2 id="sigmoid"><a href="#sigmoid" class="headerlink" title="sigmoid"></a>sigmoid</h2><p>sigmoid函数的公式如下：</p>
+<script type="math/tex; mode=display">\sigma(z)=\frac{1}{1+e^{-z}}</script><p>这个函数有以下两个问题：<br>(1) 非零均值<br>(2) 梯度消失<br>对于第(2)个问题比较好理解，因为sigmoid函数的梯度的最大值是0.25，随着网络层数的增多，sigmoid函数的梯度连乘容易使得梯度值非常小导致梯度消失。对于第(1)个问题，为什么零均值会更好？对于非零均值的激活函数，以sigmoid函数为例，计算后会得到全大于0的输出作为下一层的输入。如果使用零均值的激活函数，在计算后可以得到有小于0有大于0的输出作为下一层的输入，相比起非零均值有着更容易拟合任何函数的能力。当然，非零均值并不是不好的，只是相比起零均值，可能没有那么容易去拟合任意函数，但随着层数的叠加也是总可以拟合任意函数的。</p>
+<h2 id="tanh"><a href="#tanh" class="headerlink" title="tanh"></a>tanh</h2><p>tanh函数的公式如下：</p>
+<script type="math/tex; mode=display">tanh(x)=\frac{e^x-e^{-x}}{e^x+e^{-x}}</script><p>可以看到tanh相比起sigmoid函数，是一个零均值的激活函数，也是一个将神经元输出压缩到一定范围的激活函数。tanh函数可以得到$[-1,1]$范围的输出。tanh函数的问题和sigmoid函数的问题一样，就是会导致梯度消失，但是tanh函数导致梯度消失的程度没有sigmoid函数严重。</p>
+<h2 id="ReLU"><a href="#ReLU" class="headerlink" title="ReLU"></a>ReLU</h2><p>ReLU函数的公式如下：</p>
+<script type="math/tex; mode=display">ReLu(x)=\max(0,x)</script><p>ReLU函数有三个优点：<br>(1) 解决了梯度消失的问题<br>(2) 计算速度非常快，只需要比较取最大值，无需进行幂运算<br>(3) 收敛速度快，因为在正数区域的梯度恒等于1<br>Relu函数存在的问题如下：<br>(1) 梯度爆炸<br>(2) 非零均值<br>(3) 神经元“死亡”，一旦一个神经元的输出小于等于0，则关于这个神经元的输出对参数的梯度都会等于0，关于这个神经元的参数得不到更新<br>对于问题(3)，只要这个神经元不是在第一层，则关于这个神经元的参数在后续还是有机会得到更新的，因为其他神经元的参数更新后，关于这个神经元的输入会发生变化，对应的输出也会发生变化，但输出大于0时，就可以继续更新关于这个神经元的参数了。但是这种约束可能会降低神经元的学习效率。</p>
+<h2 id="PReLU"><a href="#PReLU" class="headerlink" title="PReLU"></a>PReLU</h2><p>PReLU针对ReLU可能造成的神经元“死亡”问题提出了改进，计算公式如下：</p>
+<script type="math/tex; mode=display">f(x)=\max(\alpha x,x)</script><p>其中$\alpha$是一个$[0,1)$范围的数，当$\alpha$等于0时，PReLU就是ReLU。PReLU中的$\alpha$是通过学习调整参数得到的，即$\alpha$是模型参数的一部分。</p>
 
     </div>
 
@@ -285,8 +272,8 @@
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/21/RNN和LSTM/" rel="next" title="RNN和LSTM">
-                <i class="fa fa-chevron-left"></i> RNN和LSTM
+              <a href="/2020/03/23/强化学习（五）actor-critic/" rel="next" title="强化学习（五）actor-critic">
+                <i class="fa fa-chevron-left"></i> 强化学习（五）actor-critic
               </a>
             
           </div>
@@ -294,10 +281,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/22/变分推断/" rel="prev" title="变分推断">
-                变分推断 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -411,7 +394,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BN"><span class="nav-number">1.</span> <span class="nav-text">BN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dropout"><span class="nav-number">2.</span> <span class="nav-text">Dropout</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sigmoid"><span class="nav-number">1.</span> <span class="nav-text">sigmoid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tanh"><span class="nav-number">2.</span> <span class="nav-text">tanh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ReLU"><span class="nav-number">3.</span> <span class="nav-text">ReLU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PReLU"><span class="nav-number">4.</span> <span class="nav-text">PReLU</span></a></li></ol></div>
             
 
           </div>
