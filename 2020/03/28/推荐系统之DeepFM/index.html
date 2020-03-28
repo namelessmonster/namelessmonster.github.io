@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="线程创建Java中有三种方式创建线程，分别为继承Thread类，实现Runnable接口和实现Callable接口。 继承Thread继承Thread类比较简单，就是定义一个类，这个类继承了Thread类，重新定义了Thread类的run方法。这种方式是最直观，在需要创建线程时，直接创建一个继承类的对象即可。但是这种方法在多线程共享资源上没有那么方便，依赖关系会比较复杂。 Runnable接口实现">
-<meta name="keywords" content="Java">
+  <meta name="description" content="FM算法和DNN我们知道FM算法可以通过组合两两特征，从而处理一部分的非线性情况，我们可以称之为低阶特征组合。对于高阶特征组合，我们也可以使用FM算法，只是会使得计算复杂度大大增加。我们知道DNN作为深度学习的代表，可以很好地组合特征，拟合任意函数。我们可以认为DNN可以任意组合特征，无论是高阶还是低阶的。但是在DNN中，我们不好控制特征的组合程度，我们一般认为深度越深，特征组合就越高阶，所以我们">
+<meta name="keywords" content="机器学习,深度学习,推荐系统">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java之线程创建和线程池">
-<meta property="og:url" content="http://yoursite.com/2020/03/18/Java之线程创建和线程池/index.html">
+<meta property="og:title" content="推荐系统之DeepFM">
+<meta property="og:url" content="http://yoursite.com/2020/03/28/推荐系统之DeepFM/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="线程创建Java中有三种方式创建线程，分别为继承Thread类，实现Runnable接口和实现Callable接口。 继承Thread继承Thread类比较简单，就是定义一个类，这个类继承了Thread类，重新定义了Thread类的run方法。这种方式是最直观，在需要创建线程时，直接创建一个继承类的对象即可。但是这种方法在多线程共享资源上没有那么方便，依赖关系会比较复杂。 Runnable接口实现">
+<meta property="og:description" content="FM算法和DNN我们知道FM算法可以通过组合两两特征，从而处理一部分的非线性情况，我们可以称之为低阶特征组合。对于高阶特征组合，我们也可以使用FM算法，只是会使得计算复杂度大大增加。我们知道DNN作为深度学习的代表，可以很好地组合特征，拟合任意函数。我们可以认为DNN可以任意组合特征，无论是高阶还是低阶的。但是在DNN中，我们不好控制特征的组合程度，我们一般认为深度越深，特征组合就越高阶，所以我们">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-18T02:57:42.037Z">
+<meta property="og:updated_time" content="2020-03-28T03:33:59.872Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java之线程创建和线程池">
-<meta name="twitter:description" content="线程创建Java中有三种方式创建线程，分别为继承Thread类，实现Runnable接口和实现Callable接口。 继承Thread继承Thread类比较简单，就是定义一个类，这个类继承了Thread类，重新定义了Thread类的run方法。这种方式是最直观，在需要创建线程时，直接创建一个继承类的对象即可。但是这种方法在多线程共享资源上没有那么方便，依赖关系会比较复杂。 Runnable接口实现">
-  <link rel="canonical" href="http://yoursite.com/2020/03/18/Java之线程创建和线程池/">
+<meta name="twitter:title" content="推荐系统之DeepFM">
+<meta name="twitter:description" content="FM算法和DNN我们知道FM算法可以通过组合两两特征，从而处理一部分的非线性情况，我们可以称之为低阶特征组合。对于高阶特征组合，我们也可以使用FM算法，只是会使得计算复杂度大大增加。我们知道DNN作为深度学习的代表，可以很好地组合特征，拟合任意函数。我们可以认为DNN可以任意组合特征，无论是高阶还是低阶的。但是在DNN中，我们不好控制特征的组合程度，我们一般认为深度越深，特征组合就越高阶，所以我们">
+  <link rel="canonical" href="http://yoursite.com/2020/03/28/推荐系统之DeepFM/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>Java之线程创建和线程池 | Hexo</title>
+  <title>推荐系统之DeepFM | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/18/Java之线程创建和线程池/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/28/推荐系统之DeepFM/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">Java之线程创建和线程池
+          <h1 class="post-title" itemprop="name headline">推荐系统之DeepFM
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-03-18 09:53:16 / 修改时间：10:57:42" itemprop="dateCreated datePublished" datetime="2020-03-18T09:53:16+08:00">2020-03-18</time>
+              <time title="创建时间：2020-03-28 11:08:32 / 修改时间：11:33:59" itemprop="dateCreated datePublished" datetime="2020-03-28T11:08:32+08:00">2020-03-28</time>
             </span>
           
             
@@ -246,13 +246,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="线程创建"><a href="#线程创建" class="headerlink" title="线程创建"></a>线程创建</h2><p>Java中有三种方式创建线程，分别为继承Thread类，实现Runnable接口和实现Callable接口。</p>
-<h3 id="继承Thread"><a href="#继承Thread" class="headerlink" title="继承Thread"></a>继承Thread</h3><p>继承Thread类比较简单，就是定义一个类，这个类继承了Thread类，重新定义了Thread类的run方法。这种方式是最直观，在需要创建线程时，直接创建一个继承类的对象即可。但是这种方法在多线程共享资源上没有那么方便，依赖关系会比较复杂。</p>
-<h3 id="Runnable接口"><a href="#Runnable接口" class="headerlink" title="Runnable接口"></a>Runnable接口</h3><p>实现Runnable接口的方式就是定义一个类，这个类定义了Runnable接口的run方法。这种方式和继承Thread类方式最大的优势就是，不同线程对象之间可以共享一个实现了Runnable接口的对象，所以在线程共享资源和通信上会比继承Tread类的方法方便，依赖关系也会更简单。</p>
-<h3 id="Callable接口"><a href="#Callable接口" class="headerlink" title="Callable接口"></a>Callable接口</h3><p>实现Callable接口需要和FutureTask类合作才能实现多线程，这种创建线程的方式可以返回每个线程的工作结果，在需要线程的运行结果的场景中非常有用。FutureTask类实现了Runnable接口和Future接口，Future接口封装了查询和设置线程运行结果和线程状态的方法，不仅方便对线程的控制还能提供为主线程捕获子线程异常信息的功能。FutureTask的构造函数中可以传入实现Callable接口的对象，因为实现了Runnable接口，所以可以被用于创建线程；因为实现了Future接口，所以可以被用于控制线程和查询线程运行结果。可以这么理解，实现Callable接口的对象封装了一个运行任务，这个运行任务的运行结果可以通过Callable接口的call方法获得；实现Future接口的对象封装了一个控制任务，这个控制任务可以通过Future接口的各种方法实现；实现Runnable接口的对象可以用于创建线程。三者一起作用实现主线程控制多线程运行状态，获得多线程运行结果，捕获多线程运行异常的场景。</p>
-<h3 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h3><p>在Java中，线程有6种状态，分别是新建、可运行、阻塞、等待、时限等待、终止。新建状态是指线程对象被new出来了但是还没有执行start方法；可运行状态包括就绪和运行两种状态，就绪状态表示线程在等待CPU的时间片；阻塞状态表示线程阻塞于锁，阻塞于同步代码块；等待状态表示线程在等待其他线程的信号与动作；时限等待表示线程在等待其他线程的信号与动作，一段时间没有收到特定信号与动作则放弃等待；终止状态表示线程运行结束。</p>
-<h2 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h2><h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><p>Java中使用Executors类创建线程池对象，线程池对象可以帮助我们创建与重用线程，从而更好地管理与使用线程，避免频繁创建与销毁线程所造成的不必要开销以及避免多线程造成的空间资源占用问题。线程池类有多种创建线程池对象的方式，ThreadPoolExecutor构造方法是用得最多的。ThreadPoolExecutor构造方法有七个参数，分别是线程池维持线程数，线程池最大线程数，线程活跃时长，任务队列，新线程生产方式，拒绝策略。ThreadPoolExecutor创建的线程池的工作逻辑是这样的：<br>(1) 如果线程数小于线程池维持线程数，每个任务优先创建一个新线程处理<br>(2) 如果线程数达到线程池维持线程数，每个任务优先装入任务队列<br>(3) 如果线程数小于线程池最大线程数且任务队列任务数达到规定上限，创建一个新线程处理<br>(4) 如果线程数达到最大线程数且任务队列任务数达到规定上限，拒绝新的任务<br>线程池对象有两个方法接收新任务，一个是submit，另一个是execute。execute方法接收Runnable对象，不能返回线程的运行结果。submit方法可以接收Runnable对象也可以接收Callable对象，返回一个Future对象，可以通过Future对象控制线程的运行状态与得到线程的运行结果。</p>
-<h3 id="线程池状态"><a href="#线程池状态" class="headerlink" title="线程池状态"></a>线程池状态</h3><p>线程池有5种状态，分别是运行中、关闭、中止、整理、终止。运行中表示线程池对象在正常工作；关闭表示线程池不再接收新的任务但会处理完手头上的任务；中止表示线程池不再接收新的任务且中止手头上的任务；整理表示线程池对依目前工作状态调整线程数量与工作状态；终止表示线程池对象完成工作，结束工作。</p>
+        <h2 id="FM算法和DNN"><a href="#FM算法和DNN" class="headerlink" title="FM算法和DNN"></a>FM算法和DNN</h2><p>我们知道FM算法可以通过组合两两特征，从而处理一部分的非线性情况，我们可以称之为低阶特征组合。对于高阶特征组合，我们也可以使用FM算法，只是会使得计算复杂度大大增加。我们知道DNN作为深度学习的代表，可以很好地组合特征，拟合任意函数。我们可以认为DNN可以任意组合特征，无论是高阶还是低阶的。但是在DNN中，我们不好控制特征的组合程度，我们一般认为深度越深，特征组合就越高阶，所以我们可以粗略地认为DNN是对特征的高阶组合。FM算法我们将其看作是一个广度模型，一次性处理维数非常大的所有特征；DNN我们可以将其看作是一个深度模型，首先将数据压缩到一定维数，然后深层次的组合所有特征。DeepFM的思想是同时利用广度模型和深度模型一起，利用特征的低阶组合和高阶组合一起，提升模型的效果。</p>
+<h2 id="DeepFM"><a href="#DeepFM" class="headerlink" title="DeepFM"></a>DeepFM</h2><p>DeepFM由两部分组成，分别是FM和DNN。FM部分对每一维特征送入嵌入层得到其嵌入向量，然后使用下面的式子优化参数：</p>
+<script type="math/tex; mode=display">y_{FM}=w_0+\sum_iw_ix_i+\frac{1}{2}\sum_k\{(\sum_iv_{ik}x_i)^2-\sum_iv_{ik}^2x_i^2\}</script><p>其中$x_i$是第$i$维的输入，$v_i$是第$i$维特征的嵌入向量。DNN部分首先将每一个field压缩成一个嵌入向量：</p>
+<script type="math/tex; mode=display">h_k=v_i</script><p>其中$k$表示第$k$个field，$i$表示第$i$个特征，我们知道每个field是由一堆特征组成的且这堆特征只会有一个特征取值为1。之后我们就可以将$n$个field的嵌入向量拼接在一起送入DNN得到输出：</p>
+<script type="math/tex; mode=display">y_{DNN}=DNN([h_0,h_1,...,h_n])</script><p>现在我们将$y_{FM}$看作是对特征的低阶组合，$y_{DNN}$看作是对特征的高阶组合，所以最终的输出可以是：</p>
+<script type="math/tex; mode=display">\hat{y}=g(y_{FM},y_{DNN})</script><p>其中$g$可以看作是一个函数，用于结合低阶特征组合和高阶特征组合的输出得到最终结果，一般可以是sigmoid函数，即：</p>
+<script type="math/tex; mode=display">\hat{y}=\sigma(y_{FM}+y_{DNN})</script><p>其中$\sigma$是sigmoid函数。</p>
 
     </div>
 
@@ -264,13 +264,17 @@
           
         
         <div class="post-tags">
-            <a href="/tags/Java/" rel="tag"># Java</a>
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+          
+            <a href="/tags/推荐系统/" rel="tag"># 推荐系统</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/03/15/分布式一致性算法之PBFT/" rel="next" title="分布式一致性算法之PBFT">
-                <i class="fa fa-chevron-left"></i> 分布式一致性算法之PBFT
+              <a href="/2020/03/27/常见激活函数/" rel="next" title="常见激活函数">
+                <i class="fa fa-chevron-left"></i> 常见激活函数
               </a>
             
           </div>
@@ -278,10 +282,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/03/18/推荐系统之矩阵分解/" rel="prev" title="推荐系统之矩阵分解">
-                推荐系统之矩阵分解 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -395,7 +395,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程创建"><span class="nav-number">1.</span> <span class="nav-text">线程创建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#继承Thread"><span class="nav-number">1.1.</span> <span class="nav-text">继承Thread</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Runnable接口"><span class="nav-number">1.2.</span> <span class="nav-text">Runnable接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Callable接口"><span class="nav-number">1.3.</span> <span class="nav-text">Callable接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程状态"><span class="nav-number">1.4.</span> <span class="nav-text">线程状态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程池"><span class="nav-number">2.</span> <span class="nav-text">线程池</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#工作原理"><span class="nav-number">2.1.</span> <span class="nav-text">工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程池状态"><span class="nav-number">2.2.</span> <span class="nav-text">线程池状态</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#FM算法和DNN"><span class="nav-number">1.</span> <span class="nav-text">FM算法和DNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DeepFM"><span class="nav-number">2.</span> <span class="nav-text">DeepFM</span></a></li></ol></div>
             
 
           </div>
