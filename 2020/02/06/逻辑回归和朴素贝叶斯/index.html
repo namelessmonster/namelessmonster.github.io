@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="朴素贝叶斯1. 什么是朴素贝叶斯朴素贝叶斯是一个生成模型，用于分类任务。什么是生成模型？假设数据集$\{X,Y\}$是从一个概率分布$P(X,Y)$中抽取得到的，那么只要我们知道这个分布，就可以掌握这个数据集的规律。所以生成模型的任务就是要求出这个分布，知道这个数据集是怎么生成的。一句话概括就是生成模型是使用数据集总结出生成该数据集的几个概率分布。 前面提到朴素贝叶斯是一个生成模型，这个方法通过求">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-11T09:28:42.695Z">
+<meta property="og:updated_time" content="2020-03-30T17:17:12.931Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="朴素贝叶斯和逻辑回归">
 <meta name="twitter:description" content="朴素贝叶斯1. 什么是朴素贝叶斯朴素贝叶斯是一个生成模型，用于分类任务。什么是生成模型？假设数据集$\{X,Y\}$是从一个概率分布$P(X,Y)$中抽取得到的，那么只要我们知道这个分布，就可以掌握这个数据集的规律。所以生成模型的任务就是要求出这个分布，知道这个数据集是怎么生成的。一句话概括就是生成模型是使用数据集总结出生成该数据集的几个概率分布。 前面提到朴素贝叶斯是一个生成模型，这个方法通过求">
@@ -240,7 +240,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-03-11 17:28:42" itemprop="dateModified" datetime="2020-03-11T17:28:42+08:00">2020-03-11</time>
+                <time title="修改时间：2020-03-31 01:17:12" itemprop="dateModified" datetime="2020-03-31T01:17:12+08:00">2020-03-31</time>
               </span>
             
           
@@ -273,10 +273,10 @@
 <h3 id="2-如何求解-1"><a href="#2-如何求解-1" class="headerlink" title="2. 如何求解"></a>2. 如何求解</h3><p>要求得逻辑回归模型的最优模型参数$\Theta$，一般采用梯度下降的方法，或者是一些迭代的求解方法。而求线性回归模型的最优模型参数往往采用最小二乘法一步到位。</p>
 <h3 id="3-为什么是sigmoid函数"><a href="#3-为什么是sigmoid函数" class="headerlink" title="3. 为什么是sigmoid函数"></a>3. 为什么是sigmoid函数</h3><p>不知道大家有没有想过，为什么逻辑回归是在线性回归的基础上加上sigmoid函数而不是加上其他函数。如果直接从sigmoid函数的形式上看，我们会觉得很合理，因为将值域$(-\infin,\infin)$映射到了$(0,1)$。但是这种映射函数千千万万为什么偏偏就是sigmoid函数呢？这里总结了几个解释：<br>(1) 根据比值比决定，即假设线性回归求出来的是比值比的对数，即$\ln\frac{P(Y=1|X)}{P(Y=0|X)}$，通过比值比的对数映射回概率$P(Y=1|X)$，这个映射函数就是sigmoid函数。<br>(2) 根据最大熵原理决定，这种解释的最大问题是特征函数的设计。<br>(3) 由贝叶斯原理得到，假设$P(X|Y)$服从高斯分布，通过贝叶斯公式求得$P(Y|X)$需要经过一个sigmoid函数的映射。<br>(4) 由$P(Y|X)$服从伯努利分布，伯努利分布的指数族分布形式以及广义线性模型，可以推导出sigmoid函数。</p>
 <p>在这里推导一下解释二。首先设定两个特征函数：</p>
-<script type="math/tex; mode=display">f_0(x,y)=\begin{cases}x,y=0\\0,y=1\end{cases}</script><script type="math/tex; mode=display">f_1(x,y)=\begin{cases}x,y=1\\0,y=0\end{cases}</script><p>最大熵模型是要求出$P(y|x)$使得下式达到最大：</p>
+<script type="math/tex; mode=display">f_0(x,y)=\begin{cases}x,y=0\\0,y=1\end{cases}</script><script type="math/tex; mode=display">f_1(x,y)=\begin{cases}x,y=1\\0,y=0\end{cases}</script><p>最大熵模型是要求出$P(y|x)$使得下式达到最小：</p>
 <script type="math/tex; mode=display">H=\sum_{x,y}\hat{P}(x)P(y|x)\log P(y|x)</script><p>同时需要满足以下约束条件：</p>
 <script type="math/tex; mode=display">\sum_{x,y}\hat{P}(x,y)f_0(x,y)=\sum_{x,y}\hat{P}(x)P(y|x)f_0(x,y)</script><script type="math/tex; mode=display">\sum_{x,y}\hat{P}(x,y)f_1(x,y)=\sum_{x,y}\hat{P}(x)P(y|x)f_1(x,y)</script><script type="math/tex; mode=display">\sum_yP(y|x)=1</script><p>对其构造拉格朗日乘子法，并对$P(y|x)$求导，令导数等于0，可以得到：</p>
-<script type="math/tex; mode=display">\log P(y|x)+1-\mu+w_0f_0(x,y)+w_1f_1(x,y)=0</script><p>求得：</p>
+<script type="math/tex; mode=display">\log P(y|x)+1-\mu-w_0f_0(x,y)-w_1f_1(x,y)=0</script><p>求得：</p>
 <script type="math/tex; mode=display">P(y|x)=\frac{\exp(w_0f_0(x,y)+w_1f_1(x,y))}{\exp(1-\mu)}</script><p>已知：</p>
 <script type="math/tex; mode=display">\sum_yP(y|x)=1</script><p>所以有：</p>
 <script type="math/tex; mode=display">\exp(1-\mu)=\sum_{y}\exp(w_0f_0(x,y)+w_1f_1(x,y))</script><p>已知$y=\{0,1\}$，将$f_0(x,y)$和$f_1(x,y)$的函数形式代入，可以得到：</p>
