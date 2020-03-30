@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="综述深度兴趣网络是阿里巴巴提出的一个深度推荐模型，旨在利用用户画像与用户历史行为去预测待测物品的匹配率。 模型结构输入层-嵌入层模型的输入有四个部分，分别是用户基本特征，用户历史行为特征，物品基本特征，其他特征。对于离散特征，一般做法是使用one-hot向量表示，one-hot向量根据一定顺序排列得到整体特征，one-hot向量在整体特征中占据的位置称为这个特征的field，可以保证在每个fiel">
-<meta name="keywords" content="机器学习,深度学习,推荐系统">
+  <meta name="description" content="背景现如今，人工智能领域很多领域都是基于深度学习，深度学习的基础就是神经网络可以以任意精度拟合任意函数，神经网络的这种能力也被称为万能近似定理。 原理万能近似原理是这样的：给定一个线性变换和一个具有“挤压”性质的激活函数，只需要一个隐藏层，神经网络便能以任意精度拟合任意函数。这里具有“挤压”性质的激活函数是有界非严格单调递增的非线性激活函数。更通用的说，神经网络这一特性并不要求激活函数是有界的，比">
+<meta name="keywords" content="机器学习,深度学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="推荐系统之深度兴趣网络（DIN）">
-<meta property="og:url" content="http://yoursite.com/2020/03/21/推荐系统之深度兴趣网络（DIN）/index.html">
+<meta property="og:title" content="万能近似定理">
+<meta property="og:url" content="http://yoursite.com/2020/03/30/万能近似定理/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="综述深度兴趣网络是阿里巴巴提出的一个深度推荐模型，旨在利用用户画像与用户历史行为去预测待测物品的匹配率。 模型结构输入层-嵌入层模型的输入有四个部分，分别是用户基本特征，用户历史行为特征，物品基本特征，其他特征。对于离散特征，一般做法是使用one-hot向量表示，one-hot向量根据一定顺序排列得到整体特征，one-hot向量在整体特征中占据的位置称为这个特征的field，可以保证在每个fiel">
+<meta property="og:description" content="背景现如今，人工智能领域很多领域都是基于深度学习，深度学习的基础就是神经网络可以以任意精度拟合任意函数，神经网络的这种能力也被称为万能近似定理。 原理万能近似原理是这样的：给定一个线性变换和一个具有“挤压”性质的激活函数，只需要一个隐藏层，神经网络便能以任意精度拟合任意函数。这里具有“挤压”性质的激活函数是有界非严格单调递增的非线性激活函数。更通用的说，神经网络这一特性并不要求激活函数是有界的，比">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-28T03:36:45.117Z">
+<meta property="og:updated_time" content="2020-03-30T04:33:44.564Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="推荐系统之深度兴趣网络（DIN）">
-<meta name="twitter:description" content="综述深度兴趣网络是阿里巴巴提出的一个深度推荐模型，旨在利用用户画像与用户历史行为去预测待测物品的匹配率。 模型结构输入层-嵌入层模型的输入有四个部分，分别是用户基本特征，用户历史行为特征，物品基本特征，其他特征。对于离散特征，一般做法是使用one-hot向量表示，one-hot向量根据一定顺序排列得到整体特征，one-hot向量在整体特征中占据的位置称为这个特征的field，可以保证在每个fiel">
-  <link rel="canonical" href="http://yoursite.com/2020/03/21/推荐系统之深度兴趣网络（DIN）/">
+<meta name="twitter:title" content="万能近似定理">
+<meta name="twitter:description" content="背景现如今，人工智能领域很多领域都是基于深度学习，深度学习的基础就是神经网络可以以任意精度拟合任意函数，神经网络的这种能力也被称为万能近似定理。 原理万能近似原理是这样的：给定一个线性变换和一个具有“挤压”性质的激活函数，只需要一个隐藏层，神经网络便能以任意精度拟合任意函数。这里具有“挤压”性质的激活函数是有界非严格单调递增的非线性激活函数。更通用的说，神经网络这一特性并不要求激活函数是有界的，比">
+  <link rel="canonical" href="http://yoursite.com/2020/03/30/万能近似定理/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>推荐系统之深度兴趣网络（DIN） | Hexo</title>
+  <title>万能近似定理 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/21/推荐系统之深度兴趣网络（DIN）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/30/万能近似定理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">推荐系统之深度兴趣网络（DIN）
+          <h1 class="post-title" itemprop="name headline">万能近似定理
 
               
             
@@ -227,21 +227,11 @@
                 
               
 
-              <time title="创建时间：2020-03-21 21:23:22" itemprop="dateCreated datePublished" datetime="2020-03-21T21:23:22+08:00">2020-03-21</time>
+              <time title="创建时间：2020-03-30 11:56:39 / 修改时间：12:33:44" itemprop="dateCreated datePublished" datetime="2020-03-30T11:56:39+08:00">2020-03-30</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-03-28 11:36:45" itemprop="dateModified" datetime="2020-03-28T11:36:45+08:00">2020-03-28</time>
-              </span>
             
           
 
@@ -256,15 +246,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>深度兴趣网络是阿里巴巴提出的一个深度推荐模型，旨在利用用户画像与用户历史行为去预测待测物品的匹配率。</p>
-<h2 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h2><h3 id="输入层-嵌入层"><a href="#输入层-嵌入层" class="headerlink" title="输入层-嵌入层"></a>输入层-嵌入层</h3><p>模型的输入有四个部分，分别是用户基本特征，用户历史行为特征，物品基本特征，其他特征。对于离散特征，一般做法是使用one-hot向量表示，one-hot向量根据一定顺序排列得到整体特征，one-hot向量在整体特征中占据的位置称为这个特征的field，可以保证在每个field都是一个one-hot向量。大量的one-hot向量会导致整体特征向量非常稀疏，在嵌入层需要大量参数才能将整体特征向量压缩到固定维度。一个可行的技巧是对每个field单独设置一个嵌入矩阵，每个field单独得到嵌入向量，然后再将嵌入向量进行拼接或池化。这么做的一个原因是field的数量通常是不高的，从而可以大大压缩参数数量。</p>
-<h3 id="嵌入层-attention层"><a href="#嵌入层-attention层" class="headerlink" title="嵌入层-attention层"></a>嵌入层-attention层</h3><p>通过嵌入层，现在可以得到四部分特征向量，分别是用户画像向量，用户历史行为向量序列，物品特征向量，其他特征向量。大多数深度网络是将用户历史行为向量序列通过简单的池化组合成一个用户历史行为特征向量，而深度兴趣网络的核心就是运用用户历史行为向量序列与物品特征向量计算attention，对不同的历史行为赋予不同的权重，加权求和合成用户历史行为特征向量。</p>
-<h3 id="DNN层"><a href="#DNN层" class="headerlink" title="DNN层"></a>DNN层</h3><p>通过上述两层，得到四个特征向量，对这四个特征向量进行拼接得到一个向量，输入到多层的深度全连接网络，最终经过softmax层得到输出。</p>
-<h2 id="创新点"><a href="#创新点" class="headerlink" title="创新点"></a>创新点</h2><h3 id="attention层"><a href="#attention层" class="headerlink" title="attention层"></a>attention层</h3><p>通过计算attention，使得用户历史行为特征向量不是固定不变的，而是根据具体物品生成具体特征向量，这种动态生成特征向量，符合历史行为对不同场景有不同表现的现实情况。</p>
-<h3 id="自适应正则化"><a href="#自适应正则化" class="headerlink" title="自适应正则化"></a>自适应正则化</h3><p>深度兴趣网络由于使用one-hot向量作为输入，所以嵌入层参数很多，容易造成过拟合，需要对嵌入层参数进行正则化。在计算每个批次时，不对嵌入层所有参数进行正则化，只对这一批次使用到的嵌入层参数进行正则化。在现实的推荐场景中，容易出现长尾效应，即小部分嵌入层参数出现很多次，大部分嵌入层参数出现很少次，在正则化时如果没有考虑这点，会导致出现次数多的嵌入层参数被正则化的程度高。为了平衡这一点，在正则化项添加一个系数，这个系数与参数出现频次成反比，从而平衡所有参数的正则化程度。</p>
-<h3 id="评估标准"><a href="#评估标准" class="headerlink" title="评估标准"></a>评估标准</h3><p>对每个用户单独计算AUC值代替所有用户一起计算整体AUC值。</p>
-<h3 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h3><p>使用PRelu代替Relu，假设PRelu的零点位置不是在0处，零点位置由激活函数的输入分布决定：</p>
-<script type="math/tex; mode=display">f(s)=p(s)\times s+(1-p(s))\times as</script><script type="math/tex; mode=display">p(s)=\frac{1}{1+e^{-\frac{s-E(s)}{\sqrt{Var(s)+\epsilon}}}}</script><p>可以将$p(s)$近似看作是一个开关函数，大于均值$E(s)$时，$p(s)\approx 1$，此时激活函数使用PRelu的右部分；小于均值$E(s)$时，$p(s)\approx 0$，此时激活函数使用PRelu的左部分。</p>
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>现如今，人工智能领域很多领域都是基于深度学习，深度学习的基础就是神经网络可以以任意精度拟合任意函数，神经网络的这种能力也被称为万能近似定理。</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>万能近似原理是这样的：给定一个线性变换和一个具有“挤压”性质的激活函数，只需要一个隐藏层，神经网络便能以任意精度拟合任意函数。这里具有“挤压”性质的激活函数是有界非严格单调递增的非线性激活函数。更通用的说，神经网络这一特性并不要求激活函数是有界的，比如著名的ReLU函数，而是要求激活函数可以组合出具有“挤压”性质的函数，比如ReLU函数就可以通过位移相减得到这样一个函数。</p>
+<p>那么为什么具有“挤压”性质的激活函数可以辅助线性变换拟合任意函数？我们知道，通过线性变换，可以将“挤压函数”在定义域上无限逼近阶梯函数，只需要无限压扁“挤压”函数中间的非收敛区即可。而有了阶梯函数，我们又可以通过位移相减得到一个只有一段有值的函数，我们可以将其看作是一个“塔”，这样我们就可以通过大量的“塔”的线性组合去拟合任意函数了。</p>
+<h2 id="深度vs宽度"><a href="#深度vs宽度" class="headerlink" title="深度vs宽度"></a>深度vs宽度</h2><p>我们可以认为至多两个神经元可以组合出一个“挤压”函数，至多两个神经元可以组合出一个“阶梯”函数，至多四个神经元可以组合出一个“塔”，所以隐藏层神经元个数越多，我们就可以组合越多的“塔”去拟合任何函数。这是从宽度上面去分析，可以知道，只要神经元数量足够多就可以拟合任何函数。从深度上面去分析，我们可以将最后一层的作用看作是分析宽度时的作用，而前面的层，我们可以将其看作一个新的神经网络，递归分析，最终我们可以认为深度神经网络是将一个函数通过变换拟合第二个函数，然后又以第二个函数作为输入拟合第三个函数，通过多层后实现一个函数变换链，最终拟合得到目标函数。经过实践证明，在参数相同的情况下，深度会比宽度效果更好。至于为什么深度会更好，我现在还没想到数学上的证明，但直观上可以发现深度的拟合情况会随着深度叠加而复杂程度呈指数增加，可能内部存在很复杂的机制使得其效果更好。</p>
 
     </div>
 
@@ -280,13 +265,11 @@
           
             <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
           
-            <a href="/tags/推荐系统/" rel="tag"># 推荐系统</a>
-          
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/03/19/推荐系统之SimRank算法/" rel="next" title="推荐系统之SimRank算法">
-                <i class="fa fa-chevron-left"></i> 推荐系统之SimRank算法
+              <a href="/2020/03/28/推荐系统之DeepFM/" rel="next" title="推荐系统之DeepFM">
+                <i class="fa fa-chevron-left"></i> 推荐系统之DeepFM
               </a>
             
           </div>
@@ -294,10 +277,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/03/22/强化学习（三）DQN/" rel="prev" title="强化学习（三）DQN">
-                强化学习（三）DQN <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -411,7 +390,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#综述"><span class="nav-number">1.</span> <span class="nav-text">综述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型结构"><span class="nav-number">2.</span> <span class="nav-text">模型结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入层-嵌入层"><span class="nav-number">2.1.</span> <span class="nav-text">输入层-嵌入层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌入层-attention层"><span class="nav-number">2.2.</span> <span class="nav-text">嵌入层-attention层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNN层"><span class="nav-number">2.3.</span> <span class="nav-text">DNN层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创新点"><span class="nav-number">3.</span> <span class="nav-text">创新点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#attention层"><span class="nav-number">3.1.</span> <span class="nav-text">attention层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自适应正则化"><span class="nav-number">3.2.</span> <span class="nav-text">自适应正则化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评估标准"><span class="nav-number">3.3.</span> <span class="nav-text">评估标准</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#激活函数"><span class="nav-number">3.4.</span> <span class="nav-text">激活函数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">2.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深度vs宽度"><span class="nav-number">3.</span> <span class="nav-text">深度vs宽度</span></a></li></ol></div>
             
 
           </div>
