@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="1. 什么是GBDTGBDT又叫梯度提升树，使用CART决策树作为基学习器，利用Boosting的集成思想训练模型。与AdaBoost不同，每轮学习GBDT不会根据训练结果调整样本权重，而是希望求得一个学习器$h_m$使得目标函数达到最小，即： h_m=arg\min_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))已知$F_{m-1}$，则损失函数对$F_{m-1">
-<meta name="keywords" content="机器学习">
+  <meta name="description" content="前言在推荐领域的算法中，最经典的莫过于协同过滤算法，协同过滤算法的思想是相利用兴趣的相似性去推荐具有相似兴趣或内容的物品。协同过滤算法争对计算相似度对象的不同，主要可以分为基于用户，基于物品，基于内容，基于模型四种方法。 基于用户的协同过滤基于用户的方法主要是利用用户的兴趣聚类形成兴趣群体，从兴趣群体中挑选出关于该用户的推荐候选集。当需要召回用户A的候选集时，先找到与该用户拥有相似兴趣的其他用户，">
+<meta name="keywords" content="机器学习,推荐系统">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GBDT、Xgboost和LightGBM">
-<meta property="og:url" content="http://yoursite.com/2020/02/09/GBDT和Xgboost/index.html">
+<meta property="og:title" content="推荐系统之协同过滤">
+<meta property="og:url" content="http://yoursite.com/2020/04/04/推荐系统之协同过滤/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 什么是GBDTGBDT又叫梯度提升树，使用CART决策树作为基学习器，利用Boosting的集成思想训练模型。与AdaBoost不同，每轮学习GBDT不会根据训练结果调整样本权重，而是希望求得一个学习器$h_m$使得目标函数达到最小，即： h_m=arg\min_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))已知$F_{m-1}$，则损失函数对$F_{m-1">
+<meta property="og:description" content="前言在推荐领域的算法中，最经典的莫过于协同过滤算法，协同过滤算法的思想是相利用兴趣的相似性去推荐具有相似兴趣或内容的物品。协同过滤算法争对计算相似度对象的不同，主要可以分为基于用户，基于物品，基于内容，基于模型四种方法。 基于用户的协同过滤基于用户的方法主要是利用用户的兴趣聚类形成兴趣群体，从兴趣群体中挑选出关于该用户的推荐候选集。当需要召回用户A的候选集时，先找到与该用户拥有相似兴趣的其他用户，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-03T16:37:13.769Z">
+<meta property="og:updated_time" content="2020-04-04T04:32:25.965Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GBDT、Xgboost和LightGBM">
-<meta name="twitter:description" content="1. 什么是GBDTGBDT又叫梯度提升树，使用CART决策树作为基学习器，利用Boosting的集成思想训练模型。与AdaBoost不同，每轮学习GBDT不会根据训练结果调整样本权重，而是希望求得一个学习器$h_m$使得目标函数达到最小，即： h_m=arg\min_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))已知$F_{m-1}$，则损失函数对$F_{m-1">
-  <link rel="canonical" href="http://yoursite.com/2020/02/09/GBDT和Xgboost/">
+<meta name="twitter:title" content="推荐系统之协同过滤">
+<meta name="twitter:description" content="前言在推荐领域的算法中，最经典的莫过于协同过滤算法，协同过滤算法的思想是相利用兴趣的相似性去推荐具有相似兴趣或内容的物品。协同过滤算法争对计算相似度对象的不同，主要可以分为基于用户，基于物品，基于内容，基于模型四种方法。 基于用户的协同过滤基于用户的方法主要是利用用户的兴趣聚类形成兴趣群体，从兴趣群体中挑选出关于该用户的推荐候选集。当需要召回用户A的候选集时，先找到与该用户拥有相似兴趣的其他用户，">
+  <link rel="canonical" href="http://yoursite.com/2020/04/04/推荐系统之协同过滤/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>GBDT、Xgboost和LightGBM | Hexo</title>
+  <title>推荐系统之协同过滤 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/09/GBDT和Xgboost/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/04/推荐系统之协同过滤/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">GBDT、Xgboost和LightGBM
+          <h1 class="post-title" itemprop="name headline">推荐系统之协同过滤
 
               
             
@@ -227,21 +227,11 @@
                 
               
 
-              <time title="创建时间：2020-02-09 11:43:16" itemprop="dateCreated datePublished" datetime="2020-02-09T11:43:16+08:00">2020-02-09</time>
+              <time title="创建时间：2020-04-04 11:38:06 / 修改时间：12:32:25" itemprop="dateCreated datePublished" datetime="2020-04-04T11:38:06+08:00">2020-04-04</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-03-04 00:37:13" itemprop="dateModified" datetime="2020-03-04T00:37:13+08:00">2020-03-04</time>
-              </span>
             
           
 
@@ -256,23 +246,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-什么是GBDT"><a href="#1-什么是GBDT" class="headerlink" title="1. 什么是GBDT"></a>1. 什么是GBDT</h2><p>GBDT又叫梯度提升树，使用CART决策树作为基学习器，利用Boosting的集成思想训练模型。与AdaBoost不同，每轮学习GBDT不会根据训练结果调整样本权重，而是希望求得一个学习器$h_m$使得目标函数达到最小，即：</p>
-<script type="math/tex; mode=display">h_m=arg\min_{h_m}\sum_i L(y_i,F_{m-1}(x_i)+h_m(x_i))</script><p>已知$F_{m-1}$，则损失函数对$F_{m-1}$在各个样本的一阶梯度等于：</p>
-<script type="math/tex; mode=display">\frac{\partial L(y_i,F_{m-1}(x_i))}{\partial F_{m-1}(x_i)}</script><p>我们知道一个函数关于一个变量的梯度，代表变量可以使得函数有最大上升的方向。而梯度的反方向则代表变量可以使得函数有最大下降的方向。所以要找到一个最佳$h_m$，可以使$h_m(x_i)$尽量接近$-\frac{\partial L(y_i,F_{m-1}(x_i))}{\partial F_{m-1}(x_i)}$，即$h_m$尽量拟合损失函数的负梯度。这就是GBDT的算法思想。在其他博客经常能看到说GBDT的每棵决策树是拟合损失函数的残差，这是不准确的，拟合残差是因为损失函数是均方误差函数，均方误差的一阶梯度几乎等于残差。而实际上GBDT是使每棵决策树去拟合损失函数的负梯度使得损失函数每次都能往降低的方向发展。</p>
-<p>当GBDT用于分类任务时，使用交叉熵损失函数，每个叶子节点输出一个向量。叶子节点输出向量等于在该叶子节点样本的向量的平均值。每个样本的输出向量经过softmax函数得到样本的输出分布，表示样本属于各个类别的概率，损失函数使用交叉熵损失函数。使用GBDT求解时，利用损失函数对各个样本求出向量的负梯度，使用这个负梯度作为下一棵树对该样本的学习目标。初始时，每个样本的向量可以设置为零向量。</p>
-<h2 id="2-如何求解GBDT"><a href="#2-如何求解GBDT" class="headerlink" title="2. 如何求解GBDT"></a>2. 如何求解GBDT</h2><p>(1) 使用CART决策树训练数据，得到第一个基学习器$h_1$<br>(2) 在训练样本上计算损失函数与预测结果的负梯度，使用负梯度更新样本的学习目标<br>(3) 继续使用CART决策树训练数据，得到第二个基学习器$h_2$<br>(4) 在训练样本上计算损失函数与两个学习器求和后的预测结果的负梯度，使用负梯度更新样本的学习目标<br>(5) 重复(3)(4)步骤，直到达到训练结束条件<br>(6) 将各个学习器的预测结果求和，有时可以将各个学习器的预测结果乘上一个系数，这个系数表示学习率</p>
-<h2 id="3-什么是Xgboost"><a href="#3-什么是Xgboost" class="headerlink" title="3. 什么是Xgboost"></a>3. 什么是Xgboost</h2><p>Xgboost使用下式作为目标函数：</p>
-<script type="math/tex; mode=display">Obj = \sum_iL(y_i,F_{m-1}(x_i)+f_m(x_i))+\Omega(F_{m-1})+\Omega(f_m)</script><p>其中$\Omega$表示正则项，一般而言有下式：</p>
-<script type="math/tex; mode=display">\Omega(f)=\gamma T + \frac{1}{2}\lambda\lVert\omega\rVert^2</script><p>其中$T$表示决策树集合$f$的叶子节点数，而$\omega$表示叶子节点的输出。将目标函数进行泰勒展开并近似到二阶项有：</p>
-<script type="math/tex; mode=display">Obj\approx\sum_i\{L(y_i,F_{m-1}(x_i))+\frac{\partial L(y_i,F_{m-1}(x_i))}{\partial F_{m-1}(x_i)}f_m(x_i)+\frac{1}{2}\frac{\partial^2L(y_i,F_{m-1}(x_i))}{\partial F_{m-1}(x_i)^2}f_m(x_i)^2\} \\
-+\Omega(F_{m-1})+\Omega(f_m)</script><p>用$g_i$表示一阶导数，$h_i$表示二阶导数，将常数项$L(y_i,F_{m-1}(x_i))$与$\Omega(F_{m-1})$并入$C$，展开$\Omega(f_m)$，则有：</p>
-<script type="math/tex; mode=display">Obj\approx\sum_i\{g_if_m(x_i)+\frac{1}{2}(h_i+\lambda)f_m(x_i)^2\}+C+\gamma T</script><p>已知$f_m$是一棵决策树，且有$T$个叶子节点，第$t$个叶子节点的权重为$w_t$，则上式可以变为：</p>
-<script type="math/tex; mode=display">Obj\approx\sum_t\{w_t\sum_ig_iI(x_i\in S_t)+\frac{1}{2}w_t^2\sum_i(h_i+\lambda)I(x_i\in S_t)+\gamma\}+C</script><p>其中$S_t$表示样本进入决策树第$t$号节点的集合。使用目标函数对$w_t$求导并令导数为0，可以得到：</p>
-<script type="math/tex; mode=display">w_t=-\frac{\sum_{x_i\in S_t}g_i}{\sum_{x_i\in S_t}(h_i+\lambda)}</script><p>也就是说对于一个叶节点，这个叶节点的权值$w_t$是由到达该节点的样本的$g_i$和$h_i$决定的。以前的决策树一般都会使用样本目标的平均数或众数来决定叶节点的权值，这是Xgboost和这些决策树不同的一个地方。将上式结果代入目标函数最终可以得到：</p>
-<script type="math/tex; mode=display">Obj\approx-\frac{1}{2}\sum_t\frac{(\sum_{x_i\in S_t}g_i)^2}{\sum_{x_i\in S_t}(h_i+\lambda)}+\gamma T+C</script><p>以前的决策树会使用信息增益，信息增益率和基尼系数来决定选择一个特征和特征值展开决策树，Xgboost直接使用目标函数，每次会选择一个使目标函数达到最小的特征和特征值展开决策树，具体步骤如下：<br>(1) 选择一个特征和特征值<br>(2) 计算以该特征值展开决策树后新的叶子节点的权重$w_t$<br>(3) 将$w_t$代入目标函数，计算目标函数值<br>(4) 选择使目标函数最小的特征和特征值展开决策树</p>
-<h2 id="4-如何求解Xgboost"><a href="#4-如何求解Xgboost" class="headerlink" title="4. 如何求解Xgboost"></a>4. 如何求解Xgboost</h2><p>(1) 使用训练样本学习第一棵决策树$f_1$<br>(2) 计算损失函数关于$f_1$的输出的一阶导数和二阶导数<br>(3) 根据一阶导数和二阶导数，使用训练样本学习第二棵决策树$f_2$<br>(4) 计算损失函数关于$f_1+f_2$的输出的一阶导数和二阶导数<br>(5) 根据一阶导数和二阶导数，使用训练样本学习第三棵决策树$f_3$<br>(6) 重复上面的步骤，直到到达训练结束条件，对于第$i$棵决策树，可以给其乘上一个系数$\alpha_i$调整其输出影响</p>
-<h2 id="5-其他"><a href="#5-其他" class="headerlink" title="5. 其他"></a>5. 其他</h2><p>(1) Xgboost可以实现并行运算，提升效率。这里的并行运算是指在特征选择时的并行运算，可以加快算出最佳分割点。<br>(2) Xgboost可以处理特征缺失值，对于缺失值，将其放置可以使得目标函数最小的一边。<br>(3) Xgboost在计算特征重要性时，有几种方法，一般是计算使用这种特征分割的平均增益，增益可以是损失函数的降低程度，也可以是基尼系数，也可以是信息熵增益，还可以是多种指标的组合。有一种简单的方法是统计使用这种特征进行分割的次数。</p>
-<h2 id="6-LightGBM"><a href="#6-LightGBM" class="headerlink" title="6. LightGBM"></a>6. LightGBM</h2><p>LightGBM在Xgboost之上添加了许多新的特性，可以减少资源占用与增加运算效率。主要可总结为三点：直方图离散化特征统计，按叶子扩展策略，直接处理类别特征。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在推荐领域的算法中，最经典的莫过于协同过滤算法，协同过滤算法的思想是相利用兴趣的相似性去推荐具有相似兴趣或内容的物品。协同过滤算法争对计算相似度对象的不同，主要可以分为基于用户，基于物品，基于内容，基于模型四种方法。</p>
+<h2 id="基于用户的协同过滤"><a href="#基于用户的协同过滤" class="headerlink" title="基于用户的协同过滤"></a>基于用户的协同过滤</h2><p>基于用户的方法主要是利用用户的兴趣聚类形成兴趣群体，从兴趣群体中挑选出关于该用户的推荐候选集。当需要召回用户A的候选集时，先找到与该用户拥有相似兴趣的其他用户，挑选这些用户喜欢且用户A还没发掘的物品集合作为用户A的兴趣候选集。计算两个用户的形似度可以使用下式的杰卡德相似度去度量：</p>
+<script type="math/tex; mode=display">w_{u,v}=\frac{|N(u)\cap N(v)|}{|N(u)\cup N(v)|}</script><p>也可以使用余弦距离：</p>
+<script type="math/tex; mode=display">w_{u,v}=\frac{|N(u)\cap N(v)|}{\sqrt{|N(u)||N(v)|}}</script><p>计算余弦距离时，是把每个用户对应的商品评价看作一个向量，每个维度表示对对应商品的评价，上式的评价是01值，0表示兴趣未知，1表示有兴趣。在使用余弦距离计算用户相似度时还存在一个问题，就是对用户所有喜欢的物品都一视同仁，显然如果两个用户同时喜欢一个物品，这个物品是冷门的比是热门的能够提供更多的相似度，所以可以修正余弦相似度的计算得到下式：</p>
+<script type="math/tex; mode=display">w_{u,v}=\frac{\sum_{i\in N(u)\cap N(v)\frac{1}{\log (1+|N(i)|)}}}{\sqrt{|N(u)||N(v)|}}</script><p>在上面的式子中，如果物品$i$很多人喜欢，那么能提供的相似度就小，反之则大。计算出用户相似度后，就可以选择top K相似的用户集合$S(u,K)$，从这些用户中选出共同喜欢的物品，得到兴趣候选集，再从兴趣候选集中使用下式计算出对各个物品的兴趣程度进行排序，得到最终的推荐结果：</p>
+<script type="math/tex; mode=display">p(u,i)=\sum_{v\in S(u,K)\cap N(i)} w_{u,v}r_{v,i}</script><p>其中$r_{v,i}$表示用户$v$对物品$i$的评价，不一定是01值，我们在计算用户相似度时使用了01值计算余弦距离，而在计算对物品的兴趣程度时使用用户对物品的评价，这个评价可以不是01值。计算相似度时的01值可以通过设置一个评价阈值或通过其他数据收集渠道得到。</p>
+<p>基于用户的协同过滤方法是通过计算用户相似度进行推荐的，所以推荐的物品会呈现一定的社区性，得到的结果是一个人群热衷于一个物品集合，这种方法比较适合用于用户数量不怎么变化或物品数量经常变化的场景，也适合用于社区性热点的推荐场景，在新闻推荐场景中比较常见。</p>
+<h2 id="基于物品的协同过滤"><a href="#基于物品的协同过滤" class="headerlink" title="基于物品的协同过滤"></a>基于物品的协同过滤</h2><p>基于物品的方法主要是利用物品的用户行为形似性聚类形成一个集合，将这个集合推荐给喜欢这个集合内部一件或多件物品的用户。当需要召回用户A的候选集时，先找到该用户喜欢的物品的相似集合，从这些集合中挑选出该用户还没发掘的物品作为用户A的兴趣候选集。在计算物品相似度时，主要用到了用户对该物品的行为信息，0表示用户对该物品兴趣未知，1表示用户对该物品感兴趣，有下式：</p>
+<script type="math/tex; mode=display">w_{i,j}=\frac{|N(i)\cap N(j)|}{|N(i)|\cup N(j)}</script><p>同样的，也可以使用余弦距离：</p>
+<script type="math/tex; mode=display">w_{i,j}=\frac{|N(i)\cap N(j)|}{\sqrt{|N(i)||N(j)|}}</script><p>同样的，一个用户喜欢很多物品，另一个用户喜欢很少物品，如果后者同时喜欢这两个物品，那么所能提供的相似度会比前者更大，所以可以修正余弦距离：</p>
+<script type="math/tex; mode=display">w_{i,j}=\frac{\sum_{u\in N(i)\cap N(j)}\frac{1}{\log(1+|N(u)|)}}{\sqrt{|N(i)||N(j)|}}</script><p>最后对于用户$u$的兴趣候选集，使用下式计算兴趣程度：</p>
+<script type="math/tex; mode=display">p_{u,j}=\sum_{i\in N(u)\cap S(j,K)}w_{i,j}r_{u,i}</script><p>基于物品的协同过滤是通过计算物品的用户行为相似度进行推荐的，所以推荐的物品更能反映用户的个性，不同用户喜欢不同物品，所以基于不同物品得到的推荐结果又是不同的，这种方法能够通过用户行为来为用户进行推荐。这种方法适用于物品数量不怎么变化或用户数量经常变化的场景，也适用于用户的个性推荐场景，在商品推荐场景中比较常见。</p>
+<h2 id="基于内容的协同过滤"><a href="#基于内容的协同过滤" class="headerlink" title="基于内容的协同过滤"></a>基于内容的协同过滤</h2><p>基于内容的协同过滤，主要是挖掘用户信息或物品信息，从这些信息中去聚类用户和物品，然后从聚类中进行推荐。无论是基于用户还是基于物品，方法都是从用户行为中去挖掘的，但是用户画像和物品内容还有一些可以利用的信息，利用这些信息进行推荐，就是基于内容的协同过滤。</p>
+<h2 id="基于模型的协同过滤"><a href="#基于模型的协同过滤" class="headerlink" title="基于模型的协同过滤"></a>基于模型的协同过滤</h2><p>基于模型的方法主要有矩阵分解，隐语义模型等等，这些模型通过对用户和物品参数化，使用学习算法去学习这些参数，利用模型参数对推荐结果进行预测。</p>
 
     </div>
 
@@ -286,11 +273,13 @@
         <div class="post-tags">
             <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
+            <a href="/tags/推荐系统/" rel="tag"># 推荐系统</a>
+          
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/08/图卷积神经网络（GCN）/" rel="next" title="图卷积神经网络（GCN）">
-                <i class="fa fa-chevron-left"></i> 图卷积神经网络（GCN）
+              <a href="/2020/03/30/万能近似定理/" rel="next" title="万能近似定理">
+                <i class="fa fa-chevron-left"></i> 万能近似定理
               </a>
             
           </div>
@@ -298,10 +287,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/10/优化器原理/" rel="prev" title="优化器原理">
-                优化器原理 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -415,7 +400,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是GBDT"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是GBDT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-如何求解GBDT"><span class="nav-number">2.</span> <span class="nav-text">2. 如何求解GBDT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-什么是Xgboost"><span class="nav-number">3.</span> <span class="nav-text">3. 什么是Xgboost</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-如何求解Xgboost"><span class="nav-number">4.</span> <span class="nav-text">4. 如何求解Xgboost</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-其他"><span class="nav-number">5.</span> <span class="nav-text">5. 其他</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-LightGBM"><span class="nav-number">6.</span> <span class="nav-text">6. LightGBM</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于用户的协同过滤"><span class="nav-number">2.</span> <span class="nav-text">基于用户的协同过滤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于物品的协同过滤"><span class="nav-number">3.</span> <span class="nav-text">基于物品的协同过滤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于内容的协同过滤"><span class="nav-number">4.</span> <span class="nav-text">基于内容的协同过滤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于模型的协同过滤"><span class="nav-number">5.</span> <span class="nav-text">基于模型的协同过滤</span></a></li></ol></div>
             
 
           </div>
