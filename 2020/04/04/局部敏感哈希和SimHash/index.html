@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="综述进程的正常工作离不开与IO打交道，当我们需要读写文件时，需要通过IO与磁盘打交道；当我们需要与远程进程打交道时，需要通过IO与socket打交道，可以将socket看作是一个文件。在Linux中，一切皆文件，所以IO的作用非常重要。一般而言，如果一个进程需要读某个文件时，首先会系统调用询问某个文件描述符是否读就绪，如果文件描述符读就绪了，内核首先会将要读的数据从外部设备拷贝到内核空间，然后从内">
-<meta name="keywords" content="计算机基础">
+  <meta name="description" content="前言普通的哈希函数是为了建立索引，提高数据查询速度；或是为了数据加密，防止数据篡改。哈希函数一般是不具有相似相邻性的，即原来的状态是相邻或相似的，通过哈希映射后依然是相邻或相似的。而在数据查重或索引时，这种相似相邻的性质能够起到很大的作用，比如在推荐领域，我们经常使用余弦距离作为评价指标判断用户是否对物品感兴趣，余弦距离越小说明用户对物品越感兴趣。当需要对用户进行推荐时，不可能会对所有物品都计算一">
+<meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="IO模型">
-<meta property="og:url" content="http://yoursite.com/2020/03/05/IO模型/index.html">
+<meta property="og:title" content="局部敏感哈希和SimHash">
+<meta property="og:url" content="http://yoursite.com/2020/04/04/局部敏感哈希和SimHash/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="综述进程的正常工作离不开与IO打交道，当我们需要读写文件时，需要通过IO与磁盘打交道；当我们需要与远程进程打交道时，需要通过IO与socket打交道，可以将socket看作是一个文件。在Linux中，一切皆文件，所以IO的作用非常重要。一般而言，如果一个进程需要读某个文件时，首先会系统调用询问某个文件描述符是否读就绪，如果文件描述符读就绪了，内核首先会将要读的数据从外部设备拷贝到内核空间，然后从内">
+<meta property="og:description" content="前言普通的哈希函数是为了建立索引，提高数据查询速度；或是为了数据加密，防止数据篡改。哈希函数一般是不具有相似相邻性的，即原来的状态是相邻或相似的，通过哈希映射后依然是相邻或相似的。而在数据查重或索引时，这种相似相邻的性质能够起到很大的作用，比如在推荐领域，我们经常使用余弦距离作为评价指标判断用户是否对物品感兴趣，余弦距离越小说明用户对物品越感兴趣。当需要对用户进行推荐时，不可能会对所有物品都计算一">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-05T07:06:32.407Z">
+<meta property="og:updated_time" content="2020-04-04T07:07:32.939Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IO模型">
-<meta name="twitter:description" content="综述进程的正常工作离不开与IO打交道，当我们需要读写文件时，需要通过IO与磁盘打交道；当我们需要与远程进程打交道时，需要通过IO与socket打交道，可以将socket看作是一个文件。在Linux中，一切皆文件，所以IO的作用非常重要。一般而言，如果一个进程需要读某个文件时，首先会系统调用询问某个文件描述符是否读就绪，如果文件描述符读就绪了，内核首先会将要读的数据从外部设备拷贝到内核空间，然后从内">
-  <link rel="canonical" href="http://yoursite.com/2020/03/05/IO模型/">
+<meta name="twitter:title" content="局部敏感哈希和SimHash">
+<meta name="twitter:description" content="前言普通的哈希函数是为了建立索引，提高数据查询速度；或是为了数据加密，防止数据篡改。哈希函数一般是不具有相似相邻性的，即原来的状态是相邻或相似的，通过哈希映射后依然是相邻或相似的。而在数据查重或索引时，这种相似相邻的性质能够起到很大的作用，比如在推荐领域，我们经常使用余弦距离作为评价指标判断用户是否对物品感兴趣，余弦距离越小说明用户对物品越感兴趣。当需要对用户进行推荐时，不可能会对所有物品都计算一">
+  <link rel="canonical" href="http://yoursite.com/2020/04/04/局部敏感哈希和SimHash/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>IO模型 | Hexo</title>
+  <title>局部敏感哈希和SimHash | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/05/IO模型/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/04/局部敏感哈希和SimHash/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">IO模型
+          <h1 class="post-title" itemprop="name headline">局部敏感哈希和SimHash
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-03-05 14:02:06 / 修改时间：15:06:32" itemprop="dateCreated datePublished" datetime="2020-03-05T14:02:06+08:00">2020-03-05</time>
+              <time title="创建时间：2020-04-04 14:05:09 / 修改时间：15:07:32" itemprop="dateCreated datePublished" datetime="2020-04-04T14:05:09+08:00">2020-04-04</time>
             </span>
           
             
@@ -246,16 +246,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>进程的正常工作离不开与IO打交道，当我们需要读写文件时，需要通过IO与磁盘打交道；当我们需要与远程进程打交道时，需要通过IO与socket打交道，可以将socket看作是一个文件。在Linux中，一切皆文件，所以IO的作用非常重要。一般而言，如果一个进程需要读某个文件时，首先会系统调用询问某个文件描述符是否读就绪，如果文件描述符读就绪了，内核首先会将要读的数据从外部设备拷贝到内核空间，然后从内核空间拷贝到用户空间，完成文件的数据读到进程的过程。写文件的过程是类似的，首先系统调用询问某个文件描述符时候写就绪，如果文件描述符写就绪了，内核首先会将要写的数据从用户空间拷贝到内核空间，然后从内核空间拷贝到外部设备，完成文件的数据写到外部设备的过程。</p>
-<h2 id="阻塞IO"><a href="#阻塞IO" class="headerlink" title="阻塞IO"></a>阻塞IO</h2><p>阻塞IO是处理IO的默认方式。当进程需要处理文件时，会系统调用进入内核态，内核态会检查文件描述符是否就绪，如果未就绪，进程会阻塞，直到文件描述符就绪了。</p>
-<h2 id="非阻塞IO"><a href="#非阻塞IO" class="headerlink" title="非阻塞IO"></a>非阻塞IO</h2><p>当进程需要处理文件时，会系统调用进入内核态，内核态会检查文件描述符是否就绪，如果未就绪，进程不会阻塞。在这种情况下，进程需要不断询问文件是否就绪，如果就绪了才会开始文件处理。</p>
-<h2 id="多路复用IO"><a href="#多路复用IO" class="headerlink" title="多路复用IO"></a>多路复用IO</h2><p>多路复用IO是指使用一个进程或一个线程处理多个IO，常用的有select，poll和epoll。</p>
-<h3 id="select"><a href="#select" class="headerlink" title="select"></a>select</h3><p>进程会将多个文件描述符组成一个数组，然后系统调用检查这些文件描述符是否有就绪的，如果没有就绪，进程会进入阻塞状态，直到有文件描述符就绪了或等待到规定时间。在调用select时，进程会把文件描述符数组拷贝到内核空间，由内核负责监控这些文件描述符是否存在就绪。select返回时，内核将文件描述符的状态拷贝到进程空间，进程可以知道文件描述符数组中有多少个就绪，但并不知道具体是哪个就绪，所以还需要遍历一遍数组寻找就绪的文件描述符。select有文件描述符监控上限，一般为1024。</p>
-<h3 id="poll"><a href="#poll" class="headerlink" title="poll"></a>poll</h3><p>poll的原理和select几乎一致，不同的是poll将文件描述符组成一个链表，所以poll没有文件描述符监控的数量上限。</p>
-<h3 id="epoll"><a href="#epoll" class="headerlink" title="epoll"></a>epoll</h3><p>epoll也需要将文件描述符从用户空间拷贝到内核空间，但不同的是，select和poll每次调用都会重新将用户空间的文件描述符打包拷贝到内核空间，而epoll中每个文件描述符只会拷贝到内核空间一次。epoll在内核使用红黑树组织文件描述符，每当新增或减少或更新某个文件描述符的监控时会在红黑树上执行插入，删除，查找更新操作。当某个文件描述符就绪了，会触发回调函数，epoll会将文件描述符添加到就绪表。当进程调用epoll_wait函数时，epoll会直接返回就绪表的内容，所以进程可以直接操作epoll_wait的返回结果而无需再遍历一遍所有监控的文件描述符。</p>
-<p>epoll有两种触发模式，一种是水平触发，另一种是边缘触发。select和poll都是水平触发。水平触发是指当文件描述符就绪了，如果这次不操作或没有完全操作，下次依然会返回就绪，就像高电平触发模型。边缘触发是指当文件描述符就绪了，无论这次是否操作或是否完全操作，都会重新将文件描述符置为未就绪，下次是否就绪取决于下次文件描述符是否从未就绪状态变为就绪状态，就像电平边缘触发模式。</p>
-<h2 id="信号IO"><a href="#信号IO" class="headerlink" title="信号IO"></a>信号IO</h2><p>在非阻塞IO中，进程需要不断询问文件描述符是否就绪，当文件描述符已经就绪时，内核不会主动告诉进程文件描述符已经就绪。信号IO是指当文件描述符就绪了，内核会发送一个信号通知进程，进程无需再反复询问内核了。得到就绪信号后，进程通过系统调用完成IO操作。</p>
-<h2 id="异步IO"><a href="#异步IO" class="headerlink" title="异步IO"></a>异步IO</h2><p>异步IO是指进程系统调用后，后续所有操作都不需要管了，内核会帮进程检查文件描述符是否就绪，就绪后也会直接将内容拷贝到进程的用户空间。进程除了发起IO请求，没有再参与完成IO操作的整个过程，内核完成IO操作后会通知进程，整个IO处理过程已完成。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>普通的哈希函数是为了建立索引，提高数据查询速度；或是为了数据加密，防止数据篡改。哈希函数一般是不具有相似相邻性的，即原来的状态是相邻或相似的，通过哈希映射后依然是相邻或相似的。而在数据查重或索引时，这种相似相邻的性质能够起到很大的作用，比如在推荐领域，我们经常使用余弦距离作为评价指标判断用户是否对物品感兴趣，余弦距离越小说明用户对物品越感兴趣。当需要对用户进行推荐时，不可能会对所有物品都计算一遍余弦距离，这时候就可以利用相似相邻的性质在大量的物品向量中寻找和用户向量相似的物品向量，这样的物品向量往往和用户向量会有更小的余弦距离。局部敏感哈希和SimHash是两种可以利用相似相邻性质的哈希算法。</p>
+<h2 id="局部敏感哈希"><a href="#局部敏感哈希" class="headerlink" title="局部敏感哈希"></a>局部敏感哈希</h2><p>局部敏感哈希需要满足以下两个性质：<br>(1) 如果$d(x,y)\le d_1$，则$h(x)=h(y)$的概率$\ge p_1$<br>(2) 如果$d(x,y)\ge d_2$，则$h(x)=h(y)$的概率$\le p_2$<br>其中$d_1\le d_2$，$p_1\ge p_2$。符合上述两个性质的哈希函数称为$(d_1,d_2,p_1,p_2)-sensitive$。局部敏感哈希就是使用这些哈希函数进行映射，使得映射到同一个桶的对象相邻或相似的概率尽量大，映射到不同桶的对象相邻或相似的概率尽量小。</p>
+<h3 id="例子：汉明距离"><a href="#例子：汉明距离" class="headerlink" title="例子：汉明距离"></a>例子：汉明距离</h3><p>当使用汉明距离作为不同对象之间的距离度量时，可以设计一个哈希函数，这个哈希函数等概率地选择对象的01向量中的一位作为该对象的哈希值。我们现在分析一下若两个01向量的汉明距离是$d$时，两个01向量被分到同一个桶的概率为$1-\frac{d}{n}$，其中$n$是01向量的长度。可以看到，这个哈希函数是$(d_1,d_2,1-\frac{d_1}{n},1-\frac{d_2}{n})-sensitive$的。但是这个哈希函数存在一个问题，因为只有两个桶，所以$p_2$的值也很大，我们的目标是希望在增大$p_1$的同时也可以缩小$p_2$。一种方法是增大哈希函数的桶数，比如随机选取$k$个位置的值，这样桶的个数就变成$2^k$。这种方法可以缩小$p_2$，防止误判，但同时也缩小了$p_1$，降低了查全召回。但是如果我们是为了找最相似的，增大$p_1$可以通过缩小$d_1$的方式得到。除了汉明距离，余弦距离，杰卡德距离，欧几里得距离均可以设计相应的哈希函数，详情可查看博客：<a href="https://blog.csdn.net/icvpr/article/details/12342159" target="_blank" rel="noopener">https://blog.csdn.net/icvpr/article/details/12342159</a></p>
+<h2 id="SimHash"><a href="#SimHash" class="headerlink" title="SimHash"></a>SimHash</h2><p>SimHash主要用于网页文本内容去重，原理是对相似的对象有大概率映射到相似的桶中。与局部敏感哈希不同，SimHash不要求映射到相同的桶的，只需要哈希值也是相似的即可。SimHash可以分为五个步骤：分词、Hash、加权、合并、降维。</p>
+<h3 id="分词"><a href="#分词" class="headerlink" title="分词"></a>分词</h3><p>分词步骤是对文本内容进行分词，得到一个一个的词。同时，分词后每个词都可以得到一个权重。</p>
+<h3 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h3><p>哈希是对分词后的文本的每一个词单独进行哈希，每个词都能得到一个01串。</p>
+<h3 id="加权"><a href="#加权" class="headerlink" title="加权"></a>加权</h3><p>将每个词的01串中的0替换成-1，每个词的串都乘上分词步骤中得到的权重。</p>
+<h3 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h3><p>将文本中每个词的串合并加起来，得到一个关于文本的数字串。</p>
+<h3 id="降维"><a href="#降维" class="headerlink" title="降维"></a>降维</h3><p>将得到的数字串，大于0的部分替换成1，小于0的部分替换成0，得到一个01串</p>
+<h3 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h3><p>每个文本都得到一个01串，规定如果两个文本的01串的汉明距离小于等于3时，两个文本就是非常相似的。在比较时使用到利用鹤巢原理，将01串分成四部分，当两个01串的汉明距离小于等于3时，总是会有一部分相同的，可以基于此过滤掉大部分不符合条件的，再对剩余的少数进行匹配。因为是使用的汉明距离，所以也可以使用前面提到的局部敏感哈希进一步哈希提高查询匹配效率。</p>
 
     </div>
 
@@ -267,13 +267,13 @@
           
         
         <div class="post-tags">
-            <a href="/tags/计算机基础/" rel="tag"># 计算机基础</a>
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/03/04/强化学习（一）动态规划、蒙特卡洛方法和时序差分/" rel="next" title="强化学习（一）动态规划、蒙特卡洛方法和时序差分">
-                <i class="fa fa-chevron-left"></i> 强化学习（一）动态规划、蒙特卡洛方法和时序差分
+              <a href="/2020/04/04/推荐系统之协同过滤/" rel="next" title="推荐系统之协同过滤">
+                <i class="fa fa-chevron-left"></i> 推荐系统之协同过滤
               </a>
             
           </div>
@@ -281,10 +281,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/03/06/强化学习（二）SARSA和Q-learning/" rel="prev" title="强化学习（二）SARSA和Q-learning">
-                强化学习（二）SARSA和Q-learning <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -398,7 +394,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#综述"><span class="nav-number">1.</span> <span class="nav-text">综述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#阻塞IO"><span class="nav-number">2.</span> <span class="nav-text">阻塞IO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非阻塞IO"><span class="nav-number">3.</span> <span class="nav-text">非阻塞IO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多路复用IO"><span class="nav-number">4.</span> <span class="nav-text">多路复用IO</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#select"><span class="nav-number">4.1.</span> <span class="nav-text">select</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#poll"><span class="nav-number">4.2.</span> <span class="nav-text">poll</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#epoll"><span class="nav-number">4.3.</span> <span class="nav-text">epoll</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信号IO"><span class="nav-number">5.</span> <span class="nav-text">信号IO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异步IO"><span class="nav-number">6.</span> <span class="nav-text">异步IO</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#局部敏感哈希"><span class="nav-number">2.</span> <span class="nav-text">局部敏感哈希</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例子：汉明距离"><span class="nav-number">2.1.</span> <span class="nav-text">例子：汉明距离</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SimHash"><span class="nav-number">3.</span> <span class="nav-text">SimHash</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分词"><span class="nav-number">3.1.</span> <span class="nav-text">分词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hash"><span class="nav-number">3.2.</span> <span class="nav-text">Hash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加权"><span class="nav-number">3.3.</span> <span class="nav-text">加权</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合并"><span class="nav-number">3.4.</span> <span class="nav-text">合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#降维"><span class="nav-number">3.5.</span> <span class="nav-text">降维</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#比较"><span class="nav-number">3.6.</span> <span class="nav-text">比较</span></a></li></ol></li></ol></div>
             
 
           </div>
