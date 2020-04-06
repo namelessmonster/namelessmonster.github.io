@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="前言在处理序列时，我们有RNN和Transformer等序列深度模型；在处理图像时，我们有CNN等利用卷积提取局部特征的深度模型。当我们处理一般的图结构时，由于其结构即不是序列那种线性结构，也不是图像中像素点的排列是有规律的，所以很难使用RNN或CNN对图结构建模。图神经网络就是一种在更一般的图结构上建模的深度模型。 图神经网络数据结构图的结构一般可以这样定义：G(V,E)，表示图G的顶点结合是V">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-05T16:07:59.589Z">
+<meta property="og:updated_time" content="2020-04-06T03:41:24.649Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图神经网络（一）">
 <meta name="twitter:description" content="前言在处理序列时，我们有RNN和Transformer等序列深度模型；在处理图像时，我们有CNN等利用卷积提取局部特征的深度模型。当我们处理一般的图结构时，由于其结构即不是序列那种线性结构，也不是图像中像素点的排列是有规律的，所以很难使用RNN或CNN对图结构建模。图神经网络就是一种在更一般的图结构上建模的深度模型。 图神经网络数据结构图的结构一般可以这样定义：G(V,E)，表示图G的顶点结合是V">
@@ -240,7 +240,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-04-06 00:07:59" itemprop="dateModified" datetime="2020-04-06T00:07:59+08:00">2020-04-06</time>
+                <time title="修改时间：2020-04-06 11:41:24" itemprop="dateModified" datetime="2020-04-06T11:41:24+08:00">2020-04-06</time>
               </span>
             
           
@@ -271,6 +271,7 @@
 <p>学习到神经网络参数后，每次对于新的图，只需要将图的节点和边送入模型迭代计算到收敛即可。</p>
 <h2 id="门控图神经网络"><a href="#门控图神经网络" class="headerlink" title="门控图神经网络"></a>门控图神经网络</h2><p>上述的图神经网络在学习与预测时都非常复杂，因为需要迭代计算到收敛，而且也不能保证泛化时总能收敛。在泛化时，对于新节点，函数$f$不能保证是压缩的。门控图神经网络是使用RNN，LSTM，GRU等序列深度模型处理图数据，模型依然可以使用函数$f$表示，依然和上一章节的函数$f$有着相同的形式，只是这一次不再要求$f$是压缩函数，也不再要去每次计算都需要迭代到收敛。以GRU为例，可以有下面的计算式子：</p>
 <script type="math/tex; mode=display">h_{u}^{t+1}=GRU(h_{u}^{t},agg(\{x_{u,v}\},\{h_{v}^{t}\}))</script><p>其中$agg$表示一个聚合函数，将相邻节点的表征向量和边的特征表征向量聚合成一个向量。这种方法每次计算不需要迭代至收敛，设置一个迭代次数，每次只迭代固定步数。因为是迭代固定步数，所以也只能捕获图中在固定步数范围内的依赖关系，一个技巧是迭代图的直径长度次数，这样可以保证图中任意节点之间的依赖都可以捕获。门控图神经网络去除了以不动点定理作为理论依据，使得模型的学习与预测变得更简单。</p>
+<p>最后在这里贴上本篇文章的参考文章：<a href="https://www.cnblogs.com/SivilTaram/p/graph_neural_network_1.html" target="_blank" rel="noopener">https://www.cnblogs.com/SivilTaram/p/graph_neural_network_1.html</a></p>
 
     </div>
 
@@ -300,6 +301,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+              <a href="/2020/04/06/图神经网络（二）/" rel="prev" title="图神经网络（二）">
+                图神经网络（二） <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
     </footer>
@@ -351,7 +356,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

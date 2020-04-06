@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    search: {
+      root: '/',
+      path: ''
+    },
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="1. 什么是图卷积神经网络卷积神经网络（CNN）是深度学习中使用最频繁的神经网络之一，但它存在一个缺陷，就是它只能处理欧几里得空间内的图结构而不能处理更一般的图结构。针对这一缺陷，人们提出了能处理更一般图结构的卷积神经网络，称为图卷积神经网络（GCN）。当存在一个图结构，图有$N$个顶点，$M$条边组成，此时一般的卷积神经网络无法在此发挥作用，需要用到图卷积神经网络。 2. 基于频域的图卷积神经网">
+<meta name="keywords" content="机器学习,深度学习,图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图卷积神经网络初探">
+<meta property="og:url" content="http://yoursite.com/2020/02/08/图卷积神经网络初探/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. 什么是图卷积神经网络卷积神经网络（CNN）是深度学习中使用最频繁的神经网络之一，但它存在一个缺陷，就是它只能处理欧几里得空间内的图结构而不能处理更一般的图结构。针对这一缺陷，人们提出了能处理更一般图结构的卷积神经网络，称为图卷积神经网络（GCN）。当存在一个图结构，图有$N$个顶点，$M$条边组成，此时一般的卷积神经网络无法在此发挥作用，需要用到图卷积神经网络。 2. 基于频域的图卷积神经网">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-04-06T03:17:53.253Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="图卷积神经网络初探">
+<meta name="twitter:description" content="1. 什么是图卷积神经网络卷积神经网络（CNN）是深度学习中使用最频繁的神经网络之一，但它存在一个缺陷，就是它只能处理欧几里得空间内的图结构而不能处理更一般的图结构。针对这一缺陷，人们提出了能处理更一般图结构的卷积神经网络，称为图卷积神经网络（GCN）。当存在一个图结构，图有$N$个顶点，$M$条边组成，此时一般的卷积神经网络无法在此发挥作用，需要用到图卷积神经网络。 2. 基于频域的图卷积神经网">
+  <link rel="canonical" href="http://yoursite.com/2020/02/08/图卷积神经网络初探/">
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>图卷积神经网络初探 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+    </ul>
+</nav>
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/08/图卷积神经网络初探/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="huangshh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">图卷积神经网络初探
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-02-08 20:11:50" itemprop="dateCreated datePublished" datetime="2020-02-08T20:11:50+08:00">2020-02-08</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-04-06 11:17:53" itemprop="dateModified" datetime="2020-04-06T11:17:53+08:00">2020-04-06</time>
+              </span>
+            
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="1-什么是图卷积神经网络"><a href="#1-什么是图卷积神经网络" class="headerlink" title="1. 什么是图卷积神经网络"></a>1. 什么是图卷积神经网络</h2><p>卷积神经网络（CNN）是深度学习中使用最频繁的神经网络之一，但它存在一个缺陷，就是它只能处理欧几里得空间内的图结构而不能处理更一般的图结构。针对这一缺陷，人们提出了能处理更一般图结构的卷积神经网络，称为图卷积神经网络（GCN）。当存在一个图结构，图有$N$个顶点，$M$条边组成，此时一般的卷积神经网络无法在此发挥作用，需要用到图卷积神经网络。</p>
+<h2 id="2-基于频域的图卷积神经网络"><a href="#2-基于频域的图卷积神经网络" class="headerlink" title="2. 基于频域的图卷积神经网络"></a>2. 基于频域的图卷积神经网络</h2><p>基于频域的图卷积神经网络一般有以下的迭代形式：</p>
+<script type="math/tex; mode=display">H_l= \sigma(\hat{D}^{-\frac{1}{2}}\hat{A}\hat{D}^{-\frac{1}{2}}H_{l-1}W_l)</script><p>其中$H_l$表示第$l$层的输出；$\hat{D}$表示$\hat{A}$的度数矩阵；$\hat{A}$表示图的邻接矩阵加上单位矩阵，即$\hat{A}=A+I$；$W_l$是需要学习的参数；$\sigma$是非线性激活函数。这个式子是怎么推导出来的呢？首先有必要知道傅里叶变换与拉普拉斯算子的一些关系以及拉普拉斯算子和拉普拉斯矩阵的关系。我们知道在求函数在空间域的卷积时，可以先将两个函数从空间域变换到频域：</p>
+<script type="math/tex; mode=display">F(w)=\int f(t)e^{-jwt}dt</script><p>在频域上求积，然后作反变换：</p>
+<script type="math/tex; mode=display">f(t)=\int F(w)e^{jwt}dw</script><p>反变换的结果就是两个函数在空间域上的卷积。然后我们还知道拉普拉斯算子$\Delta$作用到一个函数时有：</p>
+<script type="math/tex; mode=display">\Delta f=\sum_{i}\frac{\partial^2 f}{\partial x_i^2}</script><p>我们可以发现，当拉普拉斯算子作用于频率域的基时，有下式：</p>
+<script type="math/tex; mode=display">\Delta e^{jwt}=\frac{\partial^2}{\partial t^2}e^{jwt}=-w^2e^{jwt}=\lambda e^{jwt}</script><p>这可以看作频率域的基函数是拉普拉斯算子的特征函数。现在我们看图的拉普拉斯矩阵，我们知道图的拉普拉斯矩阵$L$由下面式子表示：</p>
+<script type="math/tex; mode=display">L=D-A</script><p>其中$A$是图的邻接矩阵，$D$是$A$的度数矩阵。我们可以认为这是拉普拉斯算子在图结构上的形式，我们可以认为拉普拉斯算子在不同的对象有不同的表现，比如在函数域就是求函数的二阶导，在图上就是图的拉普拉斯矩阵，这是因为图的梯度与散度和函数的梯度与散度表现形式不同以及拉普拉斯算子本质是求梯度的散度决定的。在函数域上，我们有：</p>
+<script type="math/tex; mode=display">\Delta f=\Delta\int_w F(w)e^{jwt}dt=\int_wF(w)\Delta e^{jwt}dt=\int_w\lambda_wF(w)e^{jwt}dt</script><p>所以在图$G$上，我们也有：</p>
+<script type="math/tex; mode=display">\Delta x=L*x=\sum_i \lambda_i\hat{x}_iu_i</script><p>其中$u_i$是拉普拉斯矩阵$L$的特征向量，$\lambda_i$是特征值，$\hat{x}_i$是向量$x$在$u_i$上的分量。在函数域中，我们使用$e^{jwt}$作为基底，将函数转换到频率域。在图中，我们也可以使用特征向量集合$u_i$作为基底，将向量转换到该基底的域中。已知向量$x$，求其转换到$u_i$基底的线性组合，公式为：</p>
+<script type="math/tex; mode=display">\hat{x}=\sum_iu_i^*x_i=U^Tx</script><p>其中$u^*$表示向量$u$的共轭，我们默认特征向量都是实数。从$\hat{x}$反变换$x$的公式为：</p>
+<script type="math/tex; mode=display">x=\sum_iu_i\hat{x}_i=U\hat{x}</script><p>所以如果现在有矩阵$X$表示图的特征，$H$是卷积核，则$X$与$H$的卷积可以用下式表示：</p>
+<script type="math/tex; mode=display">H*X=U(U^TH\odot U^TX)</script><p>$\odot$是求哈达玛积，然后人们又对上式进行一系列的化简，比如将哈达玛积转换成矩阵乘法，近似求解$U$等等，最终得到了下面的形式：</p>
+<script type="math/tex; mode=display">H*X= \hat{D}^{-\frac{1}{2}}\hat{A}\hat{D}^{-\frac{1}{2}}XW</script><p>其中$W$与卷积核$H$相关，所以可以通过学习与更新$W$来间接更新卷积核$H$。加上激活函数，用$H_l$表示第$l$层的特征，则可以得到图卷积网络的式子：</p>
+<script type="math/tex; mode=display">H_l= \sigma(\hat{D}^{-\frac{1}{2}}\hat{A}\hat{D}^{-\frac{1}{2}}H_{l-1}W_l)</script><p>在图卷积网络中，每一层可以使用同一个卷积核，即每一层的参数$W_l$是相同的，也可以使用不同的卷积核，即每一层的参数$W_l$是不同的。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+        
+        <div class="post-tags">
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+          
+            <a href="/tags/图/" rel="tag"># 图</a>
+          
+        </div>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+              <a href="/2020/02/08/谱聚类算法原理/" rel="next" title="谱聚类算法原理">
+                <i class="fa fa-chevron-left"></i> 谱聚类算法原理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+              <a href="/2020/02/09/GBDT和Xgboost/" rel="prev" title="GBDT、Xgboost和LightGBM">
+                GBDT、Xgboost和LightGBM <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">huangshh</p>
+  <div class="site-description motion-element" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是图卷积神经网络"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是图卷积神经网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-基于频域的图卷积神经网络"><span class="nav-number">2.</span> <span class="nav-text">2. 基于频域的图卷积神经网络</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">huangshh</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.3.0</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+      </div>
+
+    
+
+  </div>
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  <script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+  
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.3.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+  
+    
+      <script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
