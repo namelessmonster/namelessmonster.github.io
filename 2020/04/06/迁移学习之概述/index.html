@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    search: {
+      root: '/',
+      path: ''
+    },
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="前言迁移学习是一种利用已有知识去辅助解决未知领域的问题的学习方法，主要是想要做到我们人类轻易就能做到的“举一反三”。万事万物皆存在联系，如果我们学会骑自行车，自然骑摩托车是容易学会的。很多时候，我们有两个相关的任务，两个相关数据集，其中一个数据集是有大量标注数据的，而另一个数据集却只有少量标注数据，如果对这个数据集进行标注需要耗费大量的人力，这时候一个自然而然的想法就是我们能不能利用相关的有标注的">
+<meta name="keywords" content="机器学习,深度学习,迁移学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="迁移学习之概述">
+<meta property="og:url" content="http://yoursite.com/2020/04/06/迁移学习之概述/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前言迁移学习是一种利用已有知识去辅助解决未知领域的问题的学习方法，主要是想要做到我们人类轻易就能做到的“举一反三”。万事万物皆存在联系，如果我们学会骑自行车，自然骑摩托车是容易学会的。很多时候，我们有两个相关的任务，两个相关数据集，其中一个数据集是有大量标注数据的，而另一个数据集却只有少量标注数据，如果对这个数据集进行标注需要耗费大量的人力，这时候一个自然而然的想法就是我们能不能利用相关的有标注的">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-04-06T10:41:36.504Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="迁移学习之概述">
+<meta name="twitter:description" content="前言迁移学习是一种利用已有知识去辅助解决未知领域的问题的学习方法，主要是想要做到我们人类轻易就能做到的“举一反三”。万事万物皆存在联系，如果我们学会骑自行车，自然骑摩托车是容易学会的。很多时候，我们有两个相关的任务，两个相关数据集，其中一个数据集是有大量标注数据的，而另一个数据集却只有少量标注数据，如果对这个数据集进行标注需要耗费大量的人力，这时候一个自然而然的想法就是我们能不能利用相关的有标注的">
+  <link rel="canonical" href="http://yoursite.com/2020/04/06/迁移学习之概述/">
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>迁移学习之概述 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+    </ul>
+</nav>
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/06/迁移学习之概述/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="huangshh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">迁移学习之概述
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-04-06 17:13:27 / 修改时间：18:41:36" itemprop="dateCreated datePublished" datetime="2020-04-06T17:13:27+08:00">2020-04-06</time>
+            </span>
+          
+            
+
+            
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>迁移学习是一种利用已有知识去辅助解决未知领域的问题的学习方法，主要是想要做到我们人类轻易就能做到的“举一反三”。万事万物皆存在联系，如果我们学会骑自行车，自然骑摩托车是容易学会的。很多时候，我们有两个相关的任务，两个相关数据集，其中一个数据集是有大量标注数据的，而另一个数据集却只有少量标注数据，如果对这个数据集进行标注需要耗费大量的人力，这时候一个自然而然的想法就是我们能不能利用相关的有标注的数据来辅助目标的少量的标注数据，完成对目标任务的学习，迁移学习就是研究这一类问题的学习方法。</p>
+<h2 id="问题定义"><a href="#问题定义" class="headerlink" title="问题定义"></a>问题定义</h2><p>迁移学习主要有这些定义：<br>(1) 源域$D_s$，表示辅助数据集，一般会有大量的标注数据，也可以是没有标注数据。<br>(2) 源任务$T_s$，表示辅助数据集的学习任务，如果是监督学习任务，源域的数据集是有标签的，如果是无监督学习任务，源域的数据集就是没有标签的。<br>(3) 源域的分布$P_s(X_s)$，$X_s$表示源域的特征空间中的随机变量，$P_s(X_s)$表示这个随机变量的分布情况。举个例子，源域是猫的特征，猫的特征有毛色，体型等等，假设有5个特征，则特征空间就是有5个维度的空间，在这个空间中各个点的概率就是源域的分布。<br>(4) 源任务的条件分布$P_s(Y_s|X_s)$，$Y_s$表示源任务的标签空间，$P_s(Y_s|X_s)$表示源任务要学习得到的条件分布，对于输入$X_s$，输出其对应各个标签的条件概率$P_s(Y_s|X_s)$。<br>(5) 目标域$D_t$，表示目标数据集，一般是只有少量的标注数据或没有标注数据。<br>(6) 目标任务$T_t$，表示目标任务，定义同源任务$T_s$。<br>(7) 目标域的分布$P_t(X_t)$，定义同$P_s(X_s)$。<br>(8) 目标任务的条件分布$P_t(Y_t|X_t)$，定义通$P_t(Y_t|X_t)$。</p>
+<p>基于上述几个定义，迁移学习可以分为以下几种情况：<br>(1) 源域$D_s$和目标域$D_t$特征空间不同，源任务$T_s$和目标任务$T_t$标签空间不同。<br>(2) 源域$D_s$和目标域$D_t$特征空间不同，源任务$T_s$和目标任务$T_t$标签空间相同但条件分布$P_s(Y|X)$和$P_t(Y|X)$不同。<br>(3) 源域$D_s$和目标域$D_t$特征空间不同，源任务$T_s$和目标任务$T_t$标签相同相同且条件分布$P_s(Y|X)$和$P_t(Y|X)$相同。<br>(4) 源域$D_s$和目标域$D_t$特征空间相同但分布$P_s(X)$和$P_t(X)$不同，源任务$T_s$和目标任务$T_t$标签空间不同。<br>(5) 源域$D_s$和目标域$D_t$特征空间相同但分布$P_s(X)$和$P_t(X)$不同，源任务$T_s$和目标任务$T_t$标签空间相同但条件分布$P_s(Y|X)$和$P_t(Y|X)$不同。<br>(6) 源域$D_s$和目标域$D_t$特征空间相同但分布$P_s(X)$和$P_t(X)$不同，源任务$T_s$和目标任务$T_t$标签相同相同且条件分布$P_s(Y|X)$和$P_t(Y|X)$相同。<br>(7) 源域$D_s$和目标域$D_t$特征空间相同且分布$P_s(X)$和$P_t(X)$相同，源任务$T_s$和目标任务$T_t$标签空间不同。<br>(8) 源域$D_s$和目标域$D_t$特征空间相同且分布$P_s(X)$和$P_t(X)$相同，源任务$T_s$和目标任务$T_t$标签空间相同但条件分布$P_s(Y|X)$和$P_t(Y|X)$不同。</p>
+<p>迁移学习可以分为同构迁移学习和异构迁移学习，一般源域和目标域的特征空间不同就称为异构迁移学习，源域和目标域特征空间相同但分布不同就称为同构迁移学习。</p>
+<h2 id="迁移学习三种场景"><a href="#迁移学习三种场景" class="headerlink" title="迁移学习三种场景"></a>迁移学习三种场景</h2><p>迁移学习主要可以分为三种学习场景，包括：<br>(1) 归纳式迁移学习，这种学习场景，要求目标任务是有标签的。<br>(2) 直推式迁移学习，这种学习场景，要求目标任务是无标签的，且要求源任务是有标签的。<br>(3) 无监督迁移学习，这种学习场景，要求目标任务和源任务都是无标签的。</p>
+<h2 id="迁移学习四种方法"><a href="#迁移学习四种方法" class="headerlink" title="迁移学习四种方法"></a>迁移学习四种方法</h2><h3 id="基于实例"><a href="#基于实例" class="headerlink" title="基于实例"></a>基于实例</h3><p>基于实例的迁移学习方法通常要求源域$D_s$与目标域$D_t$的特征空间相同，且要求源任务$T_s$和目标任务$T_t$的标签空间也相同。通过调整源域中样本的权重，使得源域的特征空间分布$P_s(X)$与目标域的特征空间分布$P_t(X)$相似，利用同一个模型求得$P_s(Y|X)$和$P_t(Y|X)$。</p>
+<h3 id="基于特征"><a href="#基于特征" class="headerlink" title="基于特征"></a>基于特征</h3><p>基于特征的迁移学习方法通常不要求源域$D_s$与目标域$D_t$有相同的特征空间，但一般要求源任务$T_s$和目标任务$T_t$有相同的标签空间，通过将不同域的特征空间映射到同一个特征空间使得源域和目标域既有相同的特征空间也有相同的分布，之后使用同一个模型求得$P_s(Y|Z)$和$P_t(Y|Z)$，其中$Z$是映射后得到的同一空间的样本。如何设置特征空间转换到同一特征空间的参数，需要根据目标函数作为指标调整。</p>
+<h3 id="基于模型"><a href="#基于模型" class="headerlink" title="基于模型"></a>基于模型</h3><p>基于模型的迁移学习方法通常不要求源域$D_s$与目标域$D_t$有相同的特征空间，也不要求源任务$T_s$和目标任务$T_t$有相同的标签空间。通过共用模型的部分参数，首先将不同域映射到同一个域具有相同分布，然后争对不同的任务添加不同的模型结构，使得可以分别求得$P_s(Y_s|Z)$和$P_t(Y_t|Z)$，其中$Z$是映射后得到的同一空间的样本。一般的模型fine-tuning就可以看作是基于模型的迁移学习。</p>
+<h3 id="基于关系"><a href="#基于关系" class="headerlink" title="基于关系"></a>基于关系</h3><p>基于关系的迁移学习方法通过学习到每个域内部的联系和行为，发现每个域的内部联系和行为的相似之处，利用这些相似之处来完成知识迁移。比如电脑病毒和生物病毒都存在着自我复制/繁殖增加数量，都可以破坏宿主，那么就可以利用电脑病毒和生物病毒这些相似性来完成知识迁移。这种方法一般要求能够学到一种映射，把不同域的不同维度特征建立一种映射关系，比如将生物病毒的繁殖和电脑病毒的赋值映射到一起等等。</p>
+<h2 id="研究热点"><a href="#研究热点" class="headerlink" title="研究热点"></a>研究热点</h2><h3 id="域适配问题"><a href="#域适配问题" class="headerlink" title="域适配问题"></a>域适配问题</h3><p>源域和目标域的特征空间相同但分布不同，源任务和目标任务的标签空间相同，源域有大量标注数据而目标域没有标注数据，如何利用源域的数据实现对目标域数据的标注，这就是域适配问题。</p>
+<h3 id="对抗生成网络"><a href="#对抗生成网络" class="headerlink" title="对抗生成网络"></a>对抗生成网络</h3><p>将目标域看作是生成的数据，对抗生成网络的生成器的工作不再是生成数据，而是从目标域和源域中提取特征，判别器则对生成器提取的特征分类。对抗生成网络的生成器的任务变成了特征抽取，也可以看作是一个特征抽取器，特征抽取器的目标是发现源域和目标域的共同特征从而瞒过判别器。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+        
+        <div class="post-tags">
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+          
+            <a href="/tags/迁移学习/" rel="tag"># 迁移学习</a>
+          
+        </div>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+              <a href="/2020/04/06/图神经网络（二）/" rel="next" title="图神经网络（二）">
+                <i class="fa fa-chevron-left"></i> 图神经网络（二）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+          </div>
+        </div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">huangshh</p>
+  <div class="site-description motion-element" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">标签</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题定义"><span class="nav-number">2.</span> <span class="nav-text">问题定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迁移学习三种场景"><span class="nav-number">3.</span> <span class="nav-text">迁移学习三种场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迁移学习四种方法"><span class="nav-number">4.</span> <span class="nav-text">迁移学习四种方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于实例"><span class="nav-number">4.1.</span> <span class="nav-text">基于实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于特征"><span class="nav-number">4.2.</span> <span class="nav-text">基于特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于模型"><span class="nav-number">4.3.</span> <span class="nav-text">基于模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于关系"><span class="nav-number">4.4.</span> <span class="nav-text">基于关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#研究热点"><span class="nav-number">5.</span> <span class="nav-text">研究热点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#域适配问题"><span class="nav-number">5.1.</span> <span class="nav-text">域适配问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对抗生成网络"><span class="nav-number">5.2.</span> <span class="nav-text">对抗生成网络</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">huangshh</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.3.0</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+      </div>
+
+    
+
+  </div>
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  <script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+  
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.3.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+  
+    
+      <script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
