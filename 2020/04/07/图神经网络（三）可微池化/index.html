@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="背景现如今，人工智能领域很多领域都是基于深度学习，深度学习的基础就是神经网络可以以任意精度拟合任意函数，神经网络的这种能力也被称为万能近似定理。 原理万能近似原理是这样的：给定一个线性变换和一个具有“挤压”性质的激活函数，只需要一个隐藏层，神经网络便能以任意精度拟合任意函数。这里具有“挤压”性质的激活函数是有界非严格单调递增的非线性激活函数。更通用的说，神经网络这一特性并不要求激活函数是有界的，比">
-<meta name="keywords" content="机器学习,深度学习">
+  <meta name="description" content="前言在前面几章，我们介绍了图神经网络，最终我们可以得到图上每个节点的向量，当我们需要求到一个关于整个图的向量时，一般有两种做法，一个是基于统计的，另一个是基于学习的。 基于统计基于统计的方法就是将所有节点进行一个求和池化，平均池化或最大池化等等，将所有节点的向量聚合成一个向量作为整个图的代表向量。这种做法会丢失掉很多信息，所以容易造成较大的性能损失。为了减小这种损失，人们提出了直方图的统计方法，直">
+<meta name="keywords" content="机器学习,深度学习,图">
 <meta property="og:type" content="article">
-<meta property="og:title" content="万能近似定理">
-<meta property="og:url" content="http://yoursite.com/2020/03/30/万能近似定理/index.html">
+<meta property="og:title" content="图神经网络（三）可微池化">
+<meta property="og:url" content="http://yoursite.com/2020/04/07/图神经网络（三）可微池化/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="背景现如今，人工智能领域很多领域都是基于深度学习，深度学习的基础就是神经网络可以以任意精度拟合任意函数，神经网络的这种能力也被称为万能近似定理。 原理万能近似原理是这样的：给定一个线性变换和一个具有“挤压”性质的激活函数，只需要一个隐藏层，神经网络便能以任意精度拟合任意函数。这里具有“挤压”性质的激活函数是有界非严格单调递增的非线性激活函数。更通用的说，神经网络这一特性并不要求激活函数是有界的，比">
+<meta property="og:description" content="前言在前面几章，我们介绍了图神经网络，最终我们可以得到图上每个节点的向量，当我们需要求到一个关于整个图的向量时，一般有两种做法，一个是基于统计的，另一个是基于学习的。 基于统计基于统计的方法就是将所有节点进行一个求和池化，平均池化或最大池化等等，将所有节点的向量聚合成一个向量作为整个图的代表向量。这种做法会丢失掉很多信息，所以容易造成较大的性能损失。为了减小这种损失，人们提出了直方图的统计方法，直">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-30T04:33:44.564Z">
+<meta property="og:updated_time" content="2020-04-07T09:30:17.789Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="万能近似定理">
-<meta name="twitter:description" content="背景现如今，人工智能领域很多领域都是基于深度学习，深度学习的基础就是神经网络可以以任意精度拟合任意函数，神经网络的这种能力也被称为万能近似定理。 原理万能近似原理是这样的：给定一个线性变换和一个具有“挤压”性质的激活函数，只需要一个隐藏层，神经网络便能以任意精度拟合任意函数。这里具有“挤压”性质的激活函数是有界非严格单调递增的非线性激活函数。更通用的说，神经网络这一特性并不要求激活函数是有界的，比">
-  <link rel="canonical" href="http://yoursite.com/2020/03/30/万能近似定理/">
+<meta name="twitter:title" content="图神经网络（三）可微池化">
+<meta name="twitter:description" content="前言在前面几章，我们介绍了图神经网络，最终我们可以得到图上每个节点的向量，当我们需要求到一个关于整个图的向量时，一般有两种做法，一个是基于统计的，另一个是基于学习的。 基于统计基于统计的方法就是将所有节点进行一个求和池化，平均池化或最大池化等等，将所有节点的向量聚合成一个向量作为整个图的代表向量。这种做法会丢失掉很多信息，所以容易造成较大的性能损失。为了减小这种损失，人们提出了直方图的统计方法，直">
+  <link rel="canonical" href="http://yoursite.com/2020/04/07/图神经网络（三）可微池化/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>万能近似定理 | Hexo</title>
+  <title>图神经网络（三）可微池化 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/30/万能近似定理/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/07/图神经网络（三）可微池化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">万能近似定理
+          <h1 class="post-title" itemprop="name headline">图神经网络（三）可微池化
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-03-30 11:56:39 / 修改时间：12:33:44" itemprop="dateCreated datePublished" datetime="2020-03-30T11:56:39+08:00">2020-03-30</time>
+              <time title="创建时间：2020-04-07 17:05:58 / 修改时间：17:30:17" itemprop="dateCreated datePublished" datetime="2020-04-07T17:05:58+08:00">2020-04-07</time>
             </span>
           
             
@@ -246,10 +246,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>现如今，人工智能领域很多领域都是基于深度学习，深度学习的基础就是神经网络可以以任意精度拟合任意函数，神经网络的这种能力也被称为万能近似定理。</p>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>万能近似原理是这样的：给定一个线性变换和一个具有“挤压”性质的激活函数，只需要一个隐藏层，神经网络便能以任意精度拟合任意函数。这里具有“挤压”性质的激活函数是有界非严格单调递增的非线性激活函数。更通用的说，神经网络这一特性并不要求激活函数是有界的，比如著名的ReLU函数，而是要求激活函数可以组合出具有“挤压”性质的函数，比如ReLU函数就可以通过位移相减得到这样一个函数。</p>
-<p>那么为什么具有“挤压”性质的激活函数可以辅助线性变换拟合任意函数？我们知道，通过线性变换，可以将“挤压函数”在定义域上无限逼近阶梯函数，只需要无限压扁“挤压”函数中间的非收敛区即可。而有了阶梯函数，我们又可以通过位移相减得到一个只有一段有值的函数，我们可以将其看作是一个“塔”，这样我们就可以通过大量的“塔”的线性组合去拟合任意函数了。</p>
-<h2 id="深度vs宽度"><a href="#深度vs宽度" class="headerlink" title="深度vs宽度"></a>深度vs宽度</h2><p>我们可以认为至多两个神经元可以组合出一个“挤压”函数，至多两个神经元可以组合出一个“阶梯”函数，至多四个神经元可以组合出一个“塔”，所以隐藏层神经元个数越多，我们就可以组合越多的“塔”去拟合任何函数。这是从宽度上面去分析，可以知道，只要神经元数量足够多就可以拟合任何函数。从深度上面去分析，我们可以将最后一层的作用看作是分析宽度时的作用，而前面的层，我们可以将其看作一个新的神经网络，递归分析，最终我们可以认为深度神经网络是将一个函数通过变换拟合第二个函数，然后又以第二个函数作为输入拟合第三个函数，通过多层后实现一个函数变换链，最终拟合得到目标函数。经过实践证明，在参数相同的情况下，深度会比宽度效果更好。至于为什么深度会更好，我现在还没想到数学上的证明，但直观上可以发现深度的拟合情况会随着深度叠加而复杂程度呈指数增加，可能内部存在很复杂的机制使得其效果更好。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在前面几章，我们介绍了图神经网络，最终我们可以得到图上每个节点的向量，当我们需要求到一个关于整个图的向量时，一般有两种做法，一个是基于统计的，另一个是基于学习的。</p>
+<h2 id="基于统计"><a href="#基于统计" class="headerlink" title="基于统计"></a>基于统计</h2><p>基于统计的方法就是将所有节点进行一个求和池化，平均池化或最大池化等等，将所有节点的向量聚合成一个向量作为整个图的代表向量。这种做法会丢失掉很多信息，所以容易造成较大的性能损失。为了减小这种损失，人们提出了直方图的统计方法，直方图的统计方法是按照某种规则，将原本的全局池化变成若干局部池化，这些局部池化能够更多地保留信息，从而减小因信息丢失造成的性能损失。</p>
+<h2 id="基于学习"><a href="#基于学习" class="headerlink" title="基于学习"></a>基于学习</h2><p>基于统计的方法没有为聚合过程添加任何参数，在解释性上也存在许多不足，所以就有了基于学习的方法。</p>
+<h3 id="全局节点"><a href="#全局节点" class="headerlink" title="全局节点"></a>全局节点</h3><p>在图上我们可以找到一个节点作为全局的根，在特定领域我们可以设计特定的根节点。当不能找到这个根节点，我们也可以虚拟出一个根节点，然后这个根节点按照某种规则与全局各个节点产生联系，最终使用这个虚拟节点的向量作为图的全局向量。</p>
+<h3 id="可微池化"><a href="#可微池化" class="headerlink" title="可微池化"></a>可微池化</h3><p>参考基于统计的直方图方法，可微池化并没有一次性将所有节点聚合，而是分层聚合，每一层将所有节点先聚合成规定数目的类，然后对这些类建立全新的图，下一层在这个新图上再聚合，如此循环往复直到聚合成一个点得到全图的向量表示。在可微池化的方法中，存在两个图神经网络，一个负责聚合节点向量产生下一层各个节点的向量，另一个负责产生各个节点属于各个类别的概率度量，可以用下式表示：</p>
+<script type="math/tex; mode=display">S_l=SC(A_l,H_l)</script><script type="math/tex; mode=display">\hat{H}_l=NR(A_l,H_l)</script><p>其中$A_l$表示第$l$层图的邻接关系，$H_l$是第$l$层各个节点的向量，$S_l$是第$l$层各个节点属于各个类的概率度量，$\hat{H}_l$是通过聚合第$l$层的节点得到各个节点的向量表示，$SC$和$NR$都是一层图神经网络，接着我们可以下式更新下一层的状态：</p>
+<script type="math/tex; mode=display">H_{l+1}=S_l^T\hat{H}_l</script><script type="math/tex; mode=display">A_{l+1}=S_l^TA_lS_l</script><p>上面两个式子，第一个式子的意义是现在每个节点都有一些概率度量作为属于各个类的概率大小，那么就把这个节点的向量乘上相应的概率度量值作为这个类的向量的一部分，每个节点都这么做最终各个类都会得到一个向量。第二个式子则是通过各个节点属于各个类的概率乘上邻接关系再乘上各个节点属于各个类的概率得到各个类之间的联系强度，作为新图的邻接关系，在新图中每个类作为一个节点。</p>
 
     </div>
 
@@ -265,11 +268,13 @@
           
             <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
           
+            <a href="/tags/图/" rel="tag"># 图</a>
+          
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/03/28/推荐系统之DeepFM/" rel="next" title="推荐系统之DeepFM">
-                <i class="fa fa-chevron-left"></i> 推荐系统之DeepFM
+              <a href="/2020/04/06/迁移学习之概述/" rel="next" title="迁移学习之概述">
+                <i class="fa fa-chevron-left"></i> 迁移学习之概述
               </a>
             
           </div>
@@ -277,10 +282,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/04/04/推荐系统之协同过滤/" rel="prev" title="推荐系统之协同过滤">
-                推荐系统之协同过滤 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -398,7 +399,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">2.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深度vs宽度"><span class="nav-number">3.</span> <span class="nav-text">深度vs宽度</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于统计"><span class="nav-number">2.</span> <span class="nav-text">基于统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于学习"><span class="nav-number">3.</span> <span class="nav-text">基于学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#全局节点"><span class="nav-number">3.1.</span> <span class="nav-text">全局节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可微池化"><span class="nav-number">3.2.</span> <span class="nav-text">可微池化</span></a></li></ol></li></ol></div>
             
 
           </div>

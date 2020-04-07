@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="背景现如今，人工智能领域很多领域都是基于深度学习，深度学习的基础就是神经网络可以以任意精度拟合任意函数，神经网络的这种能力也被称为万能近似定理。 原理万能近似原理是这样的：给定一个线性变换和一个具有“挤压”性质的激活函数，只需要一个隐藏层，神经网络便能以任意精度拟合任意函数。这里具有“挤压”性质的激活函数是有界非严格单调递增的非线性激活函数。更通用的说，神经网络这一特性并不要求激活函数是有界的，比">
-<meta name="keywords" content="机器学习,深度学习">
+  <meta name="description" content="前言在处理序列时，我们有RNN和Transformer等序列深度模型；在处理图像时，我们有CNN等利用卷积提取局部特征的深度模型。当我们处理一般的图结构时，由于其结构即不是序列那种线性结构，也不是图像中像素点的排列是有规律的，所以很难使用RNN或CNN对图结构建模。图神经网络就是一种在更一般的图结构上建模的深度模型。 图神经网络数据结构图的结构一般可以这样定义：G(V,E)，表示图G的顶点结合是V">
+<meta name="keywords" content="机器学习,深度学习,图">
 <meta property="og:type" content="article">
-<meta property="og:title" content="万能近似定理">
-<meta property="og:url" content="http://yoursite.com/2020/03/30/万能近似定理/index.html">
+<meta property="og:title" content="图神经网络（一）循环图神经网络">
+<meta property="og:url" content="http://yoursite.com/2020/04/05/图神经网络（一）循环图神经网络/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="背景现如今，人工智能领域很多领域都是基于深度学习，深度学习的基础就是神经网络可以以任意精度拟合任意函数，神经网络的这种能力也被称为万能近似定理。 原理万能近似原理是这样的：给定一个线性变换和一个具有“挤压”性质的激活函数，只需要一个隐藏层，神经网络便能以任意精度拟合任意函数。这里具有“挤压”性质的激活函数是有界非严格单调递增的非线性激活函数。更通用的说，神经网络这一特性并不要求激活函数是有界的，比">
+<meta property="og:description" content="前言在处理序列时，我们有RNN和Transformer等序列深度模型；在处理图像时，我们有CNN等利用卷积提取局部特征的深度模型。当我们处理一般的图结构时，由于其结构即不是序列那种线性结构，也不是图像中像素点的排列是有规律的，所以很难使用RNN或CNN对图结构建模。图神经网络就是一种在更一般的图结构上建模的深度模型。 图神经网络数据结构图的结构一般可以这样定义：G(V,E)，表示图G的顶点结合是V">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-30T04:33:44.564Z">
+<meta property="og:updated_time" content="2020-04-07T09:06:44.463Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="万能近似定理">
-<meta name="twitter:description" content="背景现如今，人工智能领域很多领域都是基于深度学习，深度学习的基础就是神经网络可以以任意精度拟合任意函数，神经网络的这种能力也被称为万能近似定理。 原理万能近似原理是这样的：给定一个线性变换和一个具有“挤压”性质的激活函数，只需要一个隐藏层，神经网络便能以任意精度拟合任意函数。这里具有“挤压”性质的激活函数是有界非严格单调递增的非线性激活函数。更通用的说，神经网络这一特性并不要求激活函数是有界的，比">
-  <link rel="canonical" href="http://yoursite.com/2020/03/30/万能近似定理/">
+<meta name="twitter:title" content="图神经网络（一）循环图神经网络">
+<meta name="twitter:description" content="前言在处理序列时，我们有RNN和Transformer等序列深度模型；在处理图像时，我们有CNN等利用卷积提取局部特征的深度模型。当我们处理一般的图结构时，由于其结构即不是序列那种线性结构，也不是图像中像素点的排列是有规律的，所以很难使用RNN或CNN对图结构建模。图神经网络就是一种在更一般的图结构上建模的深度模型。 图神经网络数据结构图的结构一般可以这样定义：G(V,E)，表示图G的顶点结合是V">
+  <link rel="canonical" href="http://yoursite.com/2020/04/05/图神经网络（一）循环图神经网络/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>万能近似定理 | Hexo</title>
+  <title>图神经网络（一）循环图神经网络 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/30/万能近似定理/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/05/图神经网络（一）循环图神经网络/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">万能近似定理
+          <h1 class="post-title" itemprop="name headline">图神经网络（一）循环图神经网络
 
               
             
@@ -227,11 +227,21 @@
                 
               
 
-              <time title="创建时间：2020-03-30 11:56:39 / 修改时间：12:33:44" itemprop="dateCreated datePublished" datetime="2020-03-30T11:56:39+08:00">2020-03-30</time>
+              <time title="创建时间：2020-04-05 22:30:07" itemprop="dateCreated datePublished" datetime="2020-04-05T22:30:07+08:00">2020-04-05</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-04-07 17:06:44" itemprop="dateModified" datetime="2020-04-07T17:06:44+08:00">2020-04-07</time>
+              </span>
             
           
 
@@ -246,10 +256,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>现如今，人工智能领域很多领域都是基于深度学习，深度学习的基础就是神经网络可以以任意精度拟合任意函数，神经网络的这种能力也被称为万能近似定理。</p>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>万能近似原理是这样的：给定一个线性变换和一个具有“挤压”性质的激活函数，只需要一个隐藏层，神经网络便能以任意精度拟合任意函数。这里具有“挤压”性质的激活函数是有界非严格单调递增的非线性激活函数。更通用的说，神经网络这一特性并不要求激活函数是有界的，比如著名的ReLU函数，而是要求激活函数可以组合出具有“挤压”性质的函数，比如ReLU函数就可以通过位移相减得到这样一个函数。</p>
-<p>那么为什么具有“挤压”性质的激活函数可以辅助线性变换拟合任意函数？我们知道，通过线性变换，可以将“挤压函数”在定义域上无限逼近阶梯函数，只需要无限压扁“挤压”函数中间的非收敛区即可。而有了阶梯函数，我们又可以通过位移相减得到一个只有一段有值的函数，我们可以将其看作是一个“塔”，这样我们就可以通过大量的“塔”的线性组合去拟合任意函数了。</p>
-<h2 id="深度vs宽度"><a href="#深度vs宽度" class="headerlink" title="深度vs宽度"></a>深度vs宽度</h2><p>我们可以认为至多两个神经元可以组合出一个“挤压”函数，至多两个神经元可以组合出一个“阶梯”函数，至多四个神经元可以组合出一个“塔”，所以隐藏层神经元个数越多，我们就可以组合越多的“塔”去拟合任何函数。这是从宽度上面去分析，可以知道，只要神经元数量足够多就可以拟合任何函数。从深度上面去分析，我们可以将最后一层的作用看作是分析宽度时的作用，而前面的层，我们可以将其看作一个新的神经网络，递归分析，最终我们可以认为深度神经网络是将一个函数通过变换拟合第二个函数，然后又以第二个函数作为输入拟合第三个函数，通过多层后实现一个函数变换链，最终拟合得到目标函数。经过实践证明，在参数相同的情况下，深度会比宽度效果更好。至于为什么深度会更好，我现在还没想到数学上的证明，但直观上可以发现深度的拟合情况会随着深度叠加而复杂程度呈指数增加，可能内部存在很复杂的机制使得其效果更好。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在处理序列时，我们有RNN和Transformer等序列深度模型；在处理图像时，我们有CNN等利用卷积提取局部特征的深度模型。当我们处理一般的图结构时，由于其结构即不是序列那种线性结构，也不是图像中像素点的排列是有规律的，所以很难使用RNN或CNN对图结构建模。图神经网络就是一种在更一般的图结构上建模的深度模型。</p>
+<h2 id="图神经网络"><a href="#图神经网络" class="headerlink" title="图神经网络"></a>图神经网络</h2><h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><p>图的结构一般可以这样定义：G(V,E)，表示图G的顶点结合是V，边集是E，每条边是一个二元组(u,v)或三元组(u,v,w)表示顶点u和顶点v有连边，边的权重为w。在图神经网络中，每个顶点有一个特征的表征向量$x_{u}$，每条边也可以有一个特征的表征向量$x_{u,v}$。</p>
+<h3 id="不动点定理"><a href="#不动点定理" class="headerlink" title="不动点定理"></a>不动点定理</h3><p>在介绍模型之前，先要介绍一下不动点定理。不动点定理是说，如果有一个压缩函数，将一个域内的点压缩到另一个域，且压缩后的域在压缩前的域的范围内，则可以证明在前一个域中存在一个点在压缩后保持不变。如果我们反复调用这个压缩函数，使得域最终收敛到一个点，将中间的压缩过程合并看成一个压缩函数，可以证明这个收敛点在初始域中也对应到同一个点，可以用下面的数学式子表示：</p>
+<script type="math/tex; mode=display">F(x)=x</script><p>其中$F$是多次压缩函数合并后的压缩函数，$x$是收敛点。这个式子就是表示不动点定理。不动点定理为图神经网络能够收敛提供了理论基础。不动点定理的压缩条件可以用这个式子表示：</p>
+<script type="math/tex; mode=display">d(F(x),F(y))\le c\cdot d(x,y)</script><script type="math/tex; mode=display">0\le c\le 1</script><p>其中$d(\cdot)$表示求距离，这表示两个点在压缩后的域中的距离总是小于等于在压缩前的域中的距离。</p>
+<h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><p>我们可以设置这么一个函数$f$，有下面的式子：</p>
+<script type="math/tex; mode=display">h_{u}^{t+1}=f(x_{u},h_{u}^{t+1},\{x_{v}\},\{x_{u,v}\},\{h_{v}^{t}\})</script><p>其中$h_{u}^{t+1}$表示第$t+1$次迭代节点$u$的表征向量，函数$f$的第一个参数是节点$u$的原始特征表征向量，第三个参数是一个集合表示与节点$u$相邻的节点的原始特征表征向量集合，第四个参数是一个集合表示与节点$u$相邻的节点的边的原始特征表征向量集合，第五个参数是一个集合表示与节点$u$相邻的节点在第$t$次迭代得到的表征向量集合。如果$f$是一个压缩函数，那么可以证明，经过多次迭代后每个节点都会收敛到一个特征表征向量。所以现在的关键是如何保证$f$是一个压缩函数。已知不动点定理要求：</p>
+<script type="math/tex; mode=display">d(F(x),F(y))\le c\cdot d(x,y)</script><p>变换一下公式可以得到：</p>
+<script type="math/tex; mode=display">\frac{d(F(x),F(y))}{d(x,y)}\le c</script><p>将$y$替换成$x+\Delta x$，求距离看作是求增量，则上式可以看作是微分，即：</p>
+<script type="math/tex; mode=display">|\frac{\partial F(x)}{\partial x}|\le c</script><p>将$F$替换成前面提到的函数$f$，$x$替换成表征向量$h$，得到：</p>
+<script type="math/tex; mode=display">|\frac{\partial f(h)}{\partial h}|\le c</script><p>所以我们可以在原损失函数的基础上加上这个约束，将这个约束的系数调到很高给予很高的惩罚就可以保证$f$是一个压缩函数了，即目标函数为：</p>
+<script type="math/tex; mode=display">J=Loss+\lambda\cdot max(|\frac{\partial f(h)}{\partial h}|-c,0)</script><p>其中$\lambda$是一个超参数，用来调整使得函数$f$尽量满足压缩条件。图神经网络模型就是使用前馈神经网络作为函数$f$的运算，主要有以下学习步骤：<br>(1) 给定各个节点的初始化表征向量<br>(2) 使用神经网络对每个节点进行迭代运算，直到收敛<br>(3) 从收敛状态计算目标函数值，进行反向传播</p>
+<p>学习到神经网络参数后，每次对于新的图，只需要将图的节点和边送入模型迭代计算到收敛即可。</p>
+<h2 id="门控图神经网络"><a href="#门控图神经网络" class="headerlink" title="门控图神经网络"></a>门控图神经网络</h2><p>上述的图神经网络在学习与预测时都非常复杂，因为需要迭代计算到收敛，而且也不能保证泛化时总能收敛。在泛化时，对于新节点，函数$f$不能保证是压缩的。门控图神经网络是使用RNN，LSTM，GRU等序列深度模型处理图数据，模型依然可以使用函数$f$表示，依然和上一章节的函数$f$有着相同的形式，只是这一次不再要求$f$是压缩函数，也不再要去每次计算都需要迭代到收敛。以GRU为例，可以有下面的计算式子：</p>
+<script type="math/tex; mode=display">h_{u}^{t+1}=GRU(h_{u}^{t},agg(\{x_{u,v}\},\{h_{v}^{t}\}))</script><p>其中$agg$表示一个聚合函数，将相邻节点的表征向量和边的特征表征向量聚合成一个向量。这种方法每次计算不需要迭代至收敛，设置一个迭代次数，每次只迭代固定步数。因为是迭代固定步数，所以也只能捕获图中在固定步数范围内的依赖关系，一个技巧是迭代图的直径长度次数，这样可以保证图中任意节点之间的依赖都可以捕获。门控图神经网络去除了以不动点定理作为理论依据，使得模型的学习与预测变得更简单。</p>
+<p>最后在这里贴上本篇文章的参考文章：<a href="https://www.cnblogs.com/SivilTaram/p/graph_neural_network_1.html" target="_blank" rel="noopener">https://www.cnblogs.com/SivilTaram/p/graph_neural_network_1.html</a></p>
 
     </div>
 
@@ -265,11 +287,13 @@
           
             <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
           
+            <a href="/tags/图/" rel="tag"># 图</a>
+          
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/03/28/推荐系统之DeepFM/" rel="next" title="推荐系统之DeepFM">
-                <i class="fa fa-chevron-left"></i> 推荐系统之DeepFM
+              <a href="/2020/04/04/向量化召回和深度树匹配/" rel="next" title="向量化召回和深度树匹配">
+                <i class="fa fa-chevron-left"></i> 向量化召回和深度树匹配
               </a>
             
           </div>
@@ -277,8 +301,8 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/04/04/推荐系统之协同过滤/" rel="prev" title="推荐系统之协同过滤">
-                推荐系统之协同过滤 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/04/06/图神经网络（二）图卷积神经网络/" rel="prev" title="图神经网络（二）图卷积神经网络">
+                图神经网络（二）图卷积神经网络 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -398,7 +422,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">2.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深度vs宽度"><span class="nav-number">3.</span> <span class="nav-text">深度vs宽度</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图神经网络"><span class="nav-number">2.</span> <span class="nav-text">图神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据结构"><span class="nav-number">2.1.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不动点定理"><span class="nav-number">2.2.</span> <span class="nav-text">不动点定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型"><span class="nav-number">2.3.</span> <span class="nav-text">模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#门控图神经网络"><span class="nav-number">3.</span> <span class="nav-text">门控图神经网络</span></a></li></ol></div>
             
 
           </div>
