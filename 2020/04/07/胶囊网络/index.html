@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="TCP/IP模型OSI模型七层从下到上分别是物理层、数据链路层、网络层、传输层、会话层、表示层和应用层。而在TCP/IP模型中，分别是数据链路层（物理层、数据链路层）、网络层、传输层和应用层（会话层、表示层、应用层）。TCP协议和UDP协议工作在传输层。 UDPUDP协议全称是用户数据报协议，是一种无连接的协议。UDP不对数据包分组和组装，不能对数据包进行排序。当应用层将一个报文下传到UDP时，U">
-<meta name="keywords" content="计算机基础,计算机网络">
+  <meta name="description" content="前言在使用CNN处理图像时，如果我们使用人脸数据训练这么一个CNN，训练出来的CNN可以很好地识别人脸，但是如果我们改变人脸某些元素的位置，比如将一个眼睛和嘴巴调换位置，CNN依然会认为这是一张人脸。这是因为CNN是通过使用卷积核去识别关键特征，而在人脸中眼睛和嘴巴都是关键元素，所以即使它们互换位置，CNN也依然会认为这是一张人脸。如果我们想要让CNN可以识别这些位置错误的脸不是人脸，那就需要给C">
+<meta name="keywords" content="机器学习,深度学习,CV">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TCP和UDP">
-<meta property="og:url" content="http://yoursite.com/2020/02/28/TCP和UDP/index.html">
+<meta property="og:title" content="胶囊网络">
+<meta property="og:url" content="http://yoursite.com/2020/04/07/胶囊网络/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="TCP/IP模型OSI模型七层从下到上分别是物理层、数据链路层、网络层、传输层、会话层、表示层和应用层。而在TCP/IP模型中，分别是数据链路层（物理层、数据链路层）、网络层、传输层和应用层（会话层、表示层、应用层）。TCP协议和UDP协议工作在传输层。 UDPUDP协议全称是用户数据报协议，是一种无连接的协议。UDP不对数据包分组和组装，不能对数据包进行排序。当应用层将一个报文下传到UDP时，U">
+<meta property="og:description" content="前言在使用CNN处理图像时，如果我们使用人脸数据训练这么一个CNN，训练出来的CNN可以很好地识别人脸，但是如果我们改变人脸某些元素的位置，比如将一个眼睛和嘴巴调换位置，CNN依然会认为这是一张人脸。这是因为CNN是通过使用卷积核去识别关键特征，而在人脸中眼睛和嘴巴都是关键元素，所以即使它们互换位置，CNN也依然会认为这是一张人脸。如果我们想要让CNN可以识别这些位置错误的脸不是人脸，那就需要给C">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-28T07:09:46.989Z">
+<meta property="og:updated_time" content="2020-04-07T15:27:25.975Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TCP和UDP">
-<meta name="twitter:description" content="TCP/IP模型OSI模型七层从下到上分别是物理层、数据链路层、网络层、传输层、会话层、表示层和应用层。而在TCP/IP模型中，分别是数据链路层（物理层、数据链路层）、网络层、传输层和应用层（会话层、表示层、应用层）。TCP协议和UDP协议工作在传输层。 UDPUDP协议全称是用户数据报协议，是一种无连接的协议。UDP不对数据包分组和组装，不能对数据包进行排序。当应用层将一个报文下传到UDP时，U">
-  <link rel="canonical" href="http://yoursite.com/2020/02/28/TCP和UDP/">
+<meta name="twitter:title" content="胶囊网络">
+<meta name="twitter:description" content="前言在使用CNN处理图像时，如果我们使用人脸数据训练这么一个CNN，训练出来的CNN可以很好地识别人脸，但是如果我们改变人脸某些元素的位置，比如将一个眼睛和嘴巴调换位置，CNN依然会认为这是一张人脸。这是因为CNN是通过使用卷积核去识别关键特征，而在人脸中眼睛和嘴巴都是关键元素，所以即使它们互换位置，CNN也依然会认为这是一张人脸。如果我们想要让CNN可以识别这些位置错误的脸不是人脸，那就需要给C">
+  <link rel="canonical" href="http://yoursite.com/2020/04/07/胶囊网络/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>TCP和UDP | Hexo</title>
+  <title>胶囊网络 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/28/TCP和UDP/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/07/胶囊网络/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">TCP和UDP
+          <h1 class="post-title" itemprop="name headline">胶囊网络
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-02-28 13:34:53 / 修改时间：15:09:46" itemprop="dateCreated datePublished" datetime="2020-02-28T13:34:53+08:00">2020-02-28</time>
+              <time title="创建时间：2020-04-07 22:19:01 / 修改时间：23:27:25" itemprop="dateCreated datePublished" datetime="2020-04-07T22:19:01+08:00">2020-04-07</time>
             </span>
           
             
@@ -246,14 +246,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="TCP-IP模型"><a href="#TCP-IP模型" class="headerlink" title="TCP/IP模型"></a>TCP/IP模型</h2><p>OSI模型七层从下到上分别是物理层、数据链路层、网络层、传输层、会话层、表示层和应用层。而在TCP/IP模型中，分别是数据链路层（物理层、数据链路层）、网络层、传输层和应用层（会话层、表示层、应用层）。TCP协议和UDP协议工作在传输层。</p>
-<h2 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h2><p>UDP协议全称是用户数据报协议，是一种无连接的协议。UDP不对数据包分组和组装，不能对数据包进行排序。当应用层将一个报文下传到UDP时，UDP不会对这个报文作任何额外处理，只会在报文头部添加UDP头标识然后原封不动传递给网络层。UDP不会对数据报文作任何额外处理，所以想要对数据进行分组、合并、排序组装要在应用层完成。同时UDP是不可靠的，UDP不要求接收方在收到数据需要应答，也不要求发送方重发数据包，这些都需要在应用层靠程序员实现。UDP还是有优点的，UDP支持单播、多播、广播，同时UDP头部占用资源小，不提供复杂功能也表示UDP传输效率高，只负责专心传输。UDP比较适合实时性要求严格但允许存在一些误差的场景，比如视频通话、语音通话等等。</p>
-<h2 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h2><p>TCP协议全称是传输控制协议。相比起UDP，TCP提供了更多功能，所以也更加复杂。需要注意的是，TCP只支持单播。</p>
-<h3 id="面向连接"><a href="#面向连接" class="headerlink" title="面向连接"></a>面向连接</h3><p>TCP在传输数据时需要建立连接，包括建立连接与断开连接两个场景。在建立连接时需要有三次握手：<br>(1) A发起连接，发送一个SYM数据包到B，进入SYN-SEND状态<br>(2) B收到SYN包，发送一个SYN+ACK数据包给A，进入SYN-RECV状态<br>(3) A收到ACK包，发送一个ACK数据包给B，进入ESTABLISHED状态，A可以在这一步直接发送数据<br>(4) B收到ACK包，进入ESTABLISHED状态</p>
-<p>在断开连接使需要有四次挥手：<br>(1) A发起断开连接请求，发送一个FIN数据包给B，进入FIN_WAIT_1状态<br>(2) B收到FIN包，返回一个ACK数据包给A，进入CLOSE_WAIT状态，此时断开了A到B的传输路径，但B依然可以发送数据给A<br>(3) 如果B没有数据要发送给A，B发送一个FIN数据包给A，进入LAST_ACK状态<br>(4) A收到FIN包，返回一个ACK数据包给B，进入TIME_WAIT状态，如果B没有再发送数据包过来，进入CLOSED状态<br>(5) B收到ACK包，进入CLOSED状态</p>
-<p>可以看到，无论是建立连接还是断开连接，本质上是在以发送-确认的方式建立一条双向传输通道。建立连接之所以只需要发送三次数据包，是因为B将发送SYN和ACK合并在一起了。所以问为什么要三次握手，四次挥手，可以看作是问为什么需要确认机制，其中为了提升效率确认和发送数据是可以同时进行的。为什么需要确认呢，如果对方不返回确认，我们就无法得知对方有没有收到我们发送的数据，无法得知对方收到我们发送的哪部分数据，也就无法实现重新发送缺失数据的功能，也就无法实现可靠传输了。可以将面向连接看作是实现可靠传输的一部分。</p>
-<h3 id="面向字节流"><a href="#面向字节流" class="headerlink" title="面向字节流"></a>面向字节流</h3><p>UDP是面向报文的，即应用层给什么数据，UDP原封不动就发送，应用层的数据边界在UDP是依然存在的。而TCP是面向字节流的，应用层的数据到了TCP层并不会直接就发送，TCP存在发送缓存和接收缓存，只有当数据填满了发送缓存才会发送，也只有数据填满了接收缓存才会接收。这种缓存机制可以大大节省网络资源，但也造成一个问题，就是粘包问题。粘包问题是指应用层的数据边界不再像使用UDP时那么明确，在TCP缓存中可能存在着若干个数据报文，而一个数据报文也可能因为缓存被拆分成了若干份。要解决粘包问题，需要在应用层给数据边界作标记，然后在应用层实现数据复原。</p>
-<h3 id="可靠传输"><a href="#可靠传输" class="headerlink" title="可靠传输"></a>可靠传输</h3><p>TCP提供可靠传输服务，除了面向连接以外，TCP还提供了字节序号，数据重传，数据校验，流量控制，拥塞控制等功能。<br>(1) TCP在确认应答机制中提供了字节序号的标识，通信双方可以依据这个标识知道自己发送了多少数据，哪些数据已被对方接收，也可以通过这个标识告诉对方我收到了你哪些数据<br>(2) 基于TCP的确认应答机制以及字节序号的标识，通信双方可以及时发现哪个数据包丢失，从而发起数据重传<br>(3) TCP头标识中有校验位，用来校验数据的正确性与完整性<br>(4) TCP维护了两个窗口，分别是发送窗口和接收窗口。发送窗口指向发送发送缓存，在发送窗口之前的字节表示已发送并被成功接收，在发送窗口中的字节表示已发送但未被接收，在发送窗口之后的字节表示还未发送。当收到对方的确认ACK时，如果表示发送窗口第一个数据包被确认接收，则发送窗口右移；如果不是发送窗口第一个数据包被确认，则表示第一个数据包可能丢失了，继续等待，直到收到ACK或发起数据重传。接收窗口也是类似的过程，只是接收窗口指向对方发送的字节，可以将接收窗口大小发送给对方，当自己收到对方的接收窗口时，如果窗口比较小，说明对方可以接收的字节不多，此时可以缩小自己的发送窗口，从而达到流量控制的效果。需要注意，流量控制是控制通信双方的字节发送速度。数据的有序性也是靠这两个窗口实现<br>(5) TCP还提供了拥塞控制的功能，拥塞控制旨在监控网络的整体情况，调整合适的数据包发送速度，避免造成网络拥塞。与流量控制不同，拥塞控制的目的是避免网络堵塞，是一个宏观的调整过程。拥塞控制有慢启动、拥塞避免、快速重传等措施。慢启动是指在发送初始阶段，TCP先发送一个数据包，往后每收到一个ACK确认就增加一个数据包发送数量，在一个往返时间内，形成指数增加的发送趋势。拥塞避免是指慢启动达到一定程度后，TCP在一个往返时间内，发送的数据包个数只增加一，不再是慢启阶段的指数增加。当发送方收到三个拥有相同字节序号的ACK时，说明这个字节序号的数据包可能丢失，此时发起数据重传，不用再等到超时再重传，这是快速重传过程。当出现三次相同ACK时，将当前发送数据包个数削减一半并进入拥塞避免阶段。当发生超时时，即在规定时间没有收到对应数据包的ACK时，此时网络的拥塞情况可能较严重，重新开始慢启动阶段并重新发送丢失的数据包</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在使用CNN处理图像时，如果我们使用人脸数据训练这么一个CNN，训练出来的CNN可以很好地识别人脸，但是如果我们改变人脸某些元素的位置，比如将一个眼睛和嘴巴调换位置，CNN依然会认为这是一张人脸。这是因为CNN是通过使用卷积核去识别关键特征，而在人脸中眼睛和嘴巴都是关键元素，所以即使它们互换位置，CNN也依然会认为这是一张人脸。如果我们想要让CNN可以识别这些位置错误的脸不是人脸，那就需要给CNN喂一些位置错误的脸，并告诉CNN这不是一张人脸，这样训练出来的CNN才能识别出位置错误的脸不是人脸。我们可以发现，CNN不能从一张正常人脸中学习到眼睛和嘴巴的相对位置关系，除了相对位置关系，其实还有很多很重要的信息是CNN不能捕获的，CNN只能捕获到关键元素是否存在的信息而不能捕获到关键元素之间更多的联系信息。CNN利用池化层扩大了感受野，也减弱了因旋转和平移等因素对图像识别造成的影响，但也因此丢失了关键元素之间的相对位置信息。胶囊网络的提出就是为了让模型可以既捕获关键元素的信息，也可以捕获关键元素之间的联系信息。</p>
+<h2 id="胶囊网络"><a href="#胶囊网络" class="headerlink" title="胶囊网络"></a>胶囊网络</h2><h3 id="胶囊"><a href="#胶囊" class="headerlink" title="胶囊"></a>胶囊</h3><p>在常用的神经网络中，使用神经元来接收信号并产生信号，神经元的输入是上一层神经元的输出，神经元的输出是一个常数，可以表示为下面的式子：</p>
+<script type="math/tex; mode=display">h^{l+1}=\sigma(W_lh^l)</script><p>其中$h^l$表示第$l$层的神经元的输出，$W_l$表示模型从第$l$层到$l+1$层的参数矩阵，可以看到每一层的输出都是一个向量，向量的每一个元素表示神经元的输出，即神经元产生的信号是常数。</p>
+<p>胶囊和神经元最大的不同是胶囊产生的信号是向量而不是常数，向量的模表示产生的信号强弱而向量的方向表示信号的属性。原来的神经元输出信号强度，值越大说明关键元素存在概率越高；而胶囊输出信号强度和属性，不仅能够说明关键元素的存在概率，还能说明关键元素的一个具体方位等信息。那么一层胶囊的信号输出如何传递给下一层胶囊，得到下一层胶囊的信号输出呢，这时候就需要使用到动态路由。</p>
+<h3 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h3><p>常用神经网络的激活函数都是针对处理常量设计的，现在胶囊的输入输出信号都是向量，所以需要一个处理向量的激活函数，这个激活函数如下：</p>
+<script type="math/tex; mode=display">v=squash(s) = \frac{|s|^2}{|s|^2+1}\frac{s}{|s|}</script><p>利用向量的模，将输出信号的模压缩到$[0,1)$范围之间。</p>
+<h3 id="动态路由"><a href="#动态路由" class="headerlink" title="动态路由"></a>动态路由</h3><p>动态路由其实就是胶囊之间的信号传递，我们知道在常用的神经网络中，神经元与神经元之间的联系是使用一个参数控制的，比如上一层第$i$个神经元和下一层第$j$个神经元之间的联系是$W_{i,j}$。同样地，上一层第$i$个胶囊和下一层第$j$个胶囊之间的联系也可以使用$W_{i,j}$表示，只是$W_{i,j}$不再是一个数，而是一个矩阵，通过矩阵变换将上一层的胶囊的向量变换到下一层的胶囊的向量形式，即完成空间转换，我们可以用下式表示：</p>
+<script type="math/tex; mode=display">u_{j|i}=W_{i,j}^lv_i^l</script><p>其中$u_{j|i}$是第$l$层第$i$个胶囊要传递给$l+1$层第$j$个胶囊的信号，是一个向量。然后对于下一层每个胶囊的输出信号，通过对上一层各个胶囊针对这个胶囊的输出进行加权求和，即：</p>
+<script type="math/tex; mode=display">v_j^{l+1}=squash(s_j^{l+1})</script><script type="math/tex; mode=display">s_j^{l+1}=\sum_ic_{i,j}u_{j|i}</script><script type="math/tex; mode=display">c_{i,j}=\frac{exp(b_{i,j})}{\sum_iexp(b_{i,j})}</script><p>可以看到上一层各个胶囊关于当前层当前胶囊的权重之和等于1，而且权重$c_{i,j}$和$b_{i,j}$相关。那么$b_{i,j}$又是什么呢，$b_{i,j}$初始时全部等于0，即相当于对于当前层各个胶囊，是对上一层的所有胶囊针对这个胶囊的输出取平均。取平均后会得到一个输出信号，这个输出的方向会和上一层某个胶囊针对这个胶囊的输出相似，增大相似胶囊的权重，减小不相似胶囊的权重。度量两个向量是否相似，可以使用内积，所以$b_{i,j}$的更新式子如下：</p>
+<script type="math/tex; mode=display">b_{i,j}=b_{i,j}+u_{j|i}\cdot v_j^{l+1}</script><p>迭代上式达到一定次数（一般是三次），就可以得到$b_{i,j}$，从而得到下一层胶囊的输出$v_j^{l+1}$。在求$b_{i,j}$的过程，初始时是设置上一层各个胶囊的输出的权重相同，然后通过不断修正，一些胶囊的输出得到较大激励，从而使得上一层某些胶囊在下一层的某些胶囊中发挥主要作用，从而完成胶囊之间的信号传递，完成动态路由过程。</p>
 
     </div>
 
@@ -265,15 +267,17 @@
           
         
         <div class="post-tags">
-            <a href="/tags/计算机基础/" rel="tag"># 计算机基础</a>
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
-            <a href="/tags/计算机网络/" rel="tag"># 计算机网络</a>
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+          
+            <a href="/tags/CV/" rel="tag"># CV</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/27/牛顿法和拟牛顿法/" rel="next" title="牛顿法和拟牛顿法">
-                <i class="fa fa-chevron-left"></i> 牛顿法和拟牛顿法
+              <a href="/2020/04/07/图神经网络（三）可微池化/" rel="next" title="图神经网络（三）可微池化">
+                <i class="fa fa-chevron-left"></i> 图神经网络（三）可微池化
               </a>
             
           </div>
@@ -281,10 +285,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/29/Transformer原理/" rel="prev" title="Transformer原理">
-                Transformer原理 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -402,7 +402,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-IP模型"><span class="nav-number">1.</span> <span class="nav-text">TCP/IP模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UDP"><span class="nav-number">2.</span> <span class="nav-text">UDP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP"><span class="nav-number">3.</span> <span class="nav-text">TCP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#面向连接"><span class="nav-number">3.1.</span> <span class="nav-text">面向连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向字节流"><span class="nav-number">3.2.</span> <span class="nav-text">面向字节流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可靠传输"><span class="nav-number">3.3.</span> <span class="nav-text">可靠传输</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#胶囊网络"><span class="nav-number">2.</span> <span class="nav-text">胶囊网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#胶囊"><span class="nav-number">2.1.</span> <span class="nav-text">胶囊</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#激活函数"><span class="nav-number">2.2.</span> <span class="nav-text">激活函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态路由"><span class="nav-number">2.3.</span> <span class="nav-text">动态路由</span></a></li></ol></li></ol></div>
             
 
           </div>
