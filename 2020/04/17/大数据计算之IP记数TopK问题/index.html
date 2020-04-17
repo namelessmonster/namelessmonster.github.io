@@ -57,14 +57,19 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/tags/机器学习/page/5/index.html">
+  <meta name="description" content="问题描述在多台机器上有海量的IP数据，现在需要利用这些机器的IP数据找出数量排在Top K的IP地址。 解决方法解决步骤如下：(1) 利用哈希将各个机器的IP数据映射到各个机器，使得相同的IP在同一个机器中(2) 在单机下再利用若干次哈希将IP映射到各个桶，稀释各个桶的不同IP数量(3) 对每个桶，得到桶内所有IP地址的出现次数，将结果保留到一个文件(4) 所有桶统计完后，在结果文件中找出出现次数">
+<meta name="keywords" content="大数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据计算之IP记数TopK问题">
+<meta property="og:url" content="http://yoursite.com/2020/04/17/大数据计算之IP记数TopK问题/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="问题描述在多台机器上有海量的IP数据，现在需要利用这些机器的IP数据找出数量排在Top K的IP地址。 解决方法解决步骤如下：(1) 利用哈希将各个机器的IP数据映射到各个机器，使得相同的IP在同一个机器中(2) 在单机下再利用若干次哈希将IP映射到各个桶，稀释各个桶的不同IP数量(3) 对每个桶，得到桶内所有IP地址的出现次数，将结果保留到一个文件(4) 所有桶统计完后，在结果文件中找出出现次数">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-04-17T06:23:43.077Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-  <link rel="canonical" href="http://yoursite.com/tags/机器学习/page/5/">
+<meta name="twitter:title" content="大数据计算之IP记数TopK问题">
+<meta name="twitter:description" content="问题描述在多台机器上有海量的IP数据，现在需要利用这些机器的IP数据找出数量排在Top K的IP地址。 解决方法解决步骤如下：(1) 利用哈希将各个机器的IP数据映射到各个机器，使得相同的IP在同一个机器中(2) 在单机下再利用若干次哈希将IP映射到各个桶，稀释各个桶的不同IP数量(3) 对每个桶，得到桶内所有IP地址的出现次数，将结果保留到一个文件(4) 所有桶统计完后，在结果文件中找出出现次数">
+  <link rel="canonical" href="http://yoursite.com/2020/04/17/大数据计算之IP记数TopK问题/">
 
 
 <script id="page.configurations">
@@ -73,7 +78,7 @@
   };
 </script>
 
-  <title>标签: 机器学习 | Hexo</title>
+  <title>大数据计算之IP记数TopK问题 | Hexo</title>
   
 
 
@@ -112,7 +117,7 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -177,317 +182,112 @@
         <div class="content-wrap">
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block tag">
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/17/大数据计算之IP记数TopK问题/">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>机器学习<small>标签</small>
-        </h1>
-      </div>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="huangshh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">大数据计算之IP记数TopK问题
+
+              
+            
+          </h1>
         
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/13/word2vec原理/" itemprop="url">
+              
+                
+              
+
+              <time title="创建时间：2020-04-17 14:03:56 / 修改时间：14:23:43" itemprop="dateCreated datePublished" datetime="2020-04-17T14:03:56+08:00">2020-04-17</time>
+            </span>
+          
             
-              <span itemprop="name">word2vec原理</span>
+
             
-          </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-13T14:18:07+08:00"
-              content="2020-02-13">
-          02-13
-        </time>
-      </div>
+          <br>
 
-    </header>
-  </article>
+        </div>
+      </header>
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在多台机器上有海量的IP数据，现在需要利用这些机器的IP数据找出数量排在Top K的IP地址。</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>解决步骤如下：<br>(1) 利用哈希将各个机器的IP数据映射到各个机器，使得相同的IP在同一个机器中<br>(2) 在单机下再利用若干次哈希将IP映射到各个桶，稀释各个桶的不同IP数量<br>(3) 对每个桶，得到桶内所有IP地址的出现次数，将结果保留到一个文件<br>(4) 所有桶统计完后，在结果文件中找出出现次数Top K的IP地址，将这些IP地址和出现次数发送到中心机器<br>(5) 在中心机器中，汇总各台机器的Top K，统计出全局Top K</p>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/12/Kmeans数学原理/" itemprop="url">
-            
-              <span itemprop="name">Kmeans数学原理</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-12T22:19:59+08:00"
-              content="2020-02-12">
-          02-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/12/CRF-条件随机场/" itemprop="url">
-            
-              <span itemprop="name">CRF-条件随机场</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-12T11:35:23+08:00"
-              content="2020-02-12">
-          02-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/11/HMM-隐马尔可夫模型/" itemprop="url">
-            
-              <span itemprop="name">HMM-隐马尔可夫模型</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-11T16:10:21+08:00"
-              content="2020-02-11">
-          02-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/11/LDA主题模型/" itemprop="url">
-            
-              <span itemprop="name">LDA主题模型</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-11T12:40:38+08:00"
-              content="2020-02-11">
-          02-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/10/L1和L2正则化/" itemprop="url">
-            
-              <span itemprop="name">L1和L2正则化</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-10T15:25:08+08:00"
-              content="2020-02-10">
-          02-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/10/优化器原理/" itemprop="url">
-            
-              <span itemprop="name">优化器原理</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-10T13:14:47+08:00"
-              content="2020-02-10">
-          02-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/09/GBDT和Xgboost/" itemprop="url">
-            
-              <span itemprop="name">GBDT、Xgboost和LightGBM</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-09T11:43:16+08:00"
-              content="2020-02-09">
-          02-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/08/图卷积神经网络初探/" itemprop="url">
-            
-              <span itemprop="name">图卷积神经网络初探</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-08T20:11:50+08:00"
-              content="2020-02-08">
-          02-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/08/谱聚类算法原理/" itemprop="url">
-            
-              <span itemprop="name">谱聚类算法原理</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-02-08T14:42:07+08:00"
-              content="2020-02-08">
-          02-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
     </div>
 
+    
+    
+    
+
+    <footer class="post-footer">
+          
+        
+        <div class="post-tags">
+            <a href="/tags/大数据/" rel="tag"># 大数据</a>
+          
+        </div>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+              <a href="/2020/04/07/胶囊网络/" rel="next" title="胶囊网络">
+                <i class="fa fa-chevron-left"></i> 胶囊网络
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+          </div>
+        </div>
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/tags/机器学习/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/tags/机器学习/">1</a><span class="space">&hellip;</span><a class="page-number" href="/tags/机器学习/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/tags/机器学习/page/6/">6</a><a class="extend next" rel="next" href="/tags/机器学习/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
+  </div>
 
 
           </div>
           
+
 
         </div>
           
@@ -502,8 +302,17 @@
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -571,6 +380,23 @@
 
         </div>
       </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方法"><span class="nav-number">2.</span> <span class="nav-text">解决方法</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
     </div>
   </aside>
@@ -627,8 +453,67 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
 
-  <script src="/js/next-boot.js?v=7.3.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+
+
+  <script src="/js/next-boot.js?v=7.3.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+  
+    
+      <script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -647,17 +532,7 @@
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
 
-  
-
-  
-
-  
-
-
-  
-
-
-
+    
   
 
 
