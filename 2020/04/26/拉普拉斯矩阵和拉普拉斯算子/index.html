@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="SimRank算法一般而言，我们可以将用户和物品看作一张二部图，用户在一侧，物品在另一侧。有一个很简单的策略，如果两个用户连接的物品越相似，则这两个用户越相似。同样的，如果两个物品连接的用户越相似，则这两个物品就越相似。也就是说相似性是可以传递的。所以可以列出式子如下： s(a,b)=\begin{cases} 1,a=b\\0,I(a)=\emptyset\ or\ I(b)=\emptyset">
-<meta name="keywords" content="机器学习,推荐系统">
+  <meta name="description" content="前言我们经常可以看到某些算法使用到拉普拉斯矩阵，比如在谱聚类算法中用到拉普拉斯矩阵，在图卷积神经网络中用到拉普拉斯矩阵等等。为什么会用到拉普拉斯矩阵呢，拉普拉斯矩阵的作用及意义是什么，其实这些都和拉普拉斯算子的作用及意义有关。 拉普拉斯算子在介绍拉普拉斯矩阵之前，先介绍一下拉普拉斯算子。拉普拉斯算子有以下形式： \Delta=\sum_{i}\frac{\partial^2}{\partial x">
+<meta name="keywords" content="数学基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="推荐系统之SimRank算法">
-<meta property="og:url" content="http://yoursite.com/2020/03/19/推荐系统之SimRank算法/index.html">
+<meta property="og:title" content="拉普拉斯矩阵和拉普拉斯算子">
+<meta property="og:url" content="http://yoursite.com/2020/04/26/拉普拉斯矩阵和拉普拉斯算子/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="SimRank算法一般而言，我们可以将用户和物品看作一张二部图，用户在一侧，物品在另一侧。有一个很简单的策略，如果两个用户连接的物品越相似，则这两个用户越相似。同样的，如果两个物品连接的用户越相似，则这两个物品就越相似。也就是说相似性是可以传递的。所以可以列出式子如下： s(a,b)=\begin{cases} 1,a=b\\0,I(a)=\emptyset\ or\ I(b)=\emptyset">
+<meta property="og:description" content="前言我们经常可以看到某些算法使用到拉普拉斯矩阵，比如在谱聚类算法中用到拉普拉斯矩阵，在图卷积神经网络中用到拉普拉斯矩阵等等。为什么会用到拉普拉斯矩阵呢，拉普拉斯矩阵的作用及意义是什么，其实这些都和拉普拉斯算子的作用及意义有关。 拉普拉斯算子在介绍拉普拉斯矩阵之前，先介绍一下拉普拉斯算子。拉普拉斯算子有以下形式： \Delta=\sum_{i}\frac{\partial^2}{\partial x">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-19T10:09:38.242Z">
+<meta property="og:updated_time" content="2020-04-26T04:32:42.878Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="推荐系统之SimRank算法">
-<meta name="twitter:description" content="SimRank算法一般而言，我们可以将用户和物品看作一张二部图，用户在一侧，物品在另一侧。有一个很简单的策略，如果两个用户连接的物品越相似，则这两个用户越相似。同样的，如果两个物品连接的用户越相似，则这两个物品就越相似。也就是说相似性是可以传递的。所以可以列出式子如下： s(a,b)=\begin{cases} 1,a=b\\0,I(a)=\emptyset\ or\ I(b)=\emptyset">
-  <link rel="canonical" href="http://yoursite.com/2020/03/19/推荐系统之SimRank算法/">
+<meta name="twitter:title" content="拉普拉斯矩阵和拉普拉斯算子">
+<meta name="twitter:description" content="前言我们经常可以看到某些算法使用到拉普拉斯矩阵，比如在谱聚类算法中用到拉普拉斯矩阵，在图卷积神经网络中用到拉普拉斯矩阵等等。为什么会用到拉普拉斯矩阵呢，拉普拉斯矩阵的作用及意义是什么，其实这些都和拉普拉斯算子的作用及意义有关。 拉普拉斯算子在介绍拉普拉斯矩阵之前，先介绍一下拉普拉斯算子。拉普拉斯算子有以下形式： \Delta=\sum_{i}\frac{\partial^2}{\partial x">
+  <link rel="canonical" href="http://yoursite.com/2020/04/26/拉普拉斯矩阵和拉普拉斯算子/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>推荐系统之SimRank算法 | Hexo</title>
+  <title>拉普拉斯矩阵和拉普拉斯算子 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/19/推荐系统之SimRank算法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/26/拉普拉斯矩阵和拉普拉斯算子/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">推荐系统之SimRank算法
+          <h1 class="post-title" itemprop="name headline">拉普拉斯矩阵和拉普拉斯算子
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-03-19 17:25:39 / 修改时间：18:09:38" itemprop="dateCreated datePublished" datetime="2020-03-19T17:25:39+08:00">2020-03-19</time>
+              <time title="创建时间：2020-04-26 11:38:06 / 修改时间：12:32:42" itemprop="dateCreated datePublished" datetime="2020-04-26T11:38:06+08:00">2020-04-26</time>
             </span>
           
             
@@ -246,10 +246,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="SimRank算法"><a href="#SimRank算法" class="headerlink" title="SimRank算法"></a>SimRank算法</h2><p>一般而言，我们可以将用户和物品看作一张二部图，用户在一侧，物品在另一侧。有一个很简单的策略，如果两个用户连接的物品越相似，则这两个用户越相似。同样的，如果两个物品连接的用户越相似，则这两个物品就越相似。也就是说相似性是可以传递的。所以可以列出式子如下：</p>
-<script type="math/tex; mode=display">s(a,b)=\begin{cases} 1,a=b\\0,I(a)=\emptyset\ or\ I(b)=\emptyset\\\frac{C}{|I(a)||I(b)|}\sum_{i\in I(a)}\sum_{j\in I(b)}w_{a,i}s(i,j)w_{b,j} \end{cases}</script><p>其中，$I(a)$表示与$a$相连的二部图另一侧的节点的边权集合，$I(b)$表示与$b$相连的二部图另一侧的节点的边权集合，$|I(a)|$或$|I(b)|$表示集合边权和，$a$和$b$是在二部图同一侧的，$w_{a,i}$表示$a$和$i$的边权，$w_{b,j}$表示$b$和$j$的边权。对于第三种情况，假设二部图的边权都归一化了，有以下式子：</p>
-<script type="math/tex; mode=display">s(a,b)=Cw_a^T\{\sum_{i}\sum_{j}s(i,j)\}w_b=w_a^TSw_b</script><p>假设$S$表示相似度矩阵，则有以下递推式：</p>
-<script type="math/tex; mode=display">S_0=I</script><script type="math/tex; mode=display">S_k=\max\{CW^TS_{k-1}W,I\}</script><p>有一个求max的步骤，这么做是为了维护对角元素相似度为1的性质。可以证明，当$W$和$S$所有数都大于等于0小于等于1，$W$每列元素和小于等于1时，$W^TSW$的所有元素均大于等于0小于等于1，所以取和单位矩阵的最大值可以维护对角元素值为1的性质。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我们经常可以看到某些算法使用到拉普拉斯矩阵，比如在谱聚类算法中用到拉普拉斯矩阵，在图卷积神经网络中用到拉普拉斯矩阵等等。为什么会用到拉普拉斯矩阵呢，拉普拉斯矩阵的作用及意义是什么，其实这些都和拉普拉斯算子的作用及意义有关。</p>
+<h2 id="拉普拉斯算子"><a href="#拉普拉斯算子" class="headerlink" title="拉普拉斯算子"></a>拉普拉斯算子</h2><p>在介绍拉普拉斯矩阵之前，先介绍一下拉普拉斯算子。拉普拉斯算子有以下形式：</p>
+<script type="math/tex; mode=display">\Delta=\sum_{i}\frac{\partial^2}{\partial x_i^2}</script><p>也就是说拉普拉斯算子是求函数关于参数的二阶梯度。形式上是求二阶梯度，其实本质是求散度。什么是散度呢？在标量场上，我们可以求得梯度，而在向量上，我们可以求得散度。在向量场上，每个点都有一个向量，如果我们在这个场上取一个封闭的单位元，比如在三维空间中就是球体，在二维空间中就是圆，然后使用下面的公式计算单位元表面的积分：</p>
+<script type="math/tex; mode=display">\lim_{S\rightarrow 0}\frac{1}{S}\int_s \overrightarrow{v}\cdot\overrightarrow{n}\ ds</script><p>这个积分就是表示散度。而拉普拉斯算子就是首先计算标量函数的梯度，然后再计算梯度的散度，写成的形式就是二阶梯度的形式，但散度是一个标量而不是一个向量。求散度有什么意义呢，对于一个函数，我们知道，在极大值处散度是负的，因为梯度是向内吸收，而在极小处是正的，因为梯度是向外发散，而对于一般的情况，散度可以表示梯度的变化情况，散度为负表示梯度减小，散度为正表示梯度增大。</p>
+<h2 id="拉普拉斯矩阵"><a href="#拉普拉斯矩阵" class="headerlink" title="拉普拉斯矩阵"></a>拉普拉斯矩阵</h2><p>拉普拉斯矩阵其实本质和拉普拉斯算子一样，都是为了求散度。在图结构的数据中，我们可以给图的节点定义一个函数$F$，表示将节点映射到一个值。有了函数，我们就可以定义梯度，在原来的函数梯度定义中，我们有：</p>
+<script type="math/tex; mode=display">f'(x)=\frac{\partial f(x)}{\partial x}</script><p>这条式子的分子处表示函数的增量，分母处表示$x$和领域的增量。在图中，我们可以类比，节点的领域就是图中和该节点相邻的节点，所以函数增量和领域距离都可以得到了，这样就可以求出关于节点的函数的梯度了，有下面的式子：</p>
+<script type="math/tex; mode=display">F'(b|a)=\frac{F(b)-F(a)}{d_{a,b}}</script><p>上面的式子是求从节点$a$到节点$b$这条边求梯度，$d_{a,b}$表示这条边的距离，一般我们用权重的倒数表示距离。得到了梯度，求散度就很容易了，将向外的边的梯度加上减去向内的边的梯度就可以得到散度了。对于函数$F$，图的邻接矩阵是$A$，将上面求散度的步骤压缩，最终可以得到这条式子：</p>
+<script type="math/tex; mode=display">\Delta F=LF</script><p>上面式子中，$L$就是拉普拉斯矩阵，$\Delta F$是函数$F$在各个节点的散度。在无向图中，拉普拉斯矩阵的计算有下式：</p>
+<script type="math/tex; mode=display">L=D-A</script><p>其中$D$是对角矩阵，对角值是对应节点的边权重和。</p>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>在求谱分解时，用到了拉普拉斯矩阵瑞丽熵的解；在图卷积神经网络中，通过类比拉普拉斯算子，傅里叶变换的基函数是拉普拉斯算子的特征函数，可以作为新的基底将变量从空间域转换到频域，在图中，将向量转换到拉普拉斯矩阵的特征向量作为基底的空间。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://zhuanlan.zhihu.com/p/67336297" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/67336297</a></p>
 
     </div>
 
@@ -261,15 +268,13 @@
           
         
         <div class="post-tags">
-            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
-          
-            <a href="/tags/推荐系统/" rel="tag"># 推荐系统</a>
+            <a href="/tags/数学基础/" rel="tag"># 数学基础</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/03/18/推荐系统之矩阵分解/" rel="next" title="推荐系统之矩阵分解">
-                <i class="fa fa-chevron-left"></i> 推荐系统之矩阵分解
+              <a href="/2020/04/23/进程通信——共享内存/" rel="next" title="进程通信——共享内存">
+                <i class="fa fa-chevron-left"></i> 进程通信——共享内存
               </a>
             
           </div>
@@ -277,10 +282,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/03/21/推荐系统之深度兴趣网络（DIN）/" rel="prev" title="推荐系统之深度兴趣网络（DIN）">
-                推荐系统之深度兴趣网络（DIN） <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -400,7 +401,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SimRank算法"><span class="nav-number">1.</span> <span class="nav-text">SimRank算法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拉普拉斯算子"><span class="nav-number">2.</span> <span class="nav-text">拉普拉斯算子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拉普拉斯矩阵"><span class="nav-number">3.</span> <span class="nav-text">拉普拉斯矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用"><span class="nav-number">4.</span> <span class="nav-text">应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
