@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="综述在基于策略的模型中，使用多条采样路径的平均收益近似得到基准线，这种近似方法会使得方差较大，这里的方差是指用平均数近似期望的方差，而且要求每次更新参数都需要采样数量较多的路径，无法实现单次更新或单步更新；在基于值函数的模型中，需要对所有动作的期望收益求最大值来得到一个策略，这种方法当动作空间很大时不好操作，不易得到。在使用基于值函数的模型时，如果要评价一个状态一个动作，有以下式子： Q(s,a)">
-<meta name="keywords" content="机器学习,深度学习,强化学习">
+  <meta name="description" content="背景对于任意多边形我们总能将其划分成若干三角形组成，比如一个四边形可以划分成两个三角形，一个六边形可以划分成四个三角形。将多边形划分成若干三角形称为三角剖分。一个多边形有许多种三角剖分的方案，其中有一种三角剖分称为Delaunay三角剖分。Delaunay三角剖分具有这些性质：(1) Delaunay三角剖分所形成的三角形中，最小的内角是所有三角剖分中最大的。这个性质表明，Delaunay三角剖分">
+<meta name="keywords" content="计算几何">
 <meta property="og:type" content="article">
-<meta property="og:title" content="强化学习（五）actor-critic">
-<meta property="og:url" content="http://yoursite.com/2020/03/23/强化学习（五）actor-critic/index.html">
+<meta property="og:title" content="Delaunay三角剖分">
+<meta property="og:url" content="http://yoursite.com/2020/04/28/Delaunay三角剖分/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="综述在基于策略的模型中，使用多条采样路径的平均收益近似得到基准线，这种近似方法会使得方差较大，这里的方差是指用平均数近似期望的方差，而且要求每次更新参数都需要采样数量较多的路径，无法实现单次更新或单步更新；在基于值函数的模型中，需要对所有动作的期望收益求最大值来得到一个策略，这种方法当动作空间很大时不好操作，不易得到。在使用基于值函数的模型时，如果要评价一个状态一个动作，有以下式子： Q(s,a)">
+<meta property="og:description" content="背景对于任意多边形我们总能将其划分成若干三角形组成，比如一个四边形可以划分成两个三角形，一个六边形可以划分成四个三角形。将多边形划分成若干三角形称为三角剖分。一个多边形有许多种三角剖分的方案，其中有一种三角剖分称为Delaunay三角剖分。Delaunay三角剖分具有这些性质：(1) Delaunay三角剖分所形成的三角形中，最小的内角是所有三角剖分中最大的。这个性质表明，Delaunay三角剖分">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-24T03:59:49.160Z">
+<meta property="og:updated_time" content="2020-04-28T10:42:53.304Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="强化学习（五）actor-critic">
-<meta name="twitter:description" content="综述在基于策略的模型中，使用多条采样路径的平均收益近似得到基准线，这种近似方法会使得方差较大，这里的方差是指用平均数近似期望的方差，而且要求每次更新参数都需要采样数量较多的路径，无法实现单次更新或单步更新；在基于值函数的模型中，需要对所有动作的期望收益求最大值来得到一个策略，这种方法当动作空间很大时不好操作，不易得到。在使用基于值函数的模型时，如果要评价一个状态一个动作，有以下式子： Q(s,a)">
-  <link rel="canonical" href="http://yoursite.com/2020/03/23/强化学习（五）actor-critic/">
+<meta name="twitter:title" content="Delaunay三角剖分">
+<meta name="twitter:description" content="背景对于任意多边形我们总能将其划分成若干三角形组成，比如一个四边形可以划分成两个三角形，一个六边形可以划分成四个三角形。将多边形划分成若干三角形称为三角剖分。一个多边形有许多种三角剖分的方案，其中有一种三角剖分称为Delaunay三角剖分。Delaunay三角剖分具有这些性质：(1) Delaunay三角剖分所形成的三角形中，最小的内角是所有三角剖分中最大的。这个性质表明，Delaunay三角剖分">
+  <link rel="canonical" href="http://yoursite.com/2020/04/28/Delaunay三角剖分/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>强化学习（五）actor-critic | Hexo</title>
+  <title>Delaunay三角剖分 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/23/强化学习（五）actor-critic/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/28/Delaunay三角剖分/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">强化学习（五）actor-critic
+          <h1 class="post-title" itemprop="name headline">Delaunay三角剖分
 
               
             
@@ -227,21 +227,11 @@
                 
               
 
-              <time title="创建时间：2020-03-23 10:36:16" itemprop="dateCreated datePublished" datetime="2020-03-23T10:36:16+08:00">2020-03-23</time>
+              <time title="创建时间：2020-04-28 18:21:18 / 修改时间：18:42:53" itemprop="dateCreated datePublished" datetime="2020-04-28T18:21:18+08:00">2020-04-28</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-03-24 11:59:49" itemprop="dateModified" datetime="2020-03-24T11:59:49+08:00">2020-03-24</time>
-              </span>
             
           
 
@@ -256,18 +246,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>在基于策略的模型中，使用多条采样路径的平均收益近似得到基准线，这种近似方法会使得方差较大，这里的方差是指用平均数近似期望的方差，而且要求每次更新参数都需要采样数量较多的路径，无法实现单次更新或单步更新；在基于值函数的模型中，需要对所有动作的期望收益求最大值来得到一个策略，这种方法当动作空间很大时不好操作，不易得到。在使用基于值函数的模型时，如果要评价一个状态一个动作，有以下式子：</p>
-<script type="math/tex; mode=display">Q(s,a)=R(s,a)+\gamma E[V(s')]</script><p>其中，$V(s’)$是指下一个状态的期望收益，$E[V(s’)]$是指在状态$s$执行动作$a$后下一步的期望收益。在使用基于策略的模型时，对于特定状态，选择特定动作的期望收益是：</p>
-<script type="math/tex; mode=display">U_{\theta}(s,a)=P_{\theta}(s,a)(Q(s,a)-b)</script><p>其中，$P_{\theta}(s,a)$是策略网络，$Q(s,a)$是通过蒙特卡洛方法去近似得到的，$b$是基准线，一般使用期望$V(s)$表示，用来区分动作的相对好坏。如果$Q(s,a)-b\gt 0$，则调整参数增大$P_{\theta}(s,a)$；如果$Q(s,a)-b\lt 0$，则调整参数减小$P_{\theta}(s,a)$。actor-critic方法就是结合了基于值函数的模型与基于策略的模型，充分运用两者的优点，提升模型的效果。这种方法使得策略的更新不再需要采样多条路径求平均得到基准线$b$，只需要通过critic得到$V(s)$，使用$V(s)$近似$b$；使得值函数的更新不再需要对所有动作的期望收益求最大值，只需要使用由actor提供的策略即可。</p>
-<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><h3 id="actor"><a href="#actor" class="headerlink" title="actor"></a>actor</h3><p>actor是策略选择者，使用到了基于策略的模型思想，为critic提供策略选择分布，与基于策略的模型不同的是，这里的actor不再使用蒙特卡洛方法去近似期望收益，而是利用critic提供的期望收益预测去更新自己的策略。</p>
-<h3 id="critic"><a href="#critic" class="headerlink" title="critic"></a>critic</h3><p>critic是值函数提供者，使用到了基于值函数的模型思想，为actor提供期望收益预测，与基于值函数的模型不同的是，这里的critic不再使用简单的值函数最大值作为策略选择的依据，而是利用actor提供的策略分布去选择策略更新自己的值函数。</p>
-<h3 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h3><p>actor利用下面的式子更新自己的参数$\theta$：</p>
-<script type="math/tex; mode=display">U_{\theta}(s,a)=P_{\theta}(s,a)(Q(s,a)-b)=P_{\theta}(s,a)(R(s,a)+\gamma V(s')-V(s))</script><p>其中，$V(s’)$和$V(s)$表示状态的期望收益，由critic提供。使用了当前状态的期望收益$V(s)$作为基准线，状态$s$和动作$a$的期望收益可以表示为$R(s,a)+\gamma V(s’)$。注意到这里使用$Q(s,a)$的单次采样结果代替期望，因为这里的强化学习都不是基于模型的，所以是无法确定随机变量$s’$的，只能通过蒙特卡洛去近似，当数据量很大时，我们认为多次$Q(s,a)$的采样可以近似得到其期望结果。</p>
-<p>critic利用下面的式子更新自己的参数$\omega$：</p>
-<script type="math/tex; mode=display">V_{\omega}^{new}(s)=V_{\omega}^{old}(s)+\alpha(R(s,a)+\gamma V_{\omega}^{old}(s')-V_{\omega}^{old}(s))</script><script type="math/tex; mode=display">e=(V_{\omega}^{new}(s)-V_{\omega}^{old}(s))^2=\alpha^2(R(s,a)+\gamma V_{\omega}(s')-V_{\omega}(s))^2</script><p>将$\alpha^2$融入学习率，得到：</p>
-<script type="math/tex; mode=display">e=(R(s,a)+\gamma V_{\omega}(s')-V_{\omega}(s))^2</script><p>通过求$e$关于$\omega$的梯度更新参数$\omega$。</p>
-<p>以上的工作流程是使用单步更新，即每次选取一个状态，通过actor提供的策略执行一个动作，得到一个新的状态，使用critic提供的值函数得到两个状态的期望收益，利用两个目标函数去更新参数。我们还可以使用单次更新，也就是一次采样一条完整的由初始状态到结束状态的状态路径，然后得到状态路径在各个时刻的收益$R_t(\tau)$，然后使用以下两个目标函数更新actor和critic的参数：</p>
-<script type="math/tex; mode=display">U_{\theta}(s_t,a_t)=P_{\theta}(s_t,a_t)(R_t(\tau)-V(s_t))</script><script type="math/tex; mode=display">e_t=(R_t(\tau)-V_{\omega}(s_t))^2</script><p>使用上面两个目标函数更新actor和critic的参数。</p>
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>对于任意多边形我们总能将其划分成若干三角形组成，比如一个四边形可以划分成两个三角形，一个六边形可以划分成四个三角形。将多边形划分成若干三角形称为三角剖分。一个多边形有许多种三角剖分的方案，其中有一种三角剖分称为Delaunay三角剖分。Delaunay三角剖分具有这些性质：<br>(1) Delaunay三角剖分所形成的三角形中，最小的内角是所有三角剖分中最大的。这个性质表明，Delaunay三角剖分将多边形分解成若干三角形，且这些三角形尽量都接近于等边三角形，这个性质在许多问题都有很大的应用。<br>(2) Delaunay三角剖分所形成的三角形，所有三角形的外接圆都不包含其他顶点，即任意四点不共圆，也叫空圆性质。这一性质保证了Delaunay三角剖分只有一种。<br>(3) 在一个Delaunay三角剖分中加入一个新的顶点，只需要删除所有外接圆包括新顶点的三角形，并连接新顶点与以该顶点为中心的多边形的各顶点，可以证明此时的三角剖分是加入新顶点后的点集的Delaunay三角剖分。</p>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>Delaunay三角剖分最经典使用最多的方法是增量法，利用到前面提到的第三个性质，主要有以下步骤：<br>(1) 生成一个包含所有点的大三角形<br>(2) 每次加入一个新顶点，去掉包含该顶点的外接圆的三角形，将该顶点与以该顶点为中心的多边形的各顶点连接<br>(3) 重复步骤2，直到加入点集所有点，将与初始大三角形相关的边去除，得到Delaunay三角剖分</p>
+<p>上述算法有一个优化的关键就是快速找到包含新顶点的外接圆的三角形，方法是初始时将所有点加入到大三角形，然后每次划分出新的三角剖分时，更新各个点集中各个点的归属，更新各个三角形中包含的点，比如将一个大三角形分成三个新的小三角形，则重新计算这个大三角形中的点的归属，将这些点具体归入到三个新的小三角形。在随机情况下，时间复杂度是$O(n\log n)$。</p>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>Delaunay三角剖分可以用于求二维平面点集最短距离点对或二维平面不同点集最短距离点对等等，最短距离点对包含在Delaunay三角剖分的某条边。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/ganbaoni9yang/article/details/50034065" target="_blank" rel="noopener">https://blog.csdn.net/ganbaoni9yang/article/details/50034065</a></p>
 
     </div>
 
@@ -279,17 +262,13 @@
           
         
         <div class="post-tags">
-            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
-          
-            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
-          
-            <a href="/tags/强化学习/" rel="tag"># 强化学习</a>
+            <a href="/tags/计算几何/" rel="tag"># 计算几何</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/03/22/强化学习（四）策略梯度/" rel="next" title="强化学习（四）策略梯度">
-                <i class="fa fa-chevron-left"></i> 强化学习（四）策略梯度
+              <a href="/2020/04/26/拉普拉斯矩阵和拉普拉斯算子/" rel="next" title="拉普拉斯矩阵和拉普拉斯算子">
+                <i class="fa fa-chevron-left"></i> 拉普拉斯矩阵和拉普拉斯算子
               </a>
             
           </div>
@@ -297,10 +276,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/03/27/常见激活函数/" rel="prev" title="常见激活函数">
-                常见激活函数 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -422,7 +397,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#综述"><span class="nav-number">1.</span> <span class="nav-text">综述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型"><span class="nav-number">2.</span> <span class="nav-text">模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#actor"><span class="nav-number">2.1.</span> <span class="nav-text">actor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#critic"><span class="nav-number">2.2.</span> <span class="nav-text">critic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作流程"><span class="nav-number">2.3.</span> <span class="nav-text">工作流程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-number">2.</span> <span class="nav-text">算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用"><span class="nav-number">3.</span> <span class="nav-text">应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
