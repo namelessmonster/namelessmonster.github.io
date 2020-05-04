@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="什么是数据归一化和标准化数据归一化和标准化主要目的是去除量纲对模型参数的学习与分析的影响。举个例子，有两个特征，一个特征的取值范围是[0,2]，另一个特征的取值范围是[0,5]，在计算两个特征的距离时，第一个特征从1到2的距离从数值上是小于第二个特征从4到5的距离，但是从占比看第一个特征从1到2跨越了50%而第二个特征从4到5只跨越了25%，显然应该是第一个特征的变化更显著。造成出现上述问题的原因">
+  <meta name="description" content="问题描述HMM模型是隐马尔科夫模型，是一个有向概率图模型，之前已经有一篇文章介绍这个模型，这篇文章主要介绍这个模型的参数学习问题。 解决方法HMM模型的参数学习，可以分为两个场景，一个是监督学习，另一个是无监督学习。 监督学习监督学习是指数据集的形式为一对一对隐状态序列和观测序列，直接对这个数据集进行统计，可以轻易得到状态转移矩阵和状态发射矩阵以及初始状态分布的参数。 无监督学习无监督学习是指数据">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据归一化和标准化">
-<meta property="og:url" content="http://yoursite.com/2020/03/13/数据归一化和标准化/index.html">
+<meta property="og:title" content="HMM模型参数学习">
+<meta property="og:url" content="http://yoursite.com/2020/05/04/HMM模型参数学习/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="什么是数据归一化和标准化数据归一化和标准化主要目的是去除量纲对模型参数的学习与分析的影响。举个例子，有两个特征，一个特征的取值范围是[0,2]，另一个特征的取值范围是[0,5]，在计算两个特征的距离时，第一个特征从1到2的距离从数值上是小于第二个特征从4到5的距离，但是从占比看第一个特征从1到2跨越了50%而第二个特征从4到5只跨越了25%，显然应该是第一个特征的变化更显著。造成出现上述问题的原因">
+<meta property="og:description" content="问题描述HMM模型是隐马尔科夫模型，是一个有向概率图模型，之前已经有一篇文章介绍这个模型，这篇文章主要介绍这个模型的参数学习问题。 解决方法HMM模型的参数学习，可以分为两个场景，一个是监督学习，另一个是无监督学习。 监督学习监督学习是指数据集的形式为一对一对隐状态序列和观测序列，直接对这个数据集进行统计，可以轻易得到状态转移矩阵和状态发射矩阵以及初始状态分布的参数。 无监督学习无监督学习是指数据">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-13T13:12:11.293Z">
+<meta property="og:updated_time" content="2020-05-04T05:17:59.351Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据归一化和标准化">
-<meta name="twitter:description" content="什么是数据归一化和标准化数据归一化和标准化主要目的是去除量纲对模型参数的学习与分析的影响。举个例子，有两个特征，一个特征的取值范围是[0,2]，另一个特征的取值范围是[0,5]，在计算两个特征的距离时，第一个特征从1到2的距离从数值上是小于第二个特征从4到5的距离，但是从占比看第一个特征从1到2跨越了50%而第二个特征从4到5只跨越了25%，显然应该是第一个特征的变化更显著。造成出现上述问题的原因">
-  <link rel="canonical" href="http://yoursite.com/2020/03/13/数据归一化和标准化/">
+<meta name="twitter:title" content="HMM模型参数学习">
+<meta name="twitter:description" content="问题描述HMM模型是隐马尔科夫模型，是一个有向概率图模型，之前已经有一篇文章介绍这个模型，这篇文章主要介绍这个模型的参数学习问题。 解决方法HMM模型的参数学习，可以分为两个场景，一个是监督学习，另一个是无监督学习。 监督学习监督学习是指数据集的形式为一对一对隐状态序列和观测序列，直接对这个数据集进行统计，可以轻易得到状态转移矩阵和状态发射矩阵以及初始状态分布的参数。 无监督学习无监督学习是指数据">
+  <link rel="canonical" href="http://yoursite.com/2020/05/04/HMM模型参数学习/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>数据归一化和标准化 | Hexo</title>
+  <title>HMM模型参数学习 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/13/数据归一化和标准化/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/04/HMM模型参数学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">数据归一化和标准化
+          <h1 class="post-title" itemprop="name headline">HMM模型参数学习
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-03-13 20:40:30 / 修改时间：21:12:11" itemprop="dateCreated datePublished" datetime="2020-03-13T20:40:30+08:00">2020-03-13</time>
+              <time title="创建时间：2020-05-04 12:17:21 / 修改时间：13:17:59" itemprop="dateCreated datePublished" datetime="2020-05-04T12:17:21+08:00">2020-05-04</time>
             </span>
           
             
@@ -246,11 +246,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="什么是数据归一化和标准化"><a href="#什么是数据归一化和标准化" class="headerlink" title="什么是数据归一化和标准化"></a>什么是数据归一化和标准化</h2><p>数据归一化和标准化主要目的是去除量纲对模型参数的学习与分析的影响。举个例子，有两个特征，一个特征的取值范围是[0,2]，另一个特征的取值范围是[0,5]，在计算两个特征的距离时，第一个特征从1到2的距离从数值上是小于第二个特征从4到5的距离，但是从占比看第一个特征从1到2跨越了50%而第二个特征从4到5只跨越了25%，显然应该是第一个特征的变化更显著。造成出现上述问题的原因就是不同特征之间的量纲不一致所导致的，所以一种很好的办法就是将每个特征的量纲统一。统一量纲有两种做法，第一种做法是将所有特征的取值范围压缩到[0,1]之间，第二种做法就是将所有特征的分布统一为均值为0方差为1。</p>
-<h3 id="压缩取值范围"><a href="#压缩取值范围" class="headerlink" title="压缩取值范围"></a>压缩取值范围</h3><p>压缩取值范围就是将取值范围压缩到[0,1]。每个特征的更新计算公示如下：</p>
-<script type="math/tex; mode=display">x_{new}=\frac{x_{old}-x_{min}}{x_{max}-x_{min}}</script><h3 id="统一分布"><a href="#统一分布" class="headerlink" title="统一分布"></a>统一分布</h3><p>统一分布就是将特征的分布统一为均值为0方差为1。每个特征的更新计算公示如下：</p>
-<script type="math/tex; mode=display">x_{new}=\frac{x_{old}-x_{mean}}{\sigma_x}</script><p>其中$\sigma_x$表示特征$x$的标准差。</p>
-<h2 id="为什么要进行数据归一化和标准化"><a href="#为什么要进行数据归一化和标准化" class="headerlink" title="为什么要进行数据归一化和标准化"></a>为什么要进行数据归一化和标准化</h2><p>将取值范围压缩到[0,1]或将分布同一为均值为0方差为1，可以避免多层模型的参数学习出现梯度爆炸的情况。在计算特征距离时能够从相对距离考虑而不是绝对距离。当一个模型可以复用但对应的数据集量纲不一样时，将不同数据集的量纲统一为相同取值范围或相同分布，可以实现模型复用且保持较好的效果。在模型参数学习时，不同量纲的特征会得到不同量纲的梯度，在相同的学习率下会导致不同程度的参数更新。在面对大量纲特征需要小量纲参数，小量纲特征需要大量纲参数的情况，或所有特征参数的量纲差不多时，可能会比较难收敛。对数据进行归一化和标准化可以改善模型参数的学习，加快模型参数的收敛。量纲不一致会导致模型参数的变化范围是一个扁长的椭圆，在这个椭圆上参数大概率会随着椭圆走“之”字型往最优参数靠近。而量纲一致能够使得参数的变化范围是一个正圆，在这个正圆上无论是哪个方向都能指着圆心往圆心直线靠近，这样参数也能够更快收敛。</p>
+        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>HMM模型是隐马尔科夫模型，是一个有向概率图模型，之前已经有一篇文章介绍这个模型，这篇文章主要介绍这个模型的参数学习问题。</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>HMM模型的参数学习，可以分为两个场景，一个是监督学习，另一个是无监督学习。</p>
+<h3 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h3><p>监督学习是指数据集的形式为一对一对隐状态序列和观测序列，直接对这个数据集进行统计，可以轻易得到状态转移矩阵和状态发射矩阵以及初始状态分布的参数。</p>
+<h3 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h3><p>无监督学习是指数据集的形式为一系列观测序列，没有观测序列对应的隐状态序列，这时候就需要求最大似然估计得到模型参数。我们可以列出似然式子：</p>
+<script type="math/tex; mode=display">\log P(O|\theta)=\log \sum_{I}P(O,I|\theta)=\log\sum_{I}Q_O(I)\frac{P(O,I|\theta)}{Q_O(I)}\ge\sum_{I}Q_O(I)\log\frac{P(O,I|\theta)}{Q_O(I)}</script><p>要使上面的不等式成立，需要有：</p>
+<script type="math/tex; mode=display">Q_O(I)=P(I|O,\theta)</script><p>所以参数更新的式子是要最大化下式（去掉了无关的常数项）：</p>
+<script type="math/tex; mode=display">f(\theta,\theta')=\sum_{I}P(I|O,\theta')\log P(O,I|\theta)</script><p>其中$\theta’$是指旧参数，$\theta$是指新参数。已知：</p>
+<script type="math/tex; mode=display">\log P(O,I|\theta)=\pi(I_0)+\sum_{t=1}^{n}a(I_t|I_{t-1})+\sum_{t=1}^{n}b(O_t|I_t)</script><p>其中$a$表示状态转移矩阵，$b$表示状态发射矩阵，$\pi$表示状态初始分布。将上式代入最大似然式子得到：</p>
+<script type="math/tex; mode=display">f(\theta,\theta')=\sum_I\{P(I|O,\theta')(\pi(I_0)+\sum_{t=1}^{n}a(I_t|I_{t-1})+\sum_{t=1}^{n}b(O_t|I_t))\}</script><p>现在我们将各个参数分解开来看，比如只看$a(s_i|s_j)$，则有：</p>
+<script type="math/tex; mode=display">\sum_{I\in H(s_i|s_j)}P(I|O,\theta)a(s_i|s_j)</script><p>其中$a(s_i|s_j)$表示从状态$s_j$转移到$s_i$，$H(s_i|s_j)$表示存在从$s_j$转移到$s_i$的隐状态序列集合。所以上面的式子本质是求隐状态序列存在从$s_j$转移到$s_i$的概率乘上参数$a(s_i|s_j)$的值，这个需求可以通过动态规划的前向后向方法进行统计，关于参数$a(s_i|s_j)$的梯度也可以很轻松求得，就是前面提到的概率值。以上就是关于对$a(s_i|s_j)$参数的求解，对于$b$和$\pi$的参数可以使用相同的方法求解，这里不再重复分析。通过求最大似然式子对参数的梯度，利用梯度更新参数，重复这个过程直到参数收敛，此时就可以得到最大似然估计的一个较优解。</p>
 
     </div>
 
@@ -267,8 +272,8 @@
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/03/07/变分自编码器（VAE）/" rel="next" title="变分自编码器（VAE）">
-                <i class="fa fa-chevron-left"></i> 变分自编码器（VAE）
+              <a href="/2020/04/28/Delaunay三角剖分/" rel="next" title="Delaunay三角剖分">
+                <i class="fa fa-chevron-left"></i> Delaunay三角剖分
               </a>
             
           </div>
@@ -276,10 +281,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/03/14/推荐系统之FM算法/" rel="prev" title="推荐系统之FM算法">
-                推荐系统之FM算法 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -401,7 +402,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是数据归一化和标准化"><span class="nav-number">1.</span> <span class="nav-text">什么是数据归一化和标准化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#压缩取值范围"><span class="nav-number">1.1.</span> <span class="nav-text">压缩取值范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#统一分布"><span class="nav-number">1.2.</span> <span class="nav-text">统一分布</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要进行数据归一化和标准化"><span class="nav-number">2.</span> <span class="nav-text">为什么要进行数据归一化和标准化</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方法"><span class="nav-number">2.</span> <span class="nav-text">解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#监督学习"><span class="nav-number">2.1.</span> <span class="nav-text">监督学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无监督学习"><span class="nav-number">2.2.</span> <span class="nav-text">无监督学习</span></a></li></ol></li></ol></div>
             
 
           </div>
