@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="SimRank算法一般而言，我们可以将用户和物品看作一张二部图，用户在一侧，物品在另一侧。有一个很简单的策略，如果两个用户连接的物品越相似，则这两个用户越相似。同样的，如果两个物品连接的用户越相似，则这两个物品就越相似。也就是说相似性是可以传递的。所以可以列出式子如下： s(a,b)=\begin{cases} 1,a=b\\0,I(a)=\emptyset\ or\ I(b)=\emptyset">
-<meta name="keywords" content="机器学习,推荐系统">
+  <meta name="description" content="二项分布泊松分布是由二项分布推导得到的。假设一个事件的发生概率为$p$，则不发生的概率为$1-p$，独立测试$n$次，则发生$k$次的概率为： P(n,k,p)=C_n^k\cdot p^k(1-p)^{n-k}上式就是二项分布的概率函数，二项分布的期望和方差可以很容易推导得到分别是$np$和$np(1-p)$。 泊松分布泊松分布是关于一段时间内事件发生次数的概率密度函数。首先我们可以任意设定一段">
+<meta name="keywords" content="数学基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="推荐系统之SimRank算法">
-<meta property="og:url" content="http://yoursite.com/2020/03/19/推荐系统之SimRank算法/index.html">
+<meta property="og:title" content="泊松分布和指数分布">
+<meta property="og:url" content="http://yoursite.com/2020/05/05/泊松分布和指数分布/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="SimRank算法一般而言，我们可以将用户和物品看作一张二部图，用户在一侧，物品在另一侧。有一个很简单的策略，如果两个用户连接的物品越相似，则这两个用户越相似。同样的，如果两个物品连接的用户越相似，则这两个物品就越相似。也就是说相似性是可以传递的。所以可以列出式子如下： s(a,b)=\begin{cases} 1,a=b\\0,I(a)=\emptyset\ or\ I(b)=\emptyset">
+<meta property="og:description" content="二项分布泊松分布是由二项分布推导得到的。假设一个事件的发生概率为$p$，则不发生的概率为$1-p$，独立测试$n$次，则发生$k$次的概率为： P(n,k,p)=C_n^k\cdot p^k(1-p)^{n-k}上式就是二项分布的概率函数，二项分布的期望和方差可以很容易推导得到分别是$np$和$np(1-p)$。 泊松分布泊松分布是关于一段时间内事件发生次数的概率密度函数。首先我们可以任意设定一段">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-19T10:09:38.242Z">
+<meta property="og:updated_time" content="2020-05-05T12:37:45.297Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="推荐系统之SimRank算法">
-<meta name="twitter:description" content="SimRank算法一般而言，我们可以将用户和物品看作一张二部图，用户在一侧，物品在另一侧。有一个很简单的策略，如果两个用户连接的物品越相似，则这两个用户越相似。同样的，如果两个物品连接的用户越相似，则这两个物品就越相似。也就是说相似性是可以传递的。所以可以列出式子如下： s(a,b)=\begin{cases} 1,a=b\\0,I(a)=\emptyset\ or\ I(b)=\emptyset">
-  <link rel="canonical" href="http://yoursite.com/2020/03/19/推荐系统之SimRank算法/">
+<meta name="twitter:title" content="泊松分布和指数分布">
+<meta name="twitter:description" content="二项分布泊松分布是由二项分布推导得到的。假设一个事件的发生概率为$p$，则不发生的概率为$1-p$，独立测试$n$次，则发生$k$次的概率为： P(n,k,p)=C_n^k\cdot p^k(1-p)^{n-k}上式就是二项分布的概率函数，二项分布的期望和方差可以很容易推导得到分别是$np$和$np(1-p)$。 泊松分布泊松分布是关于一段时间内事件发生次数的概率密度函数。首先我们可以任意设定一段">
+  <link rel="canonical" href="http://yoursite.com/2020/05/05/泊松分布和指数分布/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>推荐系统之SimRank算法 | Hexo</title>
+  <title>泊松分布和指数分布 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/19/推荐系统之SimRank算法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/05/泊松分布和指数分布/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">推荐系统之SimRank算法
+          <h1 class="post-title" itemprop="name headline">泊松分布和指数分布
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-03-19 17:25:39 / 修改时间：18:09:38" itemprop="dateCreated datePublished" datetime="2020-03-19T17:25:39+08:00">2020-03-19</time>
+              <time title="创建时间：2020-05-05 18:37:31 / 修改时间：20:37:45" itemprop="dateCreated datePublished" datetime="2020-05-05T18:37:31+08:00">2020-05-05</time>
             </span>
           
             
@@ -246,10 +246,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="SimRank算法"><a href="#SimRank算法" class="headerlink" title="SimRank算法"></a>SimRank算法</h2><p>一般而言，我们可以将用户和物品看作一张二部图，用户在一侧，物品在另一侧。有一个很简单的策略，如果两个用户连接的物品越相似，则这两个用户越相似。同样的，如果两个物品连接的用户越相似，则这两个物品就越相似。也就是说相似性是可以传递的。所以可以列出式子如下：</p>
-<script type="math/tex; mode=display">s(a,b)=\begin{cases} 1,a=b\\0,I(a)=\emptyset\ or\ I(b)=\emptyset\\\frac{C}{|I(a)||I(b)|}\sum_{i\in I(a)}\sum_{j\in I(b)}w_{a,i}s(i,j)w_{b,j} \end{cases}</script><p>其中，$I(a)$表示与$a$相连的二部图另一侧的节点的边权集合，$I(b)$表示与$b$相连的二部图另一侧的节点的边权集合，$|I(a)|$或$|I(b)|$表示集合边权和，$a$和$b$是在二部图同一侧的，$w_{a,i}$表示$a$和$i$的边权，$w_{b,j}$表示$b$和$j$的边权。对于第三种情况，假设二部图的边权都归一化了，有以下式子：</p>
-<script type="math/tex; mode=display">s(a,b)=Cw_a^T\{\sum_{i}\sum_{j}s(i,j)\}w_b=w_a^TSw_b</script><p>假设$S$表示相似度矩阵，则有以下递推式：</p>
-<script type="math/tex; mode=display">S_0=I</script><script type="math/tex; mode=display">S_k=\max\{CW^TS_{k-1}W,I\}</script><p>有一个求max的步骤，这么做是为了维护对角元素相似度为1的性质。可以证明，当$W$和$S$所有数都大于等于0小于等于1，$W$每列元素和小于等于1时，$W^TSW$的所有元素均大于等于0小于等于1，所以取和单位矩阵的最大值可以维护对角元素值为1的性质。</p>
+        <h2 id="二项分布"><a href="#二项分布" class="headerlink" title="二项分布"></a>二项分布</h2><p>泊松分布是由二项分布推导得到的。假设一个事件的发生概率为$p$，则不发生的概率为$1-p$，独立测试$n$次，则发生$k$次的概率为：</p>
+<script type="math/tex; mode=display">P(n,k,p)=C_n^k\cdot p^k(1-p)^{n-k}</script><p>上式就是二项分布的概率函数，二项分布的期望和方差可以很容易推导得到分别是$np$和$np(1-p)$。</p>
+<h2 id="泊松分布"><a href="#泊松分布" class="headerlink" title="泊松分布"></a>泊松分布</h2><p>泊松分布是关于一段时间内事件发生次数的概率密度函数。首先我们可以任意设定一段长度的时间为单位时间，然后将这段单位时间划分为$n$份，我们可以认为$n$足够大使得每份至多发生一次事件且每份之间是相互独立的。现在问题是求单位时间内事件发生次数，我们可以认为$n$份每一份发生时间的概率为$p$，则随着$n$的无限增大，$p$无限接近于0，我们认为$\lambda=np$是一个常数。现在我们可以使用二项分布的极限推导出泊松分布：</p>
+<script type="math/tex; mode=display">P(k)=\lim_{n\rightarrow\infin,p\rightarrow0}\frac{n(n-1)(n-2)...(n-k+1)}{k!}p^k(1-p)^{n-k}\\=\lim_{n\rightarrow\infin,p\rightarrow0}\frac{n^k}{k!}p^k(1-p)^{n-k}\\=\lim_{n\rightarrow\infin,p\rightarrow0}\frac{\lambda^k}{k!}(1-p)^{\frac{\lambda}{p}-k}\\=\lim_{n\rightarrow\infin,p\rightarrow0}\frac{\lambda^k}{k!}\{(1-p)^{-\frac{1}{p}}\}^{-\lambda}\frac{1}{(1-p)^k}\\=\frac{\lambda^k}{k!}e^{-\lambda}</script><p>上式就得到泊松分布的概率函数，泊松分布的期望和方差等于求二项分布的期望和方差的极限，容易得到是$np=\lambda$和$np(1-p)=\lambda$。</p>
+<h2 id="指数分布"><a href="#指数分布" class="headerlink" title="指数分布"></a>指数分布</h2><p>指数分布是关于事件时间间隔的概率密度函数，可以从泊松分布推导得到。我们从泊松分布可以轻易得到在$t$个单位时间内不发生事件的概率，这个概率可以看作是两个事件时间间隔大于$t$的概率。在$t$个单位时间划分$tn$份，则有$t\lambda=tnp$，通过相同的推导可以得到：</p>
+<script type="math/tex; mode=display">P(T\gt t)=e^{-\lambda t}</script><p>所以有：</p>
+<script type="math/tex; mode=display">P(T\le t)=1-e^{-\lambda t}</script><p>上式是一个分布函数，可以得到其概率密度函数为：</p>
+<script type="math/tex; mode=display">P(T=t)=\lambda e^{-\lambda t}</script><p>上式就是推导得到的指数分布的概率密度函数。指数分布的期望推导如下：</p>
+<script type="math/tex; mode=display">E[x]=\int_0^{\infin}\lambda xe^{-\lambda x}dx=\frac{1}{\lambda}\int_0^{\infin}\lambda xe^{-\lambda x}d\lambda x=\frac{1}{\lambda}(\lambda xe^{-\lambda x}+e^{-\lambda x})|_{\infin}^0=\frac{1}{\lambda}</script><p>指数分布的方差推导如下：</p>
+<script type="math/tex; mode=display">E[x^2]=\int_0^{\infin}\lambda x^2e^{-\lambda x}dx=\frac{1}{\lambda^2}\int_0^{\infin}\lambda^2x^2e^{-\lambda x}d\lambda x=\frac{1}{\lambda^2}(\lambda^2x^2e^{-\lambda x}+2\lambda xe^{-\lambda x}+2e^{-\lambda x})|_{\infin}^0=\frac{2}{\lambda^2}</script><script type="math/tex; mode=display">D[x]=E[x^2]-E[x]^2=\frac{2}{\lambda^2}-\frac{1}{\lambda^2}=\frac{1}{\lambda^2}</script><p>以上就是指数分布的期望和方差推导，总结起来就是指数分布的期望是$\frac{1}{\lambda}$，方差是$\frac{1}{\lambda^2}$。</p>
 
     </div>
 
@@ -261,15 +267,13 @@
           
         
         <div class="post-tags">
-            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
-          
-            <a href="/tags/推荐系统/" rel="tag"># 推荐系统</a>
+            <a href="/tags/数学基础/" rel="tag"># 数学基础</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/03/18/推荐系统之矩阵分解/" rel="next" title="推荐系统之矩阵分解">
-                <i class="fa fa-chevron-left"></i> 推荐系统之矩阵分解
+              <a href="/2020/05/04/HMM模型参数学习/" rel="next" title="HMM模型参数学习">
+                <i class="fa fa-chevron-left"></i> HMM模型参数学习
               </a>
             
           </div>
@@ -277,10 +281,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/03/21/推荐系统之深度兴趣网络（DIN）/" rel="prev" title="推荐系统之深度兴趣网络（DIN）">
-                推荐系统之深度兴趣网络（DIN） <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -402,7 +402,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SimRank算法"><span class="nav-number">1.</span> <span class="nav-text">SimRank算法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二项分布"><span class="nav-number">1.</span> <span class="nav-text">二项分布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#泊松分布"><span class="nav-number">2.</span> <span class="nav-text">泊松分布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指数分布"><span class="nav-number">3.</span> <span class="nav-text">指数分布</span></a></li></ol></div>
             
 
           </div>
