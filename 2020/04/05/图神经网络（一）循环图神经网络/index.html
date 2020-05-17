@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="前言在处理序列时，我们有RNN和Transformer等序列深度模型；在处理图像时，我们有CNN等利用卷积提取局部特征的深度模型。当我们处理一般的图结构时，由于其结构即不是序列那种线性结构，也不是图像中像素点的排列是有规律的，所以很难使用RNN或CNN对图结构建模。图神经网络就是一种在更一般的图结构上建模的深度模型。 图神经网络数据结构图的结构一般可以这样定义：G(V,E)，表示图G的顶点结合是V">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-07T09:06:44.463Z">
+<meta property="og:updated_time" content="2020-05-17T13:00:42.038Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图神经网络（一）循环图神经网络">
 <meta name="twitter:description" content="前言在处理序列时，我们有RNN和Transformer等序列深度模型；在处理图像时，我们有CNN等利用卷积提取局部特征的深度模型。当我们处理一般的图结构时，由于其结构即不是序列那种线性结构，也不是图像中像素点的排列是有规律的，所以很难使用RNN或CNN对图结构建模。图神经网络就是一种在更一般的图结构上建模的深度模型。 图神经网络数据结构图的结构一般可以这样定义：G(V,E)，表示图G的顶点结合是V">
@@ -240,7 +240,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-04-07 17:06:44" itemprop="dateModified" datetime="2020-04-07T17:06:44+08:00">2020-04-07</time>
+                <time title="修改时间：2020-05-17 21:00:42" itemprop="dateModified" datetime="2020-05-17T21:00:42+08:00">2020-05-17</time>
               </span>
             
           
@@ -262,7 +262,7 @@
 <script type="math/tex; mode=display">F(x)=x</script><p>其中$F$是多次压缩函数合并后的压缩函数，$x$是收敛点。这个式子就是表示不动点定理。不动点定理为图神经网络能够收敛提供了理论基础。不动点定理的压缩条件可以用这个式子表示：</p>
 <script type="math/tex; mode=display">d(F(x),F(y))\le c\cdot d(x,y)</script><script type="math/tex; mode=display">0\le c\le 1</script><p>其中$d(\cdot)$表示求距离，这表示两个点在压缩后的域中的距离总是小于等于在压缩前的域中的距离。</p>
 <h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><p>我们可以设置这么一个函数$f$，有下面的式子：</p>
-<script type="math/tex; mode=display">h_{u}^{t+1}=f(x_{u},h_{u}^{t+1},\{x_{v}\},\{x_{u,v}\},\{h_{v}^{t}\})</script><p>其中$h_{u}^{t+1}$表示第$t+1$次迭代节点$u$的表征向量，函数$f$的第一个参数是节点$u$的原始特征表征向量，第三个参数是一个集合表示与节点$u$相邻的节点的原始特征表征向量集合，第四个参数是一个集合表示与节点$u$相邻的节点的边的原始特征表征向量集合，第五个参数是一个集合表示与节点$u$相邻的节点在第$t$次迭代得到的表征向量集合。如果$f$是一个压缩函数，那么可以证明，经过多次迭代后每个节点都会收敛到一个特征表征向量。所以现在的关键是如何保证$f$是一个压缩函数。已知不动点定理要求：</p>
+<script type="math/tex; mode=display">h_{u}^{t+1}=f(x_{u},h_{u}^{t},\{x_{v}\},\{x_{u,v}\},\{h_{v}^{t}\})</script><p>其中$h_{u}^{t+1}$表示第$t+1$次迭代节点$u$的表征向量，函数$f$的第一个参数是节点$u$的原始特征表征向量，第三个参数是一个集合表示与节点$u$相邻的节点的原始特征表征向量集合，第四个参数是一个集合表示与节点$u$相邻的节点的边的原始特征表征向量集合，第五个参数是一个集合表示与节点$u$相邻的节点在第$t$次迭代得到的表征向量集合。如果$f$是一个压缩函数，那么可以证明，经过多次迭代后每个节点都会收敛到一个特征表征向量。所以现在的关键是如何保证$f$是一个压缩函数。已知不动点定理要求：</p>
 <script type="math/tex; mode=display">d(F(x),F(y))\le c\cdot d(x,y)</script><p>变换一下公式可以得到：</p>
 <script type="math/tex; mode=display">\frac{d(F(x),F(y))}{d(x,y)}\le c</script><p>将$y$替换成$x+\Delta x$，求距离看作是求增量，则上式可以看作是微分，即：</p>
 <script type="math/tex; mode=display">|\frac{\partial F(x)}{\partial x}|\le c</script><p>将$F$替换成前面提到的函数$f$，$x$替换成表征向量$h$，得到：</p>
