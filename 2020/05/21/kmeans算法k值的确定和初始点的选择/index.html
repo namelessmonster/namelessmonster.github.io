@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="综述对于推荐场景，我们总可以列出一张表，每行表示一个用户，每列表示一个物品。对于这张表，每个位置表示用户对物品的评价。一般情况下，这张表是稀疏的，如何根据这张稀疏表已有的信息去填满未知的位置是推荐系统的一个研究方向。主流的做法是利用矩阵分解，将用户物品评分矩阵分解成两个矩阵的乘积，如果这两个矩阵的乘积能够拟合已有位置，则未知位置就可以根据这两个矩阵的乘积得到。 矩阵分解矩阵分解方法是将用户物品评价">
-<meta name="keywords" content="机器学习,推荐系统,矩阵分解">
+  <meta name="description" content="k值的确定手肘法首先kmeans算法有以下目标函数： Obj=\sum_{k}\sum_{i\in S_k}(x_i-c_k)^2其中$c_k$是第$k$类的中心点，$S_k$是第$k$类的点集。手肘法通过枚举$k$并画出每个$k$对应的目标函数曲线，曲线的梯度会从小变大，曲线的拐点就是最适合的$k$值。当数据量很大时，枚举的每轮的计算量都非常大，注意到目标函数的曲线呈手肘状，可以使用二分法快速定">
+<meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="推荐系统之矩阵分解">
-<meta property="og:url" content="http://yoursite.com/2020/03/18/推荐系统之矩阵分解/index.html">
+<meta property="og:title" content="kmeans算法k值的确定和初始点的选择">
+<meta property="og:url" content="http://yoursite.com/2020/05/21/kmeans算法k值的确定和初始点的选择/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="综述对于推荐场景，我们总可以列出一张表，每行表示一个用户，每列表示一个物品。对于这张表，每个位置表示用户对物品的评价。一般情况下，这张表是稀疏的，如何根据这张稀疏表已有的信息去填满未知的位置是推荐系统的一个研究方向。主流的做法是利用矩阵分解，将用户物品评分矩阵分解成两个矩阵的乘积，如果这两个矩阵的乘积能够拟合已有位置，则未知位置就可以根据这两个矩阵的乘积得到。 矩阵分解矩阵分解方法是将用户物品评价">
+<meta property="og:description" content="k值的确定手肘法首先kmeans算法有以下目标函数： Obj=\sum_{k}\sum_{i\in S_k}(x_i-c_k)^2其中$c_k$是第$k$类的中心点，$S_k$是第$k$类的点集。手肘法通过枚举$k$并画出每个$k$对应的目标函数曲线，曲线的梯度会从小变大，曲线的拐点就是最适合的$k$值。当数据量很大时，枚举的每轮的计算量都非常大，注意到目标函数的曲线呈手肘状，可以使用二分法快速定">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-18T09:40:07.989Z">
+<meta property="og:updated_time" content="2020-05-21T10:35:06.557Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="推荐系统之矩阵分解">
-<meta name="twitter:description" content="综述对于推荐场景，我们总可以列出一张表，每行表示一个用户，每列表示一个物品。对于这张表，每个位置表示用户对物品的评价。一般情况下，这张表是稀疏的，如何根据这张稀疏表已有的信息去填满未知的位置是推荐系统的一个研究方向。主流的做法是利用矩阵分解，将用户物品评分矩阵分解成两个矩阵的乘积，如果这两个矩阵的乘积能够拟合已有位置，则未知位置就可以根据这两个矩阵的乘积得到。 矩阵分解矩阵分解方法是将用户物品评价">
-  <link rel="canonical" href="http://yoursite.com/2020/03/18/推荐系统之矩阵分解/">
+<meta name="twitter:title" content="kmeans算法k值的确定和初始点的选择">
+<meta name="twitter:description" content="k值的确定手肘法首先kmeans算法有以下目标函数： Obj=\sum_{k}\sum_{i\in S_k}(x_i-c_k)^2其中$c_k$是第$k$类的中心点，$S_k$是第$k$类的点集。手肘法通过枚举$k$并画出每个$k$对应的目标函数曲线，曲线的梯度会从小变大，曲线的拐点就是最适合的$k$值。当数据量很大时，枚举的每轮的计算量都非常大，注意到目标函数的曲线呈手肘状，可以使用二分法快速定">
+  <link rel="canonical" href="http://yoursite.com/2020/05/21/kmeans算法k值的确定和初始点的选择/">
 
 
 <script id="page.configurations">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>推荐系统之矩阵分解 | Hexo</title>
+  <title>kmeans算法k值的确定和初始点的选择 | Hexo</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/18/推荐系统之矩阵分解/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/21/kmeans算法k值的确定和初始点的选择/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangshh">
@@ -207,7 +207,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">推荐系统之矩阵分解
+          <h1 class="post-title" itemprop="name headline">kmeans算法k值的确定和初始点的选择
 
               
             
@@ -227,7 +227,7 @@
                 
               
 
-              <time title="创建时间：2020-03-18 17:05:05 / 修改时间：17:40:07" itemprop="dateCreated datePublished" datetime="2020-03-18T17:05:05+08:00">2020-03-18</time>
+              <time title="创建时间：2020-05-21 18:07:15 / 修改时间：18:35:06" itemprop="dateCreated datePublished" datetime="2020-05-21T18:07:15+08:00">2020-05-21</time>
             </span>
           
             
@@ -246,16 +246,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>对于推荐场景，我们总可以列出一张表，每行表示一个用户，每列表示一个物品。对于这张表，每个位置表示用户对物品的评价。一般情况下，这张表是稀疏的，如何根据这张稀疏表已有的信息去填满未知的位置是推荐系统的一个研究方向。主流的做法是利用矩阵分解，将用户物品评分矩阵分解成两个矩阵的乘积，如果这两个矩阵的乘积能够拟合已有位置，则未知位置就可以根据这两个矩阵的乘积得到。</p>
-<h2 id="矩阵分解"><a href="#矩阵分解" class="headerlink" title="矩阵分解"></a>矩阵分解</h2><p>矩阵分解方法是将用户物品评价矩阵$A_{m\times n}$分解成两个小矩阵，即：</p>
-<script type="math/tex; mode=display">A_{m\times n}=P_{k\times m}^TQ_{k\times n}</script><p>可以将$P_{k\times m}$的每一列看作是用户的隐含特征向量，$Q_{k\times n}$的每一列看作是物品的隐含特征向量，使用下面的目标函数来训练这两个矩阵：</p>
-<script type="math/tex; mode=display">Obj=\sum_{i,j}(r_{i,j}-p_i^Tq_j)^2</script><p>只使用$A_{i,j}$有值的项计算目标函数。</p>
-<h2 id="带偏置项的矩阵分解"><a href="#带偏置项的矩阵分解" class="headerlink" title="带偏置项的矩阵分解"></a>带偏置项的矩阵分解</h2><p>很多时候每个用户自身存在一些偏好，每个物品本身也存在一些个性属性，同时每个用户在评价上的指标也会不同。比如一个用户认为10分满分给6分算一般而另一个用户却认为10分满分给3分算一般给6分算高分，再比如一个用户是体育迷所以给体育类物品评价很高等等。基于上述情况，可以先计算出一个整体平均评价作为一个评价基准，对每个用户和每个物品设置一个偏置项作为个性属性，所以有目标函数如下：</p>
-<script type="math/tex; mode=display">Obj=\sum_{i,j}(r_{i,j}-\mu-b_i-b_j-p_i^Tq_j)^2</script><p>其中，$\mu$是平均评价，$b_i$和$b_j$分别对应用户和物品的偏置项。</p>
-<h2 id="SVD"><a href="#SVD" class="headerlink" title="SVD++"></a>SVD++</h2><p>在上述两种方法中，对于一个用户对一个物品的评价的计算没有使用到该用户历史行为的影响，所以我们可以添加一项$w_{i,j}$表示用户$i$对物品$j$的评价对用户$i$后续评价的影响。同样的，对于$w_{i,j}$，我们分解成：</p>
-<script type="math/tex; mode=display">w_{i,j}=x_i^Ty_j</script><p>所以目标函数为：</p>
-<script type="math/tex; mode=display">Obj=\sum_{i,j}(r_{i,j}-\mu-b_i-b_j-p_i^Tq_j-x_i^T\frac{1}{\sqrt{|N(i)|}}\sum_{s\in N(i)}{y_s})^2</script><p>其中$|N(i)|$表示用户$i$历史行为的数量，除以这一项是为了去除不同用户历史行为数量不一致所带来的影响。一般而言，$p_i$和$x_i$使用同一个向量，所以有：</p>
-<script type="math/tex; mode=display">Obj=\sum_{i,j}(r_{i,j}-\mu-b_i-b_j-p_i^T(q_j+\frac{1}{\sqrt{|N(i)|}}\sum_{s\in N(i)}{y_s}))^2</script><h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><p>矩阵分解的方法容易实现，效果较好，还有一些扩展性。对于一些大型推荐系统，可能里面存在一些非线性的关系，这时候一些深度学习的方法可能会更好。</p>
+        <h2 id="k值的确定"><a href="#k值的确定" class="headerlink" title="k值的确定"></a>k值的确定</h2><h3 id="手肘法"><a href="#手肘法" class="headerlink" title="手肘法"></a>手肘法</h3><p>首先kmeans算法有以下目标函数：</p>
+<script type="math/tex; mode=display">Obj=\sum_{k}\sum_{i\in S_k}(x_i-c_k)^2</script><p>其中$c_k$是第$k$类的中心点，$S_k$是第$k$类的点集。手肘法通过枚举$k$并画出每个$k$对应的目标函数曲线，曲线的梯度会从小变大，曲线的拐点就是最适合的$k$值。当数据量很大时，枚举的每轮的计算量都非常大，注意到目标函数的曲线呈手肘状，可以使用二分法快速定位到最适合的$k$值。</p>
+<h3 id="轮廓系数"><a href="#轮廓系数" class="headerlink" title="轮廓系数"></a>轮廓系数</h3><p>每个样本点都可以计算一个轮廓系数，公式如下：</p>
+<script type="math/tex; mode=display">s(i)=\frac{b(i)-a(i)}{max(a(i),b(i))}</script><p>$a(i)$是样本$i$与同类的样本的平均距离,$b(i)$是样本$i$与最近类样本的平均距离,$s(i)$就是样本$i$的轮廓系数，轮廓系数的取值范围是$[-1,1]$，越大表示聚类效果越好。和手肘法一样，通过枚举$k$并计算每个$k$对应的所有样本点的平均轮廓系数，选择轮廓系数最佳的$k$值。</p>
+<h3 id="其他系数"><a href="#其他系数" class="headerlink" title="其他系数"></a>其他系数</h3><p>除了目标函数和轮廓系数，还可以使用其他的指标去衡量和选择$k$值。</p>
+<h2 id="初始点的选择"><a href="#初始点的选择" class="headerlink" title="初始点的选择"></a>初始点的选择</h2><h3 id="随机法"><a href="#随机法" class="headerlink" title="随机法"></a>随机法</h3><p>直接随机选择$k$个样本作为$k$类的初始点。</p>
+<h3 id="kmeans"><a href="#kmeans" class="headerlink" title="kmeans++"></a>kmeans++</h3><p>(1) 随机选择第一个初始中心点<br>(2) 每个样本计算与该样本最近的初始中心点的距离<br>(3) 每个样本的距离作为该样本的权重，是该样本被选中的概率的度量，根据这个概率分布选出新的一个初始中心点<br>(4) 重复(2)(3)直到选出$k$个初始中心点</p>
+<h3 id="层次聚类"><a href="#层次聚类" class="headerlink" title="层次聚类"></a>层次聚类</h3><p>使用层次聚类对所有样本进行聚类，当剩下$k$个类别时结束聚类，从$k$个类别中随机选择$k$个初始中心点。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>上述初始点的选取方法都会受到离群点的干扰，所以在之前需要使用一些方法去除噪声点。</p>
 
     </div>
 
@@ -269,15 +268,11 @@
         <div class="post-tags">
             <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
-            <a href="/tags/推荐系统/" rel="tag"># 推荐系统</a>
-          
-            <a href="/tags/矩阵分解/" rel="tag"># 矩阵分解</a>
-          
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/03/18/Java之线程创建和线程池/" rel="next" title="Java之线程创建和线程池">
-                <i class="fa fa-chevron-left"></i> Java之线程创建和线程池
+              <a href="/2020/05/08/CRF模型参数求解/" rel="next" title="CRF模型参数求解">
+                <i class="fa fa-chevron-left"></i> CRF模型参数求解
               </a>
             
           </div>
@@ -285,10 +280,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/03/19/推荐系统之SimRank算法/" rel="prev" title="推荐系统之SimRank算法">
-                推荐系统之SimRank算法 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -410,7 +401,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#综述"><span class="nav-number">1.</span> <span class="nav-text">综述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵分解"><span class="nav-number">2.</span> <span class="nav-text">矩阵分解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#带偏置项的矩阵分解"><span class="nav-number">3.</span> <span class="nav-text">带偏置项的矩阵分解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SVD"><span class="nav-number">4.</span> <span class="nav-text">SVD++</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优缺点"><span class="nav-number">5.</span> <span class="nav-text">优缺点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#k值的确定"><span class="nav-number">1.</span> <span class="nav-text">k值的确定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#手肘法"><span class="nav-number">1.1.</span> <span class="nav-text">手肘法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#轮廓系数"><span class="nav-number">1.2.</span> <span class="nav-text">轮廓系数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他系数"><span class="nav-number">1.3.</span> <span class="nav-text">其他系数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始点的选择"><span class="nav-number">2.</span> <span class="nav-text">初始点的选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#随机法"><span class="nav-number">2.1.</span> <span class="nav-text">随机法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kmeans"><span class="nav-number">2.2.</span> <span class="nav-text">kmeans++</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#层次聚类"><span class="nav-number">2.3.</span> <span class="nav-text">层次聚类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">3.</span> <span class="nav-text">结语</span></a></li></ol></div>
             
 
           </div>
